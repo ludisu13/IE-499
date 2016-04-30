@@ -1,25 +1,25 @@
 module cmd_controller(
 
 	// Inputs from Host Interface
-	input clock,
-	input reset,
+	input wire clock,
+	input wire reset,
 	
-	input data_read,
-	input data_write,
+	input wire data_read,
+	input wire data_write,
 	
-	input [31:0] argument_reg,
+	input wire [31:0] argument_reg,
 	
 	
 	// Inputs and Outputs from Serial Host
-	input ack_in,
-	input req_in,
-	input [39:0] cmd_in,
+	input wire ack_in,
+	input wire req_in,
+	input wire [39:0] cmd_in,
 	
-	output ack_out,
-	output req_oout,
-	output [39:0] cmd_out,
+	output reg ack_out,
+	output reg req_oout,
+	output reg [39:0] cmd_out,
 	
-	output idle_out,
+	output reg idle_out,
 
 
 
