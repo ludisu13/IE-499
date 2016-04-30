@@ -7,17 +7,17 @@ module cmd_controller(
 	input data_read,
 	input data_write,
 	
-	input argument_reg,
+	input [31:0] argument_reg,
 	
 	
 	// Inputs and Outputs from Serial Host
 	input ack_in,
 	input req_in,
-	input cmd_in,
+	input [39:0] cmd_in,
 	
 	output ack_out,
 	output req_oout,
-	output cmd_out,
+	output [39:0] cmd_out,
 	
 	output idle_out,
 
