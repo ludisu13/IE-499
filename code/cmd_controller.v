@@ -11,12 +11,12 @@ module cmd_controller(
 	input wire [5:0] cmd_index,	
 	// Inputs and Outputs from Serial Host
 	input wire ack_in,
-	input wire req_in,
+	input wire strobe_in,
 	input wire [39:0] cmd_in,// Response
-	input wire serial_ready
-	
+	input wire serial_ready,
+	output wire strobe_out
 	output reg ack_out,
-	output reg req_out,
+	
 	output reg [39:0] cmd_out,
 	
 	output reg idle_out,
@@ -75,32 +75,49 @@ always @(posedge clock or reset)
 		
 				RESET:
 					begin
-					busy=0;
-					
-					
-					
-					
-					
-					
-					setup_done=0;
+						busy=0;
+						strobe_out=0;
+						ack_out=0;
+						req_out=0;
+						cmd_out=32'd0;
+						idle_out=0;
+						setup_done=0;
 					end
 				IDLE:	
 					begin
-					busy=0;
-					setup_done=1;
+						busy=0;
+						strobe_out=0;
+						ack_out=0;
+						req_out=0;
+						cmd_out=32'd0;
+						idle_out=0;
+						setup_done=1;
 					end
 				SETTING_OUTPUTS:
 					begin
-					cmd_out[39:38]=2'b01;         
-    cmd_out[37:32]=`;  /
-    cmd_out[31:0]= ARG_REG;
-					busy=1;
-					setup_done=1;
+						strobe_out=1;
+						cmd_out[39:38]=2'b01;         
+						cmd_out[37:32]=cmd_index,	
+						cmd_out[31:0]= cmd_argument;
+						busy=1;
+						ack_out=0;
+						strobe_out=0;
+						idle_out=0;
+						setup_done=1;
 					end
 				EXECUTE:
 					begin
-					
-					
+						cmd_out=cmd_out        
+							if(strobe_in)
+								begin
+								
+								end
+							else
+								begin
+								
+								
+								end
+						
 					end
 		
 		
