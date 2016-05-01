@@ -9,8 +9,8 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 	input wire read_clock,
 	
 	output reg [DATA_WIDTH-1:0] q,
-	output wire fifo_full,
-	output wire fifo_empty
+	output reg fifo_full,
+	output reg fifo_empty
 
 );
 
@@ -24,10 +24,16 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 		if (reset) begin
 			read_pointer 	<= 0;
 			write_pointer 	<= 0;
+			fifo_empty		<= 1;
+			fifo_full		<= 0;
 		end
 		else if (write_enable & ~fifo_full) begin
 			fifo_mem[write_pointer] <= data;
-			write_pointer <= write_pointer + 1'b1; 
+			write_pointer = write_pointer + 1'b1;
+			fifo_empty	<= 0; 
+		end
+		else if(read_pointer == write_pointer & ~fifo_empty) begin
+			fifo_full = 1;
 		end
 	end
 	
@@ -37,13 +43,19 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 		if (reset) begin
 			read_pointer 	<= 0;
 			write_pointer 	<= 0;
+			fifo_empty		<= 1;
+			fifo_full		<= 0;
 		end
 		else if (read_enable & ~fifo_empty) begin
 			q <= fifo_mem[read_pointer];
-			read_pointer <= read_pointer + 1'b1; 
+			read_pointer = read_pointer + 1'b1; 
+			fifo_full	<= 0;
+		end
+		else if(read_pointer == write_pointer & ~fifo_full) begin
+			fifo_empty = 1;
 		end
 	end
 	
-	assign fifo_empty = (write_pointer == read_pointer)? 1:0;
-	assign fifo_full = (read_pointer == write_pointer+1)? 1:0;
+	//assign fifo_empty = (write_pointer == read_pointer)? 1:0;
+	//assign fifo_full = (read_pointer == write_pointer+1'b1)? 1:0;
 endmodule
