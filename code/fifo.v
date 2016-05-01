@@ -1,29 +1,29 @@
-module fifo (
+module fifo # ( parameter DATA_WIDTH = 32, FIFO_SIZE = 8, SIZE_BITS = 3) (
 	
-	input wire [31:0] data,
+	input wire [DATA_WIDTH-1:0] data,
 	input wire write_enable,
 	input wire read enable,
 	
 	input wire reset,
 	input wire write_clock,
-	input wire read_clock
+	input wire read_clock,
 	
-	output reg [31:0] q,
+	output reg [DATA_WIDTH-1:0] q,
 	output reg fifo_full,
-	output reg fifo_empty,
+	output reg fifo_empty
 
 );
 
-	wire [2:0] read_pointer;
-	wire [2:0] write_pointer;
-	reg  [31:0] fifo_mem [7:0];
+	wire [SIZE_BITS-1:0] read_pointer;
+	wire [SIZE_BITS-1:0] write_pointer;
+	reg  [DATA_WIDTH-1:0] fifo_mem [MEM_SIZE-1:0];
 
 //Write
 
 	always @(posedge write_clock or posedge reset) begin
 		if (reset) begin
-			read_pointer 	<= 3'b0;
-			write_pointer 	<= 3'b0;
+			read_pointer 	<= SIZE_BITS'b0;
+			write_pointer 	<= SIZE_BITS'b0;
 			full 			<= 1'b0;
 			empty			<= 1'b1;
 		end
@@ -33,10 +33,12 @@ module fifo (
 		end
 	end
 	
+//Read
+
 	always @(posedge read_clock or posedge reset) begin
 		if (reset) begin
-			read_pointer 	<= 3'b0;
-			write_pointer 	<= 3'b0;
+			read_pointer 	<= SIZE_BITS'b0;
+			write_pointer 	<= SIZE_BITS'b0;
 			full 			<= 1'b0;
 			empty			<= 1'b1;
 		end
