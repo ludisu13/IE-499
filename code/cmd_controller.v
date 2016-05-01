@@ -16,7 +16,7 @@ module cmd_controller(
 	input wire [39:0] cmd_in,
 	
 	output reg ack_out,
-	output reg req_oout,
+	output reg req_out,
 	output reg [39:0] cmd_out,
 	
 	output reg idle_out,
@@ -24,6 +24,8 @@ module cmd_controller(
 
 
 );
+
+
 
 
 
