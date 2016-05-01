@@ -12,7 +12,7 @@ module cmd_controller(
 	// Inputs and Outputs from Serial Host
 	input wire ack_in,
 	input wire req_in,
-	input wire [39:0] cmd_in,
+	input wire [39:0] cmd_in,// Response
 	input wire serial_ready
 	
 	output reg ack_out,
@@ -75,20 +75,28 @@ always @(posedge clock or reset)
 		
 				RESET:
 					begin
+					busy=0;
 					
 					
+					
+					
+					
+					
+					setup_done=0;
 					end
-		
 				IDLE:	
 					begin
-					
-					
+					busy=0;
+					setup_done=1;
 					end
 				SETTING_OUTPUTS:
 					begin
-					
+					cmd_out[39:38]=2'b01;         
+    cmd_out[37:32]=`;  /
+    cmd_out[31:0]= ARG_REG;
+					busy=1;
+					setup_done=1;
 					end
-					
 				EXECUTE:
 					begin
 					
