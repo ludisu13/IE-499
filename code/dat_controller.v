@@ -1,8 +1,5 @@
 module dat_controller(
 
-);
-
-
 // inputs from host
 input wire clock,
 input wire reset,
@@ -10,22 +7,21 @@ input wire writeRead,
 input wire newDat,
 //inputs from physical layer
 input wire serial_ready,
-input wire commplete,
+input wire complete,
 input wire ack_in,
 input wire strobe_in,
 //inputs from fifoController
-input wire [3:0] ififoSTATUS,
+input wire fifo_okay,
 //outputs to host
-output reg [3:0]ofifoSTATUS,
-output reg busy
+output reg busy,
+output reg write_Data,
+output reg read_Data,
 //outputs to physical layer
 output reg strobe_out,
 output reg ack_out,
 output reg transmit,
-output reg receive,
-
-
-
+output reg receive
+);
 
 // registers
 parameter SIZE = 6;
@@ -39,10 +35,15 @@ parameter READ_COMMAND =  5'b10000;
 parameter CHECK_FIFO= 5'b01000; 
 parameter TRANSMIT   =  5'b10000;
 
-wire [1:0]fifoStatus;
-assign fifoStatus =(writeRead)? ififoStatus[1:0]:ififoStatus[1:0];
 
-always @ ( state  or serial_ready or newDat or ack_in )
+
+
+
+
+// registers
+
+
+always @ ( state  or serial_ready or newDat or ack_in or fifo_okay )
 begin 
  case(state)
  RESET:
@@ -76,14 +77,16 @@ READ_COMMAND:    begin
       else begin
          next_state = READ_COMMAND;
       end
+      end
 CHECK_FIFO:    begin
-       if (fifoStatus==2'b0) begin
+       if (fifo_okay) begin
           next_state = TRANSMIT;
       end     
       else begin
          next_state = CHECK_FIFO;
       end
- TRANSMIT:    begin
+      end
+TRANSMIT:    begin
        if (complete) begin
           next_state = IDLE;
       end     
@@ -104,15 +107,19 @@ end
 
 
 
-always @(posedge clock or reset)
+always @(posedge clock )
 	begin
 		case(state)
 			RESET:
 				begin
-				
-				
+					busy=0;
+					write_Data=0;
+					read_Data=0;
+					strobe_out=0;
+					ack_out=0;
+					transmit=0;
+					receive=0;
 				end
-				
 			IDLE:
 				begin
 				
@@ -151,8 +158,8 @@ end
 
 
 
-always @ (posedge clock or posedge reset  )
-	begin : FSM_SEQ
+always @ (posedge clock  )
+	begin 
 		if (reset) 
 			begin
 				state <=  RESET;

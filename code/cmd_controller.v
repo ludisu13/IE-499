@@ -78,7 +78,7 @@ end
 
 
 
-always @(posedge clock or reset)
+always @(posedge clock )
 	begin
 		case(state)
 		
@@ -173,8 +173,8 @@ end
 
 
 
-always @ (posedge clock or posedge reset  )
-	begin : FSM_SEQ
+always @ (posedge clock  )
+	begin 
 		if (reset) 
 			begin
 				state <=  RESET;
