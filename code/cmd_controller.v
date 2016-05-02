@@ -68,7 +68,7 @@ begin
  end       
    
   
- default : next_state  = IDLE;
+ default : next_state  = RESET;
  
  endcase 
     
