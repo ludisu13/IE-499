@@ -16,24 +16,26 @@ input wire fifo_okay,
 output reg busy,
 output reg write_Data,
 output reg read_Data,
+output reg transfer_complete,
 //outputs to physical layer
 output reg strobe_out,
-output reg ack_out,
-output reg transmit,
-output reg receive
+output reg ack_out
 );
 
 // registers
-parameter SIZE = 6;
+parameter SIZE = 3;
 reg setup_done;
 reg [SIZE-1:0] state;
 reg [SIZE-1:0] next_state;
-parameter RESET= 5'b00000; 
-parameter IDLE   =  5'b00001;
-parameter WRITE_COMMAND   =  5'b00010;
-parameter READ_COMMAND =  5'b10000;
-parameter CHECK_FIFO= 5'b01000; 
-parameter TRANSMIT   =  5'b10000;
+parameter RESET= 3'd0; 
+parameter IDLE   = 3'd1;
+parameter WRITE_COMMAND   =  3'd2;
+parameter READ_COMMAND =  3'd3;
+parameter CHECK_FIFO= 3'd4; 
+parameter TRANSMIT   = 3'd5;
+parameter ACK   =  3'd6;
+
+
 
 
 
@@ -88,13 +90,21 @@ CHECK_FIFO:    begin
       end
 TRANSMIT:    begin
        if (complete) begin
-          next_state = IDLE;
+          next_state = ACK;
       end     
       else begin
          next_state = TRANSMIT;
-      end        
-      
- end       
+      end
+      end
+ACK:    begin
+       if (ack_in) begin
+          next_state =IDLE;
+      end     
+      else begin
+         next_state =ACK;
+      end         
+		end
+    
    
   
  default : next_state  = IDLE;
@@ -112,39 +122,60 @@ always @(posedge clock )
 		case(state)
 			RESET:
 				begin
-					busy=0;
-					write_Data=0;
-					read_Data=0;
-					strobe_out=0;
-					ack_out=0;
-					transmit=0;
-					receive=0;
+					busy=1'b0;
+					write_Data=1'b0;
+					read_Data=1'b0;
+					strobe_out=1'b0;
+					ack_out=1'b0;
 				end
 			IDLE:
 				begin
-				
+					busy=1'b0;
+					write_Data=1'b0;
+					read_Data=1'b0;
+					strobe_out=1'b0;
+					ack_out=1'b0;
 				end
 			WRITE_COMMAND:
 				begin
-				
-				
+					busy=1'b1;
+					write_Data=1'b1;
+					read_Data=1'b0;
+					strobe_out=1'b1;
+					ack_out=1'b0;
 				end
 			READ_COMMAND:
 				begin
-				
-				
-				
+					busy=1;
+					write_Data=1'b0;
+					read_Data=1'b1;
+					strobe_out=1'b1;
+					ack_out=1'b0;
 				end
 			CHECK_FIFO:
 				begin
-				
-				
+					busy=0;
+					write_Data=write_Data;
+					read_Data=read_Data;
+					strobe_out=1'b0;
+					ack_out=1'b0;
 				end
 			TRANSMIT:
 				begin
-				
-				
-				
+					busy=1'b1;
+					write_Data=write_Data;
+					read_Data=read_Data;
+					strobe_out=1'b1;
+					ack_out=1'b0;
+				end
+			ACK:
+				begin
+					busy=1'b1;
+					write_Data=1'b0;
+					read_Data=1'b0;
+					strobe_out=1'b0;
+					ack_out=1'b1;
+					transfer_complete=1'b1;
 				end
 		
 				

@@ -26,15 +26,15 @@ module cmd_controller(
 );
 
 // registers
-parameter SIZE = 3;
+parameter SIZE = 2;
 reg setup_done;
 reg [SIZE-1:0] state;
 reg [SIZE-1:0] next_state;
 reg [31:0] count;
-parameter RESET= 3'b000; 
-parameter IDLE   =  3'b001;
-parameter SETTING_OUTPUTS   =  3'b010;
-parameter PROCESSING  =  3'b100;
+parameter RESET= 2'd0; 
+parameter IDLE   =  2'd1;
+parameter SETTING_OUTPUTS   =  2'd2;
+parameter PROCESSING  =  2'd3;
 
 
 always @ ( state  or setup_done or new_command or ack_in )
@@ -84,75 +84,75 @@ always @(posedge clock )
 		
 				RESET:
 					begin
-						busy=0;
+						busy=1'b0;
 						response=32'b0;
-						strobe_out=0;
-						ack_out=0;
+						strobe_out=1'b0;
+						ack_out=1'b0;
 						cmd_out=39'b0;
-						command_complete=0;
-						command_timeout=0;
-						command_index_error=0;
-						idle_out=1;
-						setup_done=0;
+						command_complete=1'b0;
+						command_timeout=1'b0;
+						command_index_error=1'b0;
+						idle_out=1'b1;
+						setup_done=1'b0;
 					end
 				IDLE:	
 					begin
-						busy=0;
+						busy=1'b0;
 						response=32'b0;
-						strobe_out=0;
-						ack_out=0;
+						strobe_out=1'b0;
+						ack_out=1'b0;
 						cmd_out=39'b0;
-						command_complete=0;
-						command_timeout=0;
-						command_index_error=0;
-						idle_out=0;
-						setup_done=0;
+						command_complete=1'b0;
+						command_timeout=1'b0;
+						command_index_error=1'b0;
+						idle_out=1'b1;
+						setup_done=1'b0;
 					end
 				SETTING_OUTPUTS:
 					begin
-						strobe_out=1;
+						strobe_out=1'b1;
 						cmd_out[39:38]=2'b01;         
 						cmd_out[37:32]=cmd_index;
 						cmd_out[31:0]= cmd_argument;
-						busy=1;
+						busy=1'b1;
 						response=32'b0;
-						ack_out=0;
-						idle_out=0;
+						ack_out=1'b0;
+						idle_out=1'b0;
 						setup_done=1;
-						command_complete=0;
-						command_timeout=0;
-						command_index_error=0;
+						command_complete=1'b0;
+						command_timeout=1'b0;
+						command_index_error=1'b0;
 					end
 				PROCESSING:
 					begin
 						cmd_out=cmd_out;
-						command_complete=0;
-						command_index_error=0;
-						command_timeout=0;
-						busy=1;
-						strobe_out=1;
-						idle_out=1;
+						command_complete=1'b0;
+						command_index_error=1'b0;
+						command_timeout=1'b0;
+						busy=1'b1;
+						strobe_out=1'b1;
+						idle_out=1'b1;
 						response=32'b0;
-						setup_done=1;
-						ack_out=1;    
+						setup_done=1'b1;
+						ack_out=1'b0;    
 							if(strobe_in)
 								begin
 									if(cmd_in[37:32]==cmd_out[37:32])
 										begin
 												response=cmd_in[31:0];
-												ack_out=1;
-												command_complete=1;
+												ack_out=1'b1;
+												command_complete=1'b1;
 										end
 									else
 										begin
-												command_index_error=1;
+												command_index_error=1'b1;
 										end	
 								end
 							else
 								begin
 									if(count>command_timeout_REG)
 										begin
-												command_timeout=1;
+												command_timeout=1'b1;
 										end
 									else
 										begin
@@ -166,7 +166,7 @@ always @(posedge clock )
 		default:
 		
 		
-		busy=0;
+		busy=1'b0;
 		endcase
 end	
 
