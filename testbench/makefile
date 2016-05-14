@@ -9,6 +9,6 @@ signals:
 	gtkwave signals.gtkw
 
 fifo:
-	iverilog -o testbench ../code/fifo_tb.v
+	iverilog -o testbench fifo_tb.v
 	vvp testbench
-	gtkwave signals.gtkw
+	gtkwave signals.vcd
