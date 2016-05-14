@@ -9,7 +9,6 @@ input wire newDat,
 input wire serial_ready,
 input wire complete,
 input wire ack_in,
-input wire strobe_in,
 //inputs from fifoController
 input wire fifo_okay,
 //outputs to host
