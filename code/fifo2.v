@@ -29,8 +29,12 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 		if (reset) begin
 			read_pointer 	<= 0;
 			write_pointer 	<= 0;
+			fifo_full		<= 0;
+			fifo_empty		<= 1;
 		end
-		else if (write_enable) begin
+		else if (write_enable & ~fifo_full) begin
+			fifo_empty <=0;
+			fifo_full <= (almost_full == 0);
 			fifo_mem[write_pointer] <= data;
 			write_pointer <= write_pointer + 1'b1; 
 		end
@@ -42,8 +46,11 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 		if (reset) begin
 			read_pointer 	<= 0;
 			write_pointer 	<= 0;
+			fifo_full		<= 0;
+			fifo_empty		<= 1;
 		end
-		else if (read_enable) begin
+		else if (read_enable & ~fifo_empty) begin
+			fifo_empty = (almost_empty ==0);
 			q <= fifo_mem[read_pointer];
 			read_pointer <= read_pointer + 1'b1; 
 		end

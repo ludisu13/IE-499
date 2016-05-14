@@ -18,6 +18,11 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 	reg [SIZE_BITS-1:0] write_pointer;
 	reg [DATA_WIDTH-1:0] fifo_mem [FIFO_SIZE-1:0];
 
+	wire [SIZE_BITS-1:0] almost_empty;
+	wire [SIZE_BITS-1:0] almost_full;
+	
+	assign almost_empty = (write_pointer-read_pointer) -1; // If almost_empty = 0, the fifo will empty if you read
+	assign almost_full = (read_pointer-write_pointer) -1;	// If almost_full = 0, the fifo will full if you write
 //Write
 
 	always @(posedge write_clock or posedge reset) begin
