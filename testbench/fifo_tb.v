@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-`include "../code/fifo.v"
+`include "../code/fifo2.v"
 module TestBench;
 
 	// Inputs
