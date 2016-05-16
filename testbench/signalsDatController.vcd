@@ -1,0 +1,608 @@
+$date
+	Sun May 15 18:42:26 2016
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module TestBench $end
+$var wire 1 ! Clock $end
+$var wire 1 " Reset $end
+$var wire 1 # ack_in $end
+$var wire 1 $ ack_out $end
+$var wire 1 % busy $end
+$var wire 1 & complete $end
+$var wire 1 ' fifo_okay $end
+$var wire 1 ( newDat $end
+$var wire 1 ) read_Data $end
+$var wire 1 * serial_ready $end
+$var wire 1 + strobe_out $end
+$var wire 1 , transfer_complete $end
+$var wire 1 - writeRead $end
+$var wire 1 . write_Data $end
+$scope module dat_controller_1 $end
+$var wire 1 # ack_in $end
+$var wire 1 ! clock $end
+$var wire 1 & complete $end
+$var wire 1 ' fifo_okay $end
+$var wire 1 ( newDat $end
+$var wire 1 " reset $end
+$var wire 1 * serial_ready $end
+$var wire 1 - writeRead $end
+$var reg 1 / ack_out $end
+$var reg 1 0 busy $end
+$var reg 3 1 next_state [2:0] $end
+$var reg 1 2 read_Data $end
+$var reg 3 3 state [2:0] $end
+$var reg 1 4 strobe_out $end
+$var reg 1 5 transfer_complete $end
+$var reg 1 6 write_Data $end
+$upscope $end
+$scope module genDat $end
+$var wire 1 # ack_in $end
+$var wire 1 ! clock $end
+$var wire 1 & complete $end
+$var wire 1 ' fifo_okay $end
+$var wire 1 ( newDat $end
+$var wire 1 " reset $end
+$var wire 1 * serial_ready $end
+$var wire 1 - writeRead $end
+$scope module clk1 $end
+$var reg 1 7 clock $end
+$upscope $end
+$scope module r1 $end
+$var reg 1 8 reset $end
+$upscope $end
+$scope module nDG $end
+$var reg 1 9 newDat $end
+$upscope $end
+$scope module sRg $end
+$var reg 1 : serialReady $end
+$upscope $end
+$scope module cg $end
+$var reg 1 ; complete $end
+$upscope $end
+$scope module fog $end
+$var reg 1 < fifo_okay $end
+$upscope $end
+$scope module aig $end
+$var reg 1 = ack_in $end
+$upscope $end
+$scope module wRg $end
+$var reg 1 > writeRead $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x>
+0=
+0<
+0;
+0:
+x9
+08
+07
+x6
+x5
+x4
+bx 3
+x2
+b0 1
+00
+x/
+x.
+x-
+x,
+x+
+0*
+x)
+x(
+0'
+0&
+0%
+x$
+0#
+0"
+0!
+$end
+#20000
+05
+0,
+0/
+0$
+04
+0+
+02
+0)
+06
+0.
+b1 1
+b0 3
+17
+1!
+#40000
+07
+0!
+#60000
+b1 3
+17
+1!
+#80000
+07
+0!
+#100000
+b0 3
+17
+1!
+18
+1"
+#120000
+07
+0!
+#140000
+17
+1!
+#160000
+07
+0!
+#180000
+17
+1!
+#200000
+07
+0!
+#220000
+17
+1!
+#240000
+07
+0!
+#260000
+17
+1!
+#280000
+07
+0!
+#300000
+17
+1!
+#320000
+07
+0!
+#340000
+17
+1!
+#350000
+08
+0"
+#360000
+07
+0!
+#380000
+b1 3
+17
+1!
+#400000
+07
+0!
+#420000
+17
+1!
+#440000
+07
+0!
+#460000
+17
+1!
+#480000
+07
+0!
+#500000
+17
+1!
+#520000
+07
+0!
+#540000
+17
+1!
+#560000
+07
+0!
+#580000
+17
+1!
+#600000
+07
+0!
+#620000
+17
+1!
+#640000
+07
+0!
+#660000
+17
+1!
+#680000
+07
+0!
+#700000
+17
+1!
+#720000
+07
+0!
+#740000
+17
+1!
+#760000
+07
+0!
+#780000
+17
+1!
+#800000
+07
+0!
+#820000
+17
+1!
+#840000
+07
+0!
+#860000
+17
+1!
+#880000
+07
+0!
+#900000
+17
+1!
+#920000
+07
+0!
+#940000
+17
+1!
+#960000
+07
+0!
+#980000
+17
+1!
+#1000000
+b10 1
+07
+0!
+1>
+1-
+19
+1(
+#1020000
+14
+1+
+16
+1.
+10
+1%
+b10 3
+17
+1!
+#1040000
+07
+0!
+#1060000
+17
+1!
+#1080000
+07
+0!
+#1100000
+17
+1!
+#1120000
+07
+0!
+#1140000
+17
+1!
+#1160000
+07
+0!
+#1180000
+17
+1!
+#1200000
+07
+0!
+#1220000
+17
+1!
+#1240000
+07
+0!
+#1260000
+17
+1!
+#1280000
+07
+0!
+#1300000
+04
+0+
+b100 3
+b100 1
+17
+1!
+1:
+1*
+#1320000
+07
+0!
+#1340000
+17
+1!
+#1360000
+07
+0!
+#1380000
+17
+1!
+#1400000
+b101 1
+07
+0!
+1<
+1'
+#1420000
+b101 3
+17
+1!
+#1440000
+07
+0!
+#1460000
+17
+1!
+#1480000
+07
+0!
+#1500000
+17
+1!
+#1520000
+07
+0!
+#1540000
+17
+1!
+#1560000
+07
+0!
+#1580000
+17
+1!
+#1600000
+07
+0!
+#1620000
+17
+1!
+#1640000
+07
+0!
+#1660000
+17
+1!
+#1680000
+07
+0!
+#1700000
+17
+1!
+#1720000
+07
+0!
+#1740000
+17
+1!
+#1760000
+07
+0!
+#1780000
+17
+1!
+#1800000
+07
+0!
+#1820000
+17
+1!
+#1840000
+07
+0!
+#1860000
+17
+1!
+#1880000
+07
+0!
+#1900000
+17
+1!
+#1920000
+07
+0!
+#1940000
+17
+1!
+#1960000
+07
+0!
+#1980000
+17
+1!
+#2000000
+b110 1
+15
+1,
+07
+0!
+1;
+1&
+#2020000
+1/
+1$
+06
+0.
+b110 3
+17
+1!
+#2040000
+07
+0!
+#2060000
+17
+1!
+#2080000
+07
+0!
+#2100000
+05
+0,
+0/
+0$
+00
+0%
+b1 3
+b10 1
+17
+1!
+1=
+1#
+#2120000
+07
+0!
+#2140000
+14
+1+
+16
+1.
+10
+1%
+b100 1
+b10 3
+17
+1!
+#2160000
+07
+0!
+#2180000
+04
+0+
+b101 1
+b100 3
+17
+1!
+#2200000
+07
+0!
+#2220000
+15
+1,
+b110 1
+b101 3
+17
+1!
+#2240000
+07
+0!
+#2260000
+1/
+1$
+06
+0.
+b1 1
+b110 3
+17
+1!
+#2280000
+07
+0!
+#2300000
+05
+0,
+0/
+0$
+00
+0%
+b10 1
+b1 3
+17
+1!
+#2320000
+07
+0!
+#2340000
+14
+1+
+16
+1.
+10
+1%
+b100 1
+b10 3
+17
+1!
+#2360000
+07
+0!
+#2380000
+04
+0+
+b101 1
+b100 3
+17
+1!
+#2400000
+07
+0!
+#2420000
+15
+1,
+b110 1
+b101 3
+17
+1!
+#2440000
+07
+0!
+#2460000
+1/
+1$
+06
+0.
+b1 1
+b110 3
+17
+1!
+#2480000
+07
+0!
+#2500000
+05
+0,
+0/
+0$
+00
+0%
+b10 1
+b1 3
+17
+1!
