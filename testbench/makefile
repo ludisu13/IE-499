@@ -16,3 +16,7 @@ datc:
 	iverilog -o testbench_datcontroller dat_controller_tb.v
 	vvp testbench_datcontroller
 	gtkwave signalsDatController.vcd 
+cmdc:
+	iverilog -o testbench_cmdcontroller cmd_controller_tb.v
+	vvp testbench_cmdcontroller
+	gtkwave signalsCMDController.vcd 

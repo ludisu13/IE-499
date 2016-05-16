@@ -15,19 +15,20 @@ module cmd_controller(
 	// Outputs to host
 	output reg [39:0] cmd_out,
 	output reg busy,
-	//Outputs to physical layer
-	output reg strobe_out,
-	output reg ack_out,
-	output reg idle_out,
+	output reg setup_done,
 	output reg [31:0]response,
 	output reg command_complete,
 	output reg command_timeout,
-	output reg command_index_error
+	output reg command_index_error,
+	//Outputs to physical layer
+	output reg strobe_out,
+	output reg ack_out,
+	output reg idle_out
+	
 );
 
 // registers
 parameter SIZE = 2;
-reg setup_done;
 reg [SIZE-1:0] state;
 reg [SIZE-1:0] next_state;
 reg [31:0] count;
@@ -37,7 +38,7 @@ parameter SETTING_OUTPUTS   =  2'd2;
 parameter PROCESSING  =  2'd3;
 
 
-always @ ( state  or setup_done or new_command or ack_in )
+always @ ( * )
 begin 
  case(state)
  RESET:
@@ -59,7 +60,7 @@ begin
        next_state = SETTING_OUTPUTS;
    end  
  PROCESSING:    begin
-       if (ack_in) begin
+       if (ack_in || command_timeout) begin
           next_state = IDLE;
       end     
       else begin
@@ -78,7 +79,7 @@ end
 
 
 
-always @(posedge clock )
+always @(* )
 	begin
 		case(state)
 		
@@ -94,6 +95,7 @@ always @(posedge clock )
 						command_index_error=1'b0;
 						idle_out=1'b1;
 						setup_done=1'b0;
+						count=32'b0;
 					end
 				IDLE:	
 					begin
@@ -107,6 +109,7 @@ always @(posedge clock )
 						command_index_error=1'b0;
 						idle_out=1'b1;
 						setup_done=1'b0;
+						count=32'b0;
 					end
 				SETTING_OUTPUTS:
 					begin
@@ -118,10 +121,11 @@ always @(posedge clock )
 						response=32'b0;
 						ack_out=1'b0;
 						idle_out=1'b0;
-						setup_done=1;
+						setup_done=1'b1;
 						command_complete=1'b0;
 						command_timeout=1'b0;
 						command_index_error=1'b0;
+						count=32'b0;
 					end
 				PROCESSING:
 					begin
@@ -131,10 +135,10 @@ always @(posedge clock )
 						command_timeout=1'b0;
 						busy=1'b1;
 						strobe_out=1'b1;
-						idle_out=1'b1;
+						idle_out=1'b0;
 						response=32'b0;
-						setup_done=1'b1;
-						ack_out=1'b0;    
+						setup_done=1'b0;
+						ack_out=1'b0;   
 							if(strobe_in)
 								begin
 									if(cmd_in[37:32]==cmd_out[37:32])
@@ -147,6 +151,7 @@ always @(posedge clock )
 										begin
 												command_index_error=1'b1;
 										end	
+									count=count;
 								end
 							else
 								begin
@@ -156,7 +161,7 @@ always @(posedge clock )
 										end
 									else
 										begin
-												count=count+1;
+												command_timeout=1'b0;
 										end	
 								
 								end
@@ -183,6 +188,10 @@ always @ (posedge clock  )
 			begin
 				state <=  next_state;
 		end
+		if(state==PROCESSING)
+			begin
+				count<=count+32'b1;
+			end
 	end
 
 endmodule 
