@@ -44,7 +44,7 @@ parameter ACK   =  3'd6;
 // registers
 
 
-always @ ( state  or serial_ready or newDat or ack_in or fifo_okay )
+always @ ( *)
 begin 
  case(state)
  RESET:
@@ -106,7 +106,7 @@ ACK:    begin
     
    
   
- default : next_state  = IDLE;
+ default : next_state  = RESET;
  
  endcase 
     
@@ -116,7 +116,7 @@ end
 
 
 
-always @(posedge clock )
+always @(*)
 	begin
 		case(state)
 			RESET:
@@ -126,6 +126,7 @@ always @(posedge clock )
 					read_Data=1'b0;
 					strobe_out=1'b0;
 					ack_out=1'b0;
+					transfer_complete=1'b0;
 				end
 			IDLE:
 				begin
@@ -134,6 +135,7 @@ always @(posedge clock )
 					read_Data=1'b0;
 					strobe_out=1'b0;
 					ack_out=1'b0;
+					transfer_complete=1'b0;
 				end
 			WRITE_COMMAND:
 				begin
@@ -142,30 +144,41 @@ always @(posedge clock )
 					read_Data=1'b0;
 					strobe_out=1'b1;
 					ack_out=1'b0;
+					transfer_complete=1'b0;
 				end
 			READ_COMMAND:
 				begin
-					busy=1;
+					busy=1'b1;
 					write_Data=1'b0;
 					read_Data=1'b1;
 					strobe_out=1'b1;
 					ack_out=1'b0;
+					transfer_complete=1'b0;
 				end
 			CHECK_FIFO:
 				begin
-					busy=0;
+					busy=1'b1;
 					write_Data=write_Data;
 					read_Data=read_Data;
 					strobe_out=1'b0;
 					ack_out=1'b0;
+					transfer_complete=1'b0;
 				end
 			TRANSMIT:
 				begin
 					busy=1'b1;
 					write_Data=write_Data;
 					read_Data=read_Data;
-					strobe_out=1'b1;
+					strobe_out=1'b0;
 					ack_out=1'b0;
+					if(~complete)
+						begin
+							transfer_complete=1'b0;
+						end
+					else
+						begin
+							transfer_complete=1'b1;
+						end
 				end
 			ACK:
 				begin
@@ -174,7 +187,7 @@ always @(posedge clock )
 					read_Data=1'b0;
 					strobe_out=1'b0;
 					ack_out=1'b1;
-					transfer_complete=1'b1;
+					transfer_complete=transfer_complete;
 				end
 		
 				

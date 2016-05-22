@@ -13,7 +13,13 @@ output wire fifo_okay)
 ;
 
 clock_gen clk1(clock);
-
+reset_gen r1(reset);
+newDat_gen nDG(newDat);
+serialReady_gen sRg(serial_ready);
+complete_gen  cg(complete);
+fifo_okay_gen fog(fifo_okay);
+ack_in_gen aig(ack_in);
+writeRead_gen wRg(writeRead);
 
 
 
@@ -24,11 +30,11 @@ initial
 	begin
 		clock=1'b0;
 	end
-always@(*)
+always
 		begin
-		#HALF_PERIOD;
+		#`HALF_PERIOD;
 		clock=1'b1;
-		#HALF_PERIOD;
+		#`HALF_PERIOD;
 		clock=1'b0;
 		end
 endmodule
@@ -37,11 +43,11 @@ module reset_gen(output reset);
 reg reset;
 initial
 	begin
-	rst=1'b0;
-	#RESET_FIRE_TIME
-	rst=1'b1;
-	#RESET_DEACTIVATE_TIME
-	rst=1'b0;
+	reset=1'b0;
+	#`RESET_FIRE_TIME
+	reset=1'b1;
+	#`RESET_DEACTIVATE_TIME
+	reset=1'b0;
 	end
 endmodule
 
@@ -49,7 +55,7 @@ module newDat_gen(output newDat);
 reg newDat;
 initial
 	begin
-		#NEW_DATA_REQUEST_TIME;
+		#`NEW_DATA_REQUEST_TIME;
 		newDat=1;
 	end
 
@@ -59,8 +65,8 @@ module writeRead_gen(output writeRead);
 reg writeRead;
 initial
 	begin
-		#WRITE_READ_TIME;
-		writeRead=WRITE_READ;
+		#`WRITE_READ_TIME;
+		writeRead=`WRITE_READ;
 	end
 endmodule
 
@@ -68,8 +74,9 @@ module serialReady_gen(output serialReady);
 reg serialReady;
 initial
 	begin
-		#SERIAL_READY_TIME;
-		serialReady=WRITE_READ;
+		serialReady=1'b0;
+		#`SERIAL_READY_TIME;
+		serialReady=1'b1;
 	end
 endmodule
 
@@ -77,7 +84,8 @@ module complete_gen(output complete);
 reg complete;
 initial
 	begin
-		#COMPLETE_TIME;
+		complete=1'b0;
+		#`COMPLETE_TIME;
 		complete=1'b1;
 	end
 endmodule
@@ -86,7 +94,8 @@ module ack_in_gen(output ack_in);
 reg ack_in;
 initial
 	begin
-		#ACK_IN_TIME;
+		ack_in=1'b0;
+		#`ACK_IN_TIME;
 		ack_in=1'b1;
 	end
 endmodule
@@ -95,7 +104,8 @@ module fifo_okay_gen(output fifo_okay);
 reg fifo_okay;
 initial
 	begin
-		#FIFOOKAY_TIME;
+		fifo_okay=1'b0;
+		#`FIFOOKAY_TIME;
 		fifo_okay=1'b1;
 	end
 endmodule
