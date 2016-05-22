@@ -1,0 +1,7 @@
+module wishbone (
+	
+
+);
+
+
+endmodule
