@@ -1,37 +1,36 @@
 module wishbone ( // Wishbone Slave
 
 	//Common Inputs
-	input wire clock,
-	input wire reset,
-	input wire we_i, //write_enable 
+	input wire 		clock,
+	input wire 		reset,
+	input wire 		we_i, //write_enable 
 	
 	//Inputs of Host
-	input wire [63:0]host_data_i,
+	input wire [63:0]	host_data_i,
 	//Outputs to Host
-	output reg new_data,
-	output reg new_command,
-	output reg	[63:0]host_data_o,
+	output reg 		new_data,
+	output reg 		new_command,
+	output reg	[63:0]	host_data_o,
 	
 	//Inputs of Wishbone Master
-	input wire adr_i, // Command (adr_i = 0) or Data (adr_i = 1)
-	input wire strobe, // Strobe??
-	input wire request, // NO LA USE PARA NADA????????????????????????????????????????????
-	input wire [63:0] wb_data_o,
+	input wire 		adr_i, // Command (adr_i = 0) or Data (adr_i = 1)
+	input wire 		strobe, // Strobe??
+	input wire [63:0] 	wb_data_o,
 	
 	//Outputs to Wishbone Master
-	output reg [63:0]wb_data_o,
-	output reg ack_o
+	output reg [63:0]	wb_data_o,
+	output reg 		ack_o
 	
 );
 
 // registers
 parameter SIZE = 2;
-reg [SIZE-1:0] state;
+reg [SIZE-1:0] state; // 3 states
 reg [SIZE-1:0] next_state;
 reg setup_done;// Output to host
-parameter RESET= 2'd0; 
-parameter IDLE   =  2'd1;
-parameter READWRITE   =  2'd2;
+parameter RESET		= 2'd0; 
+parameter IDLE   		=  2'd1;
+parameter READWRITE	=  2'd2;
 
 
 //Next state logic
