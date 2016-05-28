@@ -12,6 +12,7 @@ module cmd_controller(
 	input wire strobe_in,
 	input wire [39:0] cmd_in,
 	input wire serial_ready,
+	//need to add a singal for transmission complete will require a new state
 	// Outputs to host
 	output reg [39:0] cmd_out,
 	output reg busy,

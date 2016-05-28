@@ -1,0 +1,44 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x2097b80 .scope module, "PAD" "PAD" 2 2;
+ .timescale 0 0;
+v0x20bb7f0_0 .net *"_s0", 0 0, C4<z>; 0 drivers
+v0x20ca980_0 .net "clock", 0 0, C4<z>; 0 drivers
+v0x20caa20_0 .var "dataFROMCARD", 0 0;
+v0x20caac0_0 .var "dataToCARD", 0 0;
+v0x20cab70_0 .net "data_in", 0 0, C4<z>; 0 drivers
+v0x20cac10_0 .net "data_out", 0 0, v0x20caa20_0; 1 drivers
+v0x20cacf0_0 .net "enable", 0 0, C4<z>; 0 drivers
+v0x20cad90_0 .net "io_port", 0 0, L_0x20caf20; 1 drivers
+v0x20cae80_0 .net "output_input", 0 0, C4<z>; 0 drivers
+E_0x2097f40 .event posedge, v0x20ca980_0;
+L_0x20caf20 .functor MUXZ 1, C4<z>, v0x20caac0_0, C4<z>, C4<>;
+    .scope S_0x2097b80;
+T_0 ;
+    %wait E_0x2097f40;
+    %load/v 8, v0x20cacf0_0, 1;
+    %jmp/0xz  T_0.0, 8;
+    %load/v 8, v0x20cad90_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x20caa20_0, 0, 8;
+    %load/v 8, v0x20cab70_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x20caac0_0, 0, 8;
+    %jmp T_0.1;
+T_0.0 ;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x20caa20_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x20caac0_0, 0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "pad.v";
