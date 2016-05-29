@@ -13,17 +13,26 @@ module PAD(
 
     assign io_port  = output_input ?dataToCARD: 1'bz;
     assign data_out = dataFROMCARD;
-
+	reg control;
     always @ (posedge clock)
-    if(enable)	
+    if(enable )	
 		begin
 			dataFROMCARD <= io_port;
-			dataToCARD <= data_in;
+			if(!control)
+				begin
+					control <=1'b1;
+				end
+			if(control)
+				begin
+					dataToCARD <= data_in;
+					control <=1'b1;
+				end
 		end
 	else 
 		begin
-			dataFROMCARD <= 1'b0;
-			dataToCARD <= 1'b0;
+			dataFROMCARD <= 1'bz;
+			dataToCARD <= 1'bz;
+			control <=1'b0;
 		
 		end
 
