@@ -47,7 +47,7 @@ module TestBench;
 		write_enable = 0;
 		data = 32'd2;
 		
-		// Wait 100 ns for global reset to finish
+		// Wait for global reset to finish
 		#10;
 		reset = 1;
 		#50

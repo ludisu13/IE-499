@@ -46,6 +46,7 @@ module TestBench;
 		.ack_o(ack_o)				//Output
 	);
 	
+	// Instantiate generator of signals
 	generatorWBSlave WBSgen(
 		.clock(clock),
 		.reset(reset),

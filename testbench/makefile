@@ -12,6 +12,12 @@ fifo:
 	iverilog -o testbench_fifo fifo_tb.v
 	vvp testbench_fifo
 	gtkwave signalsFifo.vcd
+		
+fifo2:
+	iverilog -o testbench_fifo2 fifo_tb2.v
+	vvp testbench_fifo2
+	gtkwave signalsFifo2.vcd
+
 datc:
 	iverilog -o testbench_datcontroller dat_controller_tb.v
 	vvp testbench_datcontroller
