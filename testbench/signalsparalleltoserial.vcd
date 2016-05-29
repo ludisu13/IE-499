@@ -1,5 +1,5 @@
 $date
-	Sun May 29 15:11:23 2016
+	Sun May 29 16:34:40 2016
 $end
 $version
 	Icarus Verilog
@@ -316,9 +316,64 @@ $var reg 1 4 dataFROMCARD $end
 $var reg 1 5 dataToCARD $end
 $upscope $end
 $upscope $end
+$scope module serialToParallel $end
+$var wire 1 6 Clock $end
+$var wire 1 7 Enable $end
+$var wire 1 8 Reset $end
+$var wire 8 9 parallel [7:0] $end
+$var wire 1 : serial $end
+$var wire 8 ; serialBus [7:0] $end
+$scope module ffd $end
+$var wire 1 6 Clock $end
+$var wire 8 < D [7:0] $end
+$var wire 1 7 Enable $end
+$var wire 1 8 Reset $end
+$var reg 8 = Q [7:0] $end
+$upscope $end
+$scope begin STP[0] $end
+$scope begin genblk2 $end
+$upscope $end
+$upscope $end
+$scope begin STP[1] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[2] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[3] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[4] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[5] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[6] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[7] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$upscope $end
 $enddefinitions $end
 #0
 $dumpvars
+bx =
+bxz <
+bxz ;
+z:
+bx 9
+z8
+z7
+z6
 x5
 x4
 x3

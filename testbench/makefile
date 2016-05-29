@@ -35,3 +35,7 @@ pts:
 	iverilog -o testbench_parallelToSerial parallelToSerial_Tb.v
 	vvp testbench_parallelToSerial
 	gtkwave signalsparalleltoserial.vcd
+padconverter:
+	iverilog -o padconverters padconverters_tb.v
+	vvp padconverters
+	gtkwave padconverters.vcd
