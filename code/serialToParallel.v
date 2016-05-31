@@ -11,6 +11,7 @@ module serialToParallel # (parameter WIDTH=8)
 wire [(WIDTH-1):0] serialBus;
 FFD_POSEDGE_SYNCRONOUS_RESET # (WIDTH) ffd (.Clock(Clock),.Reset(Reset),.Enable(Enable),.D(serialBus),.Q(parallel));
 genvar i; 
+generate
 for (i=0; i < WIDTH; i=i+1) 
 	begin:STP
 		if(i==0)
@@ -25,6 +26,7 @@ for (i=0; i < WIDTH; i=i+1)
 				
 				
 			end
+endgenerate
 endmodule
 				
 			

@@ -4,7 +4,6 @@ module Paralleltoserial # (parameter WIDTH=8)
 	input wire Clock,
 	input wire Reset,
 	input wire Enable,
-	input wire load_send,// send high load low activate on rising edge
 	output wire serial,
 	input wire[(WIDTH-1):0] parallel
 	);
