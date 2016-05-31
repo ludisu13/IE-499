@@ -5,9 +5,9 @@ module PAD(
     input wire  data_in,    // datos a mandar a la tarjeta
     output wire data_out,   // datos recibidos de la tarjeta
     inout  wire io_port,     // el PAD
-    input wire enable
+    input wire enable // al mismo tiempo que se comienza a enviar 
     );
-
+    
     reg dataToCARD;
     reg dataFROMCARD;    
 
