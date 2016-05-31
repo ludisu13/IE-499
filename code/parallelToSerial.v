@@ -1,4 +1,4 @@
-//`include "ffd.v"
+`include "ffd.v"
 module Paralleltoserial # (parameter WIDTH=8)
 (
 	input wire Clock,
@@ -13,17 +13,20 @@ wire [(WIDTH-1):0]ffdqBus;
 assign serial=ffdqBus[(WIDTH-1)];
 FFD_POSEDGE_SYNCRONOUS_RESET # (WIDTH) ffd (.Clock(Clock),.Reset(Reset),.Enable(Enable),.D(ffdinputBus),.Q(ffdqBus));
 genvar i;
-for (i=0; i < WIDTH; i=i+1) 
-	begin:PTS
-		if(i==0)
-			begin
-				assign ffdinputBus[i]=(parallel[i] && !load_send)||(load_send && 1'b1);
-			end
-		else
-			begin
-				assign ffdinputBus[i]=(parallel[i] && !load_send)||( load_send && ffdqBus[i-1]);
-			end		
-	end
+generate
+
+	for (i=0; i < WIDTH; i=i+1) 
+		begin:PTS
+			if(i==0)
+				begin
+					assign ffdinputBus[i]=(parallel[i] && !load_send)||(load_send && 1'b1);
+				end
+			else
+				begin
+					assign ffdinputBus[i]=(parallel[i] && !load_send)||( load_send && ffdqBus[i-1]);
+				end		
+		end
+endgenerate
 endmodule
 				
 				
