@@ -1,5 +1,6 @@
 `include "serialToParallel.v"
 `include "counter.v"
+
 module serialToParallelWrapper # (parameter WIDTH=8)
 (
 	input wire Clock,
