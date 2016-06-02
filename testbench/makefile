@@ -47,3 +47,7 @@ ptswrapper:
 	iverilog -o ptswrapper parallelToSerialwrapper_Tb.v
 	vvp ptswrapper
 	gtkwave ptswrapper.vcd
+wrapper:
+	iverilog -o wrappers wrappers_Tb.v
+	vvp wrappers
+	gtkwave wrappers.vcd
