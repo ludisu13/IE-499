@@ -1,8 +1,9 @@
 `include "definitionsparalleltoSerial.v"
 `include "../code/parallelToSerial.v"
-`include "../code/serialToParallel.v"
+`include "../code/paralleltoserialwrapper.v"
 `include "generator_paralleltoSerial.v"
 `include "../code/ffd.v"
+`include "../code/counter.v"
 `include "../code/pad.v"
 module TestBench;
 
@@ -18,14 +19,17 @@ module TestBench;
 	
 assign parallel=64'hF0F0F0F0F0F0F0F0;
 assign Enable=1'b1;
+wire complete;
+wire [(`WIDTH-1):0] framesize;
+assign framesize = 8'd64;
 
-
- 	
-ParalleltoserialWrapper # (`WIDTH) pts(
+paralleltoserialWrapper # (`WIDTH) pts(
 .Clock(clock),
 .Reset(reset),
 .Enable(Enable),
+.framesize(framesize),
 .load_send(load_send),
+.complete(complete),
 .serial(serial),.
 parallel(parallel));
 
@@ -47,9 +51,9 @@ PAD pad1(
 	
 	initial begin
 	
-		$dumpfile("signalsparalleltoserial.vcd");
+		$dumpfile("ptswrapper.vcd");
 		$dumpvars;	
-		#2500
+		#4500
 		$display("test finished");
 		$finish;
 	end

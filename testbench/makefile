@@ -43,3 +43,7 @@ stpwrapper:
 	iverilog -o stpwrapper serialtoparallelwrapper_tb.v
 	vvp stpwrapper
 	gtkwave serialtoparallel.vcd
+ptswrapper:
+	iverilog -o ptswrapper parallelToSerialwrapper_Tb.v
+	vvp ptswrapper
+	gtkwave ptswrapper.vcd
