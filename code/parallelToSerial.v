@@ -1,9 +1,10 @@
-`include "ffd.v"
+//`include "ffd.v"
 module Paralleltoserial # (parameter WIDTH=8)
 (
 	input wire Clock,
 	input wire Reset,
 	input wire Enable,
+	input wire load_send,
 	output wire serial,
 	input wire[(WIDTH-1):0] parallel
 	);

@@ -1,5 +1,6 @@
 `include "parallelToSerial.v"
 `include "counter.v"
+`include "ffd.v"
 module paralleltoserialWrapper # (parameter WIDTH=8)
 (
 	input wire Clock,
@@ -12,7 +13,7 @@ module paralleltoserialWrapper # (parameter WIDTH=8)
 	input wire[(WIDTH-1):0] parallel
 	);
 
-Paralleltoserial pts(
+Paralleltoserial #(WIDTH) pts(
 .Clock(Clock),
 .Reset(Reset),
 .Enable(Enable&go),
@@ -27,10 +28,10 @@ UPCOUNTER_POSEDGE # (WIDTH) counter1(
 .Clock(clock),
 .Reset(reset),
 .Initial(initialValue),
-.Enable(enable),
+.Enable(enable&go),
 .Q(countValue)
 );
 wire go;
-assign go= (framesize==countValue) ? 1'b1:1'b0;
+assign go= (framesize==countValue) ? 1'b0:1'b1;
 assign complete=(framesize==countValue) ? 1'b1:1'b0;
 endmodule
