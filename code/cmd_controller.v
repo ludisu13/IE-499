@@ -11,7 +11,7 @@ module cmd_controller(
 	input wire ack_in,
 	input wire strobe_in,
 	input wire [39:0] cmd_in,
-	input wire serial_ready,
+	//input wire serial_ready,
 	//need to add a singal for transmission complete will require a new state
 	// Outputs to host
 	output reg [39:0] cmd_out,
@@ -142,7 +142,7 @@ always @(* )
 						ack_out=1'b0;   
 							if(strobe_in)
 								begin
-									if(cmd_in[37:32]==cmd_out[37:32])
+									if(cmd_in[37:32]==cmd_out[37:32]) // add exceptions for other command formats 
 										begin
 												response=cmd_in[31:0];
 												ack_out=1'b1;
