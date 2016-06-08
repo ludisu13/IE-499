@@ -47,6 +47,8 @@ reg pad_enable;
 reg enable_pts_wrapper;
 reg enable_stp_wrapper;
 wire [47:0] pad_response;
+wire serialpad;
+wire padserial;
 //wrappers
 paralleltoserialWrapper # (48) ptsw(
 .Clock(sd_clock),
@@ -63,7 +65,7 @@ serialToParallelWrapper # (48) stpw(
 .Reset(reset_wrapper),
 .framesize(48'd64),
 .Enable(enable_stp_wrapper),
-.serial(port),
+.serial(padserial),
 .complete(reception_complete),.
 parallel(pad_response));
 
@@ -72,8 +74,8 @@ PAD command_PAD(
 .output_input(pad_state),
 .data_in(serialpad),
 .enable(pad_enable),
-.data_out(data_out),
-.io_port(port)
+.data_out(padserial),
+.io_port(cmd_pin)
 );
 
 //enable to pad and wrapper parallel to serial must be at the same time as load 
