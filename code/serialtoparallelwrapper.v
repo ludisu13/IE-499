@@ -7,9 +7,9 @@ module serialToParallelWrapper # (parameter WIDTH=8)
 	input wire Reset,
 	input wire Enable,
 	input wire [(WIDTH-1):0] framesize,
-	output wire serial,
+	input wire serial,
 	output wire complete,
-	input wire[(WIDTH-1):0] parallel
+	output wire[(WIDTH-1):0] parallel
 	);
 
 serialToParallel #(WIDTH)stp(

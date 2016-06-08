@@ -11,10 +11,10 @@ module cmd_controller(
 	input wire ack_in,
 	input wire strobe_in,
 	input wire [39:0] cmd_in,
+	
 	//input wire serial_ready,
 	//need to add a singal for transmission complete will require a new state
 	// Outputs to host
-	output reg [39:0] cmd_out,
 	output reg busy,
 	output reg setup_done,
 	output reg [31:0]response,
@@ -25,6 +25,7 @@ module cmd_controller(
 	output reg strobe_out,
 	output reg ack_out,
 	output reg idle_out
+	output reg [39:0] cmd_out,//physical layer
 	
 );
 
