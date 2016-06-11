@@ -76,7 +76,6 @@ cmd_phys_controller cpc(
 .strobe_in(strobe_in),
 .ack_in(ack_in),
 .idle_in(idle_in),
-.cmd_to_send(cmd_to_send),
 .ack_out(ack_out),
 .strobe_out(strobe_out),
 .response(response),
