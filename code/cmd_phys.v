@@ -14,15 +14,16 @@ module cmd_phys(
 	input wire ack_in,		//response received
 	input wire idle_in, // sets as idle
 	input wire [39:0] cmd_to_send,
+	input wire TIMEOUT_ENABLE,
 	// output to host
 	output wire ack_out,// acknowledge of package reception from host
 	output wire strobe_out, // states that a response has been received
 	output wire [135:0] response,
-	
 	//PAD_Pin
 	
-	inout  wire cmd_pin
-	
+	inout  wire cmd_pin,
+	//OUTPUT TO HOST AND REGISTERS;
+	output wire COMMAND_TIMEOUT
 );
 
 
@@ -86,7 +87,9 @@ cmd_phys_controller cpc(
 .pad_state(pad_state),
 .pad_enable(pad_enable),
 .enable_pts_wrapper(enable_pts_wrapper),
-.enable_stp_wrapper(enable_stp_wrapper)
+.enable_stp_wrapper(enable_stp_wrapper),
+.TIMEOUT_ENABLE(TIMEOUT_ENABLE),
+.COMMAND_TIMEOUT(COMMAND_TIMEOUT)
 );
 
 

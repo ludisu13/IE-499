@@ -11,6 +11,8 @@ module cmd_controller(
 	input wire ack_in,
 	input wire strobe_in,
 	input wire [135:0] cmd_in, // 
+	input wire TIMEOUT,
+	input wire TIMEOUT_ENABLE,
 	
 	//input wire serial_ready,
 	//need to add a singal for transmission complete will require a new state
@@ -38,7 +40,7 @@ parameter RESET= 2'd0;
 parameter IDLE   =  2'd1;
 parameter SETTING_OUTPUTS   =  2'd2;
 parameter PROCESSING  =  2'd3;
-
+wire stop_timeout=TIMEOUT && TIMEOUT_ENABLE;
 
 always @ ( * )
 begin 
@@ -59,7 +61,8 @@ begin
     if (setup_done )             
        next_state = PROCESSING;  
      else   
-       next_state = SETTING_OUTPUTS;
+			next_state = SETTING_OUTPUTS;
+ 
    end  
  PROCESSING:    begin
        if (ack_in || command_timeout) begin
@@ -202,10 +205,14 @@ always @ (posedge clock  )
 			begin
 				state <=  next_state;
 		end
-		if(state==PROCESSING)
+		if(stop_timeout)
 			begin
-				count<=count+32'b1;
+				state<=IDLE;
 			end
-	end
+		else
+			begin
+				state<=next_state;
+			end
+	end	
 
 endmodule 

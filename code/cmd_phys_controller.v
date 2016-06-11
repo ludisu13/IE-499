@@ -6,6 +6,7 @@ module cmd_phys_controller(
 	input wire strobe_in,   // request received
 	input wire ack_in,		//response received
 	input wire idle_in, // sets as idle
+	input wire TIMEOUT_ENABLE,
 	// output to host
 	output reg ack_out,// acknowledge of package reception from host
 	output reg strobe_out, // states that a response has been received
@@ -19,7 +20,8 @@ module cmd_phys_controller(
 	output reg pad_state,
 	output reg pad_enable,
 	output reg enable_pts_wrapper,
-	output reg enable_stp_wrapper
+	output reg enable_stp_wrapper,
+	output wire COMMAND_TIMEOUT
 	
 	
 	);
@@ -43,8 +45,9 @@ parameter WAIT_ACK =4'd6;
 reg load_send;
 reg loaded;
 reg response_sent;
+reg [6:0]timeout_count;
 
-
+assign COMMAND_TIMEOUT=(timeout_count==7'd64) ? 1'b1:1'b0;
 
 always @ ( * )
 begin 
@@ -247,7 +250,16 @@ always @ (posedge sd_clock  )
 					begin
 						state <=  next_state;
 					end
+				end
+		if(state==WAIT_RESPONSE)
+			begin
+				timeout_count<=timeout_count+7'b1;
+			end	
+		else
+			begin
+				timeout_count<=7'b0;
 			end
+		
 		end
 	
 
