@@ -1,12 +1,12 @@
 //`include "parallelToSerial.v"
 //`include "counter.v"
 //`include "ffd.v"
-module paralleltoserialWrapper # (parameter WIDTH=8)
+module paralleltoserialWrapper # (parameter WIDTH=8,parameter FRAME_SIZE_WIDTH=8)
 (
 	input wire Clock,
 	input wire Reset,
 	input wire Enable,
-	input wire [(WIDTH-1):0] framesize,
+	input wire [(FRAME_SIZE_WIDTH-1):0] framesize,
 	input wire load_send,// send high load low activate on rising edge
 	output wire serial,
 	output wire complete,

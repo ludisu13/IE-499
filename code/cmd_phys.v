@@ -39,20 +39,20 @@ wire serialpad;
 wire padserial;
 wire [47:0]frame;
 //wrappers
-paralleltoserialWrapper # (48) ptsw(
+paralleltoserialWrapper # (48,8) ptsw(
 .Clock(sd_clock),
 .Reset(reset_wrapper),
 .Enable(enable_pts_wrapper),
-.framesize(48'd48),
+.framesize(8'd48),
 .load_send(load_send),
 .complete(transmission_complete),
 .serial(serialpad),.
 parallel(frame));
 
-serialToParallelWrapper # (48) stpw(
+serialToParallelWrapper # (48,8) stpw(
 .Clock(sd_clock),
 .Reset(reset_wrapper),
-.framesize(48'd48),
+.framesize(8'd48),
 .Enable(enable_stp_wrapper),
 .serial(padserial),
 .complete(reception_complete),.

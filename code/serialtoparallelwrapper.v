@@ -1,12 +1,12 @@
 //`include "serialToParallel.v"
 //`include "counter.v"
 
-module serialToParallelWrapper # (parameter WIDTH=8)
+module serialToParallelWrapper # (parameter WIDTH=8,parameter FRAME_SIZE_WIDTH=8)
 (
 	input wire Clock,
 	input wire Reset,
 	input wire Enable,
-	input wire [(WIDTH-1):0] framesize,
+	input wire [(FRAME_SIZE_WIDTH-1):0] framesize,
 	input wire serial,
 	output wire complete,
 	output wire[(WIDTH-1):0] parallel

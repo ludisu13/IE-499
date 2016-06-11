@@ -1,6 +1,6 @@
 //`include "ffd.v"
 //`include "counter.v"
-module serialToParallel # (parameter WIDTH=8)
+module serialToParallel # (parameter WIDTH=8) 
 (
 	input wire Clock,
 	input wire Reset,
