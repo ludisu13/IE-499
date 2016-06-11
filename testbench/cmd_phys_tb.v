@@ -14,7 +14,7 @@
 module TestBench;
 
 wire [39:0]command;
-assign command[37:32]=6'd7;
+assign command={2'b0,6'd7,32'b0};
 wire pin;
 wire clock;
 wire reset;
@@ -28,7 +28,8 @@ cmd_phys physical(
 .ack_in(ack_in),
 .idle_in(1'b0),
 .cmd_to_send(command),
-.cmd_pin(pin)
+.cmd_pin(pin),
+.TIMEOUT_ENABLE(1'b0)
 );
 
 
