@@ -1,0 +1,216 @@
+module cmd_phys controller ()
+
+
+//enable to pad and wrapper parallel to serial must be at the same time as load 
+// enable to wrapper serial to paralel must be when send is completed at the start of waiting for response state.
+
+//logica de proximo estado
+always @ ( * )
+begin 
+ case(state)
+ RESET:
+		begin
+			next_state=IDLE;
+		end
+ IDLE:   begin
+      if (strobe_in) begin
+          next_state = LOAD_COMMAND;
+      end     
+      else begin
+         next_state = IDLE;
+      end   
+ end  
+LOAD_COMMAND:   begin
+      if (loaded) begin
+          next_state = SEND_COMMAND;
+      end     
+      else begin
+         next_state = LOAD_COMMAND;
+      end   
+ end          
+ SEND_COMMAND:begin
+    if (transmission_complete)             
+       next_state = WAIT_RESPONSE;  
+     else   
+       next_state = SEND_COMMAND;
+   end  
+WAIT_RESPONSE:    begin
+       if (reception_complete) begin
+          next_state = SEND_RESPONSE;
+      end     
+      else begin
+         next_state = WAIT_RESPONSE;
+      end
+      end
+SEND_RESPONSE:    begin
+       if (response_sent) begin
+          next_state = WAIT_ACK;
+      end     
+      else begin
+         next_state = SEND_RESPONSE;
+      end
+      end
+WAIT_ACK:    begin
+       if (ack_out) begin
+          next_state = IDLE;
+      end     
+      else begin
+         next_state = WAIT_ACK;
+      end
+ end       
+   
+  
+ default : next_state  = RESET;
+ 
+ endcase 
+    
+end
+//logica de salida
+
+always @(* )
+	begin
+		case(state)
+		
+				RESET:
+					begin
+						ack_out=1'b0;
+						strobe_out=1'b0;
+						response=0;
+						load_send=1'b0;
+						loaded=1'b0;
+						reset_wrapper=1'b1;
+						response_sent=1'b0;
+						pad_state=1'b0;
+						pad_enable=1'b0;
+						enable_pts_wrapper=1'b0;
+						enable_stp_wrapper=1'b0;
+					end
+				IDLE:	
+					begin
+						ack_out=1'b0;
+						strobe_out=1'b0;
+						response=0;
+						load_send=1'b0;
+						loaded=1'b0;
+						reset_wrapper=1'b1;
+						response_sent=1'b0;
+						pad_state=1'b0;
+						pad_enable=1'b0;
+						enable_pts_wrapper=1'b0;
+						enable_stp_wrapper=1'b0;
+					end
+				LOAD_COMMAND:
+					begin
+						ack_out=1'b0;
+						strobe_out=1'b0;
+						response=0;
+						load_send=1'b0;
+						loaded=1'b1;
+						reset_wrapper=1'b0;
+						response_sent=1'b0;
+						pad_state=1'b1;
+						pad_enable=1'b1;
+						enable_pts_wrapper=1'b1;
+						enable_stp_wrapper=1'b0;
+					end
+				SEND_COMMAND:
+					begin
+						ack_out=1'b0;
+						strobe_out=1'b0;
+						response=0;
+						load_send=1'b1;
+						loaded=1'b1;
+						reset_wrapper=1'b0;
+						response_sent=1'b0;
+						pad_state=1'b1;
+						pad_enable=1'b0;
+						enable_pts_wrapper=1'b1;
+						enable_stp_wrapper=1'b0;
+					end
+				WAIT_RESPONSE:
+					begin
+						ack_out=1'b0;
+						strobe_out=1'b0;
+						response=0;
+						load_send=1'b0;
+						loaded=1'b1;
+						reset_wrapper=1'b0;
+						response_sent=1'b0;
+						pad_state=1'b0;
+						pad_enable=1'b1;
+						enable_pts_wrapper=1'b0;
+						enable_stp_wrapper=1'b1;
+					end
+				SEND_RESPONSE:
+					begin
+						ack_out=1'b0;
+						strobe_out=1'b1;
+						response=pad_response[47:8];
+						load_send=1'b0;
+						loaded=1'b0;
+						reset_wrapper=1'b0;
+						response_sent=1'b1;
+						pad_state=1'b0;
+						pad_enable=1'b0;
+						enable_pts_wrapper=1'b0;
+						enable_stp_wrapper=1'b0;
+					end
+				WAIT_ACK:
+					begin
+						strobe_out=1'b0;
+						response=0;
+						load_send=1'b0;
+						loaded=1'b0;
+						reset_wrapper=1'b0;
+						response_sent=1'b0;
+						pad_state=1'b0;
+						pad_enable=1'b0;
+						enable_pts_wrapper=1'b0;
+						enable_stp_wrapper=1'b0;
+						if(ack_in)
+							begin
+							ack_out=1'b1;
+							end
+						else
+							begin
+							ack_out=1'b0;
+							end
+					end
+					
+				
+				default:
+					begin
+					
+					end
+		
+		
+		endcase
+end	
+
+
+
+
+always @ (posedge sd_clock  )
+	begin 
+		if (reset) 
+			begin
+				state <=  RESET;
+			end 
+		else 
+			begin 
+				if(idle_in)
+					begin
+						state<=IDLE;
+					end
+				else 
+					begin
+						state <=  next_state;
+					end
+			end
+		end
+	
+
+endmodule 
+
+
+
