@@ -34,6 +34,6 @@ UPCOUNTER_POSEDGE # (FRAME_SIZE_WIDTH) counter1(
 );
 wire go;
 assign serial=(complete==1'b1 | load_send==1'b0)? 1'bz:serialTemp;
-assign go= (framesize<countValue) ? 1'b0:1'b1;
-assign complete=(framesize<countValue) ? 1'b1:1'b0;
+assign go= ((framesize-1'b1)<countValue) ? 1'b0:1'b1;
+assign complete=((framesize-1'b1)<countValue) ? 1'b1:1'b0;
 endmodule

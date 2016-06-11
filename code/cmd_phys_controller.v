@@ -20,7 +20,8 @@ module cmd_phys_controller(
 	output reg pad_enable,
 	output reg enable_pts_wrapper,
 	output reg enable_stp_wrapper,
-	output wire COMMAND_TIMEOUT
+	output wire COMMAND_TIMEOUT,
+	output reg load_send
 	
 	
 	);
@@ -41,12 +42,12 @@ parameter WAIT_ACK =4'd6;
 
 
 
-reg load_send;
 reg loaded;
 reg response_sent;
 reg [6:0]timeout_count;
+reg dummy_count;
 
-assign COMMAND_TIMEOUT=(timeout_count==7'd64) ? 1'b1:1'b0;
+assign COMMAND_TIMEOUT=(timeout_count==7'd63) ? 1'b1:1'b0;
 
 always @ ( * )
 begin 
@@ -182,7 +183,9 @@ always @(* )
 						pad_state=1'b0;
 						pad_enable=1'b1;
 						enable_pts_wrapper=1'b0;
-						enable_stp_wrapper=1'b1;
+						enable_stp_wrapper=1'b0;
+						if(dummy_count==1'b1)
+							enable_stp_wrapper=1'b1;
 					end
 				SEND_RESPONSE:
 					begin
@@ -252,11 +255,18 @@ always @ (posedge sd_clock  )
 				end
 		if(state==WAIT_RESPONSE)
 			begin
+				dummy_count<=dummy_count+1'b1;
+				if(dummy_count==1'b1)
+				dummy_count<=dummy_count;
+				if(COMMAND_TIMEOUT==1'b0)
 				timeout_count<=timeout_count+7'b1;
+				if(COMMAND_TIMEOUT==1'b1)
+				timeout_count<=timeout_count;
 			end	
 		else
 			begin
 				timeout_count<=7'b0;
+				dummy_count<=1'b0;
 			end
 		
 		end

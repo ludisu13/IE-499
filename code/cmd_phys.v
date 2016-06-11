@@ -88,7 +88,8 @@ cmd_phys_controller cpc(
 .pad_enable(pad_enable),
 .enable_pts_wrapper(enable_pts_wrapper),
 .enable_stp_wrapper(enable_stp_wrapper),
-.COMMAND_TIMEOUT(COMMAND_TIMEOUT)
+.COMMAND_TIMEOUT(COMMAND_TIMEOUT),
+.load_send(load_send)
 );
 
 
