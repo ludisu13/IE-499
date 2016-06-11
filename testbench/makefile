@@ -51,3 +51,8 @@ wrapper:
 	iverilog -o wrappers wrappers_Tb.v
 	vvp wrappers
 	gtkwave wrappers.vcd
+cmd_phys:
+	iverilog -o cmd_phys cmd_phys_tb.v
+	vvp cmd_phys
+	gtkwave cmd_phys.vcd
+	

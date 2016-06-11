@@ -6,7 +6,6 @@ module cmd_phys_controller(
 	input wire strobe_in,   // request received
 	input wire ack_in,		//response received
 	input wire idle_in, // sets as idle
-	input wire TIMEOUT_ENABLE,
 	// output to host
 	output reg ack_out,// acknowledge of package reception from host
 	output reg strobe_out, // states that a response has been received

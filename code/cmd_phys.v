@@ -1,11 +1,11 @@
-`include "paralleltoserialwrapper.v"
-`include "counter.v"
-`include "ffd.v"
-`include "pad.v"
-`include "serialtoparallelwrapper.v"
-`include "serialToParallel.v"
-`include "parallelToSerial.v"
-`include "cmd_phys_controller.v"
+//`include "paralleltoserialwrapper.v"
+//`include "counter.v"
+//`include "ffd.v"
+//`include "pad.v"
+//`include "serialtoparallelwrapper.v"
+//`include "serialToParallel.v"
+//`include "parallelToSerial.v"
+//`include "cmd_phys_controller.v"
 module cmd_phys(
 	input wire sd_clock,
 	input wire reset,
@@ -88,7 +88,6 @@ cmd_phys_controller cpc(
 .pad_enable(pad_enable),
 .enable_pts_wrapper(enable_pts_wrapper),
 .enable_stp_wrapper(enable_stp_wrapper),
-.TIMEOUT_ENABLE(TIMEOUT_ENABLE),
 .COMMAND_TIMEOUT(COMMAND_TIMEOUT)
 );
 
