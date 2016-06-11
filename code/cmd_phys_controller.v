@@ -10,13 +10,12 @@ module cmd_phys_controller(
 	// output to host
 	output reg ack_out,// acknowledge of package reception from host
 	output reg strobe_out, // states that a response has been received
-	output reg [39:0] response,
+	output reg [135:0] response,
 	//Inputs from wrapper
-	input wire [47:0] pad_response,
+	input wire [135:0] pad_response,
 	input wire transmission_complete,
 	input wire reception_complete,
 	//Outputs to wrapper
-	output wire [47:0]frame,
 	output reg reset_wrapper,
 	output reg pad_state,
 	output reg pad_enable,
@@ -41,7 +40,7 @@ parameter SEND_RESPONSE = 4'd5;
 parameter WAIT_ACK =4'd6;
 
 
-assign frame={cmd_to_send,8'b1};
+
 reg load_send;
 reg loaded;
 reg response_sent;
@@ -200,8 +199,8 @@ always @(* )
 					end
 				WAIT_ACK:
 					begin
-						strobe_out=1'b0;
-						response=0;
+						strobe_out=1'b0;  
+						response=pad_response[47:8];//set response
 						load_send=1'b0;
 						loaded=1'b0;
 						reset_wrapper=1'b0;

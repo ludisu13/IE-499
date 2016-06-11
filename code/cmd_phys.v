@@ -17,7 +17,7 @@ module cmd_phys(
 	// output to host
 	output wire ack_out,// acknowledge of package reception from host
 	output wire strobe_out, // states that a response has been received
-	output wire [39:0] response,
+	output wire [135:0] response,
 	
 	//PAD_Pin
 	
@@ -34,10 +34,13 @@ wire pad_state;
 wire pad_enable;
 wire enable_pts_wrapper;
 wire enable_stp_wrapper;
-wire [47:0] pad_response;
+wire [135:0] pad_response;
 wire serialpad;
 wire padserial;
-wire [47:0]frame;
+wire [47:0] frame;
+assign frame={cmd_to_send,8'b1};
+wire [7:0]framesize_reception; 
+assign framesize_reception=(cmd_to_send[37:32]==6'd2||cmd_to_send[37:32]==6'd9||cmd_to_send[37:32]==6'd10)? 8'd136:8'd48;
 //wrappers
 paralleltoserialWrapper # (48,8) ptsw(
 .Clock(sd_clock),
@@ -49,10 +52,10 @@ paralleltoserialWrapper # (48,8) ptsw(
 .serial(serialpad),.
 parallel(frame));
 
-serialToParallelWrapper # (48,8) stpw(
+serialToParallelWrapper # (136,8) stpw(
 .Clock(sd_clock),
 .Reset(reset_wrapper),
-.framesize(8'd48),
+.framesize(framesize_reception),
 .Enable(enable_stp_wrapper),
 .serial(padserial),
 .complete(reception_complete),.
@@ -80,7 +83,6 @@ cmd_phys_controller cpc(
 .pad_response(pad_response),
 .transmission_complete(transmission_complete),
 .reception_complete(reception_complete),
-.frame(frame),
 .reset_wrapper(reset_wrapper),
 .pad_state(pad_state),
 .pad_enable(pad_enable),
