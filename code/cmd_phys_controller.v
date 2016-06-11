@@ -186,7 +186,7 @@ always @(* )
 					begin
 						ack_out=1'b0;
 						strobe_out=1'b1;
-						response=pad_response[47:8];
+						response=pad_response;
 						load_send=1'b0;
 						loaded=1'b0;
 						reset_wrapper=1'b0;
@@ -199,7 +199,7 @@ always @(* )
 				WAIT_ACK:
 					begin
 						strobe_out=1'b0;  
-						response=pad_response[47:8];//set response
+						response=pad_response;//set response
 						load_send=1'b0;
 						loaded=1'b0;
 						reset_wrapper=1'b0;
