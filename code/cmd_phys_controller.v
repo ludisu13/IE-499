@@ -1,4 +1,5 @@
-module cmd_phys controller (
+
+module cmd_phys_controller(
 	input wire sd_clock,
 	input wire reset,
 	// Inputs from host
@@ -15,7 +16,7 @@ module cmd_phys controller (
 	input wire transmission_complete,
 	input wire reception_complete,
 	//Outputs to wrapper
-	output wire [47:0]frame
+	output wire [47:0]frame,
 	output reg reset_wrapper,
 	output reg pad_state,
 	output reg pad_enable,
@@ -23,7 +24,7 @@ module cmd_phys controller (
 	output reg enable_stp_wrapper
 	
 	
-	)
+	);
 
 
 
