@@ -19,11 +19,11 @@ serialToParallel #(WIDTH)stp(
 .serial(serial),
 .parallel(parallel)
 );
-wire [(WIDTH-1):0] initialValue;
+wire [(FRAME_SIZE_WIDTH-1):0] initialValue;
 assign initialValue=0;
-wire [(WIDTH-1):0] Value;
-wire [(WIDTH-1):0] countValue;
-UPCOUNTER_POSEDGE # (WIDTH) counter1(
+wire [(FRAME_SIZE_WIDTH-1):0] Value;
+wire [(FRAME_SIZE_WIDTH-1):0] countValue;
+UPCOUNTER_POSEDGE # (FRAME_SIZE_WIDTH) counter1(
 .Clock(Clock),
 .Reset(Reset),
 .Initial(initialValue),
