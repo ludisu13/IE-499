@@ -1,0 +1,9 @@
+
+module dat_phys_controller(
+	input wire sd_clock,
+	input wire_reset,
+	///////////
+	input wire transmission_complete,
+	input wire reception_complete,
+	
+	);

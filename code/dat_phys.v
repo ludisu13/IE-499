@@ -5,7 +5,9 @@ module dat_phys(
 	input wire strobe_in,   // request received
 	input wire ack_in,		//response received
 	input wire TIMEOUT_ENABLE,// FROM REG
-	input wire [3:0] blocks, // amount of blocks to send
+	input wire [3:0] blocks, // amount of blocks 
+	input wire writeread
+	
 	// output to host
 	output wire serial_ready,// acknowledge of package reception from host
 	output wire complete, // states that a response has been received
