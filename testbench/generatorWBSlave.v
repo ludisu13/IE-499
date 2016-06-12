@@ -3,6 +3,7 @@ module generatorWBSlave(
 output wire clock,
 output wire reset,
 output wire [63:0]	host_data_i,
+output wire done_i,
 //inputs from master
 output wire we_i, //write_enable 
 output wire adr_i, // Command (adr_i = 0) or Data (adr_i = 1)
@@ -14,6 +15,7 @@ output wire [63:0] wb_data_i
 clock_gen clk1(clock);
 reset_gen r1(reset);
 host_data_in_gen hDatag(host_data_i);
+done_in_gen dgen(done_i);
 we_in_gen weg(we_i);
 adr_in_gen  adrg(adr_i);
 strobe_in_gen strg(strobe);
@@ -58,6 +60,21 @@ always
 	begin
 		#`NEW_HOST_DATA
 		host_data = host_data +64'b1;
+	end
+endmodule
+
+module done_in_gen (output done);
+reg done;
+initial
+	begin
+		done = 1'b0;
+	end
+always 
+	begin
+		#`DONE_UP
+		done = 1'b1;
+		#`DONE_DOWN
+		done = 1'b0;
 	end
 endmodule
 

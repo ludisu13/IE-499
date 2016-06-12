@@ -1,5 +1,5 @@
 `include "definitionsWBSlave.v"
-`include "../code/wishbone_slave.v"
+`include "../code/wishbone_slave2.v"
 `include "generatorWBSlave.v"
 module TestBench;
 
@@ -10,6 +10,7 @@ module TestBench;
 	
 	//Inputs from Host
 	wire [63:0] host_data_i;
+	wire done_i;
 	
 	//Inputs from Wishbone Master
 	wire we_i;
@@ -35,6 +36,7 @@ module TestBench;
 		.reset(reset),				//Input	
 		.we_i(we_i),				//Input
 		.host_data_i(host_data_i),	//Input
+		.done_i(done_i),
 		.adr_i(adr_i),				//Input
 		.strobe(strobe),			//Input
 		.wb_data_i(wb_data_i),		//Input
@@ -51,6 +53,7 @@ module TestBench;
 		.clock(clock),
 		.reset(reset),
 		.host_data_i(host_data_i),
+		.done_i(done_i),
 		.we_i(we_i),
 		.adr_i(adr_i),
 		.strobe(strobe),
