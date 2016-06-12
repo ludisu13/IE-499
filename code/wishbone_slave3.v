@@ -32,16 +32,15 @@ module wishbone_slave ( // Wishbone Slave
 );
 
 // registers
-parameter SIZE = 4;
-reg [SIZE-1:0] state = 3'd0; // 5 states
+parameter SIZE = 3;
+reg [SIZE-1:0] state = 2'd0; // 4 states
 reg [SIZE-1:0] next_state;
 reg dummy_count;
 
-parameter RESET		= 3'd0; 
-parameter IDLE   		= 3'd1;
-parameter READ			= 3'd2;
-parameter WRITE		= 3'd3;
-parameter WAIT			= 3'd4;
+parameter RESET		= 2'd0; 
+parameter IDLE   		= 2'd1;
+parameter READ			= 2'd2;
+parameter WRITE		= 2'd3;
 
 
 //Next state logic
@@ -70,36 +69,40 @@ always @(*) begin
 			
 		WRITE:
 			begin
-				if(adr_i == 5'd18) // CMD
+				if(!strobe) 
+					next_state = IDLE;
+			
+				else if(adr_i == 5'd18) // CMD
 					begin
-						if(cmd_done_i) 
-							next_state = WAIT;
+						if(cmd_done_i)
+							begin
+								if(we_i)
+									next_state = WRITE;
+								else
+									next_state = READ;
+							end
 						else 
 							next_state = WRITE;
 					end
 				else if(adr_i == 5'd21) // DATA
 					begin
 						if(data_done_i)
-							next_state = WAIT;
-						else
-							next_state = WRITE;
-					end
-				else
-					next_state == WAIT;
-			end
-		
-		WAIT:
-			begin
-				if(!strobe)
-					next_state = IDLE;
-				else
-					begin
-						if(we_i)
-							next_state = WRITE;
+							begin
+								if(we_i)
+									next_state = WRITE;
+								else
+									next_state = READ;
+							end
 						else 
-							next_state = READ;
+							next_state = WRITE;
 					end
+				else
+					if(we_i)
+						next_state = WRITE;
+					else
+						next_state = READ;
 			end
+			
 		default:
 			next_state = RESET;
 	endcase 
