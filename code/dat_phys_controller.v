@@ -1,14 +1,15 @@
 
 module dat_phys_controller(
 	input wire sd_clock,
-	input wire_reset,
+	input wire reset,
 	///inputs from host 
 	input wire strobe_in,   // request received
 	input wire ack_in,		//response received
-	input wire TIMEOUT_REG
+	input wire TIMEOUT_REG,
 	input wire [3:0] blocks, // amount of blocks 
-	input wire writeread,
+	input wire writeRead,
 	input wire multiple,
+	input wire idle_in,
 	///outputs to host
 	output reg serial_ready,// acknowledge of package reception from host
 	output reg complete, // states that a response has been received
@@ -16,10 +17,10 @@ module dat_phys_controller(
 	///////////inputs from wrapper
 	input wire transmission_complete,
 	input wire reception_complete,
-	input wire [31:0] dataRead
+	input wire [31:0] dataRead,
 	//////outputs to wrapper
 	output reg reset_wrapper,
-	output reg load_send
+	output reg load_send,
 	output reg enable_pts_wrapper,
 	output reg enable_stp_wrapper,
 	output reg waiting_response,
@@ -29,7 +30,7 @@ module dat_phys_controller(
 	//outputs TO FIFO
 	output reg write_fifo_enable,
 	output reg read_fifo_enable,
-	output reg [31:0] dataReadTOFIFO;
+	output reg [31:0] dataReadTOFIFO
 	);
 
 parameter SIZE = 4;
@@ -45,11 +46,12 @@ parameter READ_FIFO_WRITE =4'd7;
 parameter READ_WRAPPER_RESET =4'd8;
 parameter WAIT_ACK =4'd8;
 
+wire DATA_TIMEOUT;
 reg dummy_count;
-reg [63:0]timeout_count
+reg [63:0]timeout_count;
 reg [3:0]blockCount;
 reg loaded;
-assign COMMAND_TIMEOUT=(timeout_count==TIMEOUT_REG) ? 1'b1:1'b0;
+assign DATA_TIMEOUT=(timeout_count==TIMEOUT_REG) ? 1'b1:1'b0;
 always @ ( * )
 begin 
  case(state)
@@ -74,7 +76,7 @@ begin
  end  
 LOAD_WRITE:   begin
       if (loaded) begin
-          next_state = SEND_COMMAND;
+          next_state = SEND;
       end     
       else begin
          next_state = LOAD_WRITE;
@@ -88,7 +90,7 @@ LOAD_WRITE:   begin
    end  
 WAIT_RESPONSE:    begin
        if (reception_complete) begin
-		if(!multiple or blockCount==blocks)
+		if(!multiple || blockCount==blocks)
 			begin
 				next_state = WAIT_ACK; 
 			end
@@ -114,7 +116,7 @@ READ:    begin
       end
       end
 READ_FIFO_WRITE:    begin
-		if(!multiple or blockCount==blocks)
+		if(!multiple ||  blockCount==blocks)
 			begin
 				next_state = WAIT_ACK; 
 			end
@@ -262,7 +264,7 @@ always @(* )
 						read_fifo_enable=1'b0;
 						dataReadTOFIFO=32'b0;
 						loaded=1'b0;
-						if(reception_complete_complete)
+						if(reception_complete)
 							blockCount=blockCount+1'b1;
 						else
 							blockCount=blockCount;
