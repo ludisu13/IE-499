@@ -5,6 +5,7 @@ input wire clock,
 input wire reset,
 input wire writeRead,
 input wire newDat,
+input wire blockCount,
 //inputs from physical layer
 input wire serial_ready,
 input wire complete,
@@ -12,13 +13,11 @@ input wire ack_in,
 //inputs from fifoController
 input wire fifo_okay,
 //outputs to host
-output reg busy,
-output reg write_Data,
-output reg read_Data,
 output reg transfer_complete,
 //outputs to physical layer
 output reg strobe_out,
-output reg ack_out
+output reg ack_out,
+output reg blocks
 );
 
 // registers

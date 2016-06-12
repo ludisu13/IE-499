@@ -7,12 +7,13 @@ module cmd_controller(
 	input wire [31:0] cmd_argument,
 	input wire [5:0] cmd_index,	//depending of command index response shouldbe of different size
 	input wire [31:0] command_timeout_REG,
+		input wire TIMEOUT_ENABLE,
 	// Input from physical layer
 	input wire ack_in,
 	input wire strobe_in,
 	input wire [135:0] cmd_in, // 
 	input wire TIMEOUT,
-	input wire TIMEOUT_ENABLE,
+
 	
 	//input wire serial_ready,
 	//need to add a singal for transmission complete will require a new state
