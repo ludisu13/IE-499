@@ -5,7 +5,6 @@ module dat_phys_controller(
 	///inputs from host 
 	input wire strobe_in,   // request received
 	input wire ack_in,		//response received
-	input wire TIMEOUT_ENABLE,// FROM REG
 	input wire TIMEOUT_REG
 	input wire [3:0] blocks, // amount of blocks 
 	input wire writeread,
@@ -17,7 +16,7 @@ module dat_phys_controller(
 	///////////inputs from wrapper
 	input wire transmission_complete,
 	input wire reception_complete,
-	input wire [31:0] dataRad
+	input wire [31:0] dataRead
 	//////outputs to wrapper
 	output reg reset_wrapper,
 	output reg load_send
@@ -43,13 +42,14 @@ parameter SEND  =  4'd3;
 parameter WAIT_RESPONSE  =  4'd4;
 parameter READ = 4'd5;
 parameter READ_FIFO_WRITE =4'd7;
+parameter READ_WRAPPER_RESET =4'd8;
 parameter WAIT_ACK =4'd8;
 
 reg dummy_count;
 reg [63:0]timeout_count
 reg [3:0]blockCount;
 reg loaded;
-
+assign COMMAND_TIMEOUT=(timeout_count==TIMEOUT_REG) ? 1'b1:1'b0;
 always @ ( * )
 begin 
  case(state)
@@ -130,7 +130,7 @@ READ_WRAPPER_RESET:begin
 				
       
 WAIT_ACK:    begin
-       if (ack_out) begin
+       if (ack_in) begin
           next_state = IDLE;
       end     
       else begin
@@ -153,102 +153,172 @@ always @(* )
 		
 				RESET:
 					begin
+						serial_ready=1'b0;
+						complete=1'b0;
 						ack_out=1'b0;
-						strobe_out=1'b0;
-						response=0;
+						reset_wrapper=1'b0;
 						load_send=1'b0;
-						loaded=1'b0;
-						reset_wrapper=1'b1;
-						response_sent=1'b0;
-						pad_state=1'b0;
-						pad_enable=1'b0;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
+						waiting_response=1'b0;
+						pad_state=1'b0;
+						pad_enable=1'b0;
+						write_fifo_enable=1'b0;
+						read_fifo_enable=1'b0;
+						dataReadTOFIFO=32'b0;
+						loaded=1'b0;
+						blockCount=4'b0;
 					end
 				IDLE:	
 					begin
+						serial_ready=1'b1;
+						complete=1'b0;
 						ack_out=1'b0;
-						strobe_out=1'b0;
-						response=0;
-						load_send=1'b0;
-						loaded=1'b0;
 						reset_wrapper=1'b1;
-						response_sent=1'b0;
-						pad_state=1'b0;
-						pad_enable=1'b0;
+						load_send=1'b0;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
+						waiting_response=1'b0;
+						pad_state=1'b0;
+						pad_enable=1'b0;
+						write_fifo_enable=1'b0;
+						read_fifo_enable=1'b0;
+						dataReadTOFIFO=32'b0;
+						loaded=1'b0;
+						blockCount=4'b0;
 					end
-				LOAD_COMMAND:
+				LOAD_WRITE:
 					begin
+						serial_ready=1'b0;
+						complete=1'b0;
 						ack_out=1'b0;
-						strobe_out=1'b0;
-						response=0;
+						reset_wrapper=1'b0;
 						load_send=1'b0;
-						loaded=1'b1;
-						reset_wrapper=1'b0;
-						response_sent=1'b0;
-						pad_state=1'b1;
-						pad_enable=1'b1;
 						enable_pts_wrapper=1'b1;
 						enable_stp_wrapper=1'b0;
+						waiting_response=1'b0;
+						pad_state=1'b1;
+						pad_enable=1'b1;
+						write_fifo_enable=1'b1;
+						read_fifo_enable=1'b0;
+						dataReadTOFIFO=32'b0;
+						loaded=1'b1;
+						blockCount=blockCount;
 					end
-				SEND_COMMAND:
+				SEND:
 					begin
+						serial_ready=1'b0;
+						complete=1'b0;
 						ack_out=1'b0;
-						strobe_out=1'b0;
-						response=0;
-						load_send=1'b1;
-						loaded=1'b1;
 						reset_wrapper=1'b0;
-						response_sent=1'b0;
-						pad_state=1'b1;
-						pad_enable=1'b1;
+						load_send=1'b1;
 						enable_pts_wrapper=1'b1;
 						enable_stp_wrapper=1'b0;
+						waiting_response=1'b0;
+						pad_state=1'b1;
+						pad_enable=1'b1;
+						write_fifo_enable=1'b0;
+						read_fifo_enable=1'b0;
+						dataReadTOFIFO=32'b0;
+						loaded=1'b0;
+						if(transmission_complete)
+							blockCount=blockCount+1'b1;
+						else
+							blockCount=blockCount;
 					end
 				WAIT_RESPONSE:
 					begin
+						serial_ready=1'b0;
+						complete=1'b0;
 						ack_out=1'b0;
-						strobe_out=1'b0;
-						response=0;
-						load_send=1'b0;
-						loaded=1'b1;
 						reset_wrapper=1'b0;
-						response_sent=1'b0;
+						load_send=1'b0;
+						enable_pts_wrapper=1'b0;
+						enable_stp_wrapper=1'b0;
+						waiting_response=1'b1;
 						pad_state=1'b0;
 						pad_enable=1'b1;
-						enable_pts_wrapper=1'b0;
-						enable_stp_wrapper=1'b0;
+						write_fifo_enable=1'b0;
+						read_fifo_enable=1'b0;
+						dataReadTOFIFO=32'b0;
 						if(dummy_count==1'b1)
 							enable_stp_wrapper=1'b1;
-					end
-				SEND_RESPONSE:
-					begin
-						ack_out=1'b0;
-						strobe_out=1'b1;
-						response=pad_response;
-						load_send=1'b0;
 						loaded=1'b0;
+						blockCount=blockCount;
+					end
+				READ:
+					begin
+						serial_ready=1'b0;
+						complete=1'b0;
+						ack_out=1'b0;
 						reset_wrapper=1'b0;
-						response_sent=1'b1;
+						load_send=1'b0;
+						enable_pts_wrapper=1'b0;
+						enable_stp_wrapper=1'b1;
+						waiting_response=1'b0;
 						pad_state=1'b0;
-						pad_enable=1'b0;
+						pad_enable=1'b1;
+						write_fifo_enable=1'b0;
+						read_fifo_enable=1'b0;
+						dataReadTOFIFO=32'b0;
+						loaded=1'b0;
+						if(reception_complete_complete)
+							blockCount=blockCount+1'b1;
+						else
+							blockCount=blockCount;
+					end
+				READ_FIFO_WRITE:
+					begin
+						serial_ready=1'b0;
+						complete=1'b0;
+						ack_out=1'b0;
+						reset_wrapper=1'b0;
+						load_send=1'b0;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
+						waiting_response=1'b0;
+						pad_state=1'b0;
+						pad_enable=1'b0;
+						write_fifo_enable=1'b0;
+						read_fifo_enable=1'b1;
+						dataReadTOFIFO=dataRead;
+						loaded=1'b0;
+						blockCount=blockCount;
+					end
+				READ_WRAPPER_RESET:
+					begin
+						serial_ready=1'b0;
+						complete=1'b0;
+						ack_out=1'b0;
+						reset_wrapper=1'b1;
+						load_send=1'b0;
+						enable_pts_wrapper=1'b0;
+						enable_stp_wrapper=1'b0;
+						waiting_response=1'b0;
+						pad_state=1'b0;
+						pad_enable=1'b0;
+						write_fifo_enable=1'b0;
+						read_fifo_enable=1'b0;
+						dataReadTOFIFO=32'b0;
+						loaded=1'b0;
+						blockCount=blockCount;
 					end
 				WAIT_ACK:
 					begin
-						strobe_out=1'b0;  
-						response=pad_response;//set response
-						load_send=1'b0;
-						loaded=1'b0;
+						blockCount=4'b0;
+						serial_ready=1'b0;
+						complete=1'b1;
+						ack_out=1'b0;
 						reset_wrapper=1'b0;
-						response_sent=1'b0;
-						pad_state=1'b0;
-						pad_enable=1'b0;
+						load_send=1'b0;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
+						waiting_response=1'b0;
+						pad_state=1'b0;
+						pad_enable=1'b0;
+						write_fifo_enable=1'b0;
+						read_fifo_enable=1'b0;
+						dataReadTOFIFO=32'b0;
 						if(ack_in)
 							begin
 							ack_out=1'b1;
@@ -257,6 +327,7 @@ always @(* )
 							begin
 							ack_out=1'b0;
 							end
+						loaded=1'b0;
 					end
 					
 				
@@ -268,3 +339,53 @@ always @(* )
 		
 		endcase
 end	
+
+
+always @ (posedge sd_clock  )
+	begin 
+		if (reset) 
+			begin
+				state <=  RESET;
+			end 
+		else 
+			begin 
+				if(idle_in)
+					begin
+						state<=IDLE;
+					end
+				else 
+					begin
+						state <=  next_state;
+					end
+				end
+		if(state==WAIT_RESPONSE)
+			begin
+				dummy_count<=dummy_count+1'b1;
+				if(dummy_count==1'b1)
+				dummy_count<=dummy_count;
+				if(DATA_TIMEOUT==1'b0)
+				timeout_count<=timeout_count+7'b1;
+				if(DATA_TIMEOUT==1'b1)
+				timeout_count<=timeout_count;
+			end	
+		else
+			begin
+			if(state==READ)
+				begin
+					if(DATA_TIMEOUT==1'b0)
+					timeout_count<=timeout_count+7'b1;
+					if(DATA_TIMEOUT==1'b1)
+					timeout_count<=timeout_count;
+				end
+			else
+				begin
+				timeout_count<=7'b0;
+				dummy_count<=1'b0;
+				end
+			end
+		
+		end
+	
+
+endmodule 
+

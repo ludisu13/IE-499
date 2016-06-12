@@ -20,7 +20,7 @@ module cmd_phys_controller(
 	output reg pad_enable,
 	output reg enable_pts_wrapper,
 	output reg enable_stp_wrapper,
-	output wire COMMAND_TIMEOUT,
+	output reg DATA_TIMEOUT,
 	output reg load_send
 	
 	
@@ -95,7 +95,7 @@ SEND_RESPONSE:    begin
       end
       end
 WAIT_ACK:    begin
-       if (ack_out) begin
+       if (ack_in) begin
           next_state = IDLE;
       end     
       else begin
