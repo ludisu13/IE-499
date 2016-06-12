@@ -25,11 +25,10 @@ cmd_phys physical(
 .sd_clock(sd_clock),
 .reset(reset),
 .strobe_in(strobe_in),
-.ack_in(ack_in),
+.ack_in(1'b0),
 .idle_in(1'b0),
 .cmd_to_send(command),
-.cmd_pin(pin),
-.TIMEOUT_ENABLE(1'b0)
+.cmd_pin(pin)
 );
 
 
@@ -39,13 +38,32 @@ generatorCMDcontroller gencmd(
 .strobe_in(strobe_in),
 .ack_in(ack_in));
 
+reg Enable_card;
+reg load_send_card;
+
+paralleltoserialWrapper # (49,8) sd(
+.Clock(sd_clock),
+.Reset(reset),
+.Enable(Enable_card),
+.framesize(8'd49),
+.load_send(load_send_card),
+.complete(complete_card),
+.serial(pin),.
+parallel({command,9'b10}));
+
 
 	
 	initial begin
-	
+		Enable_card=1'b0;
+		load_send_card=1'b0;
 		$dumpfile("cmd_phys.vcd");
 		$dumpvars;	
-		#7000
+		#4500
+		Enable_card=1'b1;
+		load_send_card=1'b0;
+		#5000
+		load_send_card=1'b1;
+		#10000
 		$display("test finished");
 		$finish;
 	end

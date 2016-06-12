@@ -78,6 +78,8 @@ initial
 		strobe_in=1'b0;
 		#`STROBE_IN_TIME;
 		strobe_in=1'b1;
+		#2000;
+		strobe_in=1'b0;
 	end
 endmodule
 

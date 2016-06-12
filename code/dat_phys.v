@@ -92,7 +92,8 @@ dat_phys_controller dat1(
 .pad_enable(pad_enable),
 .write_fifo_enable(write_enable),
 .read_fifo_enable(read_enable),
-.dataReadTOFIFO(dataToFIFO)
+.dataReadTOFIFO(dataToFIFO),
+.DATA_TIMEOUT(DATA_TIMEOUT)
 );
 	
 	endmodule

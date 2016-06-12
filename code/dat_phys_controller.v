@@ -5,7 +5,7 @@ module dat_phys_controller(
 	///inputs from host 
 	input wire strobe_in,   // request received
 	input wire ack_in,		//response received
-	input wire [63:0]TIMEOUT_REG,
+	input wire [15:0]TIMEOUT_REG,
 	input wire [3:0] blocks, // amount of blocks 
 	input wire writeRead,
 	input wire multiple,
@@ -14,6 +14,7 @@ module dat_phys_controller(
 	output reg serial_ready,// acknowledge of package reception from host
 	output reg complete, // states that a response has been received
 	output reg ack_out,
+	output wire DATA_TIMEOUT,
 	///////////inputs from wrapper
 	input wire transmission_complete,
 	input wire reception_complete,
@@ -46,7 +47,7 @@ parameter READ_FIFO_WRITE =4'd7;
 parameter READ_WRAPPER_RESET =4'd8;
 parameter WAIT_ACK =4'd8;
 
-wire DATA_TIMEOUT;
+
 reg dummy_count;
 reg [63:0]timeout_count;
 reg [3:0]blockCount;
