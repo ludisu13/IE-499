@@ -5,15 +5,19 @@ module PAD(
     input wire  data_in,    // datos a mandar a la tarjeta
     output wire data_out,   // datos recibidos de la tarjeta
     inout  wire io_port,     // el PAD
-    input wire enable
+    input wire enable // al mismo tiempo que se comienza a enviar 
     );
-
+    
     reg dataToCARD;
     reg dataFROMCARD;    
 
     assign io_port  = output_input ?dataToCARD: 1'bz;
     assign data_out = dataFROMCARD;
 	reg control;
+	initial
+		begin
+		control =1'b0;
+		end
     always @ (posedge clock)
     if(enable )	
 		begin
@@ -25,7 +29,7 @@ module PAD(
 			if(control)
 				begin
 					dataToCARD <= data_in;
-					control <=1'b1;
+					control <=control;
 				end
 		end
 	else 

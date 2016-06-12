@@ -5,26 +5,29 @@ module cmd_controller(
 	input wire reset,
 	input wire new_command,
 	input wire [31:0] cmd_argument,
-	input wire [5:0] cmd_index,	
+	input wire [5:0] cmd_index,	//depending of command index response shouldbe of different size
 	input wire [31:0] command_timeout_REG,
 	// Input from physical layer
 	input wire ack_in,
 	input wire strobe_in,
-	input wire [39:0] cmd_in,
-	input wire serial_ready,
+	input wire [135:0] cmd_in, // 
+	input wire TIMEOUT,
+	input wire TIMEOUT_ENABLE,
+	
+	//input wire serial_ready,
 	//need to add a singal for transmission complete will require a new state
 	// Outputs to host
-	output reg [39:0] cmd_out,
 	output reg busy,
 	output reg setup_done,
-	output reg [31:0]response,
+	output reg [127:0]response,
 	output reg command_complete,
 	output reg command_timeout,
 	output reg command_index_error,
 	//Outputs to physical layer
 	output reg strobe_out,
 	output reg ack_out,
-	output reg idle_out
+	output reg idle_out,
+	output reg [39:0] cmd_out//physical layer
 	
 );
 
@@ -37,7 +40,7 @@ parameter RESET= 2'd0;
 parameter IDLE   =  2'd1;
 parameter SETTING_OUTPUTS   =  2'd2;
 parameter PROCESSING  =  2'd3;
-
+wire stop_timeout=TIMEOUT && TIMEOUT_ENABLE;
 
 always @ ( * )
 begin 
@@ -58,7 +61,8 @@ begin
     if (setup_done )             
        next_state = PROCESSING;  
      else   
-       next_state = SETTING_OUTPUTS;
+			next_state = SETTING_OUTPUTS;
+ 
    end  
  PROCESSING:    begin
        if (ack_in || command_timeout) begin
@@ -139,36 +143,48 @@ always @(* )
 						idle_out=1'b0;
 						response=32'b0;
 						setup_done=1'b0;
-						ack_out=1'b0;   
+						ack_out=1'b0;   //long responses 2 9 10 // no response 0 4 15 // no check index 41S 
 							if(strobe_in)
 								begin
-									if(cmd_in[37:32]==cmd_out[37:32])
+									command_complete=1'b1;
+									ack_out=1'b1;
+									if(cmd_index==6'd2 || cmd_index==6'd9 || cmd_index==6'd10 || cmd_index==6'd41)
 										begin
-												response=cmd_in[31:0];
-												ack_out=1'b1;
-												command_complete=1'b1;
+											if(cmd_index==6'd41)
+												begin
+													response[31:0]=cmd_in[39:8]; 
+												end
+											else
+												begin
+													response[119:0]=cmd_in[127:8];
+												end
+				
 										end
-									else
+								   else
 										begin
-												command_index_error=1'b1;
-										end	
-									count=count;
+											if(cmd_index==6'd0 || cmd_index==6'd4 || cmd_index==6'd15 )
+												begin
+												command_index_error=1'b0;
+												end
+											else
+												begin
+													if(cmd_index==cmd_in[45:40])
+														begin
+															response[31:0]=cmd_in[39:8];
+															command_index_error=1'b0;
+														end
+													else
+														begin
+															command_index_error=1'b1;
+														end	
+												end
+										end
 								end
-							else
+							else 
 								begin
-									if(count>command_timeout_REG)
-										begin
-												command_timeout=1'b1;
-										end
-									else
-										begin
-												command_timeout=1'b0;
-										end	
-								
+									ack_out=1'b0;
 								end
-							
-						
-					end
+				end
 		default:
 		
 		
@@ -189,10 +205,14 @@ always @ (posedge clock  )
 			begin
 				state <=  next_state;
 		end
-		if(state==PROCESSING)
+		if(stop_timeout)
 			begin
-				count<=count+32'b1;
+				state<=IDLE;
 			end
-	end
+		else
+			begin
+				state<=next_state;
+			end
+	end	
 
 endmodule 

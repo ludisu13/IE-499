@@ -39,3 +39,20 @@ padconverter:
 	iverilog -o padconverters padconverters_tb.v
 	vvp padconverters
 	gtkwave padconverters.vcd
+stpwrapper:
+	iverilog -o stpwrapper serialtoparallelwrapper_tb.v
+	vvp stpwrapper
+	gtkwave serialtoparallel.vcd
+ptswrapper:
+	iverilog -o ptswrapper parallelToSerialwrapper_Tb.v
+	vvp ptswrapper
+	gtkwave ptswrapper.vcd
+wrapper:
+	iverilog -o wrappers wrappers_Tb.v
+	vvp wrappers
+	gtkwave wrappers.vcd
+cmd_phys:
+	iverilog -o cmd_phys cmd_phys_tb.v
+	vvp cmd_phys
+	gtkwave cmd_phys.vcd
+	

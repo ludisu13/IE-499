@@ -1,5 +1,6 @@
-`include "ffd.v"
-module serialToParallel # (parameter WIDTH=8)
+//`include "ffd.v"
+//`include "counter.v"
+module serialToParallel # (parameter WIDTH=8) 
 (
 	input wire Clock,
 	input wire Reset,
@@ -9,9 +10,10 @@ module serialToParallel # (parameter WIDTH=8)
 	);
 wire [(WIDTH-1):0] serialBus;
 FFD_POSEDGE_SYNCRONOUS_RESET # (WIDTH) ffd (.Clock(Clock),.Reset(Reset),.Enable(Enable),.D(serialBus),.Q(parallel));
-genvar i;
+genvar i; 
+generate
 for (i=0; i < WIDTH; i=i+1) 
-	begin
+	begin:STP
 		if(i==0)
 			begin
 				assign serialBus[i]=serial;
@@ -24,10 +26,17 @@ for (i=0; i < WIDTH; i=i+1)
 				
 				
 			end
+endgenerate
 endmodule
 				
 			
 	
+//add wrapper that counts based on frame size
+//wrapper block should have an input based on expected frame sizes to count cycles required for a valid input or output
+// data frame size based on 
+
+
+
 
 	
 
