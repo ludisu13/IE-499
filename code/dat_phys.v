@@ -5,12 +5,13 @@ module dat_phys(
 	input wire strobe_in,   // request received
 	input wire ack_in,		//response received
 	input wire TIMEOUT_ENABLE,// FROM REG
+	input wire TIMEOUT_REG
 	input wire [3:0] blocks, // amount of blocks 
-	input wire writeread
-	
+	input wire writeread,
+	input wire multiple,
 	// output to host
-	output wire serial_ready,// acknowledge of package reception from host
-	output wire complete, // states that a response has been received
+	output wire serial_ready,
+	output wire complete, 
 	output wire ack_out,
 	//PAD_Pin
 	
@@ -25,25 +26,31 @@ module dat_phys(
 	input wire status,
 	input wire [31:0] dataFROMFIFO
 );
+wire [49:0]frame_to_send;
+assign frame_to_send={1'b0,dataFROMFIFO,17'b1};
+wire [49:0]frame_received;
+assign dataToFIFO=framereceived[48:9];
 
-paralleltoserialWrapper # (48,8) ptsw_dat(
+wire [7:0]framesize_reception=(waiting_response==1'b1)?8'd3:8'd50;
+
+paralleltoserialWrapper # (50,8) ptsw_dat(
 .Clock(sd_clock),
 .Reset(reset_wrapper),
 .Enable(enable_pts_wrapper),
-.framesize(8'd48),
+.framesize(8'd50),
 .load_send(load_send),
 .complete(transmission_complete),
 .serial(serialpad),.
-parallel(frame));
+parallel(frame_to_send));
 
-serialToParallelWrapper # (136,8) stpw_dat(
+serialToParallelWrapper # (50,8) stpw_dat(
 .Clock(sd_clock),
 .Reset(reset_wrapper),
 .framesize(framesize_reception),
 .Enable(enable_stp_wrapper),
 .serial(padserial),
 .complete(reception_complete),.
-parallel(pad_response));
+parallel(frame_received));
 ///pad
 PAD dat_PAD(
 .clock(sd_clock),

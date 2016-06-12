@@ -2,8 +2,27 @@
 module dat_phys_controller(
 	input wire sd_clock,
 	input wire_reset,
-	///////////
+	///inputs from host 
+	input wire strobe_in,   // request received
+	input wire ack_in,		//response received
+	input wire TIMEOUT_ENABLE,// FROM REG
+	input wire TIMEOUT_REG
+	input wire [3:0] blocks, // amount of blocks 
+	input wire writeread,
+	///outputs to host
+	output wire serial_ready,// acknowledge of package reception from host
+	output wire complete, // states that a response has been received
+	output wire ack_out,
+	///////////inputs from wrapper
 	input wire transmission_complete,
 	input wire reception_complete,
+	//////outputs to wrapper
+	output reg reset_wrapper,
+	output reg load_send
+	output reg enable_pts_wrapper,
+	output reg enable_stp_wrapper,
+	//outputs to PAD
+	output reg pad_state,
+	output reg pad_enable,
 	
 	);
