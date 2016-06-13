@@ -49,7 +49,7 @@ parameter WAIT_ACK =4'd8;
 
 
 reg dummy_count;
-reg [63:0]timeout_count;
+reg [15:0]timeout_count;
 reg [3:0]blockCount;
 reg loaded;
 assign DATA_TIMEOUT=(timeout_count==TIMEOUT_REG) ? 1'b1:1'b0;
@@ -266,9 +266,9 @@ always @(* )
 						dataReadTOFIFO=32'b0;
 						loaded=1'b0;
 						if(reception_complete)
-							blockCount=blockCount+1'b1;
+							blockCount<=blockCount+1'b1;
 						else
-							blockCount=blockCount;
+							blockCount<=blockCount;
 					end
 				READ_FIFO_WRITE:
 					begin

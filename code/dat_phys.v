@@ -1,11 +1,11 @@
-`include "paralleltoserialwrapper.v"
-`include "counter.v"
-`include "ffd.v"
-`include "pad.v"
-`include "serialtoparallelwrapper.v"
-`include "serialToParallel.v"
-`include "parallelToSerial.v"
-`include "dat_phys_controller.v"
+//`include "paralleltoserialwrapper.v"
+//`include "counter.v"
+//`include "ffd.v"
+//`include "pad.v"
+//`include "serialtoparallelwrapper.v"
+//`include "serialToParallel.v"
+//`include "parallelToSerial.v"
+//`include "dat_phys_controller.v"
 module dat_phys(
 	input wire sd_clock,
 	input wire reset,
@@ -13,7 +13,7 @@ module dat_phys(
 	input wire strobe_in,   // request received
 	input wire ack_in,	
 	input wire idle_in,	//response received
-	input wire [63:0]TIMEOUT_REG,
+	input wire [15:0]TIMEOUT_REG,
 	input wire [3:0] blocks, // amount of blocks 
 	input wire writeRead,
 	input wire multiple,
