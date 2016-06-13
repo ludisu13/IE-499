@@ -95,7 +95,7 @@ SEND_RESPONSE:    begin
       end
       end
 WAIT_ACK:    begin
-       if (ack_in) begin
+       if (ack_out) begin
           next_state = IDLE;
       end     
       else begin
