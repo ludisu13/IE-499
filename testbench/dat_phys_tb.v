@@ -50,14 +50,15 @@ parallel({50'd3472942482445}));
 	initial begin
 		Enable_card=1'b0;
 		load_send_card=1'b0;
-		$dumpfile("dat_phys_1.vcd");
+		$dumpfile("dat_phys.vcd");
 		$dumpvars;	
-		#4500
+		#1000
 		Enable_card=1'b1;
 		load_send_card=1'b0;
-		#5000
+		#1000
 		load_send_card=1'b1;
-		#2000
+		#4000
+		Enable_card=1'b0;
 		
 		$display("test finished");
 		$finish;
