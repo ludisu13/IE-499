@@ -176,6 +176,7 @@ always @(* )
 													else
 														begin
 															command_index_error=1'b1;
+															response[31:0]=cmd_in[39:8];
 														end	
 												end
 										end
