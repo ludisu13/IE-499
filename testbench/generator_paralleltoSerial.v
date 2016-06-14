@@ -47,7 +47,7 @@ module load_send_gen(output load_send);
 reg load_send;
 initial
 	begin
-		load_send=1'bx;
+		load_send=1'b0;
 		#`LOAD_TIME;
 		load_send=1'b0;
 		#`SEND_TIME;

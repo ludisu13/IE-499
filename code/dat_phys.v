@@ -23,7 +23,7 @@ module dat_phys(
 	output wire ack_out,
 	//PAD_Pin
 	
-	inout  wire cmd_pin,
+	inout  wire dat_pin,
 	//OUTPUT TO HOST AND REGISTERS;
 	output wire DATA_TIMEOUT,
 	//OUTPUT TO FIFO
@@ -65,7 +65,7 @@ PAD dat_PAD(
 .data_in(serialpad),
 .enable(pad_enable),
 .data_out(padserial),
-.io_port(cmd_pin)
+.io_port(dat_pin)
 );
 dat_phys_controller dat1(
 .sd_clock(sd_clock),

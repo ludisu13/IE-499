@@ -1,0 +1,101 @@
+$date
+	Mon Jun 13 13:06:22 2016
+$end
+$version
+	GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+$end
+$timescale
+	1ps
+$end
+$scope module TestBench $end
+$var wire 1 " pin $end
+$scope module physical $end
+$var wire 1 $ strobe_out $end
+$scope module cpc $end
+$var wire 4 % state[3:0] $end
+$upscope $end
+$upscope $end
+$scope module host_cmd $end
+$var wire 1 # command_complete $end
+$var wire 2 & state[1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$dumpvars
+#0
+bx %
+x#
+x"
+x$
+bx &
+#20000
+b0 &
+z"
+b0 %
+0#
+0$
+#60000
+b1 %
+b1 &
+#100000
+b0 %
+#380000
+b1 %
+#1020000
+b10 &
+#1060000
+b11 &
+b10 %
+#1100000
+b11 %
+#1140000
+0"
+#1180000
+1"
+#1220000
+0"
+#1340000
+1"
+#1460000
+0"
+#3020000
+1"
+#3060000
+z"
+b100 %
+#9500000
+0"
+#9700000
+1"
+#9820000
+0"
+#10700000
+1"
+#10780000
+0"
+#10900000
+1"
+#10940000
+0"
+#10980000
+1"
+#11020000
+0"
+#11060000
+1"
+#11100000
+0"
+#11420000
+z"
+#11500000
+b101 %
+1$
+1#
+#11540000
+b110 %
+#11580000
+b1 %
+0#
+b1 &
+0$
+#21500000

@@ -43,22 +43,22 @@ paralleltoserialWrapper # (50,8) sd(
 .framesize(8'd51),
 .load_send(load_send_card),
 .complete(complete_card),
-.serial(pad),.
-parallel({50'd3472942482445}));
+.serial(pad_pin),.
+parallel({50'd24}));
 
 
 	initial begin
-		Enable_card=1'b0;
-		load_send_card=1'b0;
+		//Enable_card=1'b0;
+		//load_send_card=1'b0;
 		$dumpfile("dat_phys.vcd");
 		$dumpvars;	
-		#1000
-		Enable_card=1'b1;
-		load_send_card=1'b0;
-		#1000
-		load_send_card=1'b1;
-		#4000
-		Enable_card=1'b0;
+		#2000;
+		//Enable_card=1'b1;
+		//load_send_card=1'b0;
+		#400;
+		//load_send_card=1'b1;
+		#4000;
+		//Enable_card=1'b0;
 		
 		$display("test finished");
 		$finish;
