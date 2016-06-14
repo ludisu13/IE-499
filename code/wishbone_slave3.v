@@ -6,14 +6,14 @@ module wishbone_slave ( // Wishbone Slave
 	
 	
 	//Inputs from Host
-	input wire [63:0]	host_data_i,
+	input wire [127:0]	host_data_i,
 	input wire 		cmd_done_i,
 	input wire 		data_done_i,
 	
 	//Outputs to Host
 	output reg 		new_data,
 	output reg 		new_command,
-	output reg	[63:0]	host_data_o,
+	output reg	[127:0]	host_data_o,
 	output reg			fifo_read_en,
 	output reg			fifo_write_en,
 	output reg			reg_read_en,
@@ -23,11 +23,12 @@ module wishbone_slave ( // Wishbone Slave
 	input wire 		we_i, //write_enable 
 	input wire [4:0]	adr_i, // Command (adr_i = 0) or Data (adr_i = 1)
 	input wire 		strobe, // Strobe
-	input wire [63:0] 	wb_data_i,
+	input wire [127:0] wb_data_i,
 	
 	//Outputs to Wishbone Master
-	output reg [63:0]	wb_data_o,
-	output reg 		ack_o
+	output reg [127:0]	wb_data_o,
+	output reg 		ack_o,
+	output reg			error_o
 	
 );
 
@@ -44,7 +45,7 @@ parameter WRITE		= 2'd3;
 
 
 //Next state logic
-always @(*) begin
+always @(posedge clock) begin
 	case(state) 
 
 		RESET:
@@ -64,7 +65,12 @@ always @(*) begin
 		
 		READ:
 			begin
-				next_state = WAIT;
+				if(!strobe)
+					next_state = IDLE;
+				else if(!we_i)
+					next_state = READ;
+				else
+					next_state = WRITE;
 			end
 			
 		WRITE:
@@ -72,7 +78,7 @@ always @(*) begin
 				if(!strobe) 
 					next_state = IDLE;
 			
-				else if(adr_i == 5'd18) // CMD
+				else if(adr_i == 5'd16) // CMD
 					begin
 						if(cmd_done_i)
 							begin
@@ -84,7 +90,7 @@ always @(*) begin
 						else 
 							next_state = WRITE;
 					end
-				else if(adr_i == 5'd21) // DATA
+				else if(adr_i == 5'd19) // DATA
 					begin
 						if(data_done_i)
 							begin
@@ -110,7 +116,7 @@ end
 
 
 //Outputs logic
-always @(*) begin
+always @(posedge clock) begin
 	case(state)
 	
 		RESET:
@@ -118,25 +124,27 @@ always @(*) begin
 				ack_o 		  <= 1'b0;
 				new_command   <= 1'b0;
 				new_data	  <= 1'b0;
-				host_data_o   <= 64'b0;
-				wb_data_o	  <= 64'b0;
+				host_data_o   <= 128'b0;
+				wb_data_o	  <= 128'b0;
 				fifo_read_en  <= 1'b0;
 				fifo_write_en <= 1'b0;
 				reg_read_en   <= 1'b0;
 				reg_write_en  <= 1'b0;
+				error_o		  <= 1'b0;
 			end
 		
 		IDLE:
 			begin
-				ack_o 		<= 1'b0;
-				new_command <= 1'b0;
-				new_data	<= 1'b0;
-				host_data_o <= 64'b0;
-				wb_data_o	<= 64'b0;
+				ack_o 		  <= 1'b0;
+				new_command   <= 1'b0;
+				new_data	  <= 1'b0;
+				host_data_o   <= 128'b0;
+				wb_data_o	  <= 128'b0;
 				fifo_read_en  <= 1'b0;
 				fifo_write_en <= 1'b0;
 				reg_read_en   <= 1'b0;
 				reg_write_en  <= 1'b0;
+				error_o		  <= 1'b0;
 			end
 		
 		READ:
@@ -144,104 +152,119 @@ always @(*) begin
 				ack_o 		<= 1'b1;
 				new_command <= 1'b0;
 				new_data	<= 1'b0;
-				host_data_o <= 64'b0;
-				if(adr_i == 5'd20)
+				host_data_o <= 128'b0;
+				error_o		<= 1'b0;
+				if(adr_i == 5'd18)
 					begin
 						fifo_read_en  <= 1'b1;
 						fifo_write_en <= 1'b0;
 						reg_read_en   <= 1'b0;
 						reg_write_en  <= 1'b0;
 					end
-				else 
+				else if(adr_i >=0 && adr_i<=15)
 					begin
 						fifo_read_en  <= 1'b0;
 						fifo_write_en <= 1'b0;
 						reg_read_en   <= 1'b1;
 						reg_write_en  <= 1'b0;
 					end	
+				else
+					begin
+						fifo_read_en  <= 1'b0;
+						fifo_write_en <= 1'b0;
+						reg_read_en   <= 1'b0;
+						reg_write_en  <= 1'b0;
+						error_o		  <= 1'b1;
+					end
 				wb_data_o	<= host_data_i;
 			end				
 		
 		WRITE:
 			begin	
-				if(adr_i == 5'd18) // CMD
+				if(adr_i == 5'd16) // CMD
 					begin
-						ack_o 		<= 1'b0;
+						ack_o 		<= 1'b1;
 						if(dummy_count == 1'b1)
-							ack_o 		<= 1'b1;
+							ack_o 		<= 1'b0;
 						new_command <= 1'b1;
 						new_data	<= 1'b0;
 						host_data_o <= wb_data_i;
-						wb_data_o	<= 64'b0;
+						wb_data_o	<= 128'b0;
 						fifo_read_en  <= 1'b0;
 						fifo_write_en <= 1'b0;
 						reg_read_en   <= 1'b0;
 						reg_write_en  <= 1'b0;
+						error_o		  <= 1'b0;
 					end
-				else if (adr_i == 5'd19) //FIFO
+				else if (adr_i == 5'd17) //FIFO WRITE
 					begin
 						ack_o 		<= 1'b1;
 						new_command <= 1'b0;
 						new_data	<= 1'b0;
 						host_data_o <= wb_data_i;
-						wb_data_o	<= 64'b0;
+						wb_data_o	<= 128'b0;
 						fifo_read_en  <= 1'b0;
 						fifo_write_en <= 1'b1;
 						reg_read_en   <= 1'b0;
 						reg_write_en  <= 1'b0;
+						error_o		  <= 1'b0;
 					end
-				else if (adr_i == 5'd21) //DATA EXECUTE
+				else if (adr_i == 5'd19) //DATA EXECUTE
 					begin
-						ack_o 		<= 1'b0;
+						ack_o 		<= 1'b1;
 						if(dummy_count == 1'b1)
-							ack_o 		<= 1'b1;
+							ack_o 		<= 1'b0;
 						new_command <= 1'b0;
 						new_data	<= 1'b1;
-						host_data_o <= 64'b0;
-						wb_data_o	<= 64'b0;
+						host_data_o <= 128'b0;
+						wb_data_o	<= 128'b0;
 						fifo_read_en  <= 1'b0;
 						fifo_write_en <= 1'b0;
 						reg_read_en   <= 1'b0;
 						reg_write_en  <= 1'b0;
+						error_o		  <= 1'b0;
 					end
-				else // REG
+				else if(adr_i >= 5'd0 && adr_i <=5'd15)// REG
 					begin
 						ack_o 		<= 1'b1;
 						new_command <= 1'b0;
 						new_data	<= 1'b0;
 						host_data_o <= wb_data_i;
-						wb_data_o	<= 64'b0;
+						wb_data_o	<= 128'b0;
 						fifo_read_en  <= 1'b0;
 						fifo_write_en <= 1'b0;
 						reg_read_en   <= 1'b0;
 						reg_write_en  <= 1'b1;
+						error_o		  <= 1'b0;
+					end
+				else 
+					begin
+						ack_o 		<= 1'b1;
+						new_command <= 1'b0;
+						new_data	<= 1'b0;
+						host_data_o <= 128'b0;
+						wb_data_o	<= 128'b0;
+						fifo_read_en  <= 1'b0;
+						fifo_write_en <= 1'b0;
+						reg_read_en   <= 1'b0;
+						reg_write_en  <= 1'b0;
+						error_o		  <= 1'b1;
 					end
 			end
 			
-		WAIT:
-			begin
-				ack_o 		<= 1'b1;
-				new_command <= 1'b0;
-				new_data	<= 1'b0;
-				host_data_o <= 64'b0;
-				wb_data_o	<= 64'b0;
-				fifo_read_en  <= 1'b0;
-				fifo_write_en <= 1'b0;
-				reg_read_en   <= 1'b0;
-				reg_write_en  <= 1'b0;
-			end
 		
 		default:
 			begin
-				ack_o 		<= 1'b0;
-				new_command <= 1'b0;
-				new_data	<= 1'b0;	
-				host_data_o <= 64'b0;
-				wb_data_o 	<= 64'b0;
+				ack_o 		  <= 1'b0;
+				new_command   <= 1'b0;
+				new_data	  <= 1'b0;	
+				host_data_o   <= 64'b0;
+				wb_data_o 	  <= 64'b0;
 				fifo_read_en  <= 1'b0;
 				fifo_write_en <= 1'b0;
 				reg_read_en   <= 1'b0;
 				reg_write_en  <= 1'b0;
+				error_o		  <= 1'b0;
 			end
 	endcase
 end
@@ -259,6 +282,8 @@ always @ (posedge clock  ) begin
 			dummy_count<=dummy_count+1'b1;
 			if(dummy_count==1'b1)
 				dummy_count<=dummy_count;
+			if(new_data)
+				dummy_count = 1'b0;
 		end
 	else 
 		dummy_count<=1'b0;

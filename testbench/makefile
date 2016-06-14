@@ -28,9 +28,9 @@ cmdc:
 	gtkwave signalsCMDController.vcd 
 	
 wbslave:
-	iverilog -o testbench_wishbone_slave wishbone_slave_tb.v
-	vvp testbench_wishbone_slave
-	gtkwave signalsWishboneSlave.vcd 
+	iverilog -o testbench_wishbone_slave5 wishbone_slave5_tb.v
+	vvp testbench_wishbone_slave5
+	gtkwave signalsWishboneSlave5.vcd 
 pts: 
 	iverilog -o testbench_parallelToSerial parallelToSerial_Tb.v
 	vvp testbench_parallelToSerial
