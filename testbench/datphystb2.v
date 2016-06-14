@@ -9,6 +9,7 @@
 `include "../code/paralleltoserialwrapper.v"
 `include "../code/dat_phys_controller.v"
 `include "../code/dat_phys.v"
+`include "../code/paralleltoserialwrapper_Sd.v"
 
 
 module TestBench;
@@ -35,20 +36,22 @@ generatorCMDcontroller gencmd(
 reg Enable_card;
 reg load_send_card;
 
-paralleltoserialWrapper # (51,8) sd(
+paralleltoserialWrappersd # (50,8) sd(
 .Clock(sd_clock),
 .Reset(reset),
 .Enable(Enable_card),
-.framesize(8'd50),
+.framesize(8'd51),
 .load_send(load_send_card),
 .complete(complete_card),
 .serial(pad),.
 parallel(to_send));
 
-wire [50:0] to_send;
-assign to_send=51'd7924;
+
+
+wire [49:0] to_send;
+assign to_send=50'd7924;
 	initial begin
-		Enable_card=1'b1;
+		Enable_card=1'b0;
 		load_send_card=1'b0;
 		$dumpfile("dat_phys_2.vcd");
 		$dumpvars;	
@@ -57,8 +60,7 @@ assign to_send=51'd7924;
 		load_send_card=1'b0;
 		#5000
 		load_send_card=1'b1;
-		#2000
-		#10000
+		#19000
 		$display("test finished");
 		$finish;
 	end
