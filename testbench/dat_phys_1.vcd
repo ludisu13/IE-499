@@ -1,0 +1,2415 @@
+$date
+	Sun Jun 12 22:20:02 2016
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module TestBench $end
+$var wire 1 ! complete_card $end
+$var wire 1 " pad $end
+$var wire 1 # reset $end
+$var wire 1 $ sd_clock $end
+$var wire 1 % strobe_in $end
+$var reg 1 & Enable_card $end
+$var reg 1 ' load_send_card $end
+$scope module dat $end
+$var wire 1 ( DATA_TIMEOUT $end
+$var wire 16 ) TIMEOUT_REG [15:0] $end
+$var wire 1 * ack_in $end
+$var wire 1 + ack_out $end
+$var wire 4 , blocks [3:0] $end
+$var wire 1 " cmd_pin $end
+$var wire 1 - complete $end
+$var wire 32 . dataFROMFIFO [31:0] $end
+$var wire 32 / dataToFIFO [31:0] $end
+$var wire 1 0 enable_pts_wrapper $end
+$var wire 1 1 enable_stp_wrapper $end
+$var wire 50 2 frame_received [49:0] $end
+$var wire 50 3 frame_to_send [49:0] $end
+$var wire 8 4 framesize_reception [7:0] $end
+$var wire 1 5 idle_in $end
+$var wire 1 6 load_send $end
+$var wire 1 7 multiple $end
+$var wire 1 8 pad_enable $end
+$var wire 1 9 pad_state $end
+$var wire 1 : padserial $end
+$var wire 1 ; read_enable $end
+$var wire 1 < reception_complete $end
+$var wire 1 # reset $end
+$var wire 1 = reset_wrapper $end
+$var wire 1 $ sd_clock $end
+$var wire 1 > serial_ready $end
+$var wire 1 ? serialpad $end
+$var wire 1 @ status $end
+$var wire 1 % strobe_in $end
+$var wire 1 A transmission_complete $end
+$var wire 1 B waiting_response $end
+$var wire 1 C writeRead $end
+$var wire 1 D write_enable $end
+$scope module ptsw_dat $end
+$var wire 1 $ Clock $end
+$var wire 1 0 Enable $end
+$var wire 1 = Reset $end
+$var wire 1 A complete $end
+$var wire 8 E countValue [7:0] $end
+$var wire 8 F framesize [7:0] $end
+$var wire 1 G go $end
+$var wire 8 H initialValue [7:0] $end
+$var wire 1 6 load_send $end
+$var wire 50 I parallel [49:0] $end
+$var wire 1 ? serial $end
+$var wire 1 J serialTemp $end
+$scope module pts $end
+$var wire 1 $ Clock $end
+$var wire 1 K Enable $end
+$var wire 1 = Reset $end
+$var wire 50 L ffdinputBus [49:0] $end
+$var wire 50 M ffdqBus [49:0] $end
+$var wire 1 6 load_send $end
+$var wire 50 N parallel [49:0] $end
+$var wire 1 J serial $end
+$scope module ffd $end
+$var wire 1 $ Clock $end
+$var wire 50 O D [49:0] $end
+$var wire 1 K Enable $end
+$var wire 1 = Reset $end
+$var reg 50 P Q [49:0] $end
+$upscope $end
+$scope begin PTS[0] $end
+$scope begin genblk2 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[1] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[2] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[3] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[4] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[5] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[6] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[7] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[8] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[9] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[10] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[11] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[12] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[13] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[14] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[15] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[16] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[17] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[18] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[19] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[20] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[21] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[22] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[23] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[24] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[25] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[26] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[27] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[28] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[29] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[30] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[31] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[32] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[33] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[34] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[35] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[36] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[37] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[38] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[39] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[40] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[41] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[42] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[43] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[44] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[45] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[46] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[47] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[48] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[49] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module counter1 $end
+$var wire 1 $ Clock $end
+$var wire 1 Q Enable $end
+$var wire 8 R Initial [7:0] $end
+$var wire 1 = Reset $end
+$var reg 8 S Q [7:0] $end
+$upscope $end
+$upscope $end
+$scope module stpw_dat $end
+$var wire 1 $ Clock $end
+$var wire 1 1 Enable $end
+$var wire 1 = Reset $end
+$var wire 1 < complete $end
+$var wire 8 T countValue [7:0] $end
+$var wire 8 U framesize [7:0] $end
+$var wire 1 V go $end
+$var wire 8 W initialValue [7:0] $end
+$var wire 50 X parallel [49:0] $end
+$var wire 1 : serial $end
+$var wire 1 Y validData $end
+$scope module stp $end
+$var wire 1 $ Clock $end
+$var wire 1 Z Enable $end
+$var wire 1 = Reset $end
+$var wire 50 [ parallel [49:0] $end
+$var wire 1 : serial $end
+$var wire 50 \ serialBus [49:0] $end
+$scope module ffd $end
+$var wire 1 $ Clock $end
+$var wire 50 ] D [49:0] $end
+$var wire 1 Z Enable $end
+$var wire 1 = Reset $end
+$var reg 50 ^ Q [49:0] $end
+$upscope $end
+$scope begin STP[0] $end
+$scope begin genblk2 $end
+$upscope $end
+$upscope $end
+$scope begin STP[1] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[2] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[3] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[4] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[5] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[6] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[7] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[8] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[9] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[10] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[11] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[12] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[13] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[14] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[15] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[16] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[17] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[18] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[19] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[20] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[21] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[22] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[23] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[24] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[25] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[26] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[27] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[28] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[29] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[30] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[31] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[32] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[33] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[34] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[35] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[36] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[37] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[38] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[39] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[40] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[41] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[42] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[43] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[44] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[45] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[46] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[47] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[48] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[49] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module counter1 $end
+$var wire 1 $ Clock $end
+$var wire 1 _ Enable $end
+$var wire 8 ` Initial [7:0] $end
+$var wire 1 = Reset $end
+$var reg 8 a Q [7:0] $end
+$upscope $end
+$upscope $end
+$scope module dat_PAD $end
+$var wire 1 $ clock $end
+$var wire 1 ? data_in $end
+$var wire 1 : data_out $end
+$var wire 1 8 enable $end
+$var wire 1 " io_port $end
+$var wire 1 9 output_input $end
+$var reg 1 b control $end
+$var reg 1 c dataFROMCARD $end
+$var reg 1 d dataToCARD $end
+$upscope $end
+$scope module dat1 $end
+$var wire 1 ( DATA_TIMEOUT $end
+$var wire 16 e TIMEOUT_REG [15:0] $end
+$var wire 1 * ack_in $end
+$var wire 4 f blocks [3:0] $end
+$var wire 32 g dataRead [31:0] $end
+$var wire 1 5 idle_in $end
+$var wire 1 7 multiple $end
+$var wire 1 < reception_complete $end
+$var wire 1 # reset $end
+$var wire 1 $ sd_clock $end
+$var wire 1 % strobe_in $end
+$var wire 1 A transmission_complete $end
+$var wire 1 C writeRead $end
+$var reg 1 h ack_out $end
+$var reg 4 i blockCount [3:0] $end
+$var reg 1 j complete $end
+$var reg 32 k dataReadTOFIFO [31:0] $end
+$var reg 1 l dummy_count $end
+$var reg 1 m enable_pts_wrapper $end
+$var reg 1 n enable_stp_wrapper $end
+$var reg 1 o load_send $end
+$var reg 1 p loaded $end
+$var reg 4 q next_state [3:0] $end
+$var reg 1 r pad_enable $end
+$var reg 1 s pad_state $end
+$var reg 1 t read_fifo_enable $end
+$var reg 1 u reset_wrapper $end
+$var reg 1 v serial_ready $end
+$var reg 4 w state [3:0] $end
+$var reg 16 x timeout_count [15:0] $end
+$var reg 1 y waiting_response $end
+$var reg 1 z write_fifo_enable $end
+$upscope $end
+$upscope $end
+$scope module gencmd $end
+$var wire 1 { ack_in $end
+$var wire 1 $ clock $end
+$var wire 1 | newCMD $end
+$var wire 1 # reset $end
+$var wire 1 } serial_ready $end
+$var wire 1 % strobe_in $end
+$scope module clk1 $end
+$var reg 1 ~ clock $end
+$upscope $end
+$scope module r1 $end
+$var reg 1 !" reset $end
+$upscope $end
+$scope module nDG $end
+$var reg 1 "" newCMD $end
+$upscope $end
+$scope module sRg $end
+$var reg 1 #" serialReady $end
+$upscope $end
+$scope module cg $end
+$var reg 1 $" strobe_in $end
+$upscope $end
+$scope module aig $end
+$var reg 1 %" ack_in $end
+$upscope $end
+$upscope $end
+$scope module sd $end
+$var wire 1 $ Clock $end
+$var wire 1 &" Enable $end
+$var wire 1 # Reset $end
+$var wire 1 ! complete $end
+$var wire 8 '" countValue [7:0] $end
+$var wire 8 (" framesize [7:0] $end
+$var wire 1 )" go $end
+$var wire 8 *" initialValue [7:0] $end
+$var wire 1 +" load_send $end
+$var wire 50 ," parallel [49:0] $end
+$var wire 1 " serial $end
+$var wire 1 -" serialTemp $end
+$scope module pts $end
+$var wire 1 $ Clock $end
+$var wire 1 ." Enable $end
+$var wire 1 # Reset $end
+$var wire 50 /" ffdinputBus [49:0] $end
+$var wire 50 0" ffdqBus [49:0] $end
+$var wire 1 +" load_send $end
+$var wire 50 1" parallel [49:0] $end
+$var wire 1 -" serial $end
+$scope module ffd $end
+$var wire 1 $ Clock $end
+$var wire 50 2" D [49:0] $end
+$var wire 1 ." Enable $end
+$var wire 1 # Reset $end
+$var reg 50 3" Q [49:0] $end
+$upscope $end
+$scope begin PTS[0] $end
+$scope begin genblk2 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[1] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[2] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[3] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[4] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[5] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[6] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[7] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[8] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[9] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[10] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[11] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[12] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[13] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[14] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[15] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[16] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[17] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[18] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[19] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[20] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[21] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[22] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[23] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[24] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[25] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[26] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[27] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[28] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[29] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[30] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[31] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[32] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[33] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[34] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[35] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[36] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[37] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[38] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[39] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[40] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[41] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[42] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[43] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[44] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[45] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[46] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[47] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[48] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[49] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module counter1 $end
+$var wire 1 $ Clock $end
+$var wire 1 4" Enable $end
+$var wire 8 5" Initial [7:0] $end
+$var wire 1 # Reset $end
+$var reg 8 6" Q [7:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx 6"
+b0 5"
+04"
+bx 3"
+b110010100010011011100000001100010000001101 2"
+b110010100010011011100000001100010000001101 1"
+bx 0"
+b110010100010011011100000001100010000001101 /"
+0."
+x-"
+b110010100010011011100000001100010000001101 ,"
+0+"
+b0 *"
+x)"
+b110011 ("
+bx '"
+0&"
+0%"
+0$"
+0#"
+0""
+0!"
+0~
+0}
+0|
+0{
+xz
+xy
+bx x
+bx w
+xv
+xu
+xt
+xs
+xr
+b0 q
+xp
+xo
+xn
+xm
+xl
+bx k
+xj
+bx i
+xh
+bx g
+b100 f
+b1100100 e
+xd
+xc
+0b
+bx a
+b0 `
+x_
+bx ^
+bx ]
+bx \
+bx [
+xZ
+1Y
+bx X
+b0 W
+xV
+b0xx001x U
+bx T
+bx S
+b0 R
+xQ
+bx P
+bx O
+b1 N
+bx M
+bx L
+xK
+xJ
+b1 I
+b0 H
+xG
+b110010 F
+bx E
+xD
+0C
+xB
+xA
+z@
+x?
+x>
+x=
+x<
+x;
+x:
+x9
+x8
+17
+x6
+05
+b0xx001x 4
+b1 3
+bx 2
+x1
+x0
+bx /
+b0 .
+x-
+b100 ,
+x+
+0*
+b1100100 )
+x(
+0'
+0&
+0%
+0$
+0#
+x"
+x!
+$end
+#20000
+z?
+b110010 4
+b110010 U
+b1 L
+b1 O
+0_
+0Z
+0K
+0Q
+z"
+0Y
+0(
+b0 i
+0p
+b0 k
+b0 /
+0t
+0;
+0z
+0D
+0r
+08
+0s
+09
+0y
+0B
+0n
+01
+0m
+00
+0o
+06
+0u
+0=
+0h
+0+
+0j
+0-
+0v
+0>
+b1 q
+zd
+zc
+bxz \
+bxz ]
+z:
+0l
+b0 x
+b0 w
+1~
+1$
+#40000
+0~
+0$
+#60000
+1u
+1=
+1v
+1>
+b1 w
+1~
+1$
+#80000
+0~
+0$
+#100000
+0J
+b0z \
+b0z ]
+b0 g
+0u
+0=
+0v
+0>
+0-"
+b0 P
+b0 M
+b0 ^
+b0 2
+b0 X
+b0 [
+b0 w
+b0 3"
+b0 0"
+0A
+1G
+0<
+1V
+0!
+1)"
+b0 S
+b0 E
+b0 a
+b0 T
+b0 6"
+b0 '"
+1~
+1$
+1!"
+1#
+#120000
+0~
+0$
+#140000
+1~
+1$
+#160000
+0~
+0$
+#180000
+1~
+1$
+#200000
+0~
+0$
+#220000
+1~
+1$
+#240000
+0~
+0$
+#260000
+1~
+1$
+#280000
+0~
+0$
+#300000
+1~
+1$
+#320000
+0~
+0$
+#340000
+1~
+1$
+#350000
+0!"
+0#
+#360000
+0~
+0$
+#380000
+1u
+1=
+1v
+1>
+b1 w
+1~
+1$
+#400000
+0~
+0$
+#420000
+1~
+1$
+#440000
+0~
+0$
+#460000
+1~
+1$
+#480000
+0~
+0$
+#500000
+1~
+1$
+#520000
+0~
+0$
+#540000
+1~
+1$
+#560000
+0~
+0$
+#580000
+1~
+1$
+#600000
+0~
+0$
+#620000
+1~
+1$
+#640000
+0~
+0$
+#660000
+1~
+1$
+#680000
+0~
+0$
+#700000
+1~
+1$
+#720000
+0~
+0$
+#740000
+1~
+1$
+#760000
+0~
+0$
+#780000
+1~
+1$
+#800000
+0~
+0$
+#820000
+1~
+1$
+#840000
+0~
+0$
+#860000
+1~
+1$
+#880000
+0~
+0$
+#900000
+1~
+1$
+#920000
+0~
+0$
+#940000
+1~
+1$
+#960000
+0~
+0$
+#980000
+1~
+1$
+#1000000
+1."
+0~
+0$
+1&
+1&"
+1""
+1|
+#1020000
+b110010100010011011100000001100010000001101 3"
+b110010100010011011100000001100010000001101 0"
+1~
+1$
+#1040000
+0~
+0$
+#1060000
+1~
+1$
+#1080000
+0~
+0$
+#1100000
+1~
+1$
+#1120000
+0~
+0$
+#1140000
+1~
+1$
+#1160000
+0~
+0$
+#1180000
+1~
+1$
+#1200000
+0~
+0$
+#1220000
+1~
+1$
+#1240000
+0~
+0$
+#1260000
+1~
+1$
+#1280000
+0~
+0$
+#1300000
+1~
+1$
+1#"
+1}
+#1320000
+0~
+0$
+#1340000
+1~
+1$
+#1360000
+0~
+0$
+#1380000
+1~
+1$
+#1400000
+0~
+0$
+#1420000
+1~
+1$
+#1440000
+0~
+0$
+#1460000
+1~
+1$
+#1480000
+0~
+0$
+#1500000
+1~
+1$
+#1520000
+0~
+0$
+#1540000
+1~
+1$
+#1560000
+0~
+0$
+#1580000
+1~
+1$
+#1600000
+0~
+0$
+#1620000
+1~
+1$
+#1640000
+0~
+0$
+#1660000
+1~
+1$
+#1680000
+0~
+0$
+#1700000
+1~
+1$
+#1720000
+0~
+0$
+#1740000
+1~
+1$
+#1760000
+0~
+0$
+#1780000
+1~
+1$
+#1800000
+0~
+0$
+#1820000
+1~
+1$
+#1840000
+0~
+0$
+#1860000
+1~
+1$
+#1880000
+0~
+0$
+#1900000
+1~
+1$
+#1920000
+0~
+0$
+#1940000
+1~
+1$
+#1960000
+0~
+0$
+#1980000
+1~
+1$
+#2000000
+0"
+b1100101000100110111000000011000100000011011 /"
+b1100101000100110111000000011000100000011011 2"
+14"
+b101 q
+0~
+0$
+1'
+1+"
+0""
+0|
+1$"
+1%
+#2020000
+b11001010001001101110000000110001000000110111 /"
+b11001010001001101110000000110001000000110111 2"
+1r
+18
+1n
+11
+0u
+0=
+0v
+0>
+b101 w
+b1100101000100110111000000011000100000011011 3"
+b1100101000100110111000000011000100000011011 0"
+b1 6"
+b1 '"
+1~
+1$
+#2040000
+0~
+0$
+#2060000
+b110010100010011011100000001100010000001101111 /"
+b110010100010011011100000001100010000001101111 2"
+1_
+1Z
+1Y
+b11001010001001101110000000110001000000110111 3"
+b11001010001001101110000000110001000000110111 0"
+b1 x
+1b
+0c
+b0 \
+b0 ]
+0:
+b10 6"
+b10 '"
+1~
+1$
+#2080000
+0~
+0$
+#2100000
+b1100101000100110111000000011000100000011011111 /"
+b1100101000100110111000000011000100000011011111 2"
+b10 x
+b110010100010011011100000001100010000001101111 3"
+b110010100010011011100000001100010000001101111 0"
+b1 a
+b1 T
+b11 6"
+b11 '"
+1~
+1$
+#2120000
+0~
+0$
+#2140000
+b11001010001001101110000000110001000000110111111 /"
+b11001010001001101110000000110001000000110111111 2"
+b1100101000100110111000000011000100000011011111 3"
+b1100101000100110111000000011000100000011011111 0"
+b11 x
+b100 6"
+b100 '"
+b10 a
+b10 T
+1~
+1$
+#2160000
+0~
+0$
+#2180000
+b110010100010011011100000001100010000001101111111 /"
+b110010100010011011100000001100010000001101111111 2"
+b100 x
+b11001010001001101110000000110001000000110111111 3"
+b11001010001001101110000000110001000000110111111 0"
+b11 a
+b11 T
+b101 6"
+b101 '"
+1~
+1$
+#2200000
+0~
+0$
+#2220000
+b1100101000100110111000000011000100000011011111111 /"
+b1100101000100110111000000011000100000011011111111 2"
+b110010100010011011100000001100010000001101111111 3"
+b110010100010011011100000001100010000001101111111 0"
+b101 x
+b110 6"
+b110 '"
+b100 a
+b100 T
+1~
+1$
+#2240000
+0~
+0$
+#2260000
+b11001010001001101110000000110001000000110111111111 /"
+b11001010001001101110000000110001000000110111111111 2"
+b110 x
+b1100101000100110111000000011000100000011011111111 3"
+b1100101000100110111000000011000100000011011111111 0"
+b101 a
+b101 T
+b111 6"
+b111 '"
+1~
+1$
+#2280000
+0~
+0$
+#2300000
+b10010100010011011100000001100010000001101111111111 /"
+b10010100010011011100000001100010000001101111111111 2"
+1"
+1-"
+b11001010001001101110000000110001000000110111111111 3"
+b11001010001001101110000000110001000000110111111111 0"
+b111 x
+b1000 6"
+b1000 '"
+b110 a
+b110 T
+1~
+1$
+#2320000
+0~
+0$
+#2340000
+b101000100110111000000011000100000011011111111111 /"
+b101000100110111000000011000100000011011111111111 2"
+1c
+b1 \
+b1 ]
+1:
+b1000 x
+b10010100010011011100000001100010000001101111111111 3"
+b10010100010011011100000001100010000001101111111111 0"
+b111 a
+b111 T
+b1001 6"
+b1001 '"
+1~
+1$
+#2360000
+0~
+0$
+#2380000
+b1010001001101110000000110001000000110111111111111 /"
+b1010001001101110000000110001000000110111111111111 2"
+0"
+0-"
+b11 \
+b11 ]
+b101000100110111000000011000100000011011111111111 3"
+b101000100110111000000011000100000011011111111111 0"
+b1001 x
+b1 ^
+b1 2
+b1 X
+b1 [
+b1010 6"
+b1010 '"
+b1000 a
+b1000 T
+1~
+1$
+#2400000
+0~
+0$
+#2420000
+b10100010011011100000001100010000001101111111111111 /"
+b10100010011011100000001100010000001101111111111111 2"
+b11 ^
+b11 2
+b11 X
+b11 [
+0c
+b110 \
+b110 ]
+0:
+b1010 x
+b1010001001101110000000110001000000110111111111111 3"
+b1010001001101110000000110001000000110111111111111 0"
+b1001 a
+b1001 T
+b1011 6"
+b1011 '"
+1~
+1$
+#2440000
+0~
+0$
+#2460000
+b1000100110111000000011000100000011011111111111111 /"
+b1000100110111000000011000100000011011111111111111 2"
+1"
+1-"
+b1100 \
+b1100 ]
+b10100010011011100000001100010000001101111111111111 3"
+b10100010011011100000001100010000001101111111111111 0"
+b1011 x
+b110 ^
+b110 2
+b110 X
+b110 [
+b1100 6"
+b1100 '"
+b1010 a
+b1010 T
+1~
+1$
+#2480000
+0~
+0$
+#2500000
+b10001001101110000000110001000000110111111111111111 /"
+b10001001101110000000110001000000110111111111111111 2"
+0"
+0-"
+b1100 ^
+b1100 2
+b1100 X
+b1100 [
+1c
+b11001 \
+b11001 ]
+1:
+b1100 x
+b1000100110111000000011000100000011011111111111111 3"
+b1000100110111000000011000100000011011111111111111 0"
+b1011 a
+b1011 T
+b1101 6"
+b1101 '"
+1~
+1$
+#2520000
+0~
+0$
+#2540000
+b10011011100000001100010000001101111111111111111 /"
+b10011011100000001100010000001101111111111111111 2"
+1"
+1-"
+b10001001101110000000110001000000110111111111111111 3"
+b10001001101110000000110001000000110111111111111111 0"
+b1101 x
+0c
+b110010 \
+b110010 ]
+0:
+b11001 ^
+b11001 2
+b11001 X
+b11001 [
+b1110 6"
+b1110 '"
+b1100 a
+b1100 T
+1~
+1$
+#2560000
+0~
+0$
+#2580000
+b100110111000000011000100000011011111111111111111 /"
+b100110111000000011000100000011011111111111111111 2"
+0"
+0-"
+b110010 ^
+b110010 2
+b110010 X
+b110010 [
+1c
+b1100101 \
+b1100101 ]
+1:
+b1110 x
+b10011011100000001100010000001101111111111111111 3"
+b10011011100000001100010000001101111111111111111 0"
+b1101 a
+b1101 T
+b1111 6"
+b1111 '"
+1~
+1$
+#2600000
+0~
+0$
+#2620000
+b1001101110000000110001000000110111111111111111111 /"
+b1001101110000000110001000000110111111111111111111 2"
+b100110111000000011000100000011011111111111111111 3"
+b100110111000000011000100000011011111111111111111 0"
+b1111 x
+0c
+b11001010 \
+b11001010 ]
+0:
+b1100101 ^
+b1100101 2
+b1100101 X
+b1100101 [
+b10000 6"
+b10000 '"
+b1110 a
+b1110 T
+1~
+1$
+#2640000
+0~
+0$
+#2660000
+b10011011100000001100010000001101111111111111111111 /"
+b10011011100000001100010000001101111111111111111111 2"
+b110010100 \
+b110010100 ]
+b11001010 ^
+b11001010 2
+b11001010 X
+b11001010 [
+b10000 x
+b1001101110000000110001000000110111111111111111111 3"
+b1001101110000000110001000000110111111111111111111 0"
+b1111 a
+b1111 T
+b10001 6"
+b10001 '"
+1~
+1$
+#2680000
+0~
+0$
+#2700000
+b110111000000011000100000011011111111111111111111 /"
+b110111000000011000100000011011111111111111111111 2"
+1"
+1-"
+b1100101000 \
+b1100101000 ]
+b10011011100000001100010000001101111111111111111111 3"
+b10011011100000001100010000001101111111111111111111 0"
+b10001 x
+b110010100 ^
+b110010100 2
+b110010100 X
+b110010100 [
+b10010 6"
+b10010 '"
+b10000 a
+b10000 T
+1~
+1$
+#2720000
+0~
+0$
+#2740000
+b1101110000000110001000000110111111111111111111111 /"
+b1101110000000110001000000110111111111111111111111 2"
+0"
+0-"
+b1100101000 ^
+b1100101000 2
+b1100101000 X
+b1100101000 [
+1c
+b11001010001 \
+b11001010001 ]
+1:
+b10010 x
+b110111000000011000100000011011111111111111111111 3"
+b110111000000011000100000011011111111111111111111 0"
+b10001 a
+b10001 T
+b10011 6"
+b10011 '"
+1~
+1$
+#2760000
+0~
+0$
+#2780000
+b11011100000001100010000001101111111111111111111111 /"
+b11011100000001100010000001101111111111111111111111 2"
+b1101110000000110001000000110111111111111111111111 3"
+b1101110000000110001000000110111111111111111111111 0"
+b10011 x
+0c
+b110010100010 \
+b110010100010 ]
+0:
+b11001010001 ^
+b11001010001 2
+b11001010001 X
+b11001010001 [
+b10100 6"
+b10100 '"
+b10010 a
+b10010 T
+1~
+1$
+#2800000
+0~
+0$
+#2820000
+b10111000000011000100000011011111111111111111111111 /"
+b10111000000011000100000011011111111111111111111111 2"
+1"
+b1100101000100 \
+b1100101000100 ]
+1-"
+b110010100010 ^
+b110010100010 2
+b110010100010 X
+b110010100010 [
+b10100 x
+b11011100000001100010000001101111111111111111111111 3"
+b11011100000001100010000001101111111111111111111111 0"
+b10011 a
+b10011 T
+b10101 6"
+b10101 '"
+1~
+1$
+#2840000
+0~
+0$
+#2860000
+b1110000000110001000000110111111111111111111111111 /"
+b1110000000110001000000110111111111111111111111111 2"
+b10111000000011000100000011011111111111111111111111 3"
+b10111000000011000100000011011111111111111111111111 0"
+b10101 x
+1c
+b11001010001001 \
+b11001010001001 ]
+1:
+b1100101000100 ^
+b1100101000100 2
+b1100101000100 X
+b1100101000100 [
+b10110 6"
+b10110 '"
+b10100 a
+b10100 T
+1~
+1$
+#2880000
+0~
+0$
+#2900000
+b11100000001100010000001101111111111111111111111111 /"
+b11100000001100010000001101111111111111111111111111 2"
+0"
+b110010100010011 \
+b110010100010011 ]
+0-"
+b11001010001001 ^
+b11001010001001 2
+b11001010001001 X
+b11001010001001 [
+b10110 x
+b1110000000110001000000110111111111111111111111111 3"
+b1110000000110001000000110111111111111111111111111 0"
+b10101 a
+b10101 T
+b10111 6"
+b10111 '"
+1~
+1$
+#2920000
+0~
+0$
+#2940000
+b11000000011000100000011011111111111111111111111111 /"
+b11000000011000100000011011111111111111111111111111 2"
+1"
+1-"
+b11100000001100010000001101111111111111111111111111 3"
+b11100000001100010000001101111111111111111111111111 0"
+b10111 x
+0c
+b1100101000100110 \
+b1100101000100110 ]
+0:
+b110010100010011 ^
+b110010100010011 2
+b110010100010011 X
+b110010100010011 [
+b11000 6"
+b11000 '"
+b10110 a
+b10110 T
+1~
+1$
+#2960000
+0~
+0$
+#2980000
+b10000000110001000000110111111111111111111111111111 /"
+b10000000110001000000110111111111111111111111111111 2"
+b1100101000100110 ^
+b1100101000100110 2
+b1100101000100110 X
+b1100101000100110 [
+1c
+b11001010001001101 \
+b11001010001001101 ]
+1:
+b11000 x
+b11000000011000100000011011111111111111111111111111 3"
+b11000000011000100000011011111111111111111111111111 0"
+b10111 a
+b10111 T
+b11001 6"
+b11001 '"
+1~
+1$
+#3000000
+0~
+0$
+#3020000
+b1100010000001101111111111111111111111111111 /"
+b1100010000001101111111111111111111111111111 2"
+b110010100010011011 \
+b110010100010011011 ]
+b10000000110001000000110111111111111111111111111111 3"
+b10000000110001000000110111111111111111111111111111 0"
+b11001 x
+b11001010001001101 ^
+b11001010001001101 2
+b11001010001001101 X
+b11001010001001101 [
+b11010 6"
+b11010 '"
+b11000 a
+b11000 T
+1~
+1$
+#3040000
+0~
+0$
+#3060000
+b11000100000011011111111111111111111111111111 /"
+b11000100000011011111111111111111111111111111 2"
+0"
+b1100101000100110111 \
+b1100101000100110111 ]
+b1 g
+0-"
+b110010100010011011 ^
+b110010100010011011 2
+b110010100010011011 X
+b110010100010011011 [
+b11010 x
+b1100010000001101111111111111111111111111111 3"
+b1100010000001101111111111111111111111111111 0"
+b11001 a
+b11001 T
+b11011 6"
+b11011 '"
+1~
+1$
+#3080000
+0~
+0$
+#3100000
+b110001000000110111111111111111111111111111111 /"
+b110001000000110111111111111111111111111111111 2"
+b11 g
+b11000100000011011111111111111111111111111111 3"
+b11000100000011011111111111111111111111111111 0"
+b11011 x
+0c
+b11001010001001101110 \
+b11001010001001101110 ]
+0:
+b1100101000100110111 ^
+b1100101000100110111 2
+b1100101000100110111 X
+b1100101000100110111 [
+b11100 6"
+b11100 '"
+b11010 a
+b11010 T
+1~
+1$
+#3120000
+0~
+0$
+#3140000
+b1100010000001101111111111111111111111111111111 /"
+b1100010000001101111111111111111111111111111111 2"
+b110010100010011011100 \
+b110010100010011011100 ]
+b110 g
+b11001010001001101110 ^
+b11001010001001101110 2
+b11001010001001101110 X
+b11001010001001101110 [
+b11100 x
+b110001000000110111111111111111111111111111111 3"
+b110001000000110111111111111111111111111111111 0"
+b11011 a
+b11011 T
+b11101 6"
+b11101 '"
+1~
+1$
+#3160000
+0~
+0$
+#3180000
+b11000100000011011111111111111111111111111111111 /"
+b11000100000011011111111111111111111111111111111 2"
+b1100101000100110111000 \
+b1100101000100110111000 ]
+b1100 g
+b1100010000001101111111111111111111111111111111 3"
+b1100010000001101111111111111111111111111111111 0"
+b11101 x
+b110010100010011011100 ^
+b110010100010011011100 2
+b110010100010011011100 X
+b110010100010011011100 [
+b11110 6"
+b11110 '"
+b11100 a
+b11100 T
+1~
+1$
+#3200000
+0~
+0$
+#3220000
+b110001000000110111111111111111111111111111111111 /"
+b110001000000110111111111111111111111111111111111 2"
+b11001010001001101110000 \
+b11001010001001101110000 ]
+b11001 g
+b1100101000100110111000 ^
+b1100101000100110111000 2
+b1100101000100110111000 X
+b1100101000100110111000 [
+b11110 x
+b11000100000011011111111111111111111111111111111 3"
+b11000100000011011111111111111111111111111111111 0"
+b11101 a
+b11101 T
+b11111 6"
+b11111 '"
+1~
+1$
+#3240000
+0~
+0$
+#3260000
+b1100010000001101111111111111111111111111111111111 /"
+b1100010000001101111111111111111111111111111111111 2"
+b110010100010011011100000 \
+b110010100010011011100000 ]
+b110010 g
+b110001000000110111111111111111111111111111111111 3"
+b110001000000110111111111111111111111111111111111 0"
+b11111 x
+b11001010001001101110000 ^
+b11001010001001101110000 2
+b11001010001001101110000 X
+b11001010001001101110000 [
+b100000 6"
+b100000 '"
+b11110 a
+b11110 T
+1~
+1$
+#3280000
+0~
+0$
+#3300000
+b11000100000011011111111111111111111111111111111111 /"
+b11000100000011011111111111111111111111111111111111 2"
+b1100101000100110111000000 \
+b1100101000100110111000000 ]
+b1100101 g
+b110010100010011011100000 ^
+b110010100010011011100000 2
+b110010100010011011100000 X
+b110010100010011011100000 [
+b100000 x
+b1100010000001101111111111111111111111111111111111 3"
+b1100010000001101111111111111111111111111111111111 0"
+b11111 a
+b11111 T
+b100001 6"
+b100001 '"
+1~
+1$
+#3320000
+0~
+0$
+#3340000
+b10001000000110111111111111111111111111111111111111 /"
+b10001000000110111111111111111111111111111111111111 2"
+1"
+1-"
+b11001010001001101110000000 \
+b11001010001001101110000000 ]
+b11001010 g
+b11000100000011011111111111111111111111111111111111 3"
+b11000100000011011111111111111111111111111111111111 0"
+b100001 x
+b1100101000100110111000000 ^
+b1100101000100110111000000 2
+b1100101000100110111000000 X
+b1100101000100110111000000 [
+b100010 6"
+b100010 '"
+b100000 a
+b100000 T
+1~
+1$
+#3360000
+0~
+0$
+#3380000
+b10000001101111111111111111111111111111111111111 /"
+b10000001101111111111111111111111111111111111111 2"
+b110010100 g
+b11001010001001101110000000 ^
+b11001010001001101110000000 2
+b11001010001001101110000000 X
+b11001010001001101110000000 [
+1c
+b110010100010011011100000001 \
+b110010100010011011100000001 ]
+1:
+b100010 x
+b10001000000110111111111111111111111111111111111111 3"
+b10001000000110111111111111111111111111111111111111 0"
+b100001 a
+b100001 T
+b100011 6"
+b100011 '"
+1~
+1$
+#3400000
+0~
+0$
+#3420000
+b100000011011111111111111111111111111111111111111 /"
+b100000011011111111111111111111111111111111111111 2"
+0"
+0-"
+b1100101000100110111000000011 \
+b1100101000100110111000000011 ]
+b1100101000 g
+b10000001101111111111111111111111111111111111111 3"
+b10000001101111111111111111111111111111111111111 0"
+b100011 x
+b110010100010011011100000001 ^
+b110010100010011011100000001 2
+b110010100010011011100000001 X
+b110010100010011011100000001 [
+b100100 6"
+b100100 '"
+b100010 a
+b100010 T
+1~
+1$
+#3440000
+0~
+0$
+#3460000
+b1000000110111111111111111111111111111111111111111 /"
+b1000000110111111111111111111111111111111111111111 2"
+b11001010001 g
+b1100101000100110111000000011 ^
+b1100101000100110111000000011 2
+b1100101000100110111000000011 X
+b1100101000100110111000000011 [
+0c
+b11001010001001101110000000110 \
+b11001010001001101110000000110 ]
+0:
+b100100 x
+b100000011011111111111111111111111111111111111111 3"
+b100000011011111111111111111111111111111111111111 0"
+b100011 a
+b100011 T
+b100101 6"
+b100101 '"
+1~
+1$
+#3480000
+0~
+0$
+#3500000
+b10000001101111111111111111111111111111111111111111 /"
+b10000001101111111111111111111111111111111111111111 2"
+b110010100010011011100000001100 \
+b110010100010011011100000001100 ]
+b110010100010 g
+b1000000110111111111111111111111111111111111111111 3"
+b1000000110111111111111111111111111111111111111111 0"
+b100101 x
+b11001010001001101110000000110 ^
+b11001010001001101110000000110 2
+b11001010001001101110000000110 X
+b11001010001001101110000000110 [
+b100110 6"
+b100110 '"
+b100100 a
+b100100 T
+1~
+1$
+#3520000
+0~
+0$
+#3540000
+b11011111111111111111111111111111111111111111 /"
+b11011111111111111111111111111111111111111111 2"
+1"
+b1100101000100110111000000011000 \
+b1100101000100110111000000011000 ]
+b1100101000100 g
+1-"
+b110010100010011011100000001100 ^
+b110010100010011011100000001100 2
+b110010100010011011100000001100 X
+b110010100010011011100000001100 [
+b100110 x
+b10000001101111111111111111111111111111111111111111 3"
+b10000001101111111111111111111111111111111111111111 0"
+b100101 a
+b100101 T
+b100111 6"
+b100111 '"
+1~
+1$
+#3560000
+0~
+0$
+#3580000
+b110111111111111111111111111111111111111111111 /"
+b110111111111111111111111111111111111111111111 2"
+0"
+0-"
+b11001010001001 g
+b11011111111111111111111111111111111111111111 3"
+b11011111111111111111111111111111111111111111 0"
+b100111 x
+1c
+b11001010001001101110000000110001 \
+b11001010001001101110000000110001 ]
+1:
+b1100101000100110111000000011000 ^
+b1100101000100110111000000011000 2
+b1100101000100110111000000011000 X
+b1100101000100110111000000011000 [
+b101000 6"
+b101000 '"
+b100110 a
+b100110 T
+1~
+1$
+#3600000
+0~
+0$
+#3620000
+b1101111111111111111111111111111111111111111111 /"
+b1101111111111111111111111111111111111111111111 2"
+b110010100010011 g
+b11001010001001101110000000110001 ^
+b11001010001001101110000000110001 2
+b11001010001001101110000000110001 X
+b11001010001001101110000000110001 [
+0c
+b110010100010011011100000001100010 \
+b110010100010011011100000001100010 ]
+0:
+b101000 x
+b110111111111111111111111111111111111111111111 3"
+b110111111111111111111111111111111111111111111 0"
+b100111 a
+b100111 T
+b101001 6"
+b101001 '"
+1~
+1$
+#3640000
+0~
+0$
+#3660000
+b11011111111111111111111111111111111111111111111 /"
+b11011111111111111111111111111111111111111111111 2"
+b1100101000100110111000000011000100 \
+b1100101000100110111000000011000100 ]
+b1100101000100110 g
+b1101111111111111111111111111111111111111111111 3"
+b1101111111111111111111111111111111111111111111 0"
+b101001 x
+b110010100010011011100000001100010 ^
+b110010100010011011100000001100010 2
+b110010100010011011100000001100010 X
+b110010100010011011100000001100010 [
+b101010 6"
+b101010 '"
+b101000 a
+b101000 T
+1~
+1$
+#3680000
+0~
+0$
+#3700000
+b110111111111111111111111111111111111111111111111 /"
+b110111111111111111111111111111111111111111111111 2"
+b11001010001001101110000000110001000 \
+b11001010001001101110000000110001000 ]
+b11001010001001101 g
+b1100101000100110111000000011000100 ^
+b1100101000100110111000000011000100 2
+b1100101000100110111000000011000100 X
+b1100101000100110111000000011000100 [
+b101010 x
+b11011111111111111111111111111111111111111111111 3"
+b11011111111111111111111111111111111111111111111 0"
+b101001 a
+b101001 T
+b101011 6"
+b101011 '"
+1~
+1$
+#3720000
+0~
+0$
+#3740000
+b1101111111111111111111111111111111111111111111111 /"
+b1101111111111111111111111111111111111111111111111 2"
+b110010100010011011100000001100010000 \
+b110010100010011011100000001100010000 ]
+b110010100010011011 g
+b110111111111111111111111111111111111111111111111 3"
+b110111111111111111111111111111111111111111111111 0"
+b101011 x
+b11001010001001101110000000110001000 ^
+b11001010001001101110000000110001000 2
+b11001010001001101110000000110001000 X
+b11001010001001101110000000110001000 [
+b101100 6"
+b101100 '"
+b101010 a
+b101010 T
+1~
+1$
+#3760000
+0~
+0$
+#3780000
+b11011111111111111111111111111111111111111111111111 /"
+b11011111111111111111111111111111111111111111111111 2"
+b1100101000100110111000000011000100000 \
+b1100101000100110111000000011000100000 ]
+b1100101000100110111 g
+b110010100010011011100000001100010000 ^
+b110010100010011011100000001100010000 2
+b110010100010011011100000001100010000 X
+b110010100010011011100000001100010000 [
+b101100 x
+b1101111111111111111111111111111111111111111111111 3"
+b1101111111111111111111111111111111111111111111111 0"
+b101011 a
+b101011 T
+b101101 6"
+b101101 '"
+1~
+1$
+#3800000
+0~
+0$
+#3820000
+b10111111111111111111111111111111111111111111111111 /"
+b10111111111111111111111111111111111111111111111111 2"
+1"
+1-"
+b11001010001001101110000000110001000000 \
+b11001010001001101110000000110001000000 ]
+b11001010001001101110 g
+b11011111111111111111111111111111111111111111111111 3"
+b11011111111111111111111111111111111111111111111111 0"
+b101101 x
+b1100101000100110111000000011000100000 ^
+b1100101000100110111000000011000100000 2
+b1100101000100110111000000011000100000 X
+b1100101000100110111000000011000100000 [
+b101110 6"
+b101110 '"
+b101100 a
+b101100 T
+1~
+1$
+#3840000
+0~
+0$
+#3860000
+b1111111111111111111111111111111111111111111111111 /"
+b1111111111111111111111111111111111111111111111111 2"
+b110010100010011011100 g
+b11001010001001101110000000110001000000 ^
+b11001010001001101110000000110001000000 2
+b11001010001001101110000000110001000000 X
+b11001010001001101110000000110001000000 [
+1c
+b110010100010011011100000001100010000001 \
+b110010100010011011100000001100010000001 ]
+1:
+b101110 x
+b10111111111111111111111111111111111111111111111111 3"
+b10111111111111111111111111111111111111111111111111 0"
+b101101 a
+b101101 T
+b101111 6"
+b101111 '"
+1~
+1$
+#3880000
+0~
+0$
+#3900000
+b11111111111111111111111111111111111111111111111111 /"
+b11111111111111111111111111111111111111111111111111 2"
+0"
+0-"
+b1100101000100110111000000011000100000011 \
+b1100101000100110111000000011000100000011 ]
+b1100101000100110111000 g
+b1111111111111111111111111111111111111111111111111 3"
+b11111111111111111111111111

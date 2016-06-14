@@ -4,8 +4,9 @@ module dat_controller(
 input wire clock,
 input wire reset,
 input wire writeRead,
-input wire newDat,
-input wire blockCount,
+input wire newDat,//from wishbone 
+input wire [3:0 ]blockCount,
+input wire multipleData,
 //inputs from physical layer
 input wire serial_ready,
 input wire complete,
@@ -17,22 +18,21 @@ output reg transfer_complete,
 //outputs to physical layer
 output reg strobe_out,
 output reg ack_out,
-output reg blocks
+output reg [3:0] blocks,
+output reg writereadphys
+output reg multiple
 );
 
 // registers
 parameter SIZE = 3;
-reg setup_done;
 reg [SIZE-1:0] state;
 reg [SIZE-1:0] next_state;
 parameter RESET= 3'd0; 
 parameter IDLE   = 3'd1;
-parameter WRITE_COMMAND   =  3'd2;
-parameter READ_COMMAND =  3'd3;
-parameter CHECK_FIFO= 3'd4; 
-parameter TRANSMIT   = 3'd5;
-parameter ACK   =  3'd6;
-
+parameter SETTING_OUTPUTS  =  3'd2;
+parameter CHECK_FIFO= 3'd3; 
+parameter TRANSMIT   = 3'd4;
+parameter ACK   =  3'd5;
 
 
 
@@ -53,10 +53,7 @@ begin
  IDLE:   begin
       if (newDat)
 			begin
-				if(writeRead)
-					next_state=WRITE_COMMAND;
-				if(~writeRead)	
-					next_state=READ_COMMAND;		
+			next_state=SETTING_OUTPUTS;	
 			end		
 		else
 			begin
@@ -64,20 +61,13 @@ begin
           end
       
 		end       
-WRITE_COMMAND:begin
+SETTING_OUTPUTS:begin
     if (serial_ready)             
        next_state = CHECK_FIFO;  
      else   
-       next_state = WRITE_COMMAND;
+       next_state = SETTING_OUTPUTS;
    end  
-READ_COMMAND:    begin
-       if (serial_ready) begin
-          next_state = CHECK_FIFO;
-      end     
-      else begin
-         next_state = READ_COMMAND;
-      end
-      end
+
 CHECK_FIFO:    begin
        if (fifo_okay) begin
           next_state = TRANSMIT;
@@ -120,56 +110,47 @@ always @(*)
 		case(state)
 			RESET:
 				begin
-					busy=1'b0;
-					write_Data=1'b0;
-					read_Data=1'b0;
 					strobe_out=1'b0;
 					ack_out=1'b0;
 					transfer_complete=1'b0;
+					writereadphys=1'b0;
+					multiple=1'b0;
+					blocks=4'b0;
 				end
 			IDLE:
 				begin
-					busy=1'b0;
-					write_Data=1'b0;
-					read_Data=1'b0;
 					strobe_out=1'b0;
 					ack_out=1'b0;
 					transfer_complete=1'b0;
+					writereadphys=1'b0;
+					multiple=1'b0;
+					blocks=4'b0;
 				end
-			WRITE_COMMAND:
+			SETTING:
 				begin
-					busy=1'b1;
-					write_Data=1'b1;
-					read_Data=1'b0;
-					strobe_out=1'b1;
+					strobe_out=1'b0;
 					ack_out=1'b0;
 					transfer_complete=1'b0;
-				end
-			READ_COMMAND:
-				begin
-					busy=1'b1;
-					write_Data=1'b0;
-					read_Data=1'b1;
-					strobe_out=1'b1;
-					ack_out=1'b0;
-					transfer_complete=1'b0;
+					writereadphys=writeRead
+					multiple=multipleData;
+					blocks=blockCount;
 				end
 			CHECK_FIFO:
 				begin
-					busy=1'b1;
-					write_Data=write_Data;
-					read_Data=read_Data;
 					strobe_out=1'b0;
 					ack_out=1'b0;
 					transfer_complete=1'b0;
+					writereadphys=writereadphys;
+					multiple=multiple;
+					blocks=blocks;
 				end
 			TRANSMIT:
 				begin
-					busy=1'b1;
-					write_Data=write_Data;
-					read_Data=read_Data;
-					strobe_out=1'b0;
+					writereadphys=writeRead;
+					strobe_out=1'b1;
 					ack_out=1'b0;
+					multiple=multiple;
+					blocks=blocks;
 					if(~complete)
 						begin
 							transfer_complete=1'b0;
@@ -181,19 +162,18 @@ always @(*)
 				end
 			ACK:
 				begin
-					busy=1'b1;
-					write_Data=1'b0;
-					read_Data=1'b0;
 					strobe_out=1'b0;
 					ack_out=1'b1;
 					transfer_complete=transfer_complete;
+					writereadphys=writeRead;
+					multiple=multipleData;
+					blocks=blockCount;
 				end
 		
 				
 		default:
 		
 		
-		busy=0;
 		endcase
 end	
 

@@ -55,6 +55,8 @@ initial
 		newCMD=1'b0;
 		#`NEW_CMD_REQUEST_TIME;
 		newCMD=1'b1;
+		#1000
+		newCMD=1'b0;
 	end
 
 endmodule
@@ -78,6 +80,8 @@ initial
 		strobe_in=1'b0;
 		#`STROBE_IN_TIME;
 		strobe_in=1'b1;
+		#2000;
+		strobe_in=1'b0;
 	end
 endmodule
 
@@ -87,6 +91,7 @@ initial
 	begin
 		ack_in=1'b0;
 		#`ACK_IN_TIME;
+		#12000;
 		ack_in=1'b1;
 	end
 endmodule

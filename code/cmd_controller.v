@@ -6,7 +6,6 @@ module cmd_controller(
 	input wire new_command,
 	input wire [31:0] cmd_argument,
 	input wire [5:0] cmd_index,	//depending of command index response shouldbe of different size
-	input wire [31:0] command_timeout_REG,
 		input wire TIMEOUT_ENABLE,
 	// Input from physical layer
 	input wire ack_in,
@@ -177,6 +176,7 @@ always @(* )
 													else
 														begin
 															command_index_error=1'b1;
+															response[31:0]=cmd_in[39:8];
 														end	
 												end
 										end

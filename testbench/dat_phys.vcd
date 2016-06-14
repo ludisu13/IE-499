@@ -1,0 +1,2133 @@
+$date
+	Sun Jun 12 23:20:13 2016
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module TestBench $end
+$var wire 1 ! complete_card $end
+$var wire 1 " pad $end
+$var wire 1 # reset $end
+$var wire 1 $ sd_clock $end
+$var wire 1 % strobe_in $end
+$var reg 1 & Enable_card $end
+$var reg 1 ' load_send_card $end
+$scope module dat $end
+$var wire 1 ( DATA_TIMEOUT $end
+$var wire 16 ) TIMEOUT_REG [15:0] $end
+$var wire 1 * ack_in $end
+$var wire 1 + ack_out $end
+$var wire 4 , blocks [3:0] $end
+$var wire 1 " cmd_pin $end
+$var wire 1 - complete $end
+$var wire 32 . dataFROMFIFO [31:0] $end
+$var wire 32 / dataToFIFO [31:0] $end
+$var wire 1 0 enable_pts_wrapper $end
+$var wire 1 1 enable_stp_wrapper $end
+$var wire 50 2 frame_received [49:0] $end
+$var wire 50 3 frame_to_send [49:0] $end
+$var wire 8 4 framesize_reception [7:0] $end
+$var wire 1 5 idle_in $end
+$var wire 1 6 load_send $end
+$var wire 1 7 multiple $end
+$var wire 1 8 pad_enable $end
+$var wire 1 9 pad_state $end
+$var wire 1 : padserial $end
+$var wire 1 ; read_enable $end
+$var wire 1 < reception_complete $end
+$var wire 1 # reset $end
+$var wire 1 = reset_wrapper $end
+$var wire 1 $ sd_clock $end
+$var wire 1 > serial_ready $end
+$var wire 1 ? serialpad $end
+$var wire 1 @ status $end
+$var wire 1 % strobe_in $end
+$var wire 1 A transmission_complete $end
+$var wire 1 B waiting_response $end
+$var wire 1 C writeRead $end
+$var wire 1 D write_enable $end
+$scope module ptsw_dat $end
+$var wire 1 $ Clock $end
+$var wire 1 0 Enable $end
+$var wire 1 = Reset $end
+$var wire 1 A complete $end
+$var wire 8 E countValue [7:0] $end
+$var wire 8 F framesize [7:0] $end
+$var wire 1 G go $end
+$var wire 8 H initialValue [7:0] $end
+$var wire 1 6 load_send $end
+$var wire 50 I parallel [49:0] $end
+$var wire 1 ? serial $end
+$var wire 1 J serialTemp $end
+$scope module pts $end
+$var wire 1 $ Clock $end
+$var wire 1 K Enable $end
+$var wire 1 = Reset $end
+$var wire 50 L ffdinputBus [49:0] $end
+$var wire 50 M ffdqBus [49:0] $end
+$var wire 1 6 load_send $end
+$var wire 50 N parallel [49:0] $end
+$var wire 1 J serial $end
+$scope module ffd $end
+$var wire 1 $ Clock $end
+$var wire 50 O D [49:0] $end
+$var wire 1 K Enable $end
+$var wire 1 = Reset $end
+$var reg 50 P Q [49:0] $end
+$upscope $end
+$scope begin PTS[0] $end
+$scope begin genblk2 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[1] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[2] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[3] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[4] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[5] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[6] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[7] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[8] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[9] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[10] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[11] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[12] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[13] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[14] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[15] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[16] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[17] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[18] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[19] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[20] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[21] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[22] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[23] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[24] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[25] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[26] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[27] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[28] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[29] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[30] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[31] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[32] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[33] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[34] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[35] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[36] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[37] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[38] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[39] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[40] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[41] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[42] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[43] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[44] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[45] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[46] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[47] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[48] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[49] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module counter1 $end
+$var wire 1 $ Clock $end
+$var wire 1 Q Enable $end
+$var wire 8 R Initial [7:0] $end
+$var wire 1 = Reset $end
+$var reg 8 S Q [7:0] $end
+$upscope $end
+$upscope $end
+$scope module stpw_dat $end
+$var wire 1 $ Clock $end
+$var wire 1 1 Enable $end
+$var wire 1 = Reset $end
+$var wire 1 < complete $end
+$var wire 8 T countValue [7:0] $end
+$var wire 8 U framesize [7:0] $end
+$var wire 1 V go $end
+$var wire 8 W initialValue [7:0] $end
+$var wire 50 X parallel [49:0] $end
+$var wire 1 : serial $end
+$var wire 1 Y validData $end
+$scope module stp $end
+$var wire 1 $ Clock $end
+$var wire 1 Z Enable $end
+$var wire 1 = Reset $end
+$var wire 50 [ parallel [49:0] $end
+$var wire 1 : serial $end
+$var wire 50 \ serialBus [49:0] $end
+$scope module ffd $end
+$var wire 1 $ Clock $end
+$var wire 50 ] D [49:0] $end
+$var wire 1 Z Enable $end
+$var wire 1 = Reset $end
+$var reg 50 ^ Q [49:0] $end
+$upscope $end
+$scope begin STP[0] $end
+$scope begin genblk2 $end
+$upscope $end
+$upscope $end
+$scope begin STP[1] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[2] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[3] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[4] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[5] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[6] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[7] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[8] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[9] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[10] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[11] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[12] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[13] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[14] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[15] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[16] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[17] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[18] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[19] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[20] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[21] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[22] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[23] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[24] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[25] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[26] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[27] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[28] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[29] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[30] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[31] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[32] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[33] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[34] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[35] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[36] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[37] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[38] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[39] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[40] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[41] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[42] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[43] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[44] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[45] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[46] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[47] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[48] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[49] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module counter1 $end
+$var wire 1 $ Clock $end
+$var wire 1 _ Enable $end
+$var wire 8 ` Initial [7:0] $end
+$var wire 1 = Reset $end
+$var reg 8 a Q [7:0] $end
+$upscope $end
+$upscope $end
+$scope module dat_PAD $end
+$var wire 1 $ clock $end
+$var wire 1 ? data_in $end
+$var wire 1 : data_out $end
+$var wire 1 8 enable $end
+$var wire 1 " io_port $end
+$var wire 1 9 output_input $end
+$var reg 1 b control $end
+$var reg 1 c dataFROMCARD $end
+$var reg 1 d dataToCARD $end
+$upscope $end
+$scope module dat1 $end
+$var wire 1 ( DATA_TIMEOUT $end
+$var wire 16 e TIMEOUT_REG [15:0] $end
+$var wire 1 * ack_in $end
+$var wire 4 f blocks [3:0] $end
+$var wire 32 g dataRead [31:0] $end
+$var wire 1 5 idle_in $end
+$var wire 1 7 multiple $end
+$var wire 1 < reception_complete $end
+$var wire 1 # reset $end
+$var wire 1 $ sd_clock $end
+$var wire 1 % strobe_in $end
+$var wire 1 A transmission_complete $end
+$var wire 1 C writeRead $end
+$var reg 1 h ack_out $end
+$var reg 4 i blockCount [3:0] $end
+$var reg 1 j complete $end
+$var reg 32 k dataReadTOFIFO [31:0] $end
+$var reg 1 l dummy_count $end
+$var reg 1 m enable_pts_wrapper $end
+$var reg 1 n enable_stp_wrapper $end
+$var reg 1 o load_send $end
+$var reg 1 p loaded $end
+$var reg 4 q next_state [3:0] $end
+$var reg 1 r pad_enable $end
+$var reg 1 s pad_state $end
+$var reg 1 t read_fifo_enable $end
+$var reg 1 u reset_wrapper $end
+$var reg 1 v serial_ready $end
+$var reg 4 w state [3:0] $end
+$var reg 16 x timeout_count [15:0] $end
+$var reg 1 y waiting_response $end
+$var reg 1 z write_fifo_enable $end
+$upscope $end
+$upscope $end
+$scope module gencmd $end
+$var wire 1 { ack_in $end
+$var wire 1 $ clock $end
+$var wire 1 | newCMD $end
+$var wire 1 # reset $end
+$var wire 1 } serial_ready $end
+$var wire 1 % strobe_in $end
+$scope module clk1 $end
+$var reg 1 ~ clock $end
+$upscope $end
+$scope module r1 $end
+$var reg 1 !" reset $end
+$upscope $end
+$scope module nDG $end
+$var reg 1 "" newCMD $end
+$upscope $end
+$scope module sRg $end
+$var reg 1 #" serialReady $end
+$upscope $end
+$scope module cg $end
+$var reg 1 $" strobe_in $end
+$upscope $end
+$scope module aig $end
+$var reg 1 %" ack_in $end
+$upscope $end
+$upscope $end
+$scope module sd $end
+$var wire 1 $ Clock $end
+$var wire 1 &" Enable $end
+$var wire 1 # Reset $end
+$var wire 1 ! complete $end
+$var wire 8 '" countValue [7:0] $end
+$var wire 8 (" framesize [7:0] $end
+$var wire 1 )" go $end
+$var wire 8 *" initialValue [7:0] $end
+$var wire 1 +" load_send $end
+$var wire 50 ," parallel [49:0] $end
+$var wire 1 " serial $end
+$var wire 1 -" serialTemp $end
+$scope module pts $end
+$var wire 1 $ Clock $end
+$var wire 1 ." Enable $end
+$var wire 1 # Reset $end
+$var wire 50 /" ffdinputBus [49:0] $end
+$var wire 50 0" ffdqBus [49:0] $end
+$var wire 1 +" load_send $end
+$var wire 50 1" parallel [49:0] $end
+$var wire 1 -" serial $end
+$scope module ffd $end
+$var wire 1 $ Clock $end
+$var wire 50 2" D [49:0] $end
+$var wire 1 ." Enable $end
+$var wire 1 # Reset $end
+$var reg 50 3" Q [49:0] $end
+$upscope $end
+$scope begin PTS[0] $end
+$scope begin genblk2 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[1] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[2] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[3] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[4] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[5] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[6] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[7] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[8] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[9] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[10] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[11] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[12] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[13] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[14] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[15] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[16] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[17] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[18] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[19] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[20] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[21] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[22] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[23] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[24] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[25] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[26] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[27] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[28] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[29] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[30] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[31] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[32] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[33] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[34] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[35] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[36] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[37] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[38] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[39] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[40] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[41] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[42] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[43] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[44] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[45] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[46] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[47] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[48] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[49] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module counter1 $end
+$var wire 1 $ Clock $end
+$var wire 1 4" Enable $end
+$var wire 8 5" Initial [7:0] $end
+$var wire 1 # Reset $end
+$var reg 8 6" Q [7:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx 6"
+b0 5"
+x4"
+bx 3"
+bx 2"
+b11000 1"
+bx 0"
+bx /"
+x."
+x-"
+b11000 ,"
+x+"
+b0 *"
+x)"
+b110011 ("
+bx '"
+x&"
+0%"
+0$"
+0#"
+0""
+0!"
+0~
+0}
+0|
+0{
+xz
+xy
+bx x
+bx w
+xv
+xu
+xt
+xs
+xr
+b0 q
+xp
+xo
+xn
+xm
+xl
+bx k
+xj
+bx i
+xh
+bx g
+b100 f
+b1100100 e
+xd
+xc
+0b
+bx a
+b0 `
+x_
+bx ^
+bx ]
+bx \
+bx [
+xZ
+1Y
+bx X
+b0 W
+xV
+b0xx001x U
+bx T
+bx S
+b0 R
+xQ
+bx P
+bx O
+b1 N
+bx M
+bx L
+xK
+xJ
+b1 I
+b0 H
+xG
+b110010 F
+bx E
+xD
+0C
+xB
+xA
+z@
+x?
+x>
+x=
+x<
+x;
+x:
+x9
+x8
+17
+x6
+05
+b0xx001x 4
+b1 3
+bx 2
+x1
+x0
+bx /
+b0 .
+x-
+b100 ,
+x+
+0*
+b1100100 )
+x(
+x'
+x&
+0%
+0$
+0#
+x"
+x!
+$end
+#20000
+z?
+b110010 4
+b110010 U
+b1 L
+b1 O
+0_
+0Z
+0K
+0Q
+0Y
+0(
+b0 i
+0p
+b0 k
+b0 /
+0t
+0;
+0z
+0D
+0r
+08
+0s
+09
+0y
+0B
+0n
+01
+0m
+00
+0o
+06
+0u
+0=
+0h
+0+
+0j
+0-
+0v
+0>
+b1 q
+zd
+zc
+bxz \
+bxz ]
+z:
+0l
+b0 x
+b0 w
+1~
+1$
+#40000
+0~
+0$
+#60000
+1u
+1=
+1v
+1>
+b1 w
+1~
+1$
+#80000
+0~
+0$
+#100000
+b0xx00x /"
+b0xx00x 2"
+0J
+b0z \
+b0z ]
+b0 g
+0u
+0=
+0v
+0>
+0-"
+b0 P
+b0 M
+b0 ^
+b0 2
+b0 X
+b0 [
+b0 w
+b0 3"
+b0 0"
+0A
+1G
+0<
+1V
+0!
+1)"
+b0 S
+b0 E
+b0 a
+b0 T
+b0 6"
+b0 '"
+1~
+1$
+1!"
+1#
+#120000
+0~
+0$
+#140000
+1~
+1$
+#160000
+0~
+0$
+#180000
+1~
+1$
+#200000
+0~
+0$
+#220000
+1~
+1$
+#240000
+0~
+0$
+#260000
+1~
+1$
+#280000
+0~
+0$
+#300000
+1~
+1$
+#320000
+0~
+0$
+#340000
+1~
+1$
+#350000
+0!"
+0#
+#360000
+0~
+0$
+#380000
+1u
+1=
+1v
+1>
+b1 w
+1~
+1$
+#400000
+0~
+0$
+#420000
+1~
+1$
+#440000
+0~
+0$
+#460000
+1~
+1$
+#480000
+0~
+0$
+#500000
+1~
+1$
+#520000
+0~
+0$
+#540000
+1~
+1$
+#560000
+0~
+0$
+#580000
+1~
+1$
+#600000
+0~
+0$
+#620000
+1~
+1$
+#640000
+0~
+0$
+#660000
+1~
+1$
+#680000
+0~
+0$
+#700000
+1~
+1$
+#720000
+0~
+0$
+#740000
+1~
+1$
+#760000
+0~
+0$
+#780000
+1~
+1$
+#800000
+0~
+0$
+#820000
+1~
+1$
+#840000
+0~
+0$
+#860000
+1~
+1$
+#880000
+0~
+0$
+#900000
+1~
+1$
+#920000
+0~
+0$
+#940000
+1~
+1$
+#960000
+0~
+0$
+#980000
+1~
+1$
+#1000000
+0~
+0$
+1""
+1|
+#1020000
+1~
+1$
+#1040000
+0~
+0$
+#1060000
+1~
+1$
+#1080000
+0~
+0$
+#1100000
+1~
+1$
+#1120000
+0~
+0$
+#1140000
+1~
+1$
+#1160000
+0~
+0$
+#1180000
+1~
+1$
+#1200000
+0~
+0$
+#1220000
+1~
+1$
+#1240000
+0~
+0$
+#1260000
+1~
+1$
+#1280000
+0~
+0$
+#1300000
+1~
+1$
+1#"
+1}
+#1320000
+0~
+0$
+#1340000
+1~
+1$
+#1360000
+0~
+0$
+#1380000
+1~
+1$
+#1400000
+0~
+0$
+#1420000
+1~
+1$
+#1440000
+0~
+0$
+#1460000
+1~
+1$
+#1480000
+0~
+0$
+#1500000
+1~
+1$
+#1520000
+0~
+0$
+#1540000
+1~
+1$
+#1560000
+0~
+0$
+#1580000
+1~
+1$
+#1600000
+0~
+0$
+#1620000
+1~
+1$
+#1640000
+0~
+0$
+#1660000
+1~
+1$
+#1680000
+0~
+0$
+#1700000
+1~
+1$
+#1720000
+0~
+0$
+#1740000
+1~
+1$
+#1760000
+0~
+0$
+#1780000
+1~
+1$
+#1800000
+0~
+0$
+#1820000
+1~
+1$
+#1840000
+0~
+0$
+#1860000
+1~
+1$
+#1880000
+0~
+0$
+#1900000
+1~
+1$
+#1920000
+0~
+0$
+#1940000
+1~
+1$
+#1960000
+0~
+0$
+#1980000
+1~
+1$
+#2000000
+b101 q
+0~
+0$
+0""
+0|
+1$"
+1%
+#2020000
+1r
+18
+1n
+11
+0u
+0=
+0v
+0>
+b101 w
+1~
+1$
+#2040000
+0~
+0$
+#2060000
+1_
+1Z
+1Y
+b1 x
+1b
+xc
+b0x \
+b0x ]
+x:
+1~
+1$
+#2080000
+0~
+0$
+#2100000
+b0xx \
+b0xx ]
+b0x ^
+b0x 2
+b0x X
+b0x [
+b10 x
+b1 a
+b1 T
+1~
+1$
+#2120000
+0~
+0$
+#2140000
+b0xxx \
+b0xxx ]
+b11 x
+b0xx ^
+b0xx 2
+b0xx X
+b0xx [
+b10 a
+b10 T
+1~
+1$
+#2160000
+0~
+0$
+#2180000
+b0xxxx \
+b0xxxx ]
+b0xxx ^
+b0xxx 2
+b0xxx X
+b0xxx [
+b100 x
+b11 a
+b11 T
+1~
+1$
+#2200000
+0~
+0$
+#2220000
+b0xxxxx \
+b0xxxxx ]
+b101 x
+b0xxxx ^
+b0xxxx 2
+b0xxxx X
+b0xxxx [
+b100 a
+b100 T
+1~
+1$
+#2240000
+0~
+0$
+#2260000
+b0xxxxxx \
+b0xxxxxx ]
+b0xxxxx ^
+b0xxxxx 2
+b0xxxxx X
+b0xxxxx [
+b110 x
+b101 a
+b101 T
+1~
+1$
+#2280000
+0~
+0$
+#2300000
+b0xxxxxxx \
+b0xxxxxxx ]
+b111 x
+b0xxxxxx ^
+b0xxxxxx 2
+b0xxxxxx X
+b0xxxxxx [
+b110 a
+b110 T
+1~
+1$
+#2320000
+0~
+0$
+#2340000
+b0xxxxxxxx \
+b0xxxxxxxx ]
+b0xxxxxxx ^
+b0xxxxxxx 2
+b0xxxxxxx X
+b0xxxxxxx [
+b1000 x
+b111 a
+b111 T
+1~
+1$
+#2360000
+0~
+0$
+#2380000
+b0xxxxxxxxx \
+b0xxxxxxxxx ]
+b1001 x
+b0xxxxxxxx ^
+b0xxxxxxxx 2
+b0xxxxxxxx X
+b0xxxxxxxx [
+b1000 a
+b1000 T
+1~
+1$
+#2400000
+0~
+0$
+#2420000
+b0xxxxxxxxxx \
+b0xxxxxxxxxx ]
+b0xxxxxxxxx ^
+b0xxxxxxxxx 2
+b0xxxxxxxxx X
+b0xxxxxxxxx [
+b1010 x
+b1001 a
+b1001 T
+1~
+1$
+#2440000
+0~
+0$
+#2460000
+b0xxxxxxxxxxx \
+b0xxxxxxxxxxx ]
+b1011 x
+b0xxxxxxxxxx ^
+b0xxxxxxxxxx 2
+b0xxxxxxxxxx X
+b0xxxxxxxxxx [
+b1010 a
+b1010 T
+1~
+1$
+#2480000
+0~
+0$
+#2500000
+b0xxxxxxxxxxxx \
+b0xxxxxxxxxxxx ]
+b0xxxxxxxxxxx ^
+b0xxxxxxxxxxx 2
+b0xxxxxxxxxxx X
+b0xxxxxxxxxxx [
+b1100 x
+b1011 a
+b1011 T
+1~
+1$
+#2520000
+0~
+0$
+#2540000
+b0xxxxxxxxxxxxx \
+b0xxxxxxxxxxxxx ]
+b1101 x
+b0xxxxxxxxxxxx ^
+b0xxxxxxxxxxxx 2
+b0xxxxxxxxxxxx X
+b0xxxxxxxxxxxx [
+b1100 a
+b1100 T
+1~
+1$
+#2560000
+0~
+0$
+#2580000
+b0xxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxx X
+b0xxxxxxxxxxxxx [
+b1110 x
+b1101 a
+b1101 T
+1~
+1$
+#2600000
+0~
+0$
+#2620000
+b0xxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxx ]
+b1111 x
+b0xxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxx [
+b1110 a
+b1110 T
+1~
+1$
+#2640000
+0~
+0$
+#2660000
+b0xxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxx [
+b10000 x
+b1111 a
+b1111 T
+1~
+1$
+#2680000
+0~
+0$
+#2700000
+b0xxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxx ]
+b10001 x
+b0xxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxx [
+b10000 a
+b10000 T
+1~
+1$
+#2720000
+0~
+0$
+#2740000
+b0xxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxx [
+b10010 x
+b10001 a
+b10001 T
+1~
+1$
+#2760000
+0~
+0$
+#2780000
+b0xxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxx ]
+b0x g
+b10011 x
+b0xxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxx [
+b10010 a
+b10010 T
+1~
+1$
+#2800000
+0~
+0$
+#2820000
+b0xxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxx ]
+b0xx g
+b0xxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxx [
+b10100 x
+b10011 a
+b10011 T
+1~
+1$
+#2840000
+0~
+0$
+#2860000
+b0xxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxx ]
+b0xxx g
+b10101 x
+b0xxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxx [
+b10100 a
+b10100 T
+1~
+1$
+#2880000
+0~
+0$
+#2900000
+b0xxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxx g
+b0xxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxx [
+b10110 x
+b10101 a
+b10101 T
+1~
+1$
+#2920000
+0~
+0$
+#2940000
+b0xxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxx g
+b10111 x
+b0xxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxx [
+b10110 a
+b10110 T
+1~
+1$
+#2960000
+0~
+0$
+#2980000
+b0xxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxx g
+b0xxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxx [
+b11000 x
+b10111 a
+b10111 T
+1~
+1$
+#3000000
+0~
+0$
+#3020000
+b0xxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxx g
+b11001 x
+b0xxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxx [
+b11000 a
+b11000 T
+1~
+1$
+#3040000
+0~
+0$
+#3060000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxx g
+b0xxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxx [
+b11010 x
+b11001 a
+b11001 T
+1~
+1$
+#3080000
+0~
+0$
+#3100000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxx g
+b11011 x
+b0xxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxx [
+b11010 a
+b11010 T
+1~
+1$
+#3120000
+0~
+0$
+#3140000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxx g
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b11100 x
+b11011 a
+b11011 T
+1~
+1$
+#3160000
+0~
+0$
+#3180000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxx g
+b11101 x
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b11100 a
+b11100 T
+1~
+1$
+#3200000
+0~
+0$
+#3220000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxx g
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b11110 x
+b11101 a
+b11101 T
+1~
+1$
+#3240000
+0~
+0$
+#3260000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxx g
+b11111 x
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b11110 a
+b11110 T
+1~
+1$
+#3280000
+0~
+0$
+#3300000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxx g
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b100000 x
+b11111 a
+b11111 T
+1~
+1$
+#3320000
+0~
+0$
+#3340000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxx g
+b100001 x
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b100000 a
+b100000 T
+1~
+1$
+#3360000
+0~
+0$
+#3380000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxx g
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b100010 x
+b100001 a
+b100001 T
+1~
+1$
+#3400000
+0~
+0$
+#3420000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxx g
+b100011 x
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b100010 a
+b100010 T
+1~
+1$
+#3440000
+0~
+0$
+#3460000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxx g
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b100100 x
+b100011 a
+b100011 T
+1~
+1$
+#3480000
+0~
+0$
+#3500000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxxx g
+b100101 x
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b100100 a
+b100100 T
+1~
+1$
+#3520000
+0~
+0$
+#3540000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxxxx g
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b100110 x
+b100101 a
+b100101 T
+1~
+1$
+#3560000
+0~
+0$
+#3580000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxxxxx g
+b100111 x
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b100110 a
+b100110 T
+1~
+1$
+#3600000
+0~
+0$
+#3620000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxxxxxx g
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b101000 x
+b100111 a
+b100111 T
+1~
+1$
+#3640000
+0~
+0$
+#3660000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxxxxxxx g
+b101001 x
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b101000 a
+b101000 T
+1~
+1$
+#3680000
+0~
+0$
+#3700000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxxxxxxxx g
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b101010 x
+b101001 a
+b101001 T
+1~
+1$
+#3720000
+0~
+0$
+#3740000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxxxxxxxxx g
+b101011 x
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b101010 a
+b101010 T
+1~
+1$
+#3760000
+0~
+0$
+#3780000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxxxxxxxxxx g
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b101100 x
+b101011 a
+b101011 T
+1~
+1$
+#3800000
+0~
+0$
+#3820000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxx g
+b101101 x
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b101100 a
+b101100 T
+1~
+1$
+#3840000
+0~
+0$
+#3860000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxx g
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b101110 x
+b101101 a
+b101101 T
+1~
+1$
+#3880000
+0~
+0$
+#3900000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxx g
+b101111 x
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b101110 a
+b101110 T
+1~
+1$
+#3920000
+0~
+0$
+#3940000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx g
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+b110000 x
+b101111 a
+b101111 T
+1~
+1$
+#3960000
+0~
+0$
+#3980000
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ]
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx g
+b110001 x
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ^
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx X
+b0xxxxxxxxxxxx
