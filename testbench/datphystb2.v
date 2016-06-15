@@ -38,13 +38,13 @@ reg Enable_card;
 reg load_send_card;
 
 wire [50:0] to_send;
-assign to_send=52'd7924;
+assign to_send=51'd7924;
 
-paralleltoserialWrappersd # (50,8) sd(
+paralleltoserialWrappersd # (51,8) sd(
 .Clock(sd_clock),
 .Reset(reset),
 .Enable(Enable_card),
-.framesize(8'd50),
+.framesize(8'd51),
 .load_send(load_send_card),
 .complete(complete_card),
 .serial(dat_to_card),.
@@ -55,13 +55,15 @@ parallel(to_send));
 	initial begin
 		Enable_card=1'b0;
 		load_send_card=1'b0;
-		$dumpfile("dat_phys_2.vcd");
+		$dumpfile("dat_phys_2.lxt");
 		$dumpvars;	
+		$monitor($time);
 		#4500
 		Enable_card=1'b1;
 		load_send_card=1'b0;
 		#5000
 		load_send_card=1'b1;
+		$display("hola");
 		#19000
 		$display("test finished");
 		$finish;
