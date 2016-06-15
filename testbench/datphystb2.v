@@ -25,7 +25,7 @@ dat_phys dat(
 .writeRead(1'b0),
 .multiple(1'b1),
 //.dat_pin(pad),
-.dat_in(dat_to_card),
+.dat_pin(dat_to_card),
 .dataFROMFIFO(32'b0)
 );
 wire dat_to_card;
@@ -37,8 +37,10 @@ generatorCMDcontroller gencmd(
 reg Enable_card;
 reg load_send_card;
 
-wire [50:0] to_send;
-assign to_send=50'd7924;
+wire [49:0] to_send;
+wire [48:0] to_send_kk;
+assign to_send_kk=49'd7924;
+assign to_send={1'b1,to_send_kk};
 
 paralleltoserialWrappersd # (51,8) sd(
 .Clock(sd_clock),
@@ -53,17 +55,20 @@ parallel(to_send));
 reg reset_card;
 
 	initial begin
+	$dumpfile("dat_phys_2.vcd");
+		$dumpvars;	
+		Enable_card=1'b0;
 		reset_card=1'b0;
+		load_send_card=1'b0;
 		#50;
 		reset_card=1'b1;
-		#1000
+		#100
 		#200;
 		reset_card=1'b0;
 		#200
 		Enable_card=1'b0;
 		load_send_card=1'b0;
-		$dumpfile("dat_phys_2.vcd");
-		$dumpvars;	
+		
 		//$monitor($time);
 		#4500
 		Enable_card=1'b1;

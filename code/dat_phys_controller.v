@@ -177,7 +177,7 @@ always @(* )
 						serial_ready=1'b1;
 						complete=1'b0;
 						ack_out=1'b0;
-						reset_wrapper=1'b0;
+						reset_wrapper=1'b1;
 						load_send=1'b0;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
@@ -265,10 +265,8 @@ always @(* )
 						read_fifo_enable=1'b0;
 						dataReadTOFIFO=32'b0;
 						loaded=1'b0;
-						if(reception_complete)
-							blockCount=blockCount+1'b1;
-						else
-							blockCount=blockCount;
+						blockCount=blockCount;
+
 					end
 				READ_FIFO_WRITE:
 					begin
@@ -312,7 +310,7 @@ always @(* )
 						serial_ready=1'b0;
 						complete=1'b1;
 						ack_out=1'b0;
-						reset_wrapper=1'b0;
+						reset_wrapper=1'b1;
 						load_send=1'b0;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
@@ -361,6 +359,8 @@ always @ (posedge sd_clock  )
 						state <=  next_state;
 					end
 				end
+			if(reception_complete)
+							blockCount<=blockCount+1'b1; // agregar una senal para controlar el Block count
 		if(state==WAIT_RESPONSE)
 			begin
 				dummy_count<=dummy_count+1'b1;
@@ -375,9 +375,6 @@ always @ (posedge sd_clock  )
 			begin
 			if(state==READ)
 				begin
-					dummy_count<=dummy_count+1'b1;
-					if(dummy_count==1'b1)
-						dummy_count<=dummy_count;
 					if(DATA_TIMEOUT==1'b0)
 					timeout_count<=timeout_count+7'b1;
 					if(DATA_TIMEOUT==1'b1)

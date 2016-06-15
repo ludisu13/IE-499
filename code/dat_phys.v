@@ -22,9 +22,9 @@ module dat_phys(
 	output wire complete, 
 	output wire ack_out,
 	//PAD_Pin
-	input wire dat_in,
-	output wire dat_out,
-	//inout  wire dat_pin,
+	//input wire dat_in,
+	//output wire dat_out,
+	inout  wire dat_pin,
 	//OUTPUT TO HOST AND REGISTERS;
 	output wire DATA_TIMEOUT,
 	//OUTPUT TO FIFO
@@ -47,19 +47,19 @@ paralleltoserialWrapper # (50,8) ptsw_dat(
 .framesize(8'd50),
 .load_send(load_send),
 .complete(transmission_complete),
-.serial(dat_out),.
+.serial(serialpad),
+.Reset(reset_wrapper),.
 parallel(frame_to_send));
 
 serialToParallelWrapper # (50,8) stpw_dat(
 .Clock(sd_clock),
-.Reset(reset),
+.Reset(reset_wrapper),
 .framesize(framesize_reception),
 .Enable(enable_stp_wrapper),
-.serial(dat_in),
+.serial(padserial),
 .complete(reception_complete),.
 parallel(frame_received));
-///pad /*
-/*
+
 PAD dat_PAD(
 .clock(sd_clock),
 .output_input(pad_state),
@@ -67,7 +67,7 @@ PAD dat_PAD(
 .enable(pad_enable),
 .data_out(padserial),
 .io_port(dat_pin)
-);*/
+);
 dat_phys_controller dat1(
 .sd_clock(sd_clock),
 .reset(reset),
