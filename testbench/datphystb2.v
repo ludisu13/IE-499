@@ -55,7 +55,7 @@ parallel(to_send));
 	initial begin
 		Enable_card=1'b0;
 		load_send_card=1'b0;
-		$dumpfile("dat_phys_2.lxt");
+		$dumpfile("dat_phys_2.vcd");
 		$dumpvars;	
 		$monitor($time);
 		#4500
