@@ -266,9 +266,9 @@ always @(* )
 						dataReadTOFIFO=32'b0;
 						loaded=1'b0;
 						if(reception_complete)
-							blockCount<=blockCount+1'b1;
+							blockCount=blockCount+1'b1;
 						else
-							blockCount<=blockCount;
+							blockCount=blockCount;
 					end
 				READ_FIFO_WRITE:
 					begin

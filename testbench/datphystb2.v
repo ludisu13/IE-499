@@ -21,7 +21,7 @@ dat_phys dat(
 .ack_in(1'b0),
 .idle_in(1'b0),
 .TIMEOUT_REG(16'd100),
-.blocks(4'd4),
+.blocks(4'd2),
 .writeRead(1'b0),
 .multiple(1'b1),
 //.dat_pin(pad),
@@ -38,11 +38,11 @@ reg Enable_card;
 reg load_send_card;
 
 wire [50:0] to_send;
-assign to_send=51'd7924;
+assign to_send=50'd7924;
 
 paralleltoserialWrappersd # (51,8) sd(
 .Clock(sd_clock),
-.Reset(reset),
+.Reset(reset_card),
 .Enable(Enable_card),
 .framesize(8'd51),
 .load_send(load_send_card),
@@ -50,14 +50,21 @@ paralleltoserialWrappersd # (51,8) sd(
 .serial(dat_to_card),.
 parallel(to_send));
 
-
+reg reset_card;
 
 	initial begin
+		reset_card=1'b0;
+		#50;
+		reset_card=1'b1;
+		#1000
+		#200;
+		reset_card=1'b0;
+		#200
 		Enable_card=1'b0;
 		load_send_card=1'b0;
 		$dumpfile("dat_phys_2.vcd");
 		$dumpvars;	
-		$monitor($time);
+		//$monitor($time);
 		#4500
 		Enable_card=1'b1;
 		load_send_card=1'b0;
@@ -65,6 +72,18 @@ parallel(to_send));
 		load_send_card=1'b1;
 		$display("hola");
 		#19000
+		load_send_card=1'b0;
+		#400
+		reset_card=1'b0;
+		#50;
+		reset_card=1'b1;
+		#1000
+		#200;
+		reset_card=1'b0;
+		#200
+		#2000
+		load_send_card=1'b1;
+		#10000
 		$display("test finished");
 		$finish;
 	end
