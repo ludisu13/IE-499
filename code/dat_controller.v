@@ -19,7 +19,7 @@ output reg transfer_complete,
 output reg strobe_out,
 output reg ack_out,
 output reg [3:0] blocks,
-output reg writereadphys
+output reg writereadphys,
 output reg multiple
 );
 
@@ -126,12 +126,12 @@ always @(*)
 					multiple=1'b0;
 					blocks=4'b0;
 				end
-			SETTING:
+			SETTING_OUTPUTS:
 				begin
 					strobe_out=1'b0;
 					ack_out=1'b0;
 					transfer_complete=1'b0;
-					writereadphys=writeRead
+					writereadphys=writeRead;
 					multiple=multipleData;
 					blocks=blockCount;
 				end
@@ -151,13 +151,13 @@ always @(*)
 					ack_out=1'b0;
 					multiple=multiple;
 					blocks=blocks;
-					if(~complete)
+					if(complete)
 						begin
-							transfer_complete=1'b0;
+							transfer_complete=1'b1;
 						end
 					else
 						begin
-							transfer_complete=1'b1;
+							transfer_complete=1'b0;
 						end
 				end
 			ACK:
@@ -172,7 +172,9 @@ always @(*)
 		
 				
 		default:
-		
+				begin
+				
+				end
 		
 		endcase
 end	
