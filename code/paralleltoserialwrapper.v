@@ -15,7 +15,7 @@ module paralleltoserialWrapper # (parameter WIDTH=8,parameter FRAME_SIZE_WIDTH=8
 wire serialTemp;
 Paralleltoserial #(WIDTH) pts(
 .Clock(Clock),
-.Reset(Reset),
+.Reset(Reset||!go),
 .Enable(Enable&go),
 .serial(serialTemp),
 .parallel(parallel),
@@ -27,7 +27,7 @@ wire [(FRAME_SIZE_WIDTH-1):0] Value;
 wire [(FRAME_SIZE_WIDTH-1):0] countValue;
 UPCOUNTER_POSEDGE # (FRAME_SIZE_WIDTH) counter1(
 .Clock(Clock),
-.Reset(Reset),
+.Reset(Reset||!go),
 .Initial(initialValue),
 .Enable(Enable&go&load_send),
 .Q(countValue)

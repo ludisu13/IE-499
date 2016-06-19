@@ -224,10 +224,6 @@ always @(* )
 						read_fifo_enable=1'b0;
 						dataReadTOFIFO=32'b0;
 						loaded=1'b0;
-						if(transmission_complete)
-							blockCount=blockCount+1'b1;
-						else
-							blockCount=blockCount;
 					end
 				WAIT_RESPONSE:
 					begin
@@ -237,7 +233,7 @@ always @(* )
 						reset_wrapper=1'b0;
 						load_send=1'b0;
 						enable_pts_wrapper=1'b0;
-						enable_stp_wrapper=1'b0;
+						enable_stp_wrapper=1'b1;
 						waiting_response=1'b1;
 						pad_state=1'b0;
 						pad_enable=1'b1;
@@ -247,7 +243,9 @@ always @(* )
 						//if(dummy_count==1'b1)
 						//	enable_stp_wrapper=1'b1;
 						loaded=1'b0;
-						blockCount=blockCount;
+					//	blockCount=blockCount;
+						if(reception_complete)
+							blockCount=blockCount+1'b1;
 					end
 				READ:
 					begin
@@ -265,7 +263,7 @@ always @(* )
 						read_fifo_enable=1'b0;
 						dataReadTOFIFO=32'b0;
 						loaded=1'b0;
-						blockCount=blockCount;
+						
 
 					end
 				READ_FIFO_WRITE:
@@ -359,8 +357,9 @@ always @ (posedge sd_clock  )
 						state <=  next_state;
 					end
 				end
-			if(reception_complete)
-							blockCount<=blockCount+1'b1; // agregar una senal para controlar el Block count
+				if(reception_complete&state==READ)
+							blockCount=blockCount+1'b1;
+			// agregar una senal para controlar el Block count
 		if(state==WAIT_RESPONSE)
 			begin
 				dummy_count<=dummy_count+1'b1;

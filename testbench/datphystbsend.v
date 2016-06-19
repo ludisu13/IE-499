@@ -1,0 +1,96 @@
+`include "definitionsCMDcontroller.v"
+`include "generator_cmdcontroller.v"
+`include "../code/ffd.v"
+`include "../code/pad.v"
+`include "../code/counter.v"
+`include "../code/parallelToSerial.v"
+`include "../code/serialToParallel.v"
+`include "../code/serialtoparallelwrapper.v"
+`include "../code/paralleltoserialwrapper.v"
+`include "../code/dat_phys_controller.v"
+`include "../code/dat_phys.v"
+`include "../code/paralleltoserialwrapper_Sd.v"
+
+
+module TestBench;
+wire pad;
+dat_phys dat(
+.sd_clock(sd_clock),
+.reset(reset),
+.strobe_in(strobe_in),
+.ack_in(1'b0),
+.idle_in(1'b0),
+.TIMEOUT_REG(16'd100),
+.blocks(4'd1),
+.writeRead(1'b1),
+.multiple(1'b1),
+//.dat_pin(pad),
+.dat_pin(dat_to_card),
+.dataFROMFIFO(32'd3792842)
+);
+wire dat_to_card;
+generatorCMDcontroller gencmd(
+.clock(sd_clock),
+.reset(reset),
+.strobe_in(strobe_in)
+);
+reg Enable_card;
+reg load_send_card;
+
+wire [49:0] to_send;
+wire [48:0] to_send_kk;
+assign to_send_kk=48'd7924;
+assign to_send={1'b1,to_send_kk};
+
+paralleltoserialWrappersd # (4,8) sd(
+.Clock(sd_clock),
+.Reset(reset_card),
+.Enable(Enable_card),
+.framesize(8'd4),
+.load_send(load_send_card),
+.complete(complete_card),
+.serial(dat_to_card),.
+parallel({4'b1010}));
+
+reg reset_card;
+
+	initial begin
+	$dumpfile("dat_phys_send.vcd");
+		$dumpvars;	
+		Enable_card=1'b0;
+		reset_card=1'b0;
+		load_send_card=1'b0;
+		#50;
+		reset_card=1'b1;
+		#100
+		#200;
+		reset_card=1'b0;
+		#200
+		Enable_card=1'b0;
+		load_send_card=1'b0;
+		
+		//$monitor($time);
+		#4500
+		Enable_card=1'b1;
+		load_send_card=1'b0;
+		#5000
+		load_send_card=1'b1;
+		$display("hola");
+		#19000
+		load_send_card=1'b0;
+		#400
+		reset_card=1'b0;
+		#50;
+		reset_card=1'b1;
+		#1000
+		#200;
+		reset_card=1'b0;
+		#200
+		#2000
+		load_send_card=1'b1;
+		#10000
+		$display("test finished");
+		$finish;
+	end
+
+endmodule
