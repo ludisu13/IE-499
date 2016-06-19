@@ -31,6 +31,12 @@ wbslave:
 	iverilog -o testbench_wishbone_slave5 wishbone_slave5_tb.v
 	vvp testbench_wishbone_slave5
 	gtkwave signalsWishboneSlave5.vcd 
+	
+WbFifoReg:
+	iverilog -o testbench_WbFifoReg WbFifoReg_tb.v
+	vvp testbench_WbFifoReg
+	gtkwave signalsWbFifoReg.vcd 
+	
 registers:
 	iverilog -o testbench_registers registers_tb.v
 	vvp testbench_registers

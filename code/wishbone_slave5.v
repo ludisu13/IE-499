@@ -18,10 +18,11 @@ module wishbone_slave ( // Wishbone Slave
 	output reg			fifo_write_en,
 	output reg			reg_read_en,
 	output reg			reg_write_en,
+	output reg	[4:0]	adr_o,
 	
 	//Inputs from Wishbone Master
 	input wire 		we_i, //write_enable 
-	input wire [4:0]	adr_i, // Command (adr_i = 0) or Data (adr_i = 1)
+	input wire [4:0]	adr_i, 
 	input wire 		strobe, // Strobe
 	input wire [127:0] wb_data_i,
 	
@@ -87,7 +88,7 @@ always @(*) begin
 					next_state = IDLE;
 				else if(we_i)
 					begin
-						if(adr_i == 5'd16 || adr_i == 5'd19) // CMD EX
+						if(adr_i == 5'd16 || adr_i == 5'd19) // CMD EX o DAT EX
 							next_state = EXEC;
 						else
 							next_state = WRITE;
@@ -154,6 +155,7 @@ always @(*) begin
 				reg_read_en   = 1'b0;
 				reg_write_en  = 1'b0;
 				error_o		  = 1'b0;
+				adr_o		  = 5'b0;
 			end
 		
 		IDLE:
@@ -168,6 +170,7 @@ always @(*) begin
 				reg_read_en   = 1'b0;
 				reg_write_en  = 1'b0;
 				error_o		  = 1'b0;
+				adr_o 		  = 5'b0;
 			end
 		
 		READ:
@@ -199,7 +202,8 @@ always @(*) begin
 						reg_write_en  = 1'b0;
 						error_o		  = 1'b1;
 					end
-				wb_data_o	<= host_data_i;
+				wb_data_o	= host_data_i;
+				adr_o 		= adr_i;
 			end				
 		
 		WRITE:
@@ -216,6 +220,7 @@ always @(*) begin
 						reg_read_en   = 1'b0;
 						reg_write_en  = 1'b0;
 						error_o		  = 1'b0;
+						adr_o		  = adr_i;
 					end
 				else if (adr_i == 5'd17) //FIFO WRITE
 					begin
@@ -229,6 +234,7 @@ always @(*) begin
 						reg_read_en   = 1'b0;
 						reg_write_en  = 1'b0;
 						error_o		  = 1'b0;
+						adr_o		  = adr_i;
 					end
 				else if (adr_i == 5'd19) //DATA EXECUTE
 					begin
@@ -242,6 +248,7 @@ always @(*) begin
 						reg_read_en   = 1'b0;
 						reg_write_en  = 1'b0;
 						error_o		  = 1'b0;
+						adr_o		  = adr_i;
 					end
 				else if(adr_i >= 5'd0 && adr_i <=5'd15)// REG
 					begin
@@ -255,6 +262,7 @@ always @(*) begin
 						reg_read_en   = 1'b0;
 						reg_write_en  = 1'b1;
 						error_o		  = 1'b0;
+						adr_o		  = adr_i;
 					end
 				else 
 					begin
@@ -268,6 +276,7 @@ always @(*) begin
 						reg_read_en   = 1'b0;
 						reg_write_en  = 1'b0;
 						error_o		  = 1'b1;
+						adr_o		  = 5'b0;
 					end
 			end
 		EXEC:
@@ -275,13 +284,14 @@ always @(*) begin
 				ack_o	 	  = 1'b1;
 				new_command   = 1'b0;
 				new_data	  = 1'b0;	
-				host_data_o   = 64'b0;
-				wb_data_o 	  = 64'b0;
+				host_data_o   = 128'b0;
+				wb_data_o 	  = 128'b0;
 				fifo_read_en  = 1'b0;
 				fifo_write_en = 1'b0;
 				reg_read_en   = 1'b0;
 				reg_write_en  = 1'b0;
 				error_o		  = 1'b0;
+				adr_o		  = 5'b0;
 			end
 		
 		WBWAIT:
@@ -292,13 +302,14 @@ always @(*) begin
 					ack_o 	  = 1'b0;
 				new_command   = 1'b0;
 				new_data	  = 1'b0;	
-				host_data_o   = 64'b0;
-				wb_data_o 	  = 64'b0;
+				host_data_o   = 128'b0;
+				wb_data_o 	  = 128'b0;
 				fifo_read_en  = 1'b0;
 				fifo_write_en = 1'b0;
 				reg_read_en   = 1'b0;
 				reg_write_en  = 1'b0;
 				error_o		  = 1'b0;
+				adr_o		  = 5'b0;
 			end
 		
 		default:
@@ -306,13 +317,14 @@ always @(*) begin
 				ack_o 		  = 1'b0;
 				new_command   = 1'b0;
 				new_data	  = 1'b0;	
-				host_data_o   = 64'b0;
-				wb_data_o 	  = 64'b0;
+				host_data_o   = 128'b0;
+				wb_data_o 	  = 128'b0;
 				fifo_read_en  = 1'b0;
 				fifo_write_en = 1'b0;
 				reg_read_en   = 1'b0;
 				reg_write_en  = 1'b0;
 				error_o		  = 1'b0;
+				adr_o 		  = 5'b0;
 			end
 	endcase
 end

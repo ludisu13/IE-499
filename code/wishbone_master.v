@@ -7,6 +7,7 @@ module wishbone_master (
 	input wire reset,	
 	input wire ack_i,
 	input wire wb_data_i,
+	input wire error_i,
 	
 	//Outputs To Slave
 	output reg we_o,

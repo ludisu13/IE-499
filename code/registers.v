@@ -1,4 +1,4 @@
-`include "../code/definitions_registers.v"
+//`include "../code/definitions_registers.v"
 module registers (
 	
 	//Inputs
@@ -211,7 +211,25 @@ always @(posedge clock) begin
 			normal_interrupt_signal_enable = normal_interrupt_signal_enable;
 			error_interrupt_signal_enable = error_interrupt_signal_enable;
 			host_controller_version = host_controller_version;
+			//data_o = 128'bz;
 		end
+		//else begin
+		//	block_size = block_size;
+		//	block_count = block_count;
+		//	argument = argument;
+		//	transfer_mode = transfer_mode;
+		//	command = command;
+		//	present_state = present_state;
+		//	timeout_control = timeout_control;
+		//	software_reset = software_reset;
+		//	response = response; 
+		//	normal_interrupt_status_enable = normal_interrupt_status_enable;
+		//	error_interrupt_status_enable = error_interrupt_status_enable;
+		//	normal_interrupt_signal_enable = normal_interrupt_signal_enable;
+		//	error_interrupt_signal_enable = error_interrupt_signal_enable;
+		//	host_controller_version = host_controller_version;
+		//	data_o = 128'bz;
+		//end
 		
 	end
 end
