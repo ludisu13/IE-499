@@ -120,11 +120,12 @@ initial
 	begin
 		adr_o=5'b0; 
 	end
-always @(posedge wb_clock)
+always 
 	begin
-		if(ack_i == 1'b0)
-			adr_o = adr_o;
-		else 
+		#`ADR_IN
+		//if(ack_i == 1'b0)
+		//	adr_o = adr_o;
+		//else 
 			adr_o = adr_o +5'b1;
 		if(adr_o == 5'd20)
 			adr_o = 5'd0;
