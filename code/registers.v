@@ -1,4 +1,4 @@
-`include "definitions_registers.v"
+`include "../code/definitions_registers.v"
 module registers (
 	
 	//Inputs
@@ -194,23 +194,23 @@ always @(posedge clock) begin
 	
 	else begin
 		if(command_complete) begin
-			response <= response_i;
-			error_interrupt_status_o <= error_interrupt_status_i;
-			normal_interrupt_status <= normal_interrupt_status_i;
-			block_size <= block_size;
-			block_count <= block_count;
-			argument <= argument;
-			transfer_mode <= transfer_mode;
-			command <= command;
-			present_state <= present_state;
-			timeout_control <= timeout_control;
-			software_reset <= software_reset;
-			response <= response; 
-			normal_interrupt_status_enable <= normal_interrupt_status_enable;
-			error_interrupt_status_enable <= error_interrupt_status_enable;
-			normal_interrupt_signal_enable <= normal_interrupt_signal_enable;
-			error_interrupt_signal_enable <= error_interrupt_signal_enable;
-			host_controller_version <= host_controller_version;
+			response = response_i;
+			error_interrupt_status_o = error_interrupt_status_i;
+			normal_interrupt_status = normal_interrupt_status_i;
+			block_size = block_size;
+			block_count = block_count;
+			argument = argument;
+			transfer_mode = transfer_mode;
+			command = command;
+			present_state = present_state;
+			timeout_control = timeout_control;
+			software_reset = software_reset;
+			response = response; 
+			normal_interrupt_status_enable = normal_interrupt_status_enable;
+			error_interrupt_status_enable = error_interrupt_status_enable;
+			normal_interrupt_signal_enable = normal_interrupt_signal_enable;
+			error_interrupt_signal_enable = error_interrupt_signal_enable;
+			host_controller_version = host_controller_version;
 		end
 		
 	end

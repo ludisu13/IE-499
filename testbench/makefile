@@ -31,6 +31,10 @@ wbslave:
 	iverilog -o testbench_wishbone_slave5 wishbone_slave5_tb.v
 	vvp testbench_wishbone_slave5
 	gtkwave signalsWishboneSlave5.vcd 
+registers:
+	iverilog -o testbench_registers registers_tb.v
+	vvp testbench_registers
+	gtkwave signalsRegisters.vcd 
 pts: 
 	iverilog -o testbench_parallelToSerial parallelToSerial_Tb.v
 	vvp testbench_parallelToSerial

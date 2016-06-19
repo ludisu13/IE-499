@@ -23,8 +23,8 @@ module TestBench;
 	// Outputs
 	
 	//Outputs to Host
-	wire new_data;
-	wire new_command;
+	wire 		new_data;
+	wire 		new_command;
 	wire [127:0] host_data_o;
 	wire		fifo_read_en;
 	wire 		fifo_write_en;
@@ -34,8 +34,8 @@ module TestBench;
 	
 	//Outputs to Wishbone Master
 	wire [127:0] wb_data_o;
-	wire ack_o;
-	wire error_o;
+	wire 		ack_o;
+	wire 		error_o;
 	
 	// Instantiate the Unit Under Test (UUT)
 	wishbone_slave wb_salve1 (

@@ -1,6 +1,6 @@
-`timescale 1ns / 1ps
-`ifndef DEFINTIONS_V
-`define DEFINTIONS_V
+//`timescale 1ns / 1ps
+//`ifndef DEFINTIONS_V
+//`define DEFINTIONS_V
 
 `define BLOCK_SIZE 0
 `define BLOCK_COUNT 1
@@ -19,4 +19,4 @@
 `define ERROR_INTERRUPT_SIGNAL_ENABLE 14
 `define HOST_CONTROLLER_VERSION 15
 
-`endif
+//`endif

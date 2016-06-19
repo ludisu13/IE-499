@@ -1,0 +1,1064 @@
+$date
+	Fri Jun 17 09:55:45 2016
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module TestBench $end
+$var wire 5 ! adr_i [4:0] $end
+$var wire 32 " argument [31:0] $end
+$var wire 16 # block_count [15:0] $end
+$var wire 12 $ block_size [11:0] $end
+$var wire 1 % clock $end
+$var wire 16 & command [15:0] $end
+$var wire 1 ' command_complete $end
+$var wire 128 ( data_i [127:0] $end
+$var wire 128 ) data_o [127:0] $end
+$var wire 16 * error_interrupt_status_i [15:0] $end
+$var wire 16 + error_interrupt_status_o [15:0] $end
+$var wire 16 , normal_interrupt_status_i [15:0] $end
+$var wire 16 - present_state [15:0] $end
+$var wire 1 . reg_read_en $end
+$var wire 1 / reg_write_en $end
+$var wire 1 0 reset $end
+$var wire 128 1 response_i [127:0] $end
+$var wire 3 2 software_reset [2:0] $end
+$var wire 16 3 timeout_control [15:0] $end
+$var wire 16 4 transfer_mode [15:0] $end
+$scope module regs $end
+$var wire 5 5 adr_i [4:0] $end
+$var wire 1 % clock $end
+$var wire 1 ' command_complete $end
+$var wire 128 6 data_i [127:0] $end
+$var wire 16 7 error_interrupt_status_i [15:0] $end
+$var wire 16 8 normal_interrupt_status_i [15:0] $end
+$var wire 1 . reg_read_en $end
+$var wire 1 / reg_write_en $end
+$var wire 1 0 reset $end
+$var wire 128 9 response_i [127:0] $end
+$var reg 32 : argument [31:0] $end
+$var reg 16 ; block_count [15:0] $end
+$var reg 12 < block_size [11:0] $end
+$var reg 16 = command [15:0] $end
+$var reg 128 > data_o [127:0] $end
+$var reg 16 ? error_interrupt_signal_enable [15:0] $end
+$var reg 16 @ error_interrupt_status_enable [15:0] $end
+$var reg 16 A error_interrupt_status_o [15:0] $end
+$var reg 16 B host_controller_version [15:0] $end
+$var reg 16 C normal_interrupt_signal_enable [15:0] $end
+$var reg 16 D normal_interrupt_status [15:0] $end
+$var reg 16 E normal_interrupt_status_enable [15:0] $end
+$var reg 16 F present_state [15:0] $end
+$var reg 128 G response [127:0] $end
+$var reg 3 H software_reset [2:0] $end
+$var reg 16 I timeout_control [15:0] $end
+$var reg 16 J transfer_mode [15:0] $end
+$upscope $end
+$scope module genReg $end
+$var wire 5 K adr_i [4:0] $end
+$var wire 1 % clock $end
+$var wire 1 ' command_complete $end
+$var wire 128 L data_i [127:0] $end
+$var wire 16 M error_interrupt_status_i [15:0] $end
+$var wire 16 N normal_interrupt_status_i [15:0] $end
+$var wire 1 . reg_read_en $end
+$var wire 1 / reg_write_en $end
+$var wire 1 0 reset $end
+$var wire 128 O response_i [127:0] $end
+$scope module clk1 $end
+$var reg 1 P clock $end
+$upscope $end
+$scope module r1 $end
+$var reg 1 Q reset $end
+$upscope $end
+$scope module adrg $end
+$var reg 5 R adr_in [4:0] $end
+$upscope $end
+$scope module rweg $end
+$var reg 1 S reg_write_en $end
+$upscope $end
+$scope module rreg $end
+$var reg 1 T reg_read_en $end
+$upscope $end
+$scope module ccg $end
+$var reg 1 U command_complete $end
+$upscope $end
+$scope module datag $end
+$var reg 128 V data_i [127:0] $end
+$upscope $end
+$scope module rig $end
+$var reg 128 W response_i [127:0] $end
+$upscope $end
+$scope module eisg $end
+$var reg 16 X error_interrupt_status_i [15:0] $end
+$upscope $end
+$scope module nisg $end
+$var reg 16 Y normal_interrupt_status_i [15:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 Y
+b0 X
+b0 W
+b0 V
+0U
+0T
+0S
+b0 R
+0Q
+0P
+b0 O
+b0 N
+b0 M
+b0 L
+b0 K
+bx J
+bx I
+bx H
+bx G
+bx F
+bx E
+bx D
+bx C
+bx B
+bx A
+bx @
+bx ?
+bx >
+bx =
+bx <
+bx ;
+bx :
+b0 9
+b0 8
+b0 7
+b0 6
+b0 5
+bx 4
+bx 3
+bx 2
+b0 1
+00
+0/
+0.
+bx -
+b0 ,
+bx +
+b0 *
+bx )
+b0 (
+0'
+bx &
+0%
+bx $
+bx #
+bx "
+b0 !
+$end
+#40000
+1P
+1%
+b10 V
+b10 (
+b10 6
+b10 L
+b1 R
+b1 !
+b1 5
+b1 K
+#60000
+0P
+0%
+1Q
+10
+#80000
+b0 B
+b0 ?
+b0 C
+b0 @
+b0 E
+b0 D
+b0 G
+b0 >
+b0 )
+b0 A
+b0 +
+b0 H
+b0 2
+b0 I
+b0 3
+b0 F
+b0 -
+b0 =
+b0 &
+b0 J
+b0 4
+b0 :
+b0 "
+b0 ;
+b0 #
+b0 <
+b0 $
+1P
+1%
+b100 V
+b100 (
+b100 6
+b100 L
+b10 R
+b10 !
+b10 5
+b10 K
+#100000
+0P
+0%
+b1 Y
+b1 ,
+b1 8
+b1 N
+b1 X
+b1 *
+b1 7
+b1 M
+#120000
+b110 J
+b110 4
+1P
+1%
+b110 V
+b110 (
+b110 6
+b110 L
+b11 R
+b11 !
+b11 5
+b11 K
+0Q
+00
+1S
+1/
+#140000
+0P
+0%
+#160000
+b1000 =
+b1000 &
+1P
+1%
+b1000 V
+b1000 (
+b1000 6
+b1000 L
+b100 R
+b100 !
+b100 5
+b100 K
+#180000
+0P
+0%
+#200000
+1P
+1%
+b1010 V
+b1010 (
+b1010 6
+b1010 L
+b101 R
+b101 !
+b101 5
+b101 K
+b1 W
+b1 1
+b1 9
+b1 O
+#220000
+0P
+0%
+#240000
+1P
+1%
+b1100 V
+b1100 (
+b1100 6
+b1100 L
+b110 R
+b110 !
+b110 5
+b110 K
+#260000
+0P
+0%
+#280000
+b1110 I
+b1110 3
+1P
+1%
+b1110 V
+b1110 (
+b1110 6
+b1110 L
+b111 R
+b111 !
+b111 5
+b111 K
+#300000
+0P
+0%
+#320000
+1P
+1%
+b10000 V
+b10000 (
+b10000 6
+b10000 L
+b1000 R
+b1000 !
+b1000 5
+b1000 K
+#340000
+0P
+0%
+#360000
+1P
+1%
+b10010 V
+b10010 (
+b10010 6
+b10010 L
+b1001 R
+b1001 !
+b1001 5
+b1001 K
+#380000
+0P
+0%
+#400000
+b1 A
+b1 +
+1P
+1%
+b10100 V
+b10100 (
+b10100 6
+b10100 L
+b1010 R
+b1010 !
+b1010 5
+b1010 K
+b10 W
+b10 1
+b10 9
+b10 O
+#420000
+0P
+0%
+#440000
+b10110 E
+1P
+1%
+b10110 V
+b10110 (
+b10110 6
+b10110 L
+b1011 R
+b1011 !
+b1011 5
+b1011 K
+#460000
+0P
+0%
+#480000
+b11000 @
+1P
+1%
+b11000 V
+b11000 (
+b11000 6
+b11000 L
+b1100 R
+b1100 !
+b1100 5
+b1100 K
+#500000
+0P
+0%
+#520000
+b11010 C
+1P
+1%
+b11010 V
+b11010 (
+b11010 6
+b11010 L
+b1101 R
+b1101 !
+b1101 5
+b1101 K
+#540000
+0P
+0%
+#560000
+b11100 ?
+1P
+1%
+b11100 V
+b11100 (
+b11100 6
+b11100 L
+b1110 R
+b1110 !
+b1110 5
+b1110 K
+#580000
+0P
+0%
+#600000
+1P
+1%
+b11110 V
+b11110 (
+b11110 6
+b11110 L
+b1111 R
+b1111 !
+b1111 5
+b1111 K
+b11 W
+b11 1
+b11 9
+b11 O
+#620000
+0P
+0%
+#640000
+b100000 <
+b100000 $
+1P
+1%
+b100000 V
+b100000 (
+b100000 6
+b100000 L
+b0 R
+b0 !
+b0 5
+b0 K
+#660000
+0P
+0%
+#680000
+b100010 ;
+b100010 #
+1P
+1%
+b100010 V
+b100010 (
+b100010 6
+b100010 L
+b1 R
+b1 !
+b1 5
+b1 K
+#700000
+0P
+0%
+#720000
+b100100 :
+b100100 "
+1P
+1%
+b100100 V
+b100100 (
+b100100 6
+b100100 L
+b10 R
+b10 !
+b10 5
+b10 K
+#740000
+0P
+0%
+#760000
+b100110 J
+b100110 4
+1P
+1%
+b100110 V
+b100110 (
+b100110 6
+b100110 L
+b11 R
+b11 !
+b11 5
+b11 K
+#780000
+0P
+0%
+#800000
+b101000 =
+b101000 &
+1P
+1%
+b101000 V
+b101000 (
+b101000 6
+b101000 L
+b100 R
+b100 !
+b100 5
+b100 K
+b100 W
+b100 1
+b100 9
+b100 O
+#820000
+0P
+0%
+#840000
+1P
+1%
+b101010 V
+b101010 (
+b101010 6
+b101010 L
+b101 R
+b101 !
+b101 5
+b101 K
+#860000
+0P
+0%
+#880000
+1P
+1%
+b101100 V
+b101100 (
+b101100 6
+b101100 L
+b110 R
+b110 !
+b110 5
+b110 K
+#900000
+0P
+0%
+#920000
+b101110 I
+b101110 3
+1P
+1%
+b101110 V
+b101110 (
+b101110 6
+b101110 L
+b111 R
+b111 !
+b111 5
+b111 K
+#940000
+0P
+0%
+#960000
+1P
+1%
+b110000 V
+b110000 (
+b110000 6
+b110000 L
+b1000 R
+b1000 !
+b1000 5
+b1000 K
+0S
+0/
+#980000
+0P
+0%
+#1000000
+1P
+1%
+b110010 V
+b110010 (
+b110010 6
+b110010 L
+b1001 R
+b1001 !
+b1001 5
+b1001 K
+b101 W
+b101 1
+b101 9
+b101 O
+1T
+1.
+#1020000
+0P
+0%
+#1040000
+b1 >
+b1 )
+1P
+1%
+b110100 V
+b110100 (
+b110100 6
+b110100 L
+b1010 R
+b1010 !
+b1010 5
+b1010 K
+#1060000
+0P
+0%
+#1080000
+b10110 >
+b10110 )
+1P
+1%
+b110110 V
+b110110 (
+b110110 6
+b110110 L
+b1011 R
+b1011 !
+b1011 5
+b1011 K
+#1100000
+0P
+0%
+b0 Y
+b0 ,
+b0 8
+b0 N
+b0 X
+b0 *
+b0 7
+b0 M
+#1120000
+b11000 >
+b11000 )
+1P
+1%
+b111000 V
+b111000 (
+b111000 6
+b111000 L
+b1100 R
+b1100 !
+b1100 5
+b1100 K
+#1140000
+0P
+0%
+#1160000
+b11010 >
+b11010 )
+1P
+1%
+b111010 V
+b111010 (
+b111010 6
+b111010 L
+b1101 R
+b1101 !
+b1101 5
+b1101 K
+#1180000
+0P
+0%
+#1200000
+b11100 >
+b11100 )
+1P
+1%
+b111100 V
+b111100 (
+b111100 6
+b111100 L
+b1110 R
+b1110 !
+b1110 5
+b1110 K
+b1 Y
+b1 ,
+b1 8
+b1 N
+b1 X
+b1 *
+b1 7
+b1 M
+b110 W
+b110 1
+b110 9
+b110 O
+#1220000
+0P
+0%
+#1240000
+b0 >
+b0 )
+1P
+1%
+b111110 V
+b111110 (
+b111110 6
+b111110 L
+b1111 R
+b1111 !
+b1111 5
+b1111 K
+#1260000
+0P
+0%
+#1280000
+b100000 >
+b100000 )
+1P
+1%
+b1000000 V
+b1000000 (
+b1000000 6
+b1000000 L
+b0 R
+b0 !
+b0 5
+b0 K
+#1300000
+0P
+0%
+#1320000
+b100010 >
+b100010 )
+1P
+1%
+b1000010 V
+b1000010 (
+b1000010 6
+b1000010 L
+b1 R
+b1 !
+b1 5
+b1 K
+#1340000
+0P
+0%
+#1360000
+b100100 >
+b100100 )
+1P
+1%
+b1000100 V
+b1000100 (
+b1000100 6
+b1000100 L
+b10 R
+b10 !
+b10 5
+b10 K
+#1380000
+0P
+0%
+#1400000
+b100110 >
+b100110 )
+1P
+1%
+b1000110 V
+b1000110 (
+b1000110 6
+b1000110 L
+b11 R
+b11 !
+b11 5
+b11 K
+b111 W
+b111 1
+b111 9
+b111 O
+#1420000
+0P
+0%
+#1440000
+b101000 >
+b101000 )
+1P
+1%
+b1001000 V
+b1001000 (
+b1001000 6
+b1001000 L
+b100 R
+b100 !
+b100 5
+b100 K
+#1460000
+0P
+0%
+#1480000
+b0 >
+b0 )
+1P
+1%
+b1001010 V
+b1001010 (
+b1001010 6
+b1001010 L
+b101 R
+b101 !
+b101 5
+b101 K
+#1500000
+0P
+0%
+#1520000
+1P
+1%
+b1001100 V
+b1001100 (
+b1001100 6
+b1001100 L
+b110 R
+b110 !
+b110 5
+b110 K
+#1540000
+0P
+0%
+#1560000
+b101110 >
+b101110 )
+1P
+1%
+b1001110 V
+b1001110 (
+b1001110 6
+b1001110 L
+b111 R
+b111 !
+b111 5
+b111 K
+#1580000
+0P
+0%
+#1600000
+b0 >
+b0 )
+1P
+1%
+b1010000 V
+b1010000 (
+b1010000 6
+b1010000 L
+b1000 R
+b1000 !
+b1000 5
+b1000 K
+b1000 W
+b1000 1
+b1000 9
+b1000 O
+#1620000
+0P
+0%
+#1640000
+1P
+1%
+b1010010 V
+b1010010 (
+b1010010 6
+b1010010 L
+b1001 R
+b1001 !
+b1001 5
+b1001 K
+#1660000
+0P
+0%
+#1680000
+b1 >
+b1 )
+1P
+1%
+b1010100 V
+b1010100 (
+b1010100 6
+b1010100 L
+b1010 R
+b1010 !
+b1010 5
+b1010 K
+#1700000
+0P
+0%
+#1720000
+b10110 >
+b10110 )
+1P
+1%
+b1010110 V
+b1010110 (
+b1010110 6
+b1010110 L
+b1011 R
+b1011 !
+b1011 5
+b1011 K
+#1740000
+0P
+0%
+#1760000
+b11000 >
+b11000 )
+1P
+1%
+b1011000 V
+b1011000 (
+b1011000 6
+b1011000 L
+b1100 R
+b1100 !
+b1100 5
+b1100 K
+#1780000
+0P
+0%
+#1800000
+b11010 >
+b11010 )
+1P
+1%
+b1011010 V
+b1011010 (
+b1011010 6
+b1011010 L
+b1101 R
+b1101 !
+b1101 5
+b1101 K
+b1001 W
+b1001 1
+b1001 9
+b1001 O
+#1820000
+0P
+0%
+#1840000
+b11100 >
+b11100 )
+1P
+1%
+b1011100 V
+b1011100 (
+b1011100 6
+b1011100 L
+b1110 R
+b1110 !
+b1110 5
+b1110 K
+#1860000
+0P
+0%
+#1880000
+b0 >
+b0 )
+1P
+1%
+b1011110 V
+b1011110 (
+b1011110 6
+b1011110 L
+b1111 R
+b1111 !
+b1111 5
+b1111 K
+#1900000
+0P
+0%
+0T
+0.
+1U
+1'
+#1920000
+b1 D
+b1001 G
+1P
+1%
+b1100000 V
+b1100000 (
+b1100000 6
+b1100000 L
+b0 R
+b0 !
+b0 5
+b0 K
+#1940000
+0P
+0%
+#1960000
+1P
+1%
+b1100010 V
+b1100010 (
+b1100010 6
+b1100010 L
+b1 R
+b1 !
+b1 5
+b1 K
+#1980000
+0P
+0%
+#2000000
+1P
+1%
+b1100100 V
+b1100100 (
+b1100100 6
+b1100100 L
+b10 R
+b10 !
+b10 5
+b10 K
+0U
+0'
+b1010 W
+b1010 1
+b1010 9
+b1010 O
+#2020000
+0P
+0%
+#2040000
+1P
+1%
+b1100110 V
+b1100110 (
+b1100110 6
+b1100110 L
+b11 R
+b11 !
+b11 5
+b11 K
+#2060000
+0P
+0%
+#2080000
+1P
+1%
+b1101000 V
+b1101000 (
+b1101000 6
+b1101000 L
+b100 R
+b100 !
+b100 5
+b100 K
+#2100000
+0P
+0%
