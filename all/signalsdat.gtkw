@@ -1,0 +1,49 @@
+[*]
+[*] GTKWave Analyzer v3.3.34 (w)1999-2012 BSI
+[*] Sun Jun 19 17:24:18 2016
+[*]
+[dumpfile] "/home/fish/Documentos/ProyectoLego/IE-499/all/signalsSDHost.vcd"
+[dumpfile_mtime] "Sun Jun 19 17:18:52 2016"
+[dumpfile_size] 151007
+[savefile] "/home/fish/Documentos/ProyectoLego/IE-499/all/signalsdat.gtkw"
+[timestart] 0
+[size] 1366 722
+[pos] -1 -23
+*-16.664068 160000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TestBench.
+[treeopen] TestBench.SDH.
+[treeopen] TestBench.SDH.fifoController.
+[sst_width] 197
+[signals_width] 480
+[sst_expanded] 1
+[sst_vpaned_height] 196
+@22
+TestBench.SDH.dat.dataFROMFIFO[31:0]
+TestBench.SDH.fifoController.q_tx_out[127:0]
+TestBench.SDH.fifoController.data_tx_in[127:0]
+@800022
+TestBench.SDH.fifoController.enable_in[3:0]
+@28
+(0)TestBench.SDH.fifoController.enable_in[3:0]
+(1)TestBench.SDH.fifoController.enable_in[3:0]
+(2)TestBench.SDH.fifoController.enable_in[3:0]
+(3)TestBench.SDH.fifoController.enable_in[3:0]
+@24
+TestBench.SDH.fifoController.tx_fifo.read_pointer[2:0]
+TestBench.SDH.fifoController.tx_fifo.write_pointer[2:0]
+@28
+TestBench.SDH.fifoController.tx_fifo.reset
+TestBench.SDH.fifoController.tx_fifo.write_clock
+@800029
+TestBench.SDH.fifoController.status_out[3:0]
+@29
+(0)TestBench.SDH.fifoController.status_out[3:0]
+(1)TestBench.SDH.fifoController.status_out[3:0]
+(2)TestBench.SDH.fifoController.status_out[3:0]
+(3)TestBench.SDH.fifoController.status_out[3:0]
+@1001201
+-group_end
+@1001200
+-group_end
+[pattern_trace] 1
+[pattern_trace] 0

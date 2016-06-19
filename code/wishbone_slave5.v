@@ -281,9 +281,17 @@ always @(*) begin
 			end
 		EXEC:
 			begin
+			if(adr_i == 5'd16) begin
+				new_command = 1'b1;
+				new_data = 1'b0;
+			end
+			else if(adr_i == 5'd19) begin
+				new_data = 1'b1;
+				new_command = 1'b0;
+			end
 				ack_o	 	  = 1'b1;
-				new_command   = 1'b0;
-				new_data	  = 1'b0;	
+				//new_command   = 1'b0;
+				//new_data	  = 1'b0;	
 				host_data_o   = 128'b0;
 				wb_data_o 	  = 128'b0;
 				fifo_read_en  = 1'b0;

@@ -1,0 +1,33 @@
+[*]
+[*] GTKWave Analyzer v3.3.34 (w)1999-2012 BSI
+[*] Sun Jun 19 16:16:30 2016
+[*]
+[dumpfile] "/home/fish/Documentos/ProyectoLego/IE-499/all/signalsSDHost.vcd"
+[dumpfile_mtime] "Sun Jun 19 16:11:52 2016"
+[dumpfile_size] 188374
+[savefile] "/home/fish/Documentos/ProyectoLego/IE-499/all/sdsignals.gtkw"
+[timestart] 11157600
+[size] 1366 722
+[pos] -1 -23
+*-17.069475 11480000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TestBench.
+[treeopen] TestBench.SDH.
+[treeopen] TestBench.SDH.physical.
+[sst_width] 197
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 196
+@28
+TestBench.PIN_CMD
+@24
+TestBench.WBM.adr_o[4:0]
+@22
+TestBench.SDH.physical.cpc.state[3:0]
+TestBench.SDH.physical.cpc.response[135:0]
+@28
+TestBench.SDH.physical.cpc.strobe_in
+TestBench.SDH.wb_salve1.new_command
+@29
+TestBench.SDH.wb_salve1.cmd_done_i
+[pattern_trace] 1
+[pattern_trace] 0

@@ -108,7 +108,7 @@ initial
 always
 	begin
 		#`WRITE_TO_SD
-		we_in = 1'b0;
+		we_in = 1'b1;
 		#`READ_FROM_SD
 		we_in = 1'b1;//
 	end
@@ -119,25 +119,30 @@ reg [4:0] adr_o;
 initial
 	begin
 		adr_o=5'b0; 
-	end
-always 
-	begin
+		#120
+//	end
+//always 
+//	begin
 		//if(ack_i == 1'b0)
 		//	adr_o = adr_o;
 		//else 
 			//adr_o = adr_o +5'b1;
-			if(adr_o == 5'd16 || adr_o == 5'd19) begin
+			//if(adr_o == 5'd16 || adr_o == 5'd19) begin
 				//if(ack_i == 1'b0)
-					adr_o = adr_o;
+			//		adr_o = adr_o;
+		//		#`ADR_IN
+		//		if(ack_i == 1'b1) begin					
+		//			adr_o = adr_o + 5'b1;
+		//		end
+		//	end
+		//	else begin
 				#`ADR_IN
-				if(ack_i == 1'b1) begin					
-					adr_o = adr_o + 5'b1;
-				end
-			end
-			else begin
+				//adr_o = adr_o + 5'b1;
+				adr_o = 5'd17;
 				#`ADR_IN
-				adr_o = adr_o + 5'b1;
-			end
+				#`ADR_IN
+				adr_o = 5'd19;
+		//end
 		if(adr_o == 5'd20)
 			adr_o = 5'd0;
 	end
@@ -162,7 +167,7 @@ module wb_data_in_gen (output [127:0] wb_data);
 reg [127:0] wb_data;
 initial
 	begin
-		wb_data = 128'b0;
+		wb_data = 128'd4;
 	end
 always 
 	begin

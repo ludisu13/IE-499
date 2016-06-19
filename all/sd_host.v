@@ -1,21 +1,21 @@
-`include "../code/ffd.v"
-`include "../code/pad.v"
-`include "../code/counter.v"
-`include "../code/parallelToSerial.v"
-`include "../code/serialToParallel.v"
-`include "../code/serialtoparallelwrapper.v"
-`include "../code/paralleltoserialwrapper.v"
-`include "../code/cmd_phys_controller.v"
-`include "../code/cmd_phys.v"
-`include "../code/cmd_controller.v"
-`include "../code/dat_phys_controller.v"
-`include "../code/dat_phys.v"
-`include "../code/dat_controller.v"
-`include "../code/fifo2.v"
-`include "../code/definitions_registers.v"
-`include "../code/registers.v"
-`include "../code/wishbone_slave5.v"
-`include "../code/fifo_wrapper.v"
+//`include "../code/ffd.v"
+//`include "../code/pad.v"
+//`include "../code/counter.v"
+//`include "../code/parallelToSerial.v"
+//`include "../code/serialToParallel.v"
+//`include "../code/serialtoparallelwrapper.v"
+//`include "../code/paralleltoserialwrapper.v"
+//`include "../code/cmd_phys_controller.v"
+//`include "../code/cmd_phys.v"
+//`include "../code/cmd_controller.v"
+//`include "../code/dat_phys_controller.v"
+//`include "../code/dat_phys.v"
+//`include "../code/dat_controller.v"
+//`include "../code/fifo2.v"
+//`include "../code/definitions_registers.v"
+//`include "../code/registers.v"
+//`include "../code/wishbone_slave5.v"
+//`include "../code/fifo_wrapper.v"
 
 module sd_host (
 	input wire clock,
@@ -25,10 +25,10 @@ module sd_host (
 
 
 	//Inputs from Wishbone Master
-	input wire 			we_i, //write_enable 
+	input wire 		we_i, //write_enable 
 	input wire [4:0]	adr_i, 
-	input wire 			strobe, // Strobe
-	input wire [127:0] 	wb_data_i,
+	input wire 		strobe, // Strobe
+	input wire [127:0] wb_data_i,
 	
 	//Outputs to Wishbone Master
 	output wire [127:0]	wb_data_o,
@@ -42,7 +42,7 @@ module sd_host (
 	inout wire PIN_CMD
 
 );
-wire [127:0]		q_tx_out;
+wire [127:0]	q_tx_out;
 wire [127:0]  	fifo_bus_o;
 wire [127:0]  	wb_data_bus_o;
 wire [127:0]  	data_rx_in;
@@ -64,7 +64,7 @@ wire [15:0]		present_state;
 wire [15:0]		timeout_control;
 wire [2:0]		software_reset;
 wire [15:0]		error_interrupt_status_o;
-wire [127:0] wb_data_bus_i ;
+wire [127:0] 	wb_data_bus_i ;
 assign wb_data_bus_i = (reg_read_en == 1'b1)? reg_bus_o : (fifo_read_en == 1'b1)? fifo_bus_o : 128'b0;
 	
 
@@ -72,7 +72,7 @@ dat_controller datc(
 	.clock(clock),
 	.reset(reset),
 	.writeRead(1'b1),
-	.newDat(new_Dat),
+	.newDat(new_data),
 	.blockCount(4'd2),
 	.multipleData(1'b1),
 	.serial_ready(sr_phys_host),
@@ -103,8 +103,8 @@ dat_phys dat(
 	.dat_pin(PIN_DAT),
 	.dataFROMFIFO(q_tx_out[31:0]),//del fifo tx-----------------q_tx_out
 	.dataToFIFO(data_rx_in[31:0]),//del fifo rx-----------------data_rx_in
-	.read_enable(rx_read_en),//fifo rx -------------------rx_read_en
-	.write_enable(tx_write_en),//fifo tx------------------tx_write_en
+	.read_enable(rx_write_en),//fifo rx -------------------rx_read_en
+	.write_enable(tx_read_en),//fifo tx------------------tx_write_en
 	.serial_ready(sr_phys_host),
 	.complete(complete_phys_host),
 	.ack_out(ack_phys_host)
@@ -126,7 +126,7 @@ cmd_phys physical(
 cmd_controller host_cmd(
 	.clock(clock),
 	.reset(reset),
-	.new_command(go_command),
+	.new_command(new_command),
 	.cmd_argument(32'b0),
 	.cmd_index(6'd7),
 	.TIMEOUT_ENABLE(1'b0),
@@ -140,20 +140,6 @@ cmd_controller host_cmd(
 	.command_complete(complete_cmd),
 	.response(response) //wishbone cablear mas registros
 );
-
-/*// Instantiate generator of signals WISHBONE
-wishbone_master WBM(
-	.ack_i(ack_o),
-	.wb_data_i(wb_data_o),
-	.error_i(error_o),
-	.wb_clock(wb_clock),
-	.reset(reset),
-	.we_o(we_i),
-	.adr_o(adr_i),
-	.strobe_o(strobe),
-	.wb_data_o(wb_data_i)
-);*/
-
 
 wishbone_slave wb_salve1 (
 	.clock(wb_clock),				//Input
@@ -171,8 +157,8 @@ wishbone_slave wb_salve1 (
 	.host_data_o(wb_data_bus_o),	//Output
 	.wb_data_o(wb_data_o),			//Output
 	.ack_o(ack_o),					//Output
-	.fifo_read_en(fifo_read_en),	//Output
-	.fifo_write_en(fifo_write_en),	//Output
+	.fifo_read_en(rx_read_en),	//Output
+	.fifo_write_en(tx_write_en ),	//Output
 	.reg_read_en(reg_read_en),		//Output
 	.reg_write_en(reg_write_en),	//Output
 	.error_o(error_o),				//Output
@@ -186,7 +172,7 @@ registers regs (
 	.adr_i(adr_o),											//Input
 	.reg_write_en(reg_write_en),							//Input
 	.reg_read_en(reg_read_en),								//Input
-	.command_complete(),									//Input------------------
+	.command_complete(complete_cmd),									//Input------------------
 	.data_i(wb_data_bus_o),									//Input
 	.response_i(response),											//Input------------------
 	.error_interrupt_status_i(0),							//Input------------------

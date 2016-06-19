@@ -66,3 +66,8 @@ cmd_phys:
 	vvp cmd_phys
 	gtkwave cmd_phys.vcd
 	
+sd_host:
+	iverilog -o ../all/sd_host_tb ../all/sd_host_tb.v
+	vvp ../all/sd_host_tb
+	gtkwave ../all/signalsSDHost.vcd
+	
