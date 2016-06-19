@@ -21,6 +21,7 @@ module sd_host (
 	input wire clock,
 	input wire sd_clock,
 	input wire wb_clock,
+	input wire reset,
 
 
 	//Inputs from Wishbone Master
