@@ -43,8 +43,8 @@ parameter LOAD_WRITE= 4'd2;
 parameter SEND  =  4'd3;
 parameter WAIT_RESPONSE  =  4'd4;
 parameter READ = 4'd5;
-parameter READ_FIFO_WRITE =4'd7;
-parameter READ_WRAPPER_RESET =4'd8;
+parameter READ_FIFO_WRITE =4'd6;
+parameter READ_WRAPPER_RESET =4'd7;
 parameter WAIT_ACK =4'd8;
 
 
@@ -159,7 +159,7 @@ always @(* )
 						serial_ready=1'b0;
 						complete=1'b0;
 						ack_out=1'b0;
-						reset_wrapper=1'b0;
+						reset_wrapper=1'b1;
 						load_send=1'b0;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
@@ -244,8 +244,8 @@ always @(* )
 						write_fifo_enable=1'b0;
 						read_fifo_enable=1'b0;
 						dataReadTOFIFO=32'b0;
-						if(dummy_count==1'b1)
-							enable_stp_wrapper=1'b1;
+						//if(dummy_count==1'b1)
+						//	enable_stp_wrapper=1'b1;
 						loaded=1'b0;
 						blockCount=blockCount;
 					end
@@ -265,10 +265,8 @@ always @(* )
 						read_fifo_enable=1'b0;
 						dataReadTOFIFO=32'b0;
 						loaded=1'b0;
-						if(reception_complete)
-							blockCount<=blockCount+1'b1;
-						else
-							blockCount<=blockCount;
+						blockCount=blockCount;
+
 					end
 				READ_FIFO_WRITE:
 					begin
@@ -312,7 +310,7 @@ always @(* )
 						serial_ready=1'b0;
 						complete=1'b1;
 						ack_out=1'b0;
-						reset_wrapper=1'b0;
+						reset_wrapper=1'b1;
 						load_send=1'b0;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
@@ -361,6 +359,8 @@ always @ (posedge sd_clock  )
 						state <=  next_state;
 					end
 				end
+			if(reception_complete)
+							blockCount<=blockCount+1'b1; // agregar una senal para controlar el Block count
 		if(state==WAIT_RESPONSE)
 			begin
 				dummy_count<=dummy_count+1'b1;

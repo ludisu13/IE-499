@@ -48,6 +48,7 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 			write_pointer 	<= 0;
 			fifo_full		<= 0;
 			fifo_empty		<= 1;
+			q <=0;
 		end
 		else if (read_enable & ~fifo_empty) begin
 			fifo_empty = (almost_empty ==0);

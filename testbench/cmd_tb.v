@@ -10,7 +10,7 @@
 `include "../code/cmd_phys_controller.v"
 `include "../code/cmd_phys.v"
 `include "../code/cmd_controller.v"
-
+`include "../code/paralleltoserialwrapper_Sd.v"
 module TestBench;
 
 wire [39:0]command;

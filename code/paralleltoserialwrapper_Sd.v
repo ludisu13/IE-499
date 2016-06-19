@@ -1,7 +1,7 @@
 //`include "parallelToSerial.v"
 //`include "counter.v"
 //`include "ffd.v"
-module paralleltoserialWrapper # (parameter WIDTH=8,parameter FRAME_SIZE_WIDTH=8)
+module paralleltoserialWrappersd # (parameter WIDTH=8,parameter FRAME_SIZE_WIDTH=8)
 (
 	input wire Clock,
 	input wire Reset,
