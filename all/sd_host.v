@@ -65,11 +65,11 @@ wire [15:0]		timeout_control;
 wire [2:0]		software_reset;
 wire [15:0]		error_interrupt_status_o;
 wire [127:0] 	wb_data_bus_i ;
-assign wb_data_bus_i = (reg_read_en == 1'b1)? reg_bus_o : (fifo_read_en == 1'b1)? fifo_bus_o : 128'b0;
+assign wb_data_bus_i = (reg_read_en == 1'b1)? reg_bus_o : (rx_read_en == 1'b1)? fifo_bus_o : 128'b0;
 	
 
 dat_controller datc(
-	.clock(clock),
+	.clock(wb_clock),
 	.reset(reset),
 	.writeRead(1'b1),
 	.newDat(new_data),
@@ -91,7 +91,7 @@ dat_controller datc(
 
 
 dat_phys dat(
-	.sd_clock(sd_clock),
+	.sd_clock(wb_clock),
 	.reset(reset),
 	.strobe_in(strobe_host_phys),
 	.ack_in(ack_host_phys),
@@ -103,15 +103,15 @@ dat_phys dat(
 	.dat_pin(PIN_DAT),
 	.dataFROMFIFO(q_tx_out[31:0]),//del fifo tx-----------------q_tx_out
 	.dataToFIFO(data_rx_in[31:0]),//del fifo rx-----------------data_rx_in
-	.read_enable(rx_write_en),//fifo rx -------------------rx_read_en
-	.write_enable(tx_read_en),//fifo tx------------------tx_write_en
+	.read_enable(rx_write_en),//fifo rx -------------------rx_write_en
+	.write_enable(tx_read_en),//fifo tx------------------tx_read_en
 	.serial_ready(sr_phys_host),
 	.complete(complete_phys_host),
 	.ack_out(ack_phys_host)
 );
 
 cmd_phys physical(
-	.sd_clock(sd_clock),
+	.sd_clock(wb_clock),
 	.reset(reset),
 	.strobe_in( strobe_controller_phys),
 	.ack_in(ack_controller_phys),
@@ -124,7 +124,7 @@ cmd_phys physical(
 );
 
 cmd_controller host_cmd(
-	.clock(clock),
+	.clock(wb_clock),
 	.reset(reset),
 	.new_command(new_command),
 	.cmd_argument(32'b0),
@@ -157,7 +157,7 @@ wishbone_slave wb_salve1 (
 	.host_data_o(wb_data_bus_o),	//Output
 	.wb_data_o(wb_data_o),			//Output
 	.ack_o(ack_o),					//Output
-	.fifo_read_en(rx_read_en),	//Output
+	.fifo_read_en(rx_read_en),		//Output
 	.fifo_write_en(tx_write_en ),	//Output
 	.reg_read_en(reg_read_en),		//Output
 	.reg_write_en(reg_write_en),	//Output

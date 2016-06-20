@@ -25,9 +25,9 @@ initial
 always
 	begin
 	#`READ_CLOCK_HALF_PERIOD;
-	clock=1'b1;
-	#`READ_CLOCK_HALF_PERIOD;
 	clock=1'b0;
+	#`READ_CLOCK_HALF_PERIOD;
+	clock=1'b1;
 	end
 endmodule
 
@@ -40,9 +40,9 @@ initial
 always
 	begin
 	#`WRITE_CLOCK_HALF_PERIOD;
-	clock=1'b1;
-	#`WRITE_CLOCK_HALF_PERIOD;
 	clock=1'b0;
+	#`WRITE_CLOCK_HALF_PERIOD;
+	clock=1'b1;
 	end
 endmodule
 
