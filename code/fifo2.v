@@ -27,7 +27,7 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 
 	always @(posedge write_clock ) begin
 		if (write_enable & ~fifo_full) begin
-			fifo_empty =0;
+			fifo_empty =1'b0;
 			fifo_full = (almost_full == 0);
 			fifo_mem[write_pointer] = data;
 			write_pointer = write_pointer + 1'b1; 

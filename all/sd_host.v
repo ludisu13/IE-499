@@ -69,7 +69,7 @@ assign wb_data_bus_i = (reg_read_en == 1'b1)? reg_bus_o : (rx_read_en == 1'b1)? 
 	
 
 dat_controller datc(
-	.clock(wb_clock),
+	.clock(clock),
 	.reset(reset),
 	.writeRead(1'b1),
 	.newDat(new_data),
@@ -91,7 +91,7 @@ dat_controller datc(
 
 
 dat_phys dat(
-	.sd_clock(wb_clock),
+	.sd_clock(sd_clock),
 	.reset(reset),
 	.strobe_in(strobe_host_phys),
 	.ack_in(ack_host_phys),
@@ -111,7 +111,7 @@ dat_phys dat(
 );
 
 cmd_phys physical(
-	.sd_clock(wb_clock),
+	.sd_clock(sd_clock),
 	.reset(reset),
 	.strobe_in( strobe_controller_phys),
 	.ack_in(ack_controller_phys),
@@ -124,7 +124,7 @@ cmd_phys physical(
 );
 
 cmd_controller host_cmd(
-	.clock(wb_clock),
+	.clock(clock),
 	.reset(reset),
 	.new_command(new_command),
 	.cmd_argument(32'b0),
@@ -203,6 +203,31 @@ fifo_controller #(128) fifoController (
 	.status_out(fifo_status) 	//Output
 
 );
+
+/*fifo  #(128) tx_fifo(
+		.write_clock(wb_clock),	//input
+		.read_clock(sd_clock), 			//input
+		.reset(reset), 					//input
+		.data(wb_data_bus_o), 				//input 
+		.write_enable(tx_write_en),	//input
+		.read_enable(tx_read_en), 	//input
+		.q(q_tx_out),  					//output 
+		.fifo_full(fifo_status[0]),  	//output
+		.fifo_empty(fifo_status[1]) 		//output
+	);
+	
+	fifo #(128) rx_fifo(
+		.write_clock(sd_clock),			//input
+		.read_clock(wb_clock),	//input
+		.reset(reset), 					//input
+		.data(data_rx_in), 				//input 
+		.write_enable(rx_write_en),	//input
+		.read_enable(rx_read_en), 	//input
+		.q(fifo_bus_o),  					//output
+		.fifo_full(fifo_status[2]),  	//output
+		.fifo_empty(fifo_status[3]) 		//output
+	);
+*/	
 
 
 endmodule

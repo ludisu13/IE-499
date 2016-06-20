@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.34 (w)1999-2012 BSI
-[*] Mon Jun 20 05:23:44 2016
+[*] Mon Jun 20 06:07:54 2016
 [*]
 [dumpfile] "/home/fish/Documentos/ProyectoLego/IE-499/all/signalsSDHost.vcd"
-[dumpfile_mtime] "Mon Jun 20 05:19:26 2016"
+[dumpfile_mtime] "Mon Jun 20 06:06:19 2016"
 [dumpfile_size] 150962
 [savefile] "/home/fish/Documentos/ProyectoLego/IE-499/all/sdsignals.gtkw"
 [timestart] 0
 [size] 1366 722
 [pos] -1 -23
-*-16.105358 160000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-17.105358 160000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TestBench.
 [treeopen] TestBench.SDH.
 [treeopen] TestBench.SDH.fifoController.
