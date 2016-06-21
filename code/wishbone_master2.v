@@ -140,7 +140,7 @@ initial
 				//adr_o = adr_o + 5'b1;
 				adr_o = 5'd17;
 				#`ADR_IN
-				#`ADR_IN
+				//#`ADR_IN
 				adr_o = 5'd19;
 		//end
 		if(adr_o == 5'd20)

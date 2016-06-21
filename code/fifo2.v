@@ -58,9 +58,9 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 		end
 	end
 	
-	//always @(posedge read_clock) begin
-	//	read_enable_d <= read_enable;
-	//end
+	always @(posedge read_clock) begin //// CREO QUE ESTO NO HACE FAALTA
+		read_enable_d <= read_enable;
+	end
 	
 	always @(read_pointer | read_enable | fifo_empty) begin
 		if (read_enable & ~fifo_empty) begin
@@ -73,6 +73,7 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 	always @ (reset) begin
 		if (reset) begin
 			write_enable_d 	= 0;
+			read_enable_d	= 0;
 			read_pointer 	= 0;
 			write_pointer 	= 0;
 			fifo_full		= 0;
