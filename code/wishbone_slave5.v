@@ -208,21 +208,22 @@ always @(*) begin
 		
 		WRITE:
 			begin	
-				if(adr_i == 5'd16) // CMD
-					begin
-						ack_o 		= 1'b1;
-						new_command = 1'b1;
-						new_data	= 1'b0;
-						host_data_o = wb_data_i;
-						wb_data_o	= 128'b0;
-						fifo_read_en  = 1'b0;
-						fifo_write_en = 1'b0;
-						reg_read_en   = 1'b0;
-						reg_write_en  = 1'b0;
-						error_o		  = 1'b0;
-						adr_o		  = adr_i;
-					end
-				else if (adr_i == 5'd17) //FIFO WRITE
+				//~ if(adr_i == 5'd16) // CMD
+					//~ begin
+						//~ ack_o 		= 1'b1;
+						//~ new_command = 1'b1;
+						//~ new_data	= 1'b0;
+						//~ host_data_o = wb_data_i;
+						//~ wb_data_o	= 128'b0;
+						//~ fifo_read_en  = 1'b0;
+						//~ fifo_write_en = 1'b0;
+						//~ reg_read_en   = 1'b0;
+						//~ reg_write_en  = 1'b0;
+						//~ error_o		  = 1'b0;
+						//~ adr_o		  = adr_i;
+					//~ end
+				//~ else 
+				if (adr_i == 5'd17) //FIFO WRITE
 					begin
 						ack_o 		= 1'b1;
 						new_command = 1'b0;
@@ -236,20 +237,20 @@ always @(*) begin
 						error_o		  = 1'b0;
 						adr_o		  = adr_i;
 					end
-				else if (adr_i == 5'd19) //DATA EXECUTE
-					begin
-						ack_o 		= 1'b1;
-						new_command = 1'b0;
-						new_data	= 1'b1;
-						host_data_o = 128'b0;
-						wb_data_o	= 128'b0;
-						fifo_read_en  = 1'b0;
-						fifo_write_en = 1'b0;
-						reg_read_en   = 1'b0;
-						reg_write_en  = 1'b0;
-						error_o		  = 1'b0;
-						adr_o		  = adr_i;
-					end
+				//~ else if (adr_i == 5'd19) //DATA EXECUTE
+					//~ begin
+						//~ ack_o 		= 1'b1;
+						//~ new_command = 1'b0;
+						//~ new_data	= 1'b1;
+						//~ host_data_o = 128'b0;
+						//~ wb_data_o	= 128'b0;
+						//~ fifo_read_en  = 1'b0;
+						//~ fifo_write_en = 1'b0;
+						//~ reg_read_en   = 1'b0;
+						//~ reg_write_en  = 1'b0;
+						//~ error_o		  = 1'b0;
+						//~ adr_o		  = adr_i;
+					//~ end
 				else if(adr_i >= 5'd0 && adr_i <=5'd15)// REG
 					begin
 						ack_o 		= 1'b1;

@@ -190,7 +190,7 @@ registers regs (
 	.data_o(reg_bus_o)									//Output
 );
 
-fifo_controller #(128) fifoController (
+/*fifo_controller #(128) fifoController (
 	.wishbone_clock(wb_clock), 	//Input
 	.sd_clock(sd_clock), 		//Input
 	.reset(reset), 				//Input
@@ -202,9 +202,9 @@ fifo_controller #(128) fifoController (
 	.q_rx_out(fifo_bus_o),		//Output
 	.status_out(fifo_status) 	//Output
 
-);
+);*/
 
-/*fifo  #(128) tx_fifo(
+fifo  #(128) tx_fifo(
 		.write_clock(wb_clock),	//input
 		.read_clock(sd_clock), 			//input
 		.reset(reset), 					//input
@@ -216,18 +216,18 @@ fifo_controller #(128) fifoController (
 		.fifo_empty(fifo_status[1]) 		//output
 	);
 	
-	fifo #(128) rx_fifo(
-		.write_clock(sd_clock),			//input
-		.read_clock(wb_clock),	//input
-		.reset(reset), 					//input
-		.data(data_rx_in), 				//input 
-		.write_enable(rx_write_en),	//input
-		.read_enable(rx_read_en), 	//input
-		.q(fifo_bus_o),  					//output
-		.fifo_full(fifo_status[2]),  	//output
-		.fifo_empty(fifo_status[3]) 		//output
-	);
-*/	
+fifo #(128) rx_fifo(
+	.write_clock(sd_clock),			//input
+	.read_clock(wb_clock),	//input
+	.reset(reset), 					//input
+	.data(data_rx_in), 				//input 
+	.write_enable(rx_write_en),	//input
+	.read_enable(rx_read_en), 	//input
+	.q(fifo_bus_o),  					//output
+	.fifo_full(fifo_status[2]),  	//output
+	.fifo_empty(fifo_status[3]) 		//output
+);
+
 
 
 endmodule

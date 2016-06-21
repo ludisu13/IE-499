@@ -1,31 +1,45 @@
 [*]
 [*] GTKWave Analyzer v3.3.34 (w)1999-2012 BSI
-[*] Mon Jun 20 06:07:54 2016
+[*] Tue Jun 21 00:48:36 2016
 [*]
 [dumpfile] "/home/fish/Documentos/ProyectoLego/IE-499/all/signalsSDHost.vcd"
-[dumpfile_mtime] "Mon Jun 20 06:06:19 2016"
-[dumpfile_size] 150962
+[dumpfile_mtime] "Tue Jun 21 00:10:38 2016"
+[dumpfile_size] 151970
 [savefile] "/home/fish/Documentos/ProyectoLego/IE-499/all/sdsignals.gtkw"
 [timestart] 0
 [size] 1366 722
 [pos] -1 -23
-*-17.105358 160000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-17.022980 160400 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TestBench.
 [treeopen] TestBench.SDH.
-[treeopen] TestBench.SDH.fifoController.
-[treeopen] TestBench.SDH.physical.
 [sst_width] 197
 [signals_width] 174
 [sst_expanded] 1
-[sst_vpaned_height] 251
+[sst_vpaned_height] 196
+@22
+TestBench.SDH.tx_fifo.data[127:0]
+TestBench.SDH.tx_fifo.q[127:0]
+@28
+TestBench.SDH.tx_fifo.reset
+@22
+TestBench.SDH.tx_fifo.test[127:0]
+@28
+TestBench.SDH.tx_fifo.write_enable
+TestBench.SDH.tx_fifo.write_pointer[2:0]
+TestBench.SDH.tx_fifo.read_enable
+TestBench.SDH.tx_fifo.read_pointer[2:0]
 @24
-TestBench.SDH.fifoController.tx_fifo.read_clock
-TestBench.SDH.fifoController.tx_fifo.q[127:0]
-TestBench.SDH.fifoController.tx_fifo.read_enable
-TestBench.SDH.fifoController.tx_fifo.read_pointer[2:0]
-TestBench.SDH.fifoController.tx_fifo.write_clock
-TestBench.SDH.fifoController.tx_fifo.data[127:0]
-TestBench.SDH.fifoController.tx_fifo.write_enable
-TestBench.SDH.fifoController.tx_fifo.write_pointer[2:0]
+TestBench.SDH.tx_fifo.almost_empty[2:0]
+TestBench.SDH.tx_fifo.almost_full[2:0]
+@29
+TestBench.SDH.wb_salve1.clock
+@24
+TestBench.SDH.wb_salve1.adr_i[4:0]
+TestBench.SDH.wb_salve1.adr_o[4:0]
+@28
+TestBench.SDH.wb_salve1.fifo_write_en
+@22
+TestBench.SDH.wb_salve1.state[3:0]
+TestBench.SDH.wb_salve1.next_state[3:0]
 [pattern_trace] 1
 [pattern_trace] 0
