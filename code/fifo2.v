@@ -19,7 +19,7 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 	reg [SIZE_BITS-1:0] read_pointer;
 	reg [SIZE_BITS-1:0] write_pointer;
 	reg [DATA_WIDTH-1:0] fifo_mem [FIFO_SIZE-1:0];
-
+	reg control;
 	wire [SIZE_BITS-1:0] almost_empty;
 	wire [SIZE_BITS-1:0] almost_full;
 	reg write_enable_d;
@@ -30,13 +30,13 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 //Write
 	assign test = fifo_mem[0];
 	assign test1 = fifo_mem[1];
-	always @(posedge write_clock ) begin
+	always @(posedge write_clock) begin
 		if((write_enable | write_enable_d) & ~fifo_full) begin
 			write_pointer = write_pointer + 1'b1;	
 		end
 	end
 	
-	always @(posedge write_clock) begin
+	always @(write_enable) begin
 		write_enable_d <= write_enable;
 	end
 	//assign next_write_pointer = (write_pointer+1'b1)
@@ -52,21 +52,29 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 	
 //Read
 
-	always @(posedge read_clock ) begin
+	always @(posedge read_clock ) begin//
 		if((read_enable | read_enable_d) & ~fifo_empty) begin
+			
 			read_pointer = read_pointer + 1'b1;	
+			q = fifo_mem[read_pointer];
+		
 		end
 	end
 	
-	always @(posedge read_clock) begin //// CREO QUE ESTO NO HACE FAALTA
+	always @(read_enable) begin //// CREO QUE ESTO NO HACE FAALTA
 		read_enable_d <= read_enable;
+		//q = fifo_mem[read_pointer];
 	end
 	
 	always @(read_pointer | read_enable | fifo_empty) begin
 		if (read_enable & ~fifo_empty) begin
-			fifo_empty = (almost_empty ==0);
+			fifo_empty = ((almost_empty ==0 )|| (almost_empty==7));
 			q = fifo_mem[read_pointer];
+			//if(!control)
+			//begin
 			//read_pointer = read_pointer + 1'b1; 
+			//control=1'b1;
+			//end
 		end
 	end
 	
@@ -79,6 +87,7 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 			fifo_full		= 0;
 			fifo_empty		= 1;
 			q 				= 0;
+			control=0;
 		end
 	end
 endmodule

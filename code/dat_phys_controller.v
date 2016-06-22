@@ -25,9 +25,12 @@ module dat_phys_controller(
 	output reg enable_pts_wrapper,
 	output reg enable_stp_wrapper,
 	output reg waiting_response,
+	output reg[31:0]dataPARALLEL,
 	//outputs to PAD
 	output reg pad_state,
-	output reg pad_enable,	
+	output reg pad_enable,
+	//inputs from fifo
+	input wire [31:0]dataFromFifo,	
 	//outputs TO FIFO
 	output reg write_fifo_enable,
 	output reg read_fifo_enable,
@@ -39,15 +42,16 @@ reg [SIZE-1:0] state;
 reg [SIZE-1:0] next_state;
 parameter RESET= 4'd0; 
 parameter IDLE   =  4'd1;
-parameter LOAD_WRITE= 4'd2;
-parameter SEND  =  4'd3;
-parameter WAIT_RESPONSE  =  4'd4;
-parameter READ = 4'd5;
-parameter READ_FIFO_WRITE =4'd6;
-parameter READ_WRAPPER_RESET =4'd7;
-parameter WAIT_ACK =4'd8;
+parameter FIFO_READ=4'd2;
+parameter LOAD_WRITE= 4'd3;
+parameter SEND  =  4'd4;
+parameter WAIT_RESPONSE  =  4'd5;
+parameter READ = 4'd6;
+parameter READ_FIFO_WRITE =4'd7;
+parameter READ_WRAPPER_RESET =4'd8;
+parameter WAIT_ACK =4'd9;
 
-
+reg fifoRead;
 reg dummy_count;
 reg [15:0]timeout_count;
 reg [3:0]blockCount;
@@ -64,7 +68,7 @@ begin
       if (strobe_in) begin
           if(writeRead)
 			begin
-				next_state=LOAD_WRITE;
+				next_state=FIFO_READ;
 			end	
 		else
 			begin
@@ -75,6 +79,15 @@ begin
          next_state = IDLE;
       end   
  end  
+FIFO_READ:   begin
+		if(fifoRead)
+		begin
+				next_state=LOAD_WRITE;
+				end
+		else begin
+		next_state=FIFO_READ;
+		end
+			end          
 LOAD_WRITE:   begin
       if (loaded) begin
           next_state = SEND;
@@ -97,7 +110,7 @@ WAIT_RESPONSE:    begin
 			end
 		else
 			begin
-				next_state=LOAD_WRITE;
+				next_state=FIFO_READ;
 			end
       end     
       else begin
@@ -171,6 +184,8 @@ always @(* )
 						dataReadTOFIFO=32'b0;
 						loaded=1'b0;
 						blockCount=4'b0;
+						dataPARALLEL=dataFromFifo;
+						fifoRead=1'b0;
 					end
 				IDLE:	
 					begin
@@ -189,6 +204,28 @@ always @(* )
 						dataReadTOFIFO=32'b0;
 						loaded=1'b0;
 						blockCount=4'b0;
+						dataPARALLEL=32'b0;
+						fifoRead=1'b0;
+					end
+				FIFO_READ:
+					begin
+						serial_ready=1'b0;
+						complete=1'b0;
+						ack_out=1'b0;
+						reset_wrapper=1'b0;
+						load_send=1'b0;
+						enable_pts_wrapper=1'b0;
+						enable_stp_wrapper=1'b0;
+						waiting_response=1'b0;
+						pad_state=1'b1;
+						pad_enable=1'b1;
+						write_fifo_enable=1'b1;
+						read_fifo_enable=1'b0;
+						dataReadTOFIFO=32'b0;
+						loaded=1'b1;
+						blockCount=blockCount;
+					//dataPARALLEL=dataFromFifo;
+						fifoRead=1'b1;
 					end
 				LOAD_WRITE:
 					begin
@@ -202,11 +239,13 @@ always @(* )
 						waiting_response=1'b0;
 						pad_state=1'b1;
 						pad_enable=1'b1;
-						write_fifo_enable=1'b1;
+						write_fifo_enable=1'b0;
 						read_fifo_enable=1'b0;
 						dataReadTOFIFO=32'b0;
 						loaded=1'b1;
 						blockCount=blockCount;
+						dataPARALLEL=dataPARALLEL;
+						fifoRead=1'b0;
 					end
 				SEND:
 					begin
@@ -224,6 +263,8 @@ always @(* )
 						read_fifo_enable=1'b0;
 						dataReadTOFIFO=32'b0;
 						loaded=1'b0;
+						dataPARALLEL=dataPARALLEL;
+						fifoRead=1'b0;
 					end
 				WAIT_RESPONSE:
 					begin
@@ -244,6 +285,8 @@ always @(* )
 						//	enable_stp_wrapper=1'b1;
 						loaded=1'b0;
 					//	blockCount=blockCount;
+					dataPARALLEL=dataPARALLEL;
+					fifoRead=1'b0;
 						if(reception_complete)
 							blockCount=blockCount+1'b1;
 					end
@@ -263,6 +306,8 @@ always @(* )
 						read_fifo_enable=1'b0;
 						dataReadTOFIFO=32'b0;
 						loaded=1'b0;
+						dataPARALLEL=dataPARALLEL;
+						fifoRead=1'b0;
 						
 
 					end
@@ -283,6 +328,8 @@ always @(* )
 						dataReadTOFIFO=dataRead;
 						loaded=1'b0;
 						blockCount=blockCount;
+						dataPARALLEL=dataPARALLEL;
+						fifoRead=1'b0;
 					end
 				READ_WRAPPER_RESET:
 					begin
@@ -301,6 +348,8 @@ always @(* )
 						dataReadTOFIFO=32'b0;
 						loaded=1'b0;
 						blockCount=blockCount;
+						dataPARALLEL=dataPARALLEL;
+						fifoRead=1'b0;
 					end
 				WAIT_ACK:
 					begin
@@ -318,6 +367,8 @@ always @(* )
 						write_fifo_enable=1'b0;
 						read_fifo_enable=1'b0;
 						dataReadTOFIFO=32'b0;
+						dataPARALLEL=dataPARALLEL;
+						fifoRead=1'b0;
 						if(ack_in)
 							begin
 							ack_out=1'b1;
@@ -357,7 +408,15 @@ always @ (posedge sd_clock  )
 						state <=  next_state;
 					end
 				end
-				if(reception_complete&state==READ)
+		if(state==FIFO_READ)
+				begin
+					dataPARALLEL<=dataFromFifo;
+				end
+			else 
+				begin
+					dataPARALLEL<=dataPARALLEL;
+				end
+			if(reception_complete&state==READ)
 							blockCount=blockCount+1'b1;
 			// agregar una senal para controlar el Block count
 		if(state==WAIT_RESPONSE)

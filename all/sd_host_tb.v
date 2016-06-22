@@ -22,7 +22,7 @@
 
 module TestBench;
 
-//Inputs
+//Inputs 
 // Common Inputs
 wire wb_clock;
 wire reset;
@@ -77,14 +77,14 @@ reg load_send_card;
 wire [39:0]command_sd;
 assign command_sd={2'b0,6'd7,32'd789};
 
-paralleltoserialWrapper # (49,8) sd(
+paralleltoserialWrapper # (4,8) sd(
 .Clock(wb_clock),
 .Reset(reset),
 .Enable(Enable_card),
-.framesize(8'd49),
+.framesize(8'd4),
 .load_send(load_send_card),
 .complete(complete_card),
-.serial(PIN_CMD),
+.serial(PIN_DAT),
 .parallel({command_sd,9'b1}));
 
 initial begin
@@ -98,7 +98,7 @@ $dumpvars;
 		load_send_card=1'b0;
 		#5000
 		load_send_card=1'b1;
-		#2000
+		#200
 		load_send_card=1'b0;
 		Enable_card=1'b0;
 		#10000

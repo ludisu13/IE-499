@@ -35,8 +35,9 @@ module dat_phys(
 	input wire status,
 	input wire [31:0] dataFROMFIFO
 );
+wire [31:0]dataPARALLEL;
 wire [49:0]frame_to_send;
-assign frame_to_send={1'b0,dataFROMFIFO,17'b1};
+assign frame_to_send={1'b0,dataPARALLEL,17'b1};
 wire [49:0]frame_received;
 wire waiting_response;
 wire [7:0]framesize_reception=(waiting_response==1'b1)?8'd3:8'd50;
@@ -94,7 +95,9 @@ dat_phys_controller dat1(
 .write_fifo_enable(write_enable),
 .read_fifo_enable(read_enable),
 .dataReadTOFIFO(dataToFIFO),
-.DATA_TIMEOUT(DATA_TIMEOUT)
+.DATA_TIMEOUT(DATA_TIMEOUT),
+.dataPARALLEL(dataPARALLEL),
+.dataFromFifo(dataFROMFIFO)
 );
 	
 	endmodule
