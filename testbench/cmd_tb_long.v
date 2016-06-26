@@ -43,7 +43,7 @@ cmd_controller host_cmd(
 .reset(reset),
 .new_command(go_command),
 .cmd_argument(32'hFA74CD23),
-.cmd_index(6'd12),
+.cmd_index(6'd2),
 .TIMEOUT_ENABLE(1'b0),
 .ack_in(ack_phys_to_controller),
 .strobe_in(strobe_phys_controller),
@@ -63,17 +63,17 @@ generatorSD gsd(
 .clock(sd_clock));
 reg Enable_card;
 reg load_send_card;
-wire [46:0]command_sd;
-wire [31:0]response=32'h3BA692AF;
-wire [5:0]response_index=6'd12;
-assign command_sd={2'b0,response_index,response,7'd63};
+wire [134:0]command_sd;
+wire [126:0]response=126'h3BA692AF3BA692AF3BA692AF3BA692F;
+wire [5:0]response_index=6'd63;
+assign command_sd={2'b0,response_index,response};
 assign response_frame={command_sd,1'b1};
 
-paralleltoserialWrapper # (49,8) sd(
+paralleltoserialWrapper # (137,8) sd(
 .Clock(sd_clock),
 .Reset(reset),
 .Enable(Enable_card),
-.framesize(8'd49),
+.framesize(8'd137),
 .load_send(load_send_card),
 .complete(complete_card),
 .serial(pin),.
@@ -84,7 +84,7 @@ parallel({command_sd,2'b11}));
 	initial begin
 		Enable_card=1'b0;
 		load_send_card=1'b0;
-		$dumpfile("cmd_all_12.vcd");
+		$dumpfile("cmd_all_long.vcd");
 		$dumpvars;	
 		#4500
 		Enable_card=1'b1;
@@ -92,6 +92,11 @@ parallel({command_sd,2'b11}));
 		#5000
 		load_send_card=1'b1;
 		#1950
+		#1000
+		#1000
+		#1200
+		#350
+
 		load_send_card=1'b0;
 		Enable_card=1'b0;
 		#10000

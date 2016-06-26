@@ -170,13 +170,28 @@ always @(* )
 												begin
 													if(cmd_index==cmd_in[45:40])
 														begin
-															response[31:0]=cmd_in[39:8];
+															if(cmd_index==6'd12)
+																begin
+																response[127:96]=cmd_in[39:8];
+																end
+															else
+																begin
+																response[31:0]=cmd_in[39:8];
+																end
+															
 															command_index_error=1'b0;
 														end
 													else
 														begin
+															if(cmd_index==6'd12)
+																begin
+																response[127:96]=cmd_in[39:8];
+																end
+															else
+																begin
+																response[31:0]=cmd_in[39:8];
+																end
 															command_index_error=1'b1;
-															response[31:0]=cmd_in[39:8];
 														end	
 												end
 										end

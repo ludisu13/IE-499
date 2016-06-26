@@ -6,10 +6,12 @@ module cmd_phys_controller(
 	input wire strobe_in,   // request received
 	input wire ack_in,		//response received
 	input wire idle_in, // sets as idle
+	input wire no_response,
 	// output to host
 	output reg ack_out,// acknowledge of package reception from host
 	output reg strobe_out, // states that a response has been received
 	output reg [135:0] response,
+	
 	//Inputs from wrapper
 	input wire [135:0] pad_response,
 	input wire transmission_complete,
@@ -79,7 +81,7 @@ LOAD_COMMAND:   begin
        next_state = SEND_COMMAND;
    end  
 WAIT_RESPONSE:    begin
-       if (reception_complete) begin
+       if (reception_complete || no_response ) begin
           next_state = SEND_RESPONSE;
       end     
       else begin
