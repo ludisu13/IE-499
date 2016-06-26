@@ -104,7 +104,7 @@ LOAD_WRITE:   begin
    end  
 WAIT_RESPONSE:    begin
        if (reception_complete) begin
-		if(!multiple || blockCount==blocks)
+		if(!multiple || blockCount>=blocks)
 			begin
 				next_state = WAIT_ACK; 
 			end

@@ -40,7 +40,7 @@ wire [49:0]frame_to_send;
 assign frame_to_send={1'b0,dataPARALLEL,17'b1};
 wire [49:0]frame_received;
 wire waiting_response;
-wire [7:0]framesize_reception=(waiting_response==1'b1)?8'd3:8'd50;
+wire [7:0]framesize_reception=(waiting_response==1'b1)?8'd8:8'd50;
 
 paralleltoserialWrapper # (50,8) ptsw_dat(
 .Clock(sd_clock),
