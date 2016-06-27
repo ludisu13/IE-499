@@ -43,7 +43,7 @@ cmd_controller host_cmd(
 .reset(reset),
 .new_command(go_command),
 .cmd_argument(32'hFA74CD23),
-.cmd_index(6'd7),
+.cmd_index(6'd41),
 .TIMEOUT_ENABLE(1'b0),
 .ack_in(ack_phys_to_controller),
 .strobe_in(strobe_phys_controller),
@@ -65,7 +65,7 @@ reg Enable_card;
 reg load_send_card;
 wire [46:0]command_sd;
 wire [31:0]response=32'h3BA692AF;
-wire [5:0]response_index=6'd7;
+wire [5:0]response_index=6'd41;
 assign command_sd={2'b0,response_index,response,7'b0};
 assign response_frame={command_sd,1'b1};
 
@@ -84,7 +84,7 @@ parallel({command_sd,2'b11}));
 	initial begin
 		Enable_card=1'b0;
 		load_send_card=1'b0;
-		$dumpfile("cmd_all.vcd");
+		$dumpfile("cmd_all_41.vcd");
 		$dumpvars;	
 		#4500
 		Enable_card=1'b1;

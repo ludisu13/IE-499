@@ -84,7 +84,7 @@ parallel({command_sd,2'b11}));
 	initial begin
 		Enable_card=1'b0;
 		load_send_card=1'b0;
-		$dumpfile("cmd_all.vcd");
+		$dumpfile("cmd_all_41.vcd");
 		$dumpvars;	
 		#4500
 		Enable_card=1'b1;
