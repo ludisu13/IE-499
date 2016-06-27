@@ -69,7 +69,7 @@ wire [5:0]response_index=6'd41;
 assign command_sd={2'b0,response_index,response,7'b0};
 assign response_frame={command_sd,1'b1};
 
-paralleltoserialWrapper # (49,8) sd(
+paralleltoserialWrapper # (48,8) sd(
 .Clock(sd_clock),
 .Reset(reset),
 .Enable(Enable_card),
@@ -84,7 +84,7 @@ parallel({command_sd,2'b11}));
 	initial begin
 		Enable_card=1'b0;
 		load_send_card=1'b0;
-		$dumpfile("cmd_all_41.vcd");
+		$dumpfile("cmd_all_generales.vcd");
 		$dumpvars;	
 		#4500
 		Enable_card=1'b1;
