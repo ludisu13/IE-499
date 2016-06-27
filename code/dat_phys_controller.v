@@ -130,7 +130,7 @@ READ:    begin
       end
       end
 READ_FIFO_WRITE:    begin
-		if(!multiple ||  blockCount==blocks)
+		if(!multiple ||  blockCount>=blocks)
 			begin
 				next_state = WAIT_ACK; 
 			end
