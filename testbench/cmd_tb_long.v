@@ -6,7 +6,7 @@
 `include "../code/counter.v"
 `include "../code/parallelToSerial.v"
 `include "../code/serialToParallel.v"
-`include "../code/serialtoparallelwrapper.v"
+`include "../code/serialtoparallelwrapperCMD.v"
 `include "../code/paralleltoserialwrapper.v"
 `include "../code/cmd_phys_controller.v"
 `include "../code/cmd_phys.v"
@@ -64,9 +64,9 @@ generatorSD gsd(
 reg Enable_card;
 reg load_send_card;
 wire [134:0]command_sd;
-wire [126:0]response=126'h3BA692AF3BA692AF3BA692AF3BA692F;
+wire [126:0]response=127'h3BA692AF3BA692AF3BA692AF3BA692E;
 wire [5:0]response_index=6'd63;
-assign command_sd={2'b0,response_index,response};
+assign command_sd={2'b00,response_index,response};
 assign response_frame={command_sd,1'b1};
 
 paralleltoserialWrapper # (137,8) sd(
@@ -77,7 +77,7 @@ paralleltoserialWrapper # (137,8) sd(
 .load_send(load_send_card),
 .complete(complete_card),
 .serial(pin),.
-parallel({command_sd,2'b11}));
+parallel({1'b0,command_sd,2'b11}));
 
 
 	
