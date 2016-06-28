@@ -41,6 +41,8 @@ parameter SEND_COMMAND  =  4'd3;
 parameter WAIT_RESPONSE  =  4'd4;
 parameter SEND_RESPONSE = 4'd5;
 parameter WAIT_ACK =4'd6;
+parameter SEND_ACK =4'd7;
+
 
 
 
@@ -97,14 +99,21 @@ SEND_RESPONSE:    begin
       end
       end
 WAIT_ACK:    begin
-       if (ack_out) begin
-          next_state = IDLE;
+       if (ack_in) begin
+          next_state = SEND_ACK;
       end     
       else begin
          next_state = WAIT_ACK;
       end
  end       
-   
+SEND_ACK:    begin
+       if (ack_out) begin
+          next_state = IDLE;
+      end     
+      else begin
+         next_state = SEND_ACK;
+      end
+ end       
   
  default : next_state  = RESET;
  
@@ -215,14 +224,22 @@ always @(* )
 						pad_enable=1'b0;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
-						if(ack_in)
-							begin
-							ack_out=1'b1;
-							end
-						else
-							begin
-							ack_out=1'b0;
-							end
+						ack_out=1'b0;
+					end
+				SEND_ACK:
+					begin
+						strobe_out=1'b1;  
+						response=pad_response;//set response
+						load_send=1'b0;
+						loaded=1'b0;
+						reset_wrapper=1'b0;
+						response_sent=1'b0;
+						pad_state=1'b0;
+						pad_enable=1'b0;
+						enable_pts_wrapper=1'b0;
+						enable_stp_wrapper=1'b0;
+						ack_out=1'b1;
+					
 					end
 					
 				

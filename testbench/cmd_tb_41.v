@@ -6,7 +6,7 @@
 `include "../code/counter.v"
 `include "../code/parallelToSerial.v"
 `include "../code/serialToParallel.v"
-`include "../code/serialtoparallelwrapper.v"
+`include "../code/serialtoparallelwrapperCMD.v"
 `include "../code/paralleltoserialwrapper.v"
 `include "../code/cmd_phys_controller.v"
 `include "../code/cmd_phys.v"
