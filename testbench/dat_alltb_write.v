@@ -25,7 +25,7 @@ dat_controller datc(
 .writeRead(1'b1),
 .newDat(new_Dat),
 .blockCount(4'd2),
-.multipleData(1'b1),
+.multipleData(1'b0),
 .serial_ready(sr_phys_host),
 .complete(complete_phys_host),
 .ack_in(ack_phys_host),
@@ -82,7 +82,7 @@ reg new_Dat;
 reg reset_card;
 
 	initial begin
-	$dumpfile("dat_all_send_multiple.vcd");
+	$dumpfile("dat_all_send_single.vcd");
 		$dumpvars;	
 		Enable_card=1'b0;
 		reset_card=1'b0;
@@ -112,7 +112,7 @@ reg reset_card;
 		#360
 		load_send_card=1'b0;
 		Enable_card=1'b0;
-		#2000
+	/*	#2000
 		reset_card=1'b1;
 		#100
 		reset_card=1'b0;
@@ -123,7 +123,7 @@ reg reset_card;
 		#360
 		load_send_card=1'b0;
 		Enable_card=1'b0;
-		
+		*/
 		#5000
 		$display("test finished");
 		$finish;
