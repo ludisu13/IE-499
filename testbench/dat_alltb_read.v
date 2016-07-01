@@ -19,11 +19,10 @@ wire pad;
 
 
 wire [3:0] blocks_host_phys;
-
 dat_controller datc(
 .clock(clock),
 .reset(reset),
-.writeRead(1'b1),
+.writeRead(1'b0),
 .newDat(new_Dat),
 .blockCount(4'd2),
 .multipleData(1'b1),
@@ -58,41 +57,34 @@ dat_phys dat(
 .ack_out(ack_phys_host)
 );
 
-
+generatorCMDcontroller gencmd(
+.clock(clock),
+.reset(reset));
 
 generatorSD gsd(
 .clock(sd_clock));
-
-
-
-
-
-
-wire dat_to_card;
-generatorCMDcontroller gencmd(
-.clock(clock),
-.reset(reset)
-);
 reg Enable_card;
 reg load_send_card;
 
-wire [7:0] data_response;
-assign data_response={3'b111,1'b0,3'b010,1'b1}
-paralleltoserialWrapper # (9,8) sd(
+wire [49:0] data_to_card;
+wire [31:0] data_block;
+assign data_block=32'hFABCDE40;
+assign data_to_card={1'b0,data_block,16'hFFFF,1'b1};
+paralleltoserialWrapper # (51,8) sd(
 .Clock(sd_clock),
 .Reset(reset_card),
 .Enable(Enable_card),
-.framesize(8'd9),
+.framesize(8'd51),
 .load_send(load_send_card),
 .complete(complete_card),
 .serial(dat_pin),.
-parallel({data_response,1'b1}));
+parallel({1'b0,data_to_card}));
 
 reg new_Dat;
 reg reset_card;
 
 	initial begin
-	$dumpfile("dat_all_send.vcd");
+	$dumpfile("dat_all_read_multiple.vcd");
 		$dumpvars;	
 		Enable_card=1'b0;
 		reset_card=1'b0;
@@ -119,27 +111,22 @@ reg reset_card;
 		
 		load_send_card=1'b1;
 		$display("hola");
-		#300
+		#2040
 		load_send_card=1'b0;
-		#19000
-		load_send_card=1'b0;
-		#400
-		reset_card=1'b0;
-		#50;
-		reset_card=1'b1;
-		#1000
-		#6000
-		load_send_card=1'b0;
-		#300;
-		load_send_card=1'b0;
-		
-		reset_card=1'b0;
-		#200
+		Enable_card=1'b0;
 		#2000
+		reset_card=1'b1;
+		#100
+		reset_card=1'b0;
+		#600
+		Enable_card=1'b1;
+		#500;
 		load_send_card=1'b1;
-		#160
+		#2040
 		load_send_card=1'b0;
-		#10000
+		Enable_card=1'b0;
+		
+		#5000
 		$display("test finished");
 		$finish;
 	end

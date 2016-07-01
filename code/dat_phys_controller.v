@@ -50,7 +50,7 @@ parameter READ = 4'd6;
 parameter READ_FIFO_WRITE =4'd7;
 parameter READ_WRAPPER_RESET =4'd8;
 parameter WAIT_ACK =4'd9;
-
+parameter SEND_ACK =4'd10;
 reg fifoRead;
 reg dummy_count;
 reg [15:0]timeout_count;
@@ -104,7 +104,7 @@ LOAD_WRITE:   begin
    end  
 WAIT_RESPONSE:    begin
        if (reception_complete) begin
-		if(!multiple || blockCount==blocks)
+		if(!multiple || blockCount>=blocks)
 			begin
 				next_state = WAIT_ACK; 
 			end
@@ -130,7 +130,7 @@ READ:    begin
       end
       end
 READ_FIFO_WRITE:    begin
-		if(!multiple ||  blockCount==blocks)
+		if(!multiple ||  blockCount>=blocks)
 			begin
 				next_state = WAIT_ACK; 
 			end
@@ -147,12 +147,21 @@ READ_WRAPPER_RESET:begin
       
 WAIT_ACK:    begin
        if (ack_in) begin
-          next_state = IDLE;
+          next_state = SEND_ACK;
       end     
       else begin
          next_state = WAIT_ACK;
       end
- end       
+ end    
+ 
+SEND_ACK:    begin
+       if (ack_out) begin
+          next_state = IDLE;
+      end     
+      else begin
+         next_state = SEND_ACK;
+      end
+ end          
    
   
  default : next_state  = RESET;
@@ -369,16 +378,29 @@ always @(* )
 						dataReadTOFIFO=32'b0;
 						dataPARALLEL=dataPARALLEL;
 						fifoRead=1'b0;
-						if(ack_in)
-							begin
-							ack_out=1'b1;
-							end
-						else
-							begin
-							ack_out=1'b0;
-							end
 						loaded=1'b0;
 					end
+				SEND_ACK:
+					begin
+						blockCount=4'b0;
+						serial_ready=1'b0;
+						complete=1'b1;
+						ack_out=1'b1;
+						reset_wrapper=1'b1;
+						load_send=1'b0;
+						enable_pts_wrapper=1'b0;
+						enable_stp_wrapper=1'b0;
+						waiting_response=1'b0;
+						pad_state=1'b0;
+						pad_enable=1'b0;
+						write_fifo_enable=1'b0;
+						read_fifo_enable=1'b0;
+						dataReadTOFIFO=32'b0;
+						dataPARALLEL=dataPARALLEL;
+						fifoRead=1'b0;
+						loaded=1'b0;
+					end
+					
 					
 				
 				default:

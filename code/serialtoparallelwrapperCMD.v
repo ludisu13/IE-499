@@ -32,7 +32,7 @@ UPCOUNTER_POSEDGE # (FRAME_SIZE_WIDTH) counter1(
 .Q(countValue)
 );
 wire go;
-assign go= (framesize<countValue) ? 1'b0:1'b1;
-assign complete=(framesize<countValue) ? 1'b1:1'b0;
+assign go= (framesize==countValue) ? 1'b0:1'b1;
+assign complete=(framesize==countValue) ? 1'b1:1'b0;
 assign validData= (serial===1'bz) ? 1'b0:1'b1;
 endmodule

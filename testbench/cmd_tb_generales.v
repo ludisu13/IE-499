@@ -6,7 +6,7 @@
 `include "../code/counter.v"
 `include "../code/parallelToSerial.v"
 `include "../code/serialToParallel.v"
-`include "../code/serialtoparallelwrapper.v"
+`include "../code/serialtoparallelwrapperCMD.v"
 `include "../code/paralleltoserialwrapper.v"
 `include "../code/cmd_phys_controller.v"
 `include "../code/cmd_phys.v"
@@ -65,8 +65,8 @@ reg Enable_card;
 reg load_send_card;
 wire [46:0]command_sd;
 wire [31:0]response=32'h3BA692AF;
-wire [5:0]response_index=6'd12;
-assign command_sd={2'b0,response_index,response,7'd63};
+wire [5:0]response_index=6'd11;
+assign command_sd={2'b0,response_index,response,7'b0};
 assign response_frame={command_sd,1'b1};
 
 paralleltoserialWrapper # (49,8) sd(
@@ -77,7 +77,7 @@ paralleltoserialWrapper # (49,8) sd(
 .load_send(load_send_card),
 .complete(complete_card),
 .serial(pin),.
-parallel({command_sd,2'b11}));
+parallel({1'b0,command_sd,2'b11}));
 
 
 	

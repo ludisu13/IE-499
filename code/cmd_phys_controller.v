@@ -6,10 +6,12 @@ module cmd_phys_controller(
 	input wire strobe_in,   // request received
 	input wire ack_in,		//response received
 	input wire idle_in, // sets as idle
+	input wire no_response,
 	// output to host
 	output reg ack_out,// acknowledge of package reception from host
 	output reg strobe_out, // states that a response has been received
 	output reg [135:0] response,
+	
 	//Inputs from wrapper
 	input wire [135:0] pad_response,
 	input wire transmission_complete,
@@ -39,6 +41,8 @@ parameter SEND_COMMAND  =  4'd3;
 parameter WAIT_RESPONSE  =  4'd4;
 parameter SEND_RESPONSE = 4'd5;
 parameter WAIT_ACK =4'd6;
+parameter SEND_ACK =4'd7;
+
 
 
 
@@ -79,7 +83,7 @@ LOAD_COMMAND:   begin
        next_state = SEND_COMMAND;
    end  
 WAIT_RESPONSE:    begin
-       if (reception_complete) begin
+       if (reception_complete || no_response ) begin
           next_state = SEND_RESPONSE;
       end     
       else begin
@@ -95,14 +99,21 @@ SEND_RESPONSE:    begin
       end
       end
 WAIT_ACK:    begin
-       if (ack_out) begin
-          next_state = IDLE;
+       if (ack_in) begin
+          next_state = SEND_ACK;
       end     
       else begin
          next_state = WAIT_ACK;
       end
  end       
-   
+SEND_ACK:    begin
+       if (ack_out) begin
+          next_state = IDLE;
+      end     
+      else begin
+         next_state = SEND_ACK;
+      end
+ end       
   
  default : next_state  = RESET;
  
@@ -213,14 +224,22 @@ always @(* )
 						pad_enable=1'b0;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
-						if(ack_in)
-							begin
-							ack_out=1'b1;
-							end
-						else
-							begin
-							ack_out=1'b0;
-							end
+						ack_out=1'b0;
+					end
+				SEND_ACK:
+					begin
+						strobe_out=1'b1;  
+						response=pad_response;//set response
+						load_send=1'b0;
+						loaded=1'b0;
+						reset_wrapper=1'b0;
+						response_sent=1'b0;
+						pad_state=1'b0;
+						pad_enable=1'b0;
+						enable_pts_wrapper=1'b0;
+						enable_stp_wrapper=1'b0;
+						ack_out=1'b1;
+					
 					end
 					
 				

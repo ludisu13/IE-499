@@ -1,0 +1,42 @@
+[*]
+[*] GTKWave Analyzer v3.3.48 (w)1999-2013 BSI
+[*] Tue Jun 28 04:54:49 2016
+[*]
+[dumpfile] "C:\Users\Luis\Documents\GitHub\IE-499\waveform\dat_all_send_multiple.vcd"
+[dumpfile_mtime] "Tue Jun 28 02:53:44 2016"
+[dumpfile_size] 162698
+[savefile] "C:\Users\Luis\Documents\GitHub\IE-499\waveform\all_Send"
+[timestart] 0
+[size] 1536 803
+[pos] -61 -61
+*-22.055426 4590000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TestBench.
+[treeopen] TestBench.dat.
+[sst_width] 211
+[signals_width] 375
+[sst_expanded] 1
+[sst_vpaned_height] 226
+@28
+TestBench.clock
+@24
+TestBench.datc.state[2:0]
+@28
+TestBench.datc.newDat
+TestBench.datc.strobe_out
+TestBench.datc.transfer_complete
+TestBench.sd_clock
+@c00022
+TestBench.dat.dat1.state[3:0]
+@28
+(0)TestBench.dat.dat1.state[3:0]
+(1)TestBench.dat.dat1.state[3:0]
+(2)TestBench.dat.dat1.state[3:0]
+(3)TestBench.dat.dat1.state[3:0]
+@1401200
+-group_end
+@28
+TestBench.dat_pin
+TestBench.dat.frame_to_send[49:0]
+TestBench.dat.dataFROMFIFO[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

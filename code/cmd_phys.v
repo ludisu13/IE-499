@@ -25,7 +25,7 @@ module cmd_phys(
 	output wire COMMAND_TIMEOUT
 );
 
-
+wire no_response;
 wire transmission_complete;
 wire reception_complete;
 wire load_send;
@@ -41,6 +41,7 @@ wire [47:0] frame;
 assign frame={cmd_to_send,8'b1};
 wire [7:0]framesize_reception; 
 assign framesize_reception=(cmd_to_send[37:32]==6'd2||cmd_to_send[37:32]==6'd9||cmd_to_send[37:32]==6'd10)? 8'd136:8'd48;
+assign no_response=(cmd_to_send[37:32]==6'd0||cmd_to_send[37:32]==6'd4||cmd_to_send[37:32]==6'd15);
 //wrappers
 paralleltoserialWrapper # (48,8) ptsw(
 .Clock(sd_clock),
@@ -88,7 +89,8 @@ cmd_phys_controller cpc(
 .enable_pts_wrapper(enable_pts_wrapper),
 .enable_stp_wrapper(enable_stp_wrapper),
 .COMMAND_TIMEOUT(COMMAND_TIMEOUT),
-.load_send(load_send)
+.load_send(load_send),
+.no_response(no_response)
 );
 
 
