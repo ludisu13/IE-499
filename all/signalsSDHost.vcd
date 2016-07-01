@@ -1,5 +1,5 @@
 $date
-	Tue Jun 21 18:16:52 2016
+	Fri Jun 24 11:23:45 2016
 $end
 $version
 	Icarus Verilog
@@ -1664,65 +1664,63 @@ $var wire 128 3$ test [127:0] $end
 $var wire 128 4$ test1 [127:0] $end
 $var wire 1 * write_clock $end
 $var wire 1 e write_enable $end
-$var reg 1 5$ control $end
-$var reg 1 6$ fifo_empty $end
-$var reg 1 7$ fifo_full $end
-$var reg 128 8$ q [127:0] $end
-$var reg 1 9$ read_enable_d $end
-$var reg 3 :$ read_pointer [2:0] $end
-$var reg 1 ;$ write_enable_d $end
-$var reg 3 <$ write_pointer [2:0] $end
+$var reg 1 5$ fifo_empty $end
+$var reg 1 6$ fifo_full $end
+$var reg 128 7$ q [127:0] $end
+$var reg 1 8$ read_enable_d $end
+$var reg 3 9$ read_pointer [2:0] $end
+$var reg 1 :$ write_enable_d $end
+$var reg 3 ;$ write_pointer [2:0] $end
 $upscope $end
 $scope module rx_fifo $end
-$var wire 3 =$ almost_empty [2:0] $end
-$var wire 3 >$ almost_full [2:0] $end
-$var wire 128 ?$ data [127:0] $end
+$var wire 3 <$ almost_empty [2:0] $end
+$var wire 3 =$ almost_full [2:0] $end
+$var wire 128 >$ data [127:0] $end
 $var wire 1 * read_clock $end
 $var wire 1 [ read_enable $end
 $var wire 1 ( reset $end
-$var wire 128 @$ test [127:0] $end
-$var wire 128 A$ test1 [127:0] $end
+$var wire 128 ?$ test [127:0] $end
+$var wire 128 @$ test1 [127:0] $end
 $var wire 1 * write_clock $end
 $var wire 1 \ write_enable $end
-$var reg 1 B$ control $end
-$var reg 1 C$ fifo_empty $end
-$var reg 1 D$ fifo_full $end
-$var reg 128 E$ q [127:0] $end
-$var reg 1 F$ read_enable_d $end
-$var reg 3 G$ read_pointer [2:0] $end
-$var reg 1 H$ write_enable_d $end
-$var reg 3 I$ write_pointer [2:0] $end
+$var reg 1 A$ fifo_empty $end
+$var reg 1 B$ fifo_full $end
+$var reg 128 C$ q [127:0] $end
+$var reg 1 D$ read_enable_d $end
+$var reg 3 E$ read_pointer [2:0] $end
+$var reg 1 F$ write_enable_d $end
+$var reg 3 G$ write_pointer [2:0] $end
 $upscope $end
 $upscope $end
 $scope module sd $end
 $var wire 1 * Clock $end
-$var wire 1 J$ Enable $end
+$var wire 1 H$ Enable $end
 $var wire 1 ( Reset $end
 $var wire 1 & complete $end
-$var wire 8 K$ countValue [7:0] $end
-$var wire 8 L$ framesize [7:0] $end
-$var wire 1 M$ go $end
-$var wire 8 N$ initialValue [7:0] $end
-$var wire 8 O$ kk [7:0] $end
-$var wire 1 P$ load_send $end
-$var wire 4 Q$ parallel [3:0] $end
+$var wire 8 I$ countValue [7:0] $end
+$var wire 8 J$ framesize [7:0] $end
+$var wire 1 K$ go $end
+$var wire 8 L$ initialValue [7:0] $end
+$var wire 8 M$ kk [7:0] $end
+$var wire 1 N$ load_send $end
+$var wire 4 O$ parallel [3:0] $end
 $var wire 1 " serial $end
-$var wire 1 R$ serialTemp $end
+$var wire 1 P$ serialTemp $end
 $scope module pts $end
 $var wire 1 * Clock $end
-$var wire 1 S$ Enable $end
-$var wire 1 T$ Reset $end
-$var wire 4 U$ ffdinputBus [3:0] $end
-$var wire 4 V$ ffdqBus [3:0] $end
-$var wire 1 P$ load_send $end
-$var wire 4 W$ parallel [3:0] $end
-$var wire 1 R$ serial $end
+$var wire 1 Q$ Enable $end
+$var wire 1 R$ Reset $end
+$var wire 4 S$ ffdinputBus [3:0] $end
+$var wire 4 T$ ffdqBus [3:0] $end
+$var wire 1 N$ load_send $end
+$var wire 4 U$ parallel [3:0] $end
+$var wire 1 P$ serial $end
 $scope module ffd $end
 $var wire 1 * Clock $end
-$var wire 4 X$ D [3:0] $end
-$var wire 1 S$ Enable $end
-$var wire 1 T$ Reset $end
-$var reg 4 Y$ Q [3:0] $end
+$var wire 4 V$ D [3:0] $end
+$var wire 1 Q$ Enable $end
+$var wire 1 R$ Reset $end
+$var reg 4 W$ Q [3:0] $end
 $upscope $end
 $scope begin PTS[0] $end
 $scope begin genblk2 $end
@@ -1743,145 +1741,139 @@ $upscope $end
 $upscope $end
 $scope module counter1 $end
 $var wire 1 * Clock $end
-$var wire 1 Z$ Enable $end
-$var wire 8 [$ Initial [7:0] $end
-$var wire 1 \$ Reset $end
-$var reg 8 ]$ Q [7:0] $end
+$var wire 1 X$ Enable $end
+$var wire 8 Y$ Initial [7:0] $end
+$var wire 1 Z$ Reset $end
+$var reg 8 [$ Q [7:0] $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module fifo_controller $end
-$var wire 32 ^$ data_rx_in [31:0] $end
-$var wire 32 _$ data_tx_in [31:0] $end
-$var wire 4 `$ enable_in [3:0] $end
-$var wire 32 a$ q_rx_out [31:0] $end
-$var wire 32 b$ q_tx_out [31:0] $end
-$var wire 1 c$ reset $end
-$var wire 1 d$ sd_clock $end
-$var wire 4 e$ status_out [3:0] $end
-$var wire 1 f$ wishbone_clock $end
+$var wire 32 \$ data_rx_in [31:0] $end
+$var wire 32 ]$ data_tx_in [31:0] $end
+$var wire 4 ^$ enable_in [3:0] $end
+$var wire 32 _$ q_rx_out [31:0] $end
+$var wire 32 `$ q_tx_out [31:0] $end
+$var wire 1 a$ reset $end
+$var wire 1 b$ sd_clock $end
+$var wire 4 c$ status_out [3:0] $end
+$var wire 1 d$ wishbone_clock $end
 $scope module tx_fifo $end
-$var wire 3 g$ almost_empty [2:0] $end
-$var wire 3 h$ almost_full [2:0] $end
-$var wire 32 i$ data [31:0] $end
-$var wire 1 d$ read_clock $end
-$var wire 1 j$ read_enable $end
-$var wire 1 c$ reset $end
-$var wire 32 k$ test [31:0] $end
-$var wire 32 l$ test1 [31:0] $end
-$var wire 1 f$ write_clock $end
-$var wire 1 m$ write_enable $end
-$var reg 1 n$ control $end
-$var reg 1 o$ fifo_empty $end
-$var reg 1 p$ fifo_full $end
-$var reg 32 q$ q [31:0] $end
-$var reg 1 r$ read_enable_d $end
-$var reg 3 s$ read_pointer [2:0] $end
-$var reg 1 t$ write_enable_d $end
-$var reg 3 u$ write_pointer [2:0] $end
+$var wire 3 e$ almost_empty [2:0] $end
+$var wire 3 f$ almost_full [2:0] $end
+$var wire 32 g$ data [31:0] $end
+$var wire 1 b$ read_clock $end
+$var wire 1 h$ read_enable $end
+$var wire 1 a$ reset $end
+$var wire 32 i$ test [31:0] $end
+$var wire 32 j$ test1 [31:0] $end
+$var wire 1 d$ write_clock $end
+$var wire 1 k$ write_enable $end
+$var reg 1 l$ fifo_empty $end
+$var reg 1 m$ fifo_full $end
+$var reg 32 n$ q [31:0] $end
+$var reg 1 o$ read_enable_d $end
+$var reg 3 p$ read_pointer [2:0] $end
+$var reg 1 q$ write_enable_d $end
+$var reg 3 r$ write_pointer [2:0] $end
 $upscope $end
 $scope module rx_fifo $end
-$var wire 3 v$ almost_empty [2:0] $end
-$var wire 3 w$ almost_full [2:0] $end
-$var wire 32 x$ data [31:0] $end
-$var wire 1 f$ read_clock $end
-$var wire 1 y$ read_enable $end
-$var wire 1 c$ reset $end
-$var wire 32 z$ test [31:0] $end
-$var wire 32 {$ test1 [31:0] $end
-$var wire 1 d$ write_clock $end
-$var wire 1 |$ write_enable $end
-$var reg 1 }$ control $end
-$var reg 1 ~$ fifo_empty $end
-$var reg 1 !% fifo_full $end
-$var reg 32 "% q [31:0] $end
-$var reg 1 #% read_enable_d $end
-$var reg 3 $% read_pointer [2:0] $end
-$var reg 1 %% write_enable_d $end
-$var reg 3 &% write_pointer [2:0] $end
+$var wire 3 s$ almost_empty [2:0] $end
+$var wire 3 t$ almost_full [2:0] $end
+$var wire 32 u$ data [31:0] $end
+$var wire 1 d$ read_clock $end
+$var wire 1 v$ read_enable $end
+$var wire 1 a$ reset $end
+$var wire 32 w$ test [31:0] $end
+$var wire 32 x$ test1 [31:0] $end
+$var wire 1 b$ write_clock $end
+$var wire 1 y$ write_enable $end
+$var reg 1 z$ fifo_empty $end
+$var reg 1 {$ fifo_full $end
+$var reg 32 |$ q [31:0] $end
+$var reg 1 }$ read_enable_d $end
+$var reg 3 ~$ read_pointer [2:0] $end
+$var reg 1 !% write_enable_d $end
+$var reg 3 "% write_pointer [2:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-bx &%
-z%%
-bx $%
-z#%
 bx "%
 x!%
-x~$
-x}$
-z|$
-bz {$
-bz z$
+bx ~$
+z}$
+bx |$
+x{$
+xz$
 zy$
 bz x$
-bx w$
-bx v$
-bx u$
-zt$
+bz w$
+zv$
+bz u$
+bx t$
 bx s$
-zr$
-bx q$
-xp$
-xo$
-xn$
-zm$
-bz l$
-bz k$
-zj$
+bx r$
+xq$
+bx p$
+zo$
+bx n$
+xm$
+xl$
+zk$
+bz j$
 bz i$
-bx h$
-bx g$
-zf$
+zh$
+bz g$
+bx f$
 bx e$
 zd$
-zc$
-bx b$
-bx a$
-bz `$
-bz _$
+bx c$
+zb$
+za$
+bx `$
+bx _$
 bz ^$
-bx ]$
-x\$
-b0 [$
-0Z$
-bx Y$
-b1 X$
-b1 W$
-bx V$
+bz ]$
+bz \$
+bx [$
+xZ$
+b0 Y$
+0X$
+bx W$
+b1 V$
 b1 U$
-xT$
-0S$
+bx T$
+b1 S$
 xR$
-b1 Q$
-0P$
-b11 O$
-b0 N$
-xM$
-b100 L$
-bx K$
-0J$
+0Q$
+xP$
+b1 O$
+0N$
+b11 M$
+b0 L$
+xK$
+b100 J$
 bx I$
-xH$
+0H$
 bx G$
-0F$
+xF$
 bx E$
 xD$
-xC$
+bx C$
 xB$
-bz A$
+xA$
 bz @$
-bzxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ?$
-bx >$
+bz ?$
+bzxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx >$
 bx =$
 bx <$
-0;$
-bx :$
-x9$
-bx 8$
-x7$
+bx ;$
+x:$
+bx 9$
+x8$
+bx 7$
 x6$
 x5$
 bz 4$
@@ -2188,8 +2180,6 @@ x"
 x!
 $end
 #40000
-0H$
-09$
 z+"
 z|"
 b110000 r"
@@ -2241,7 +2231,7 @@ b0 Y"
 b0 \"
 b0 |
 bz00000000000000000000000000000000 M
-bz00000000000000000000000000000000 ?$
+bz00000000000000000000000000000000 >$
 0f"
 0\
 0l"
@@ -2332,6 +2322,8 @@ b0 T#
 b0 R#
 b0 f#
 b1 v#
+0:$
+0D$
 16
 1*
 b1001 >
@@ -2353,25 +2345,25 @@ b0 z
 b0 V"
 b111 0$
 b111 1$
+b111 <$
 b111 =$
-b111 >$
-1T$
-1\$
-05$
-b0 8$
+1R$
+1Z$
+b0 7$
 b0 U
-16$
-07$
-b0 <$
-b0 :$
-0B$
-b0 E$
+15$
+06$
+b0 ;$
+b0 9$
+08$
+b0 C$
 b0 O
-1C$
-0D$
+1A$
+0B$
 b1010 P
-b0 I$
 b0 G$
+b0 E$
+0F$
 06
 0*
 17
@@ -2406,8 +2398,8 @@ b0 G
 b0 v#
 b1 f#
 0&
-1M$
-0R$
+1K$
+0P$
 0y"
 14#
 b0 ;#
@@ -2423,10 +2415,10 @@ b0 W"
 0-"
 11"
 05"
-b0 ]$
-b0 K$
-b0 Y$
-b0 V$
+b0 [$
+b0 I$
+b0 W$
+b0 T$
 b0 A#
 b0 2#
 b0 =#
@@ -2458,8 +2450,8 @@ b1110 j#
 b10 8
 b10 3
 #90000
-0T$
-0\$
+0R$
+0Z$
 07
 0(
 #100000
@@ -2490,9 +2482,8 @@ b11 3
 06
 0*
 #160000
-1;$
 b11000 3$
-06$
+05$
 b1000 P
 b10001 l#
 b10001 D
@@ -2524,10 +2515,11 @@ b10001 h#
 06
 0*
 #200000
+1:$
 b11101 4$
 b0 0$
 b110 1$
-b1 <$
+b1 ;$
 b11101 p#
 b11101 g
 b11101 y#
@@ -2548,11 +2540,11 @@ b101 3
 b10 r
 1r#
 1S
-0;$
+0:$
 b100 v#
 b1 0$
 b101 1$
-b10 <$
+b10 ;$
 b0 l#
 b0 D
 b0 x#
@@ -2649,10 +2641,9 @@ b1001 3
 09
 01
 #400000
-19$
 b11000 z
 b11000 V"
-b11000 8$
+b11000 7$
 b11000 U
 b11 c"
 0O"
@@ -2683,10 +2674,10 @@ b1010 3
 1:
 12
 #420000
+18$
 06
 0*
 #440000
-09$
 b1100000000000000000001 8"
 b1100000000000000000001 ;"
 16"
@@ -2707,9 +2698,9 @@ b11101 z
 b11101 V"
 b0 0$
 b110 1$
-b11101 8$
+b11101 7$
 b11101 U
-b1 :$
+b1 9$
 16
 1*
 b111011 >
@@ -2723,6 +2714,7 @@ b1011 3
 0:
 02
 #460000
+08$
 06
 0*
 #480000
@@ -4936,13 +4928,13 @@ b1000110100 j#
 b1110000 8
 b1110000 3
 #4500000
-1S$
+1Q$
 06
 0*
 0:
 02
 1.
-1J$
+1H$
 #4520000
 b0 J"
 b0 K"
@@ -4953,8 +4945,8 @@ b10000000000000000000000000000000000000000000000000 E"
 b10000000000000000000000000000000000000000000000000 I"
 b110010 j"
 1]"
-b1 Y$
-b1 V$
+b1 W$
+b1 T$
 16
 1*
 b1000111001 >
@@ -6875,25 +6867,25 @@ b11101101 8
 b11101101 3
 #9500000
 0"
-b11 U$
-b11 X$
-1Z$
+b11 S$
+b11 V$
+1X$
 06
 0*
 1/
-1P$
+1N$
 #9520000
-b111 U$
-b111 X$
+b111 S$
+b111 V$
 1M"
 1G"
-b11 Y$
-b11 V$
+b11 W$
+b11 T$
 1]"
 0R"
 0("
-b1 ]$
-b1 K$
+b1 [$
+b1 I$
 16
 1*
 b10010101010 >
@@ -6907,15 +6899,15 @@ b11101110 3
 06
 0*
 #9560000
-b1111 U$
-b1111 X$
+b1111 S$
+b1111 V$
 1]"
-b111 Y$
-b111 V$
+b111 W$
+b111 T$
 b10 P"
 b10 A"
-b10 ]$
-b10 K$
+b10 [$
+b10 I$
 16
 1*
 b10010101111 >
@@ -6930,9 +6922,9 @@ b11101111 3
 0*
 #9600000
 1"
-1R$
-b1111 Y$
-b1111 V$
+1P$
+b1111 W$
+b1111 T$
 1]"
 0M"
 1O"
@@ -6941,8 +6933,8 @@ b10 c"
 0H"
 1)"
 0C"
-b11 ]$
-b11 K$
+b11 [$
+b11 I$
 b11 P"
 b11 A"
 16
@@ -6958,7 +6950,8 @@ b11110000 3
 06
 0*
 #9640000
-19$
+15$
+b1010 P
 b110010 #"
 b110010 B"
 b1 J"
@@ -6980,21 +6973,21 @@ b1 K"
 b10 i"
 z"
 0M"
-0Z$
+0X$
 0O"
 b11 c"
 0H"
-1\$
-1T$
-0S$
+1Z$
+1R$
+0Q$
 0)"
 1C"
 1&
-0M$
+0K$
 b0 P"
 b0 A"
-b100 ]$
-b100 K$
+b100 [$
+b100 I$
 16
 1*
 b10010111001 >
@@ -7005,10 +6998,10 @@ b10010111001 j#
 b11110001 8
 b11110001 3
 #9660000
+18$
 06
 0*
 #9680000
-09$
 b1110100000000000000001 8"
 b1110100000000000000001 ;"
 16"
@@ -7034,28 +7027,19 @@ b11 i"
 zR"
 z("
 0"
-1Z$
-b1 U$
-b1 X$
-16$
-b1010 P
-0\$
-0T$
-1S$
-0&
-1M$
+1X$
+b1 S$
+b1 V$
+0Z$
 0R$
-bx z
-bx V"
-b111 0$
-b111 1$
-b0 ]$
-b0 K$
-b0 Y$
-b0 V$
-bx 8$
-bx U
-b10 :$
+1Q$
+0&
+1K$
+0P$
+b0 [$
+b0 I$
+b0 W$
+b0 T$
 16
 1*
 b10010111110 >
@@ -7066,15 +7050,16 @@ b10010111110 j#
 b11110010 8
 b11110010 3
 #9700000
+08$
 z"
-0S$
-0Z$
+0Q$
+0X$
 06
 0*
 0.
-0J$
+0H$
 0/
-0P$
+0N$
 #9710000
 19
 11
