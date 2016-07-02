@@ -9,6 +9,8 @@ output wire reset,
 output wire [127:0]	host_data_i,
 output wire cmd_done_i,
 output wire data_done_i,
+output wire fifo_read_wait,
+output wire fifo_write_wait,
 //inputs from master
 output wire we_o, //write_enable 
 output wire [4:0] adr_o, // Command exec adr_o = 16, data exec adr_o = 19, regs adr_o =  0-15, fifo read  adr_o 18, fifo write adr_o 17 
@@ -26,6 +28,8 @@ we_in_gen weg(we_o);
 adr_out_gen  adrg(wb_clock, ack_i, adr_o);
 strobe_in_gen strg(strobe_o);
 wb_data_in_gen wbDatag(wb_data_o);
+fifo_wwait_gen fwwg(fifo_write_wait);
+fifo_rwait_gen frwg(fifo_read_wait);
 
 endmodule
 
@@ -65,7 +69,7 @@ initial
 always 
 	begin
 		#`NEW_HOST_DATA
-		host_data = host_data +128'b1;
+		host_data = host_data +128'h57cb2389045720de938457a02f9834;
 	end
 endmodule
 
@@ -103,46 +107,69 @@ module we_in_gen (output we_in);
 reg we_in;
 initial 
 	begin
-		we_in = 1'b0; // Initial -> read from SD
+		we_in = 1'b1; // Initial -> read from SD
 	end
 always
 	begin
 		#`WRITE_TO_SD
-		we_in = 1'b1;
+		we_in = 1'b0;
 		#`READ_FROM_SD
 		we_in = 1'b1;//
 	end
 endmodule
 
-module adr_out_gen (input wb_clock, input ack_i, output [4:0] adr_o);
+module adr_out_gen (input wb_clock, input error_i, output [4:0] adr_o);
 reg [4:0] adr_o;
 initial
 	begin
 		adr_o=5'b0; 
-		#120
-//	end
-//always 
-//	begin
-		//if(ack_i == 1'b0)
-		//	adr_o = adr_o;
-		//else 
-			//adr_o = adr_o +5'b1;
-			//if(adr_o == 5'd16 || adr_o == 5'd19) begin
-				//if(ack_i == 1'b0)
-			//		adr_o = adr_o;
-		//		#`ADR_IN
-		//		if(ack_i == 1'b1) begin					
-		//			adr_o = adr_o + 5'b1;
-		//		end
-		//	end
-		//	else begin
-				#`ADR_IN
-				//adr_o = adr_o + 5'b1;
-				adr_o = 5'd17;
-				#`ADR_IN
-			    #`ADR_IN
-				adr_o = 5'd19;
-		//end
+		#120;
+	end
+always 
+	begin
+		#`ADR_IN
+		//~ if(!error_i) begin
+			adr_o = adr_o + 1'b1;
+		//~ end
+		//~ else begin
+			//~ adr_o = adr_o;
+		//~ end
+		//~ if(ack_i == 1'b0)
+			//~ adr_o = adr_o;
+		//~ else 
+			//~ adr_o = adr_o +5'b1;
+			//~ if(adr_o == 5'd16 || adr_o == 5'd19) begin
+				//~ if(ack_i == 1'b0)
+					//~ adr_o = adr_o;
+				//~ #`ADR_IN
+				//~ if(ack_i == 1'b1) begin					
+					//~ adr_o = adr_o + 5'b1;
+		//~ end
+			//~ end
+			//~ else begin
+		
+				//PRUEBA FIFO!
+				//~ #`ADR_IN
+				//~ //adr_o = adr_o + 5'b1;
+				//~ adr_o = 5'd17;
+				//~ #`ADR_IN
+			    //~ #`ADR_IN
+				//~ #`ADR_IN
+			    //~ #`ADR_IN
+				//~ #`ADR_IN
+			    //~ #`ADR_IN
+				//~ #`ADR_IN
+			    //~ //#`ADR_IN
+				//~ adr_o = 5'd18;
+				//~ #`ADR_IN
+			    //~ #`ADR_IN
+				//~ #`ADR_IN
+			    //~ #`ADR_IN
+				//~ #`ADR_IN
+			    //~ #`ADR_IN
+				//~ //#`ADR_IN
+			    //~ #`ADR_IN;
+		//~ end
 		if(adr_o == 5'd20)
 			adr_o = 5'd0;
 	end
@@ -172,6 +199,36 @@ initial
 always 
 	begin
 		#`NEW_WB_DATA
-		wb_data = wb_data +128'd5;
+		wb_data = wb_data +128'h8736495e6743ae4588d52a683952;
+	end
+endmodule
+
+module fifo_wwait_gen (output fifo_write_wait);
+reg fifo_write_wait;
+initial
+	begin
+		fifo_write_wait = 1'b0;
+	end
+always 
+	begin
+		#`NO_WWAIT
+		fifo_write_wait = 1'b0;
+		#`WWAIT
+		fifo_write_wait = 1'b0;
+	end
+endmodule
+
+module fifo_rwait_gen (output fifo_read_wait);
+reg fifo_read_wait;
+initial
+	begin
+		fifo_read_wait = 1'b0;
+	end
+always 
+	begin
+		#`NO_RWAIT
+		fifo_read_wait = 1'b0;
+		#`RWAIT
+		fifo_read_wait = 1'b0;
 	end
 endmodule

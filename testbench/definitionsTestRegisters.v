@@ -7,11 +7,11 @@
 `define RESET_DEACTIVATE_TIME 60
 `define ADR_IN 40
 `define NOWRITE 120
-`define WRITE 840   
-`define NOREAD 1000
+`define WRITE 640   
+`define NOREAD 800
 `define READ 900
-`define NOCMD 1900
-`define CMD 100
+`define NOCMD 1800
+`define CMD 240
 `define NEW_DATA 40
 `define NEW_RESPONSE 200
 `define NOERROR 100

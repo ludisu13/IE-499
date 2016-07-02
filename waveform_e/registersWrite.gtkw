@@ -1,0 +1,37 @@
+[*]
+[*] GTKWave Analyzer v3.3.34 (w)1999-2012 BSI
+[*] Fri Jul  1 21:09:44 2016
+[*]
+[dumpfile] "/home/fish/Documentos/ProyectoLego/IE-499/testbench/writeRegisters.vcd"
+[dumpfile_mtime] "Fri Jul  1 21:04:07 2016"
+[dumpfile_size] 8036
+[savefile] "/home/fish/Documentos/ProyectoLego/IE-499/waveform_e/registersWrite.gtkw"
+[timestart] 0
+[size] 1366 722
+[pos] -1 -23
+*-17.337620 49600 120000 320000 360000 480000 520000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TestBench.
+[sst_width] 40
+[signals_width] 318
+[sst_expanded] 0
+[sst_vpaned_height] 196
+@24
+TestBench.clock
+TestBench.reset
+TestBench.adr_i[4:0]
+TestBench.regs.error_interrupt_status_i[15:0]
+TestBench.reg_write_en
+TestBench.block_size[11:0]
+TestBench.block_count[15:0]
+TestBench.argument[31:0]
+TestBench.transfer_mode[15:0]
+TestBench.command[15:0]
+TestBench.timeout_control[15:0]
+TestBench.software_reset[2:0]
+TestBench.regs.error_interrupt_status_o[15:0]
+TestBench.regs.normal_interrupt_status_enable[15:0]
+TestBench.regs.error_interrupt_status_enable[15:0]
+TestBench.regs.normal_interrupt_signal_enable[15:0]
+TestBench.regs.error_interrupt_signal_enable[15:0]
+[pattern_trace] 1
+[pattern_trace] 0

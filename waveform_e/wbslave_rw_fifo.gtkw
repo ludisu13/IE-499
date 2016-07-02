@@ -1,0 +1,177 @@
+[*]
+[*] GTKWave Analyzer v3.3.34 (w)1999-2012 BSI
+[*] Fri Jul  1 18:52:10 2016
+[*]
+[dumpfile] "/home/fish/Documentos/ProyectoLego/IE-499/testbench/wbslave_rw_reg.vcd"
+[dumpfile_mtime] "Fri Jul  1 18:49:05 2016"
+[dumpfile_size] 41636
+[savefile] "/home/fish/Documentos/ProyectoLego/IE-499/waveform_e/wbslave_rw_fifo.gtkw"
+[timestart] 77500
+[size] 1366 722
+[pos] -1 -23
+*-16.264055 240000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 197
+[signals_width] 174
+[sst_expanded] 1
+[sst_vpaned_height] 322
+@22
+TestBench.clock
+TestBench.strobe
+TestBench.ack_o
+TestBench.we_i
+@24
+TestBench.adr_i[4:0]
+@200
+-
+@28
+TestBench.fifo_read_en
+@22
+TestBench.host_data_i[127:0]
+@c00022
+TestBench.wb_data_o[127:0]
+@28
+(0)TestBench.wb_data_o[127:0]
+(1)TestBench.wb_data_o[127:0]
+(2)TestBench.wb_data_o[127:0]
+(3)TestBench.wb_data_o[127:0]
+(4)TestBench.wb_data_o[127:0]
+(5)TestBench.wb_data_o[127:0]
+(6)TestBench.wb_data_o[127:0]
+(7)TestBench.wb_data_o[127:0]
+(8)TestBench.wb_data_o[127:0]
+(9)TestBench.wb_data_o[127:0]
+(10)TestBench.wb_data_o[127:0]
+(11)TestBench.wb_data_o[127:0]
+(12)TestBench.wb_data_o[127:0]
+(13)TestBench.wb_data_o[127:0]
+(14)TestBench.wb_data_o[127:0]
+(15)TestBench.wb_data_o[127:0]
+(16)TestBench.wb_data_o[127:0]
+(17)TestBench.wb_data_o[127:0]
+(18)TestBench.wb_data_o[127:0]
+(19)TestBench.wb_data_o[127:0]
+(20)TestBench.wb_data_o[127:0]
+(21)TestBench.wb_data_o[127:0]
+(22)TestBench.wb_data_o[127:0]
+(23)TestBench.wb_data_o[127:0]
+(24)TestBench.wb_data_o[127:0]
+(25)TestBench.wb_data_o[127:0]
+(26)TestBench.wb_data_o[127:0]
+(27)TestBench.wb_data_o[127:0]
+(28)TestBench.wb_data_o[127:0]
+(29)TestBench.wb_data_o[127:0]
+(30)TestBench.wb_data_o[127:0]
+(31)TestBench.wb_data_o[127:0]
+(32)TestBench.wb_data_o[127:0]
+(33)TestBench.wb_data_o[127:0]
+(34)TestBench.wb_data_o[127:0]
+(35)TestBench.wb_data_o[127:0]
+(36)TestBench.wb_data_o[127:0]
+(37)TestBench.wb_data_o[127:0]
+(38)TestBench.wb_data_o[127:0]
+(39)TestBench.wb_data_o[127:0]
+(40)TestBench.wb_data_o[127:0]
+(41)TestBench.wb_data_o[127:0]
+(42)TestBench.wb_data_o[127:0]
+(43)TestBench.wb_data_o[127:0]
+(44)TestBench.wb_data_o[127:0]
+(45)TestBench.wb_data_o[127:0]
+(46)TestBench.wb_data_o[127:0]
+(47)TestBench.wb_data_o[127:0]
+(48)TestBench.wb_data_o[127:0]
+(49)TestBench.wb_data_o[127:0]
+(50)TestBench.wb_data_o[127:0]
+(51)TestBench.wb_data_o[127:0]
+(52)TestBench.wb_data_o[127:0]
+(53)TestBench.wb_data_o[127:0]
+(54)TestBench.wb_data_o[127:0]
+(55)TestBench.wb_data_o[127:0]
+(56)TestBench.wb_data_o[127:0]
+(57)TestBench.wb_data_o[127:0]
+(58)TestBench.wb_data_o[127:0]
+(59)TestBench.wb_data_o[127:0]
+(60)TestBench.wb_data_o[127:0]
+(61)TestBench.wb_data_o[127:0]
+(62)TestBench.wb_data_o[127:0]
+(63)TestBench.wb_data_o[127:0]
+(64)TestBench.wb_data_o[127:0]
+(65)TestBench.wb_data_o[127:0]
+(66)TestBench.wb_data_o[127:0]
+(67)TestBench.wb_data_o[127:0]
+(68)TestBench.wb_data_o[127:0]
+(69)TestBench.wb_data_o[127:0]
+(70)TestBench.wb_data_o[127:0]
+(71)TestBench.wb_data_o[127:0]
+(72)TestBench.wb_data_o[127:0]
+(73)TestBench.wb_data_o[127:0]
+(74)TestBench.wb_data_o[127:0]
+(75)TestBench.wb_data_o[127:0]
+(76)TestBench.wb_data_o[127:0]
+(77)TestBench.wb_data_o[127:0]
+(78)TestBench.wb_data_o[127:0]
+(79)TestBench.wb_data_o[127:0]
+(80)TestBench.wb_data_o[127:0]
+(81)TestBench.wb_data_o[127:0]
+(82)TestBench.wb_data_o[127:0]
+(83)TestBench.wb_data_o[127:0]
+(84)TestBench.wb_data_o[127:0]
+(85)TestBench.wb_data_o[127:0]
+(86)TestBench.wb_data_o[127:0]
+(87)TestBench.wb_data_o[127:0]
+(88)TestBench.wb_data_o[127:0]
+(89)TestBench.wb_data_o[127:0]
+(90)TestBench.wb_data_o[127:0]
+(91)TestBench.wb_data_o[127:0]
+(92)TestBench.wb_data_o[127:0]
+(93)TestBench.wb_data_o[127:0]
+(94)TestBench.wb_data_o[127:0]
+(95)TestBench.wb_data_o[127:0]
+(96)TestBench.wb_data_o[127:0]
+(97)TestBench.wb_data_o[127:0]
+(98)TestBench.wb_data_o[127:0]
+(99)TestBench.wb_data_o[127:0]
+(100)TestBench.wb_data_o[127:0]
+(101)TestBench.wb_data_o[127:0]
+(102)TestBench.wb_data_o[127:0]
+(103)TestBench.wb_data_o[127:0]
+(104)TestBench.wb_data_o[127:0]
+(105)TestBench.wb_data_o[127:0]
+(106)TestBench.wb_data_o[127:0]
+(107)TestBench.wb_data_o[127:0]
+(108)TestBench.wb_data_o[127:0]
+(109)TestBench.wb_data_o[127:0]
+(110)TestBench.wb_data_o[127:0]
+(111)TestBench.wb_data_o[127:0]
+(112)TestBench.wb_data_o[127:0]
+(113)TestBench.wb_data_o[127:0]
+(114)TestBench.wb_data_o[127:0]
+(115)TestBench.wb_data_o[127:0]
+(116)TestBench.wb_data_o[127:0]
+(117)TestBench.wb_data_o[127:0]
+(118)TestBench.wb_data_o[127:0]
+(119)TestBench.wb_data_o[127:0]
+(120)TestBench.wb_data_o[127:0]
+(121)TestBench.wb_data_o[127:0]
+(122)TestBench.wb_data_o[127:0]
+(123)TestBench.wb_data_o[127:0]
+(124)TestBench.wb_data_o[127:0]
+(125)TestBench.wb_data_o[127:0]
+(126)TestBench.wb_data_o[127:0]
+(127)TestBench.wb_data_o[127:0]
+@1401200
+-group_end
+@28
+TestBench.fifo_read_wait
+@200
+-
+@28
+TestBench.fifo_write_en
+@22
+TestBench.wb_data_i[127:0]
+TestBench.host_data_o[127:0]
+@28
+TestBench.fifo_write_wait
+@29
+TestBench.error_o
+[pattern_trace] 1
+[pattern_trace] 0

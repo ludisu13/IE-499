@@ -1,0 +1,42 @@
+[*]
+[*] GTKWave Analyzer v3.3.34 (w)1999-2012 BSI
+[*] Sat Jul  2 00:40:48 2016
+[*]
+[dumpfile] "/home/fish/Documentos/ProyectoLego/IE-499/testbench/signalsWbFifoReg.vcd"
+[dumpfile_mtime] "Sat Jul  2 00:38:54 2016"
+[dumpfile_size] 15619
+[savefile] "/home/fish/Documentos/ProyectoLego/IE-499/waveform_e/test.gtkw"
+[timestart] 0
+[size] 1366 722
+[pos] -1 -23
+*-18.264055 0 200000 480000 800000 1040000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TestBench.
+[treeopen] TestBench.fifoController.
+[sst_width] 40
+[signals_width] 174
+[sst_expanded] 0
+[sst_vpaned_height] 413
+@24
+TestBench.fifoController.tx_fifo.write_clock
+TestBench.fifoController.tx_fifo.reset
+TestBench.fifoController.tx_fifo.write_enable
+TestBench.fifoController.tx_fifo.write_enable_d
+TestBench.fifoController.tx_fifo.write_pointer[2:0]
+TestBench.fifoController.tx_fifo.almost_full[2:0]
+TestBench.fifoController.tx_fifo.fifo_full
+@200
+-
+@24
+TestBench.fifoController.tx_fifo.read_clock
+TestBench.fifoController.tx_fifo.read_enable
+TestBench.fifoController.tx_fifo.read_enable_d
+TestBench.fifoController.tx_fifo.read_pointer[2:0]
+TestBench.fifoController.tx_fifo.almost_empty[2:0]
+TestBench.fifoController.tx_fifo.fifo_empty
+@200
+-
+@24
+TestBench.fifoController.tx_fifo.data[127:0]
+TestBench.fifoController.tx_fifo.q[127:0]
+[pattern_trace] 1
+[pattern_trace] 0

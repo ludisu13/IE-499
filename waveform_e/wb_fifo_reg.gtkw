@@ -1,0 +1,49 @@
+[*]
+[*] GTKWave Analyzer v3.3.34 (w)1999-2012 BSI
+[*] Sat Jul  2 02:40:41 2016
+[*]
+[dumpfile] "/home/fish/Documentos/ProyectoLego/IE-499/testbench/signalsWbFifoReg.vcd"
+[dumpfile_mtime] "Sat Jul  2 02:12:07 2016"
+[dumpfile_size] 81239
+[savefile] "/home/fish/Documentos/ProyectoLego/IE-499/waveform_e/wb_fifo_reg.gtkw"
+[timestart] 0
+[size] 1366 722
+[pos] -1 -23
+*-18.691256 683000 240000 320000 1280000 1400000 1440000 1520000 1720000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TestBench.
+[treeopen] TestBench.fifoController.
+[sst_width] 197
+[signals_width] 182
+[sst_expanded] 1
+[sst_vpaned_height] 226
+@28
+TestBench.wb_clock
+TestBench.strobe
+TestBench.ack_o
+TestBench.we_i
+@24
+TestBench.adr_i[4:0]
+@200
+-
+@28
+TestBench.reg_read_en
+TestBench.reg_write_en
+TestBench.new_command
+TestBench.cmd_done_i
+TestBench.fifo_write_en
+TestBench.fifo_read_en
+TestBench.new_data
+TestBench.data_done_i
+TestBench.error_o
+@22
+TestBench.wb_data_i[127:0]
+TestBench.regs.argument[31:0]
+TestBench.regs.transfer_mode[15:0]
+@24
+TestBench.regs.command[15:0]
+@22
+TestBench.fifoController.tx_fifo.test[127:0]
+@23
+TestBench.wb_data_o[127:0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -9,6 +9,8 @@ module wishbone_slave ( // Wishbone Slave
 	input wire [127:0]	host_data_i,
 	input wire 		cmd_done_i,
 	input wire 		data_done_i,
+	input wire 		fifo_write_wait,
+	input wire 		fifo_read_wait,
 	
 	//Outputs to Host
 	output reg 		new_data,
@@ -180,12 +182,14 @@ always @(*) begin
 				new_data	= 1'b0;
 				host_data_o = 128'b0;
 				error_o		= 1'b0;
-				if(adr_i == 5'd18)
+				if(adr_i == 5'd18 && !fifo_read_wait)
 					begin
 						fifo_read_en  = 1'b1;
 						fifo_write_en = 1'b0;
 						reg_read_en   = 1'b0;
 						reg_write_en  = 1'b0;
+						wb_data_o	  = host_data_i;
+						adr_o 		  = adr_i;
 					end
 				else if(adr_i >=0 && adr_i<=15)
 					begin
@@ -193,6 +197,8 @@ always @(*) begin
 						fifo_write_en = 1'b0;
 						reg_read_en   = 1'b1;
 						reg_write_en  = 1'b0;
+						wb_data_o	  = host_data_i;
+						adr_o 		  = adr_i;
 					end	
 				else
 					begin
@@ -201,9 +207,10 @@ always @(*) begin
 						reg_read_en   = 1'b0;
 						reg_write_en  = 1'b0;
 						error_o		  = 1'b1;
+						wb_data_o	  = 128'b0;
+						adr_o 		  = 5'b0;
 					end
-				wb_data_o	= host_data_i;
-				adr_o 		= adr_i;
+				
 			end				
 		
 		WRITE:
@@ -223,7 +230,7 @@ always @(*) begin
 						//~ adr_o		  = adr_i;
 					//~ end
 				//~ else 
-				if (adr_i == 5'd17) //FIFO WRITE
+				if (adr_i == 5'd17 && !fifo_write_wait) //FIFO WRITE
 					begin
 						ack_o 		= 1'b1;
 						new_command = 1'b0;

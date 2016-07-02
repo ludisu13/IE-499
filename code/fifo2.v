@@ -12,7 +12,13 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 	output reg fifo_full,
 	output reg fifo_empty,
 	output wire [DATA_WIDTH-1:0] test,
-	output wire [DATA_WIDTH-1:0] test1
+	output wire [DATA_WIDTH-1:0] test1,
+	output wire [DATA_WIDTH-1:0] test2,
+	output wire [DATA_WIDTH-1:0] test3,
+	output wire [DATA_WIDTH-1:0] test4,
+	output wire [DATA_WIDTH-1:0] test5,
+	output wire [DATA_WIDTH-1:0] test6,
+	output wire [DATA_WIDTH-1:0] test7
 
 );
 
@@ -30,13 +36,19 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 //Write
 	assign test = fifo_mem[0];
 	assign test1 = fifo_mem[1];
+	assign test2 = fifo_mem[2];
+	assign test3 = fifo_mem[3];
+	assign test4 = fifo_mem[4];
+	assign test5 = fifo_mem[5];
+	assign test6 = fifo_mem[6];
+	assign test7 = fifo_mem[7];
 	always @(posedge write_clock) begin
 		if((write_enable | write_enable_d) & ~fifo_full) begin
 			write_pointer = write_pointer + 1'b1;	
 		end
 	end
 	
-	always @(write_enable) begin
+	always @(posedge write_clock) begin
 		write_enable_d <= write_enable;
 	end
 	//assign next_write_pointer = (write_pointer+1'b1)
@@ -54,22 +66,21 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 
 	always @(posedge read_clock ) begin//
 		if((read_enable | read_enable_d) & ~fifo_empty) begin
-			
-			read_pointer = read_pointer + 1'b1;	
 			q = fifo_mem[read_pointer];
-		
+			read_pointer = read_pointer + 1'b1;	
+
 		end
 	end
 	
-	always @(read_enable) begin //// CREO QUE ESTO NO HACE FAALTA
-		read_enable_d <= read_enable;
+	always @(posedge read_clock) begin 
+		read_enable_d = read_enable;
 		//q = fifo_mem[read_pointer];
 	end
 	
-	always @(read_pointer | read_enable | fifo_empty) begin
-		if (read_enable & ~fifo_empty) begin
-			fifo_empty = ((almost_empty ==0 )|| (almost_empty==7));
-			q = fifo_mem[read_pointer];
+	always @(posedge read_clock) begin
+		if ((read_enable_d | read_enable) & ~fifo_empty) begin
+			fifo_empty = ((almost_empty ==0 ));//|| (almost_empty==7));
+			//q = fifo_mem[read_pointer];
 			//if(!control)
 			//begin
 			//read_pointer = read_pointer + 1'b1; 
