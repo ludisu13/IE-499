@@ -16,6 +16,7 @@ input wire fifo_okay,
 //outputs to host
 output reg transfer_complete,
 //outputs to physical layer
+output reg idle_out
 output reg strobe_out,
 output reg ack_out,
 output reg [3:0] blocks,
@@ -151,20 +152,13 @@ always @(*)
 					ack_out=1'b0;
 					multiple=multiple;
 					blocks=blocks;
-					if(complete)
-						begin
-							transfer_complete=1'b1;
-						end
-					else
-						begin
-							transfer_complete=1'b0;
-						end
+					transfer_complete=1'b0;
 				end
 			ACK:
 				begin
 					strobe_out=1'b0;
 					ack_out=1'b1;
-					transfer_complete=transfer_complete;
+					transfer_complete=1'b1;
 					writereadphys=writeRead;
 					multiple=multipleData;
 					blocks=blockCount;
