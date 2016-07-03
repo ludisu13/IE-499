@@ -1,4 +1,4 @@
-//`include "../code/definitions_registers.v"
+`include "../code/definitions_registers.v"
 module registers (
 	
 	//Inputs
@@ -205,7 +205,6 @@ always @(posedge clock) begin
 			present_state = present_state;
 			timeout_control = timeout_control;
 			software_reset = software_reset;
-			response = response; 
 			normal_interrupt_status_enable = normal_interrupt_status_enable;
 			error_interrupt_status_enable = error_interrupt_status_enable;
 			normal_interrupt_signal_enable = normal_interrupt_signal_enable;

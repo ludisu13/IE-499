@@ -8,6 +8,7 @@ module cmd_phys_controller(
 	input wire idle_in, // sets as idle
 	input wire no_response,
 	// output to host
+	output reg serial_ready,
 	output reg ack_out,// acknowledge of package reception from host
 	output reg strobe_out, // states that a response has been received
 	output reg [135:0] response,
@@ -139,6 +140,7 @@ always @(* )
 						pad_enable=1'b0;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
+						serial_ready=1'b0;
 					end
 				IDLE:	
 					begin
@@ -153,6 +155,7 @@ always @(* )
 						pad_enable=1'b0;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
+						serial_ready=1'b1;
 					end
 				LOAD_COMMAND:
 					begin
@@ -167,6 +170,7 @@ always @(* )
 						pad_enable=1'b1;
 						enable_pts_wrapper=1'b1;
 						enable_stp_wrapper=1'b0;
+						serial_ready=1'b1;
 					end
 				SEND_COMMAND:
 					begin
@@ -181,6 +185,7 @@ always @(* )
 						pad_enable=1'b1;
 						enable_pts_wrapper=1'b1;
 						enable_stp_wrapper=1'b0;
+						serial_ready=1'b1;
 					end
 				WAIT_RESPONSE:
 					begin
@@ -195,6 +200,7 @@ always @(* )
 						pad_enable=1'b1;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
+						serial_ready=1'b0;
 						if(dummy_count==1'b1)
 							enable_stp_wrapper=1'b1;
 					end
@@ -211,6 +217,7 @@ always @(* )
 						pad_enable=1'b0;
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
+						serial_ready=1'b1;
 					end
 				WAIT_ACK:
 					begin
@@ -225,6 +232,7 @@ always @(* )
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
 						ack_out=1'b0;
+						serial_ready=1'b1;
 					end
 				SEND_ACK:
 					begin
@@ -239,6 +247,7 @@ always @(* )
 						enable_pts_wrapper=1'b0;
 						enable_stp_wrapper=1'b0;
 						ack_out=1'b1;
+						serial_ready=1'b1;
 					
 					end
 					

@@ -1,0 +1,30 @@
+[*]
+[*] GTKWave Analyzer v3.3.34 (w)1999-2012 BSI
+[*] Fri Jul  1 21:15:37 2016
+[*]
+[dumpfile] "/home/fish/Documentos/ProyectoLego/IE-499/testbench/signalsRegisters.vcd"
+[dumpfile_mtime] "Fri Jul  1 21:01:09 2016"
+[dumpfile_size] 15980
+[savefile] "/home/fish/Documentos/ProyectoLego/IE-499/waveform_e/registersRead.gtkw"
+[timestart] 787900
+[size] 1366 722
+[pos] -1 -23
+*-14.729935 800000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TestBench.
+[sst_width] 40
+[signals_width] 182
+[sst_expanded] 0
+[sst_vpaned_height] 251
+@24
+TestBench.clock
+TestBench.reset
+TestBench.adr_i[4:0]
+TestBench.reg_read_en
+@22
+TestBench.block_count[15:0]
+TestBench.argument[31:0]
+TestBench.transfer_mode[15:0]
+@24
+TestBench.data_o[127:0]
+[pattern_trace] 1
+[pattern_trace] 0

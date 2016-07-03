@@ -12,6 +12,8 @@ module TestBench;
 	wire [127:0] host_data_i;
 	wire cmd_done_i;
 	wire data_done_i;
+	wire fifo_write_wait;
+	wire fifo_read_wait;
 	
 	//Inputs from Wishbone Master
 	wire we_i;
@@ -30,6 +32,7 @@ module TestBench;
 	wire 		fifo_write_en;
 	wire		reg_read_en;
 	wire 		reg_write_en;
+	wire [4:0] adr_o;
 	
 	
 	//Outputs to Wishbone Master
@@ -45,6 +48,8 @@ module TestBench;
 		.host_data_i(host_data_i),	//Input
 		.cmd_done_i(cmd_done_i),	//Input
 		.data_done_i(data_done_i),	//Input
+		.fifo_write_wait(fifo_write_wait),	//Input
+		.fifo_read_wait(fifo_read_wait),	//Input
 		.adr_i(adr_i),				//Input
 		.strobe(strobe),			//Input
 		.wb_data_i(wb_data_i),		//Input
@@ -58,7 +63,8 @@ module TestBench;
 		.fifo_write_en(fifo_write_en),//Output
 		.reg_read_en(reg_read_en),	//Output
 		.reg_write_en(reg_write_en),//Output
-		.error_o(error_o)			//Output
+		.error_o(error_o),			//Output
+		.adr_o(adr_o)				//Output
 	);
 	
 	// Instantiate generator of signals
@@ -71,12 +77,14 @@ module TestBench;
 		.we_i(we_i),
 		.adr_i(adr_i),
 		.strobe(strobe),
-		.wb_data_i(wb_data_i)
+		.wb_data_i(wb_data_i),
+		.fifo_read_wait(fifo_read_wait),
+		.fifo_write_wait(fifo_write_wait)
 	);
 
 	initial begin
 
-	$dumpfile("signalsWishboneSlave5.vcd");
+	$dumpfile("wbslave_exec.vcd");
 	$dumpvars;	
 	#1500
 	$display("test finished");

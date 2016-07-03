@@ -51,6 +51,7 @@ parameter READ_FIFO_WRITE =4'd7;
 parameter READ_WRAPPER_RESET =4'd8;
 parameter WAIT_ACK =4'd9;
 parameter SEND_ACK =4'd10;
+
 reg fifoRead;
 reg dummy_count;
 reg [15:0]timeout_count;
@@ -218,7 +219,7 @@ always @(* )
 					end
 				FIFO_READ:
 					begin
-						serial_ready=1'b0;
+						serial_ready=1'b1;
 						complete=1'b0;
 						ack_out=1'b0;
 						reset_wrapper=1'b0;
@@ -238,7 +239,7 @@ always @(* )
 					end
 				LOAD_WRITE:
 					begin
-						serial_ready=1'b0;
+						serial_ready=1'b1;
 						complete=1'b0;
 						ack_out=1'b0;
 						reset_wrapper=1'b0;
@@ -258,7 +259,7 @@ always @(* )
 					end
 				SEND:
 					begin
-						serial_ready=1'b0;
+						serial_ready=1'b1;
 						complete=1'b0;
 						ack_out=1'b0;
 						reset_wrapper=1'b0;
@@ -277,7 +278,7 @@ always @(* )
 					end
 				WAIT_RESPONSE:
 					begin
-						serial_ready=1'b0;
+						serial_ready=1'b1;
 						complete=1'b0;
 						ack_out=1'b0;
 						reset_wrapper=1'b0;
@@ -301,7 +302,7 @@ always @(* )
 					end
 				READ:
 					begin
-						serial_ready=1'b0;
+						serial_ready=1'b1;
 						complete=1'b0;
 						ack_out=1'b0;
 						reset_wrapper=1'b0;
@@ -322,7 +323,7 @@ always @(* )
 					end
 				READ_FIFO_WRITE:
 					begin
-						serial_ready=1'b0;
+						serial_ready=1'b1;
 						complete=1'b0;
 						ack_out=1'b0;
 						reset_wrapper=1'b0;
@@ -342,7 +343,7 @@ always @(* )
 					end
 				READ_WRAPPER_RESET:
 					begin
-						serial_ready=1'b0;
+						serial_ready=1'b1;
 						complete=1'b0;
 						ack_out=1'b0;
 						reset_wrapper=1'b1;
@@ -363,7 +364,7 @@ always @(* )
 				WAIT_ACK:
 					begin
 						blockCount=4'b0;
-						serial_ready=1'b0;
+						serial_ready=1'b1;
 						complete=1'b1;
 						ack_out=1'b0;
 						reset_wrapper=1'b1;
@@ -383,7 +384,7 @@ always @(* )
 				SEND_ACK:
 					begin
 						blockCount=4'b0;
-						serial_ready=1'b0;
+						serial_ready=1'b1;
 						complete=1'b1;
 						ack_out=1'b1;
 						reset_wrapper=1'b1;

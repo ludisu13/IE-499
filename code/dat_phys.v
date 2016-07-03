@@ -30,9 +30,8 @@ module dat_phys(
 	//OUTPUT TO FIFO
 	output wire read_enable,
 	output wire [31:0] dataToFIFO,
-	output wire write_enable,
+	output wire write_enable
 	//INPUTFROM FIFO
-	input wire status,
 	input wire [31:0] dataFROMFIFO
 );
 wire [31:0]dataPARALLEL;

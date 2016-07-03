@@ -72,7 +72,7 @@ module TestBench;
 	
 	initial begin
 
-	$dumpfile("signalsRegisters.vcd");
+	$dumpfile("writeRegisters.vcd");
 	$dumpvars;	
 	#2100
 	$display("test finished");

@@ -12,8 +12,7 @@ module cmd_controller(
 	input wire strobe_in,
 	input wire [135:0] cmd_in, // 
 	input wire TIMEOUT,
-
-	
+	input wire serial_ready
 	//input wire serial_ready,
 	//need to add a singal for transmission complete will require a new state
 	// Outputs to host
@@ -21,7 +20,8 @@ module cmd_controller(
 	output reg setup_done,
 	output reg [127:0]response,
 	output reg command_complete,
-	output reg command_timeout,
+	//output reg command_timeout,
+	//output reg command_timeout,
 	output reg command_index_error,
 	//Outputs to physical layer
 	output reg strobe_out,
@@ -58,14 +58,14 @@ begin
       end   
  end       
  SETTING_OUTPUTS:begin
-    if (setup_done )             
+    if (serial_ready )             
        next_state = PROCESSING;  
      else   
 			next_state = SETTING_OUTPUTS;
  
    end  
  PROCESSING:    begin
-       if (ack_in || command_timeout) begin
+       if (ack_in ) begin
           next_state = IDLE;
       end     
       else begin
@@ -96,7 +96,6 @@ always @(* )
 						ack_out=1'b0;
 						cmd_out=39'b0;
 						command_complete=1'b0;
-						command_timeout=1'b0;
 						command_index_error=1'b0;
 						idle_out=1'b1;
 						setup_done=1'b0;
@@ -110,7 +109,6 @@ always @(* )
 						ack_out=1'b0;
 						cmd_out=39'b0;
 						command_complete=1'b0;
-						command_timeout=1'b0;
 						command_index_error=1'b0;
 						idle_out=1'b1;
 						setup_done=1'b0;
@@ -128,7 +126,6 @@ always @(* )
 						idle_out=1'b0;
 						setup_done=1'b1;
 						command_complete=1'b0;
-						command_timeout=1'b0;
 						command_index_error=1'b0;
 						count=32'b0;
 					end
@@ -137,7 +134,6 @@ always @(* )
 						cmd_out=cmd_out;
 						command_complete=1'b0;
 						command_index_error=1'b0;
-						command_timeout=1'b0;
 						busy=1'b1;
 						strobe_out=1'b1;
 						idle_out=1'b0;

@@ -56,8 +56,9 @@ module adr_in_gen (output [4:0] adr_in);
 reg [4:0] adr_in;
 initial
 	begin
-		
-		adr_in=5'b0; //Initial -> Command
+		#120
+		adr_in=5'd15; //Initial -> Command
+		#160;
 	end
 always
 	begin
@@ -136,7 +137,7 @@ initial
 always 
 	begin
 		#`NEW_RESPONSE
-		response_i = response_i +128'b1;
+		response_i = response_i +128'ha3157934b95c7a64789213fd456e;
 	end
 endmodule
 
@@ -149,9 +150,9 @@ initial
 always
 	begin
 		#`NOERROR
-		error_interrupt_status_i = 1'b1;
-		#`ERROR
-		error_interrupt_status_i = 1'b0;
+		error_interrupt_status_i = error_interrupt_status_i + 15'd7;
+		//#`ERROR
+		//error_interrupt_status_i = 1'b0;
 	end
 endmodule
 
@@ -164,8 +165,8 @@ initial
 always
 	begin
 		#`NONORMAL
-		normal_interrupt_status_i = 1'b1;
-		#`NORMAL
-		normal_interrupt_status_i = 1'b0;
+		normal_interrupt_status_i = normal_interrupt_status_i + 15'd9;
+		//#`NORMAL
+		//normal_interrupt_status_i = 1'b0;
 	end
 endmodule

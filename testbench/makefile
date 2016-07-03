@@ -30,7 +30,7 @@ cmdc:
 wbslave:
 	iverilog -o testbench_wishbone_slave5 wishbone_slave5_tb.v
 	vvp testbench_wishbone_slave5
-	gtkwave signalsWishboneSlave5.vcd 
+	gtkwave wbslave_exec.vcd 
 	
 WbFifoReg:
 	iverilog -o testbench_WbFifoReg WbFifoReg_tb.v
