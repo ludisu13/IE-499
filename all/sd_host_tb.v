@@ -72,36 +72,67 @@ sd_host SDH (
 
 );
 
-reg Enable_card;
-reg load_send_card;
+
 wire [39:0]command_sd;
 assign command_sd={2'b0,6'd7,32'd789};
+wire [7:0] data_response;
+assign data_response={3'b111,1'b0,3'b010,1'b1};
 
-paralleltoserialWrapper # (4,8) sd(
+paralleltoserialWrapper # (9,8) sd(
 .Clock(wb_clock),
 .Reset(reset),
 .Enable(Enable_card),
-.framesize(8'd4),
+.framesize(8'd9),
 .load_send(load_send_card),
 .complete(complete_card),
 .serial(PIN_DAT),
-.parallel({command_sd,9'b1}));
-
+.parallel({data_response,1'b1}));
+reg Enable_card;
+reg load_send_card;
+reg reset_card;
 initial begin
 
 $dumpfile("../all/signalsSDHost.vcd");
 $dumpvars;	
+	Enable_card=1'b0;
+		reset_card=1'b0;
+		load_send_card=1'b0;
+		#50;
+		reset_card=1'b1;
+		#100
+		#200;
+		reset_card=1'b0;
+		#200
 		Enable_card=1'b0;
 		load_send_card=1'b0;
+		#100
+		//$monitor($time);
+		#500
+
 		#4500
+		
 		Enable_card=1'b1;
 		load_send_card=1'b0;
 		#5000
+		
 		load_send_card=1'b1;
-		#200
+		$display("hola");
+		#360
 		load_send_card=1'b0;
 		Enable_card=1'b0;
-		#10000
+		#2000
+		reset_card=1'b1;
+		#100
+		reset_card=1'b0;
+		#600
+		Enable_card=1'b1;
+		#500;
+		load_send_card=1'b1;
+		#360
+		load_send_card=1'b0;
+		Enable_card=1'b0;
+		
+		#5000
 		
 $display("test finished");
 $finish;
