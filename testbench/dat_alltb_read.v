@@ -16,16 +16,17 @@
 
 module TestBench;
 wire pad;
-
+wire [15:0] timeout_value;
 
 wire [3:0] blocks_host_phys;
+
 dat_controller datc(
 .clock(clock),
 .reset(reset),
 .writeRead(1'b0),
 .newDat(new_Dat),
 .blockCount(4'd2),
-.multipleData(1'b1),
+.multipleData(1'b0),
 .serial_ready(sr_phys_host),
 .complete(complete_phys_host),
 .ack_in(ack_phys_host),
@@ -35,18 +36,24 @@ dat_controller datc(
 .ack_out(ack_host_phys),
 .blocks(blocks_host_phys),
 .multiple(multiple_host_phys),
-.writereadphys(wr_host_phys)
+.writereadphys(wr_host_phys),
+.idle_out(idle_out),
+.TIMEOUT_REG(16'd78),
+.timeout_enable(1'b1),
+.timeout(dataTimeout),
+.TIMEOUT_VALUE(timeout_value)
 
 );
 
 
 dat_phys dat(
+.DATA_TIMEOUT(dataTimeout),
 .sd_clock(sd_clock),
 .reset(reset),
 .strobe_in(strobe_host_phys),
 .ack_in(ack_host_phys),
-.idle_in(1'b0),
-.TIMEOUT_REG(16'd100),
+.idle_in(idle_out),
+.TIMEOUT_REG(timeout_value),
 .blocks(blocks_host_phys),
 .writeRead(wr_host_phys),
 .multiple(multiple_host_phys),
@@ -75,7 +82,7 @@ paralleltoserialWrapper # (51,8) sd(
 .Reset(reset_card),
 .Enable(Enable_card),
 .framesize(8'd51),
-.load_send(load_send_card),
+.load_send(1'b0),
 .complete(complete_card),
 .serial(dat_pin),.
 parallel({1'b0,data_to_card}));
@@ -84,48 +91,13 @@ reg new_Dat;
 reg reset_card;
 
 	initial begin
-	$dumpfile("dat_all_read_multiple.vcd");
+	$dumpfile("dat_all_read_int.vcd");
 		$dumpvars;	
-		Enable_card=1'b0;
+		Enable_card=1'b1;
 		reset_card=1'b0;
-		new_Dat=1'b0;
-		load_send_card=1'b0;
-		#50;
-		reset_card=1'b1;
-		#100
-		#200;
-		reset_card=1'b0;
-		#200
-		Enable_card=1'b0;
-		load_send_card=1'b0;
-		#100
 		new_Dat=1'b1;
-		//$monitor($time);
 		#500
 		new_Dat=1'b0;
-		#4500
-		
-		Enable_card=1'b1;
-		load_send_card=1'b0;
-		#5000
-		
-		load_send_card=1'b1;
-		$display("hola");
-		#2040
-		load_send_card=1'b0;
-		Enable_card=1'b0;
-		#2000
-		reset_card=1'b1;
-		#100
-		reset_card=1'b0;
-		#600
-		Enable_card=1'b1;
-		#500;
-		load_send_card=1'b1;
-		#2040
-		load_send_card=1'b0;
-		Enable_card=1'b0;
-		
 		#5000
 		$display("test finished");
 		$finish;

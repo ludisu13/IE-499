@@ -1,0 +1,5494 @@
+$date
+	Sun Jul  3 17:28:00 2016
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module TestBench $end
+$var wire 1 ! ack_host_phys $end
+$var wire 1 " ack_phys_host $end
+$var wire 4 # blocks_host_phys [3:0] $end
+$var wire 1 $ clock $end
+$var wire 1 % complete_card $end
+$var wire 1 & complete_phys_host $end
+$var wire 1 ' dat_pin $end
+$var wire 1 ( dataTimeout $end
+$var wire 32 ) data_block [31:0] $end
+$var wire 50 * data_to_card [49:0] $end
+$var wire 1 + idle_out $end
+$var wire 1 , kk $end
+$var wire 1 - multiple_host_phys $end
+$var wire 1 . reset $end
+$var wire 1 / sd_clock $end
+$var wire 1 0 sr_phys_host $end
+$var wire 1 1 strobe_host_phys $end
+$var wire 16 2 timeout_value [15:0] $end
+$var wire 1 3 wr_host_phys $end
+$var reg 1 4 Enable_card $end
+$var reg 1 5 new_Dat $end
+$var reg 1 6 reset_card $end
+$scope module datc $end
+$var wire 16 7 TIMEOUT_REG [15:0] $end
+$var wire 1 " ack_in $end
+$var wire 4 8 blockCount [3:0] $end
+$var wire 1 $ clock $end
+$var wire 1 & complete $end
+$var wire 1 9 fifo_okay $end
+$var wire 1 : multipleData $end
+$var wire 1 ; newDat $end
+$var wire 1 . reset $end
+$var wire 1 0 serial_ready $end
+$var wire 1 < stop_timeout $end
+$var wire 1 ( timeout $end
+$var wire 1 = timeout_enable $end
+$var wire 1 > writeRead $end
+$var reg 16 ? TIMEOUT_VALUE [15:0] $end
+$var reg 1 @ ack_out $end
+$var reg 4 A blocks [3:0] $end
+$var reg 1 B idle_out $end
+$var reg 1 C multiple $end
+$var reg 3 D next_state [2:0] $end
+$var reg 3 E state [2:0] $end
+$var reg 1 F strobe_out $end
+$var reg 1 G transfer_complete $end
+$var reg 1 H writereadphys $end
+$upscope $end
+$scope module dat $end
+$var wire 1 ( DATA_TIMEOUT $end
+$var wire 16 I TIMEOUT_REG [15:0] $end
+$var wire 1 ! ack_in $end
+$var wire 1 " ack_out $end
+$var wire 4 J blocks [3:0] $end
+$var wire 1 & complete $end
+$var wire 1 ' dat_pin $end
+$var wire 32 K dataFROMFIFO [31:0] $end
+$var wire 32 L dataPARALLEL [31:0] $end
+$var wire 32 M dataToFIFO [31:0] $end
+$var wire 1 N enable_pts_wrapper $end
+$var wire 1 O enable_stp_wrapper $end
+$var wire 50 P frame_received [49:0] $end
+$var wire 50 Q frame_to_send [49:0] $end
+$var wire 8 R framesize_reception [7:0] $end
+$var wire 1 + idle_in $end
+$var wire 1 S load_send $end
+$var wire 1 - multiple $end
+$var wire 1 T pad_enable $end
+$var wire 1 U pad_state $end
+$var wire 1 V padserial $end
+$var wire 1 W read_enable $end
+$var wire 1 X reception_complete $end
+$var wire 1 . reset $end
+$var wire 1 Y reset_wrapper $end
+$var wire 1 / sd_clock $end
+$var wire 1 0 serial_ready $end
+$var wire 1 Z serialpad $end
+$var wire 1 1 strobe_in $end
+$var wire 1 [ transmission_complete $end
+$var wire 1 \ waiting_response $end
+$var wire 1 3 writeRead $end
+$var wire 1 ] write_enable $end
+$scope module ptsw_dat $end
+$var wire 1 / Clock $end
+$var wire 1 N Enable $end
+$var wire 1 Y Reset $end
+$var wire 1 [ complete $end
+$var wire 8 ^ countValue [7:0] $end
+$var wire 8 _ framesize [7:0] $end
+$var wire 1 ` go $end
+$var wire 8 a initialValue [7:0] $end
+$var wire 8 b kk [7:0] $end
+$var wire 1 S load_send $end
+$var wire 50 c parallel [49:0] $end
+$var wire 1 Z serial $end
+$var wire 1 d serialTemp $end
+$scope module pts $end
+$var wire 1 / Clock $end
+$var wire 1 e Enable $end
+$var wire 1 f Reset $end
+$var wire 50 g ffdinputBus [49:0] $end
+$var wire 50 h ffdqBus [49:0] $end
+$var wire 1 S load_send $end
+$var wire 50 i parallel [49:0] $end
+$var wire 1 d serial $end
+$scope module ffd $end
+$var wire 1 / Clock $end
+$var wire 50 j D [49:0] $end
+$var wire 1 e Enable $end
+$var wire 1 f Reset $end
+$var reg 50 k Q [49:0] $end
+$upscope $end
+$scope begin PTS[0] $end
+$scope begin genblk2 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[1] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[2] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[3] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[4] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[5] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[6] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[7] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[8] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[9] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[10] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[11] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[12] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[13] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[14] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[15] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[16] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[17] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[18] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[19] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[20] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[21] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[22] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[23] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[24] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[25] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[26] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[27] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[28] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[29] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[30] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[31] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[32] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[33] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[34] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[35] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[36] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[37] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[38] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[39] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[40] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[41] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[42] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[43] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[44] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[45] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[46] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[47] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[48] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[49] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module counter1 $end
+$var wire 1 / Clock $end
+$var wire 1 l Enable $end
+$var wire 8 m Initial [7:0] $end
+$var wire 1 n Reset $end
+$var reg 8 o Q [7:0] $end
+$upscope $end
+$upscope $end
+$scope module stpw_dat $end
+$var wire 1 / Clock $end
+$var wire 1 O Enable $end
+$var wire 1 Y Reset $end
+$var wire 1 X complete $end
+$var wire 8 p countValue [7:0] $end
+$var wire 8 q framesize [7:0] $end
+$var wire 1 r go $end
+$var wire 8 s initialValue [7:0] $end
+$var wire 50 t parallel [49:0] $end
+$var wire 1 V serial $end
+$var wire 1 u serialTemp $end
+$var wire 1 v validData $end
+$scope module stp $end
+$var wire 1 / Clock $end
+$var wire 1 w Enable $end
+$var wire 1 Y Reset $end
+$var wire 50 x parallel [49:0] $end
+$var wire 1 u serial $end
+$var wire 50 y serialBus [49:0] $end
+$scope module ffd $end
+$var wire 1 / Clock $end
+$var wire 50 z D [49:0] $end
+$var wire 1 w Enable $end
+$var wire 1 Y Reset $end
+$var reg 50 { Q [49:0] $end
+$upscope $end
+$scope begin STP[0] $end
+$scope begin genblk2 $end
+$upscope $end
+$upscope $end
+$scope begin STP[1] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[2] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[3] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[4] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[5] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[6] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[7] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[8] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[9] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[10] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[11] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[12] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[13] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[14] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[15] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[16] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[17] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[18] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[19] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[20] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[21] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[22] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[23] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[24] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[25] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[26] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[27] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[28] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[29] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[30] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[31] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[32] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[33] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[34] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[35] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[36] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[37] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[38] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[39] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[40] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[41] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[42] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[43] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[44] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[45] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[46] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[47] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[48] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin STP[49] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module counter1 $end
+$var wire 1 / Clock $end
+$var wire 1 | Enable $end
+$var wire 8 } Initial [7:0] $end
+$var wire 1 ~ Reset $end
+$var reg 8 !" Q [7:0] $end
+$upscope $end
+$upscope $end
+$scope module dat_PAD $end
+$var wire 1 / clock $end
+$var wire 1 Z data_in $end
+$var wire 1 V data_out $end
+$var wire 1 T enable $end
+$var wire 1 ' io_port $end
+$var wire 1 U output_input $end
+$var reg 1 "" control $end
+$var reg 1 #" dataFROMCARD $end
+$var reg 1 $" dataToCARD $end
+$upscope $end
+$scope module dat1 $end
+$var wire 1 ( DATA_TIMEOUT $end
+$var wire 16 %" TIMEOUT_REG [15:0] $end
+$var wire 1 ! ack_in $end
+$var wire 4 &" blocks [3:0] $end
+$var wire 32 '" dataFromFifo [31:0] $end
+$var wire 32 (" dataRead [31:0] $end
+$var wire 1 + idle_in $end
+$var wire 1 - multiple $end
+$var wire 1 X reception_complete $end
+$var wire 1 . reset $end
+$var wire 1 / sd_clock $end
+$var wire 1 1 strobe_in $end
+$var wire 1 [ transmission_complete $end
+$var wire 1 3 writeRead $end
+$var reg 1 )" ack_out $end
+$var reg 4 *" blockCount [3:0] $end
+$var reg 1 +" complete $end
+$var reg 32 ," dataPARALLEL [31:0] $end
+$var reg 32 -" dataReadTOFIFO [31:0] $end
+$var reg 1 ." dummy_count $end
+$var reg 1 /" enable_pts_wrapper $end
+$var reg 1 0" enable_stp_wrapper $end
+$var reg 1 1" fifoRead $end
+$var reg 1 2" load_send $end
+$var reg 1 3" loaded $end
+$var reg 4 4" next_state [3:0] $end
+$var reg 1 5" pad_enable $end
+$var reg 1 6" pad_state $end
+$var reg 1 7" read_fifo_enable $end
+$var reg 1 8" reset_wrapper $end
+$var reg 1 9" serial_ready $end
+$var reg 4 :" state [3:0] $end
+$var reg 16 ;" timeout_count [15:0] $end
+$var reg 1 <" timeout_reset $end
+$var reg 1 =" waiting_response $end
+$var reg 1 >" write_fifo_enable $end
+$upscope $end
+$upscope $end
+$scope module gencmd $end
+$var wire 1 ?" ack_in $end
+$var wire 1 $ clock $end
+$var wire 1 @" newCMD $end
+$var wire 1 . reset $end
+$var wire 1 A" serial_ready $end
+$var wire 1 B" strobe_in $end
+$scope module clk1 $end
+$var reg 1 C" clock $end
+$upscope $end
+$scope module r1 $end
+$var reg 1 D" reset $end
+$upscope $end
+$scope module nDG $end
+$var reg 1 E" newCMD $end
+$upscope $end
+$scope module sRg $end
+$var reg 1 F" serialReady $end
+$upscope $end
+$scope module cg $end
+$var reg 1 G" strobe_in $end
+$upscope $end
+$scope module aig $end
+$var reg 1 H" ack_in $end
+$upscope $end
+$upscope $end
+$scope module gsd $end
+$var wire 1 / clock $end
+$scope module clk1 $end
+$var reg 1 I" clock $end
+$var reg 1 J" first $end
+$upscope $end
+$upscope $end
+$scope module sd $end
+$var wire 1 / Clock $end
+$var wire 1 K" Enable $end
+$var wire 1 L" Reset $end
+$var wire 1 % complete $end
+$var wire 8 M" countValue [7:0] $end
+$var wire 8 N" framesize [7:0] $end
+$var wire 1 O" go $end
+$var wire 8 P" initialValue [7:0] $end
+$var wire 8 Q" kk [7:0] $end
+$var wire 1 R" load_send $end
+$var wire 51 S" parallel [50:0] $end
+$var wire 1 ' serial $end
+$var wire 1 T" serialTemp $end
+$scope module pts $end
+$var wire 1 / Clock $end
+$var wire 1 U" Enable $end
+$var wire 1 V" Reset $end
+$var wire 51 W" ffdinputBus [50:0] $end
+$var wire 51 X" ffdqBus [50:0] $end
+$var wire 1 R" load_send $end
+$var wire 51 Y" parallel [50:0] $end
+$var wire 1 T" serial $end
+$scope module ffd $end
+$var wire 1 / Clock $end
+$var wire 51 Z" D [50:0] $end
+$var wire 1 U" Enable $end
+$var wire 1 V" Reset $end
+$var reg 51 [" Q [50:0] $end
+$upscope $end
+$scope begin PTS[0] $end
+$scope begin genblk2 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[1] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[2] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[3] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[4] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[5] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[6] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[7] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[8] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[9] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[10] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[11] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[12] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[13] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[14] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[15] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[16] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[17] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[18] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[19] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[20] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[21] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[22] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[23] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[24] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[25] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[26] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[27] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[28] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[29] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[30] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[31] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[32] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[33] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[34] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[35] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[36] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[37] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[38] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[39] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[40] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[41] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[42] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[43] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[44] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[45] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[46] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[47] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[48] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[49] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$scope begin PTS[50] $end
+$scope begin genblk3 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module counter1 $end
+$var wire 1 / Clock $end
+$var wire 1 \" Enable $end
+$var wire 8 ]" Initial [7:0] $end
+$var wire 1 ^" Reset $end
+$var reg 8 _" Q [7:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx _"
+x^"
+b0 ]"
+0\"
+bx ["
+b1111101010111100110111100100000011111111111111111 Z"
+b1111101010111100110111100100000011111111111111111 Y"
+bx X"
+b1111101010111100110111100100000011111111111111111 W"
+xV"
+xU"
+xT"
+b1111101010111100110111100100000011111111111111111 S"
+0R"
+b110010 Q"
+b0 P"
+xO"
+b110011 N"
+bx M"
+0L"
+1K"
+1J"
+0I"
+0H"
+0G"
+0F"
+0E"
+0D"
+0C"
+0B"
+0A"
+0@"
+0?"
+x>"
+x="
+x<"
+bx ;"
+bx :"
+x9"
+x8"
+x7"
+x6"
+x5"
+b0 4"
+x3"
+x2"
+x1"
+x0"
+x/"
+x."
+bx -"
+bx ,"
+x+"
+bx *"
+x)"
+bx ("
+b10101011010001011111111011011100 '"
+bx &"
+bx %"
+x$"
+x#"
+0""
+bx !"
+x~
+b0 }
+x|
+bx {
+bx z
+bx y
+bx x
+xw
+1v
+xu
+bx t
+b0 s
+xr
+b0xxx0x0 q
+bx p
+bx o
+xn
+b0 m
+xl
+bx k
+bx j
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000001 i
+bx h
+bx g
+xf
+xe
+xd
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000001 c
+b110001 b
+b0 a
+x`
+b110010 _
+bx ^
+x]
+x\
+x[
+xZ
+xY
+xX
+xW
+xV
+xU
+xT
+xS
+b0xxx0x0 R
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000001 Q
+bx P
+xO
+xN
+bx M
+bx L
+b10101011010001011111111011011100 K
+bx J
+bx I
+xH
+xG
+xF
+bx E
+b0 D
+xC
+xB
+bx A
+x@
+bx ?
+0>
+1=
+x<
+1;
+0:
+19
+b10 8
+b1001110 7
+06
+15
+14
+x3
+bx 2
+x1
+x0
+0/
+0.
+x-
+x,
+x+
+b1111101010111100110111100100000011111111111111111 *
+b11111010101111001101111001000000 )
+x(
+x'
+x&
+x%
+0$
+bx #
+x"
+x!
+$end
+#5000
+b0 ?
+b0 2
+b0 I
+b0 %"
+0B
+0+
+b0 A
+b0 #
+b0 J
+b0 &"
+0C
+0-
+0H
+03
+0G
+0,
+0@
+0!
+0F
+01
+b1 D
+b0 E
+1C"
+1$
+#10000
+0C"
+0$
+#15000
+1B
+1+
+b10 D
+b1 E
+1C"
+1$
+#20000
+0C"
+0$
+#25000
+b1001110 ?
+b1001110 2
+b1001110 I
+b1001110 %"
+0B
+0+
+b10 A
+b10 #
+b10 J
+b10 &"
+b10 E
+1C"
+1$
+#30000
+0C"
+0$
+#35000
+1C"
+1$
+#40000
+0C"
+0$
+#45000
+1C"
+1$
+#50000
+0C"
+0$
+#52000
+zZ
+0<
+b110010 R
+b110010 q
+b1010101101000101111111101101110000000000000000001 g
+b1010101101000101111111101101110000000000000000001 j
+0|
+0(
+0w
+0e
+0l
+1~
+1n
+1f
+z'
+0v
+bx0 y
+bx0 z
+0u
+1<"
+01"
+b10101011010001011111111011011100 ,"
+b1010101101000101111111101101110000000000000000001 Q
+b1010101101000101111111101101110000000000000000001 c
+b1010101101000101111111101101110000000000000000001 i
+b10101011010001011111111011011100 L
+b0 *"
+03"
+b0 -"
+b0 M
+07"
+0W
+0>"
+0]
+05"
+0T
+06"
+0U
+0="
+0\
+00"
+0O
+0/"
+0N
+02"
+0S
+18"
+1Y
+0)"
+0"
+0+"
+0&
+09"
+00
+b1 4"
+z$"
+z#"
+zV
+0."
+b0 ;"
+b0 :"
+1I"
+1/
+#55000
+1C"
+1$
+#60000
+0C"
+0$
+#65000
+1C"
+1$
+#70000
+0C"
+0$
+#72000
+0I"
+0/
+#75000
+1C"
+1$
+#80000
+0C"
+0$
+#85000
+1C"
+1$
+#90000
+0C"
+0$
+#92000
+b1 g
+b1 j
+b11 D
+b0 ,"
+b1 Q
+b1 c
+b1 i
+b0 L
+19"
+10
+b1 :"
+0X
+1r
+b0 y
+b0 z
+b0 ("
+0[
+1`
+0d
+b0 !"
+b0 p
+b0 {
+b0 P
+b0 t
+b0 x
+b0 o
+b0 ^
+b0 k
+b0 h
+1I"
+1/
+#95000
+b100 D
+b11 E
+1C"
+1$
+#100000
+0C"
+0$
+1D"
+1.
+#105000
+b110 4"
+1F
+11
+b100 E
+1C"
+1$
+#110000
+0C"
+0$
+#112000
+0I"
+0/
+#115000
+b100 E
+1C"
+1$
+#120000
+0C"
+0$
+#125000
+b100 E
+1C"
+1$
+#130000
+0C"
+0$
+#132000
+b1010101101000101111111101101110000000000000000001 g
+b1010101101000101111111101101110000000000000000001 j
+b10101011010001011111111011011100 ,"
+b1010101101000101111111101101110000000000000000001 Q
+b1010101101000101111111101101110000000000000000001 c
+b1010101101000101111111101101110000000000000000001 i
+b10101011010001011111111011011100 L
+09"
+00
+b1 4"
+b0 :"
+1I"
+1/
+#135000
+b100 E
+1C"
+1$
+#140000
+0C"
+0$
+#145000
+b100 E
+1C"
+1$
+#150000
+0C"
+0$
+#152000
+0I"
+0/
+#155000
+b100 E
+1C"
+1$
+#160000
+0C"
+0$
+#165000
+b100 E
+1C"
+1$
+#170000
+0C"
+0$
+#172000
+1I"
+1/
+#175000
+b100 E
+1C"
+1$
+#180000
+0C"
+0$
+#185000
+b100 E
+1C"
+1$
+#190000
+0C"
+0$
+#192000
+0I"
+0/
+#195000
+b100 E
+1C"
+1$
+#200000
+0C"
+0$
+#205000
+b100 E
+1C"
+1$
+#210000
+0C"
+0$
+#212000
+1I"
+1/
+#215000
+b100 E
+1C"
+1$
+#220000
+0C"
+0$
+#225000
+b100 E
+1C"
+1$
+#230000
+0C"
+0$
+#232000
+0I"
+0/
+#235000
+b100 E
+1C"
+1$
+#240000
+0C"
+0$
+#245000
+b100 E
+1C"
+1$
+#250000
+0C"
+0$
+#252000
+1I"
+1/
+#255000
+b100 E
+1C"
+1$
+#260000
+0C"
+0$
+#265000
+b100 E
+1C"
+1$
+#270000
+0C"
+0$
+#272000
+0I"
+0/
+#275000
+b100 E
+1C"
+1$
+#280000
+0C"
+0$
+#285000
+b100 E
+1C"
+1$
+#290000
+0C"
+0$
+#292000
+1I"
+1/
+#295000
+b100 E
+1C"
+1$
+#300000
+0C"
+0$
+#305000
+b100 E
+1C"
+1$
+#310000
+0C"
+0$
+#312000
+0I"
+0/
+#315000
+b100 E
+1C"
+1$
+#320000
+0C"
+0$
+#325000
+b100 E
+1C"
+1$
+#330000
+0C"
+0$
+#332000
+1I"
+1/
+#335000
+b100 E
+1C"
+1$
+#340000
+0C"
+0$
+#345000
+b100 E
+1C"
+1$
+#350000
+0C"
+0$
+0D"
+0.
+#352000
+0I"
+0/
+#355000
+1C"
+1$
+#360000
+0C"
+0$
+#365000
+1C"
+1$
+#370000
+0C"
+0$
+#372000
+b1 g
+b1 j
+b0 ,"
+b1 Q
+b1 c
+b1 i
+b0 L
+19"
+10
+b110 4"
+b1 :"
+1I"
+1/
+#375000
+1C"
+1$
+#380000
+0C"
+0$
+#385000
+1C"
+1$
+#390000
+0C"
+0$
+#392000
+0I"
+0/
+#395000
+1C"
+1$
+#400000
+0C"
+0$
+#405000
+1C"
+1$
+#410000
+0C"
+0$
+#412000
+1w
+0~
+0n
+0f
+0<"
+15"
+1T
+10"
+1O
+08"
+0Y
+b110 :"
+1I"
+1/
+#415000
+1C"
+1$
+#420000
+0C"
+0$
+#425000
+1C"
+1$
+#430000
+0C"
+0$
+#432000
+0I"
+0/
+#435000
+1C"
+1$
+#440000
+0C"
+0$
+#445000
+1C"
+1$
+#450000
+0C"
+0$
+#452000
+1""
+b1 ;"
+1I"
+1/
+#455000
+1C"
+1$
+#460000
+0C"
+0$
+#465000
+1C"
+1$
+#470000
+0C"
+0$
+#472000
+0I"
+0/
+#475000
+1C"
+1$
+#480000
+0C"
+0$
+#485000
+1C"
+1$
+#490000
+0C"
+0$
+#492000
+b10 ;"
+1I"
+1/
+#495000
+1C"
+1$
+#500000
+0C"
+0$
+05
+0;
+#505000
+1C"
+1$
+#510000
+0C"
+0$
+#512000
+0I"
+0/
+#515000
+1C"
+1$
+#520000
+0C"
+0$
+#525000
+1C"
+1$
+#530000
+0C"
+0$
+#532000
+b11 ;"
+1I"
+1/
+#535000
+1C"
+1$
+#540000
+0C"
+0$
+#545000
+1C"
+1$
+#550000
+0C"
+0$
+#552000
+0I"
+0/
+#555000
+1C"
+1$
+#560000
+0C"
+0$
+#565000
+1C"
+1$
+#570000
+0C"
+0$
+#572000
+b100 ;"
+1I"
+1/
+#575000
+1C"
+1$
+#580000
+0C"
+0$
+#585000
+1C"
+1$
+#590000
+0C"
+0$
+#592000
+0I"
+0/
+#595000
+1C"
+1$
+#600000
+0C"
+0$
+#605000
+1C"
+1$
+#610000
+0C"
+0$
+#612000
+b101 ;"
+1I"
+1/
+#615000
+1C"
+1$
+#620000
+0C"
+0$
+#625000
+1C"
+1$
+#630000
+0C"
+0$
+#632000
+0I"
+0/
+#635000
+1C"
+1$
+#640000
+0C"
+0$
+#645000
+1C"
+1$
+#650000
+0C"
+0$
+#652000
+b110 ;"
+1I"
+1/
+#655000
+1C"
+1$
+#660000
+0C"
+0$
+#665000
+1C"
+1$
+#670000
+0C"
+0$
+#672000
+0I"
+0/
+#675000
+1C"
+1$
+#680000
+0C"
+0$
+#685000
+1C"
+1$
+#690000
+0C"
+0$
+#692000
+b111 ;"
+1I"
+1/
+#695000
+1C"
+1$
+#700000
+0C"
+0$
+#705000
+1C"
+1$
+#710000
+0C"
+0$
+#712000
+0I"
+0/
+#715000
+1C"
+1$
+#720000
+0C"
+0$
+#725000
+1C"
+1$
+#730000
+0C"
+0$
+#732000
+b1000 ;"
+1I"
+1/
+#735000
+1C"
+1$
+#740000
+0C"
+0$
+#745000
+1C"
+1$
+#750000
+0C"
+0$
+#752000
+0I"
+0/
+#755000
+1C"
+1$
+#760000
+0C"
+0$
+#765000
+1C"
+1$
+#770000
+0C"
+0$
+#772000
+b1001 ;"
+1I"
+1/
+#775000
+1C"
+1$
+#780000
+0C"
+0$
+#785000
+1C"
+1$
+#790000
+0C"
+0$
+#792000
+0I"
+0/
+#795000
+1C"
+1$
+#800000
+0C"
+0$
+#805000
+1C"
+1$
+#810000
+0C"
+0$
+#812000
+b1010 ;"
+1I"
+1/
+#815000
+1C"
+1$
+#820000
+0C"
+0$
+#825000
+1C"
+1$
+#830000
+0C"
+0$
+#832000
+0I"
+0/
+#835000
+1C"
+1$
+#840000
+0C"
+0$
+#845000
+1C"
+1$
+#850000
+0C"
+0$
+#852000
+b1011 ;"
+1I"
+1/
+#855000
+1C"
+1$
+#860000
+0C"
+0$
+#865000
+1C"
+1$
+#870000
+0C"
+0$
+#872000
+0I"
+0/
+#875000
+1C"
+1$
+#880000
+0C"
+0$
+#885000
+1C"
+1$
+#890000
+0C"
+0$
+#892000
+b1100 ;"
+1I"
+1/
+#895000
+1C"
+1$
+#900000
+0C"
+0$
+#905000
+1C"
+1$
+#910000
+0C"
+0$
+#912000
+0I"
+0/
+#915000
+1C"
+1$
+#920000
+0C"
+0$
+#925000
+1C"
+1$
+#930000
+0C"
+0$
+#932000
+b1101 ;"
+1I"
+1/
+#935000
+1C"
+1$
+#940000
+0C"
+0$
+#945000
+1C"
+1$
+#950000
+0C"
+0$
+#952000
+0I"
+0/
+#955000
+1C"
+1$
+#960000
+0C"
+0$
+#965000
+1C"
+1$
+#970000
+0C"
+0$
+#972000
+b1110 ;"
+1I"
+1/
+#975000
+1C"
+1$
+#980000
+0C"
+0$
+#985000
+1C"
+1$
+#990000
+0C"
+0$
+#992000
+0I"
+0/
+#995000
+1C"
+1$
+#1000000
+0C"
+0$
+1E"
+1@"
+#1005000
+1C"
+1$
+#1010000
+0C"
+0$
+#1012000
+b1111 ;"
+1I"
+1/
+#1015000
+1C"
+1$
+#1020000
+0C"
+0$
+#1025000
+1C"
+1$
+#1030000
+0C"
+0$
+#1032000
+0I"
+0/
+#1035000
+1C"
+1$
+#1040000
+0C"
+0$
+#1045000
+1C"
+1$
+#1050000
+0C"
+0$
+#1052000
+b10000 ;"
+1I"
+1/
+#1055000
+1C"
+1$
+#1060000
+0C"
+0$
+#1065000
+1C"
+1$
+#1070000
+0C"
+0$
+#1072000
+0I"
+0/
+#1075000
+1C"
+1$
+#1080000
+0C"
+0$
+#1085000
+1C"
+1$
+#1090000
+0C"
+0$
+#1092000
+b10001 ;"
+1I"
+1/
+#1095000
+1C"
+1$
+#1100000
+0C"
+0$
+#1105000
+1C"
+1$
+#1110000
+0C"
+0$
+#1112000
+0I"
+0/
+#1115000
+1C"
+1$
+#1120000
+0C"
+0$
+#1125000
+1C"
+1$
+#1130000
+0C"
+0$
+#1132000
+b10010 ;"
+1I"
+1/
+#1135000
+1C"
+1$
+#1140000
+0C"
+0$
+#1145000
+1C"
+1$
+#1150000
+0C"
+0$
+#1152000
+0I"
+0/
+#1155000
+1C"
+1$
+#1160000
+0C"
+0$
+#1165000
+1C"
+1$
+#1170000
+0C"
+0$
+#1172000
+b10011 ;"
+1I"
+1/
+#1175000
+1C"
+1$
+#1180000
+0C"
+0$
+#1185000
+1C"
+1$
+#1190000
+0C"
+0$
+#1192000
+0I"
+0/
+#1195000
+1C"
+1$
+#1200000
+0C"
+0$
+#1205000
+1C"
+1$
+#1210000
+0C"
+0$
+#1212000
+b10100 ;"
+1I"
+1/
+#1215000
+1C"
+1$
+#1220000
+0C"
+0$
+#1225000
+1C"
+1$
+#1230000
+0C"
+0$
+#1232000
+0I"
+0/
+#1235000
+1C"
+1$
+#1240000
+0C"
+0$
+#1245000
+1C"
+1$
+#1250000
+0C"
+0$
+#1252000
+b10101 ;"
+1I"
+1/
+#1255000
+1C"
+1$
+#1260000
+0C"
+0$
+#1265000
+1C"
+1$
+#1270000
+0C"
+0$
+#1272000
+0I"
+0/
+#1275000
+1C"
+1$
+#1280000
+0C"
+0$
+#1285000
+1C"
+1$
+#1290000
+0C"
+0$
+#1292000
+b10110 ;"
+1I"
+1/
+#1295000
+1C"
+1$
+#1300000
+0C"
+0$
+1F"
+1A"
+#1305000
+1C"
+1$
+#1310000
+0C"
+0$
+#1312000
+0I"
+0/
+#1315000
+1C"
+1$
+#1320000
+0C"
+0$
+#1325000
+1C"
+1$
+#1330000
+0C"
+0$
+#1332000
+b10111 ;"
+1I"
+1/
+#1335000
+1C"
+1$
+#1340000
+0C"
+0$
+#1345000
+1C"
+1$
+#1350000
+0C"
+0$
+#1352000
+0I"
+0/
+#1355000
+1C"
+1$
+#1360000
+0C"
+0$
+#1365000
+1C"
+1$
+#1370000
+0C"
+0$
+#1372000
+b11000 ;"
+1I"
+1/
+#1375000
+1C"
+1$
+#1380000
+0C"
+0$
+#1385000
+1C"
+1$
+#1390000
+0C"
+0$
+#1392000
+0I"
+0/
+#1395000
+1C"
+1$
+#1400000
+0C"
+0$
+#1405000
+1C"
+1$
+#1410000
+0C"
+0$
+#1412000
+b11001 ;"
+1I"
+1/
+#1415000
+1C"
+1$
+#1420000
+0C"
+0$
+#1425000
+1C"
+1$
+#1430000
+0C"
+0$
+#1432000
+0I"
+0/
+#1435000
+1C"
+1$
+#1440000
+0C"
+0$
+#1445000
+1C"
+1$
+#1450000
+0C"
+0$
+#1452000
+b11010 ;"
+1I"
+1/
+#1455000
+1C"
+1$
+#1460000
+0C"
+0$
+#1465000
+1C"
+1$
+#1470000
+0C"
+0$
+#1472000
+0I"
+0/
+#1475000
+1C"
+1$
+#1480000
+0C"
+0$
+#1485000
+1C"
+1$
+#1490000
+0C"
+0$
+#1492000
+b11011 ;"
+1I"
+1/
+#1495000
+1C"
+1$
+#1500000
+0C"
+0$
+#1505000
+1C"
+1$
+#1510000
+0C"
+0$
+#1512000
+0I"
+0/
+#1515000
+1C"
+1$
+#1520000
+0C"
+0$
+#1525000
+1C"
+1$
+#1530000
+0C"
+0$
+#1532000
+b11100 ;"
+1I"
+1/
+#1535000
+1C"
+1$
+#1540000
+0C"
+0$
+#1545000
+1C"
+1$
+#1550000
+0C"
+0$
+#1552000
+0I"
+0/
+#1555000
+1C"
+1$
+#1560000
+0C"
+0$
+#1565000
+1C"
+1$
+#1570000
+0C"
+0$
+#1572000
+b11101 ;"
+1I"
+1/
+#1575000
+1C"
+1$
+#1580000
+0C"
+0$
+#1585000
+1C"
+1$
+#1590000
+0C"
+0$
+#1592000
+0I"
+0/
+#1595000
+1C"
+1$
+#1600000
+0C"
+0$
+#1605000
+1C"
+1$
+#1610000
+0C"
+0$
+#1612000
+b11110 ;"
+1I"
+1/
+#1615000
+1C"
+1$
+#1620000
+0C"
+0$
+#1625000
+1C"
+1$
+#1630000
+0C"
+0$
+#1632000
+0I"
+0/
+#1635000
+1C"
+1$
+#1640000
+0C"
+0$
+#1645000
+1C"
+1$
+#1650000
+0C"
+0$
+#1652000
+b11111 ;"
+1I"
+1/
+#1655000
+1C"
+1$
+#1660000
+0C"
+0$
+#1665000
+1C"
+1$
+#1670000
+0C"
+0$
+#1672000
+0I"
+0/
+#1675000
+1C"
+1$
+#1680000
+0C"
+0$
+#1685000
+1C"
+1$
+#1690000
+0C"
+0$
+#1692000
+b100000 ;"
+1I"
+1/
+#1695000
+1C"
+1$
+#1700000
+0C"
+0$
+#1705000
+1C"
+1$
+#1710000
+0C"
+0$
+#1712000
+0I"
+0/
+#1715000
+1C"
+1$
+#1720000
+0C"
+0$
+#1725000
+1C"
+1$
+#1730000
+0C"
+0$
+#1732000
+b100001 ;"
+1I"
+1/
+#1735000
+1C"
+1$
+#1740000
+0C"
+0$
+#1745000
+1C"
+1$
+#1750000
+0C"
+0$
+#1752000
+0I"
+0/
+#1755000
+1C"
+1$
+#1760000
+0C"
+0$
+#1765000
+1C"
+1$
+#1770000
+0C"
+0$
+#1772000
+b100010 ;"
+1I"
+1/
+#1775000
+1C"
+1$
+#1780000
+0C"
+0$
+#1785000
+1C"
+1$
+#1790000
+0C"
+0$
+#1792000
+0I"
+0/
+#1795000
+1C"
+1$
+#1800000
+0C"
+0$
+#1805000
+1C"
+1$
+#1810000
+0C"
+0$
+#1812000
+b100011 ;"
+1I"
+1/
+#1815000
+1C"
+1$
+#1820000
+0C"
+0$
+#1825000
+1C"
+1$
+#1830000
+0C"
+0$
+#1832000
+0I"
+0/
+#1835000
+1C"
+1$
+#1840000
+0C"
+0$
+#1845000
+1C"
+1$
+#1850000
+0C"
+0$
+#1852000
+b100100 ;"
+1I"
+1/
+#1855000
+1C"
+1$
+#1860000
+0C"
+0$
+#1865000
+1C"
+1$
+#1870000
+0C"
+0$
+#1872000
+0I"
+0/
+#1875000
+1C"
+1$
+#1880000
+0C"
+0$
+#1885000
+1C"
+1$
+#1890000
+0C"
+0$
+#1892000
+b100101 ;"
+1I"
+1/
+#1895000
+1C"
+1$
+#1900000
+0C"
+0$
+#1905000
+1C"
+1$
+#1910000
+0C"
+0$
+#1912000
+0I"
+0/
+#1915000
+1C"
+1$
+#1920000
+0C"
+0$
+#1925000
+1C"
+1$
+#1930000
+0C"
+0$
+#1932000
+b100110 ;"
+1I"
+1/
+#1935000
+1C"
+1$
+#1940000
+0C"
+0$
+#1945000
+1C"
+1$
+#1950000
+0C"
+0$
+#1952000
+0I"
+0/
+#1955000
+1C"
+1$
+#1960000
+0C"
+0$
+#1965000
+1C"
+1$
+#1970000
+0C"
+0$
+#1972000
+b100111 ;"
+1I"
+1/
+#1975000
+1C"
+1$
+#1980000
+0C"
+0$
+#1985000
+1C"
+1$
+#1990000
+0C"
+0$
+#1992000
+0I"
+0/
+#1995000
+1C"
+1$
+#2000000
+0C"
+0$
+0E"
+0@"
+1G"
+1B"
+#2005000
+1C"
+1$
+#2010000
+0C"
+0$
+#2012000
+b101000 ;"
+1I"
+1/
+#2015000
+1C"
+1$
+#2020000
+0C"
+0$
+#2025000
+1C"
+1$
+#2030000
+0C"
+0$
+#2032000
+0I"
+0/
+#2035000
+1C"
+1$
+#2040000
+0C"
+0$
+#2045000
+1C"
+1$
+#2050000
+0C"
+0$
+#2052000
+b101001 ;"
+1I"
+1/
+#2055000
+1C"
+1$
+#2060000
+0C"
+0$
+#2065000
+1C"
+1$
+#2070000
+0C"
+0$
+#2072000
+0I"
+0/
+#2075000
+1C"
+1$
+#2080000
+0C"
+0$
+#2085000
+1C"
+1$
+#2090000
+0C"
+0$
+#2092000
+b101010 ;"
+1I"
+1/
+#2095000
+1C"
+1$
+#2100000
+0C"
+0$
+#2105000
+1C"
+1$
+#2110000
+0C"
+0$
+#2112000
+0I"
+0/
+#2115000
+1C"
+1$
+#2120000
+0C"
+0$
+#2125000
+1C"
+1$
+#2130000
+0C"
+0$
+#2132000
+b101011 ;"
+1I"
+1/
+#2135000
+1C"
+1$
+#2140000
+0C"
+0$
+#2145000
+1C"
+1$
+#2150000
+0C"
+0$
+#2152000
+0I"
+0/
+#2155000
+1C"
+1$
+#2160000
+0C"
+0$
+#2165000
+1C"
+1$
+#2170000
+0C"
+0$
+#2172000
+b101100 ;"
+1I"
+1/
+#2175000
+1C"
+1$
+#2180000
+0C"
+0$
+#2185000
+1C"
+1$
+#2190000
+0C"
+0$
+#2192000
+0I"
+0/
+#2195000
+1C"
+1$
+#2200000
+0C"
+0$
+#2205000
+1C"
+1$
+#2210000
+0C"
+0$
+#2212000
+b101101 ;"
+1I"
+1/
+#2215000
+1C"
+1$
+#2220000
+0C"
+0$
+#2225000
+1C"
+1$
+#2230000
+0C"
+0$
+#2232000
+0I"
+0/
+#2235000
+1C"
+1$
+#2240000
+0C"
+0$
+#2245000
+1C"
+1$
+#2250000
+0C"
+0$
+#2252000
+b101110 ;"
+1I"
+1/
+#2255000
+1C"
+1$
+#2260000
+0C"
+0$
+#2265000
+1C"
+1$
+#2270000
+0C"
+0$
+#2272000
+0I"
+0/
+#2275000
+1C"
+1$
+#2280000
+0C"
+0$
+#2285000
+1C"
+1$
+#2290000
+0C"
+0$
+#2292000
+b101111 ;"
+1I"
+1/
+#2295000
+1C"
+1$
+#2300000
+0C"
+0$
+#2305000
+1C"
+1$
+#2310000
+0C"
+0$
+#2312000
+0I"
+0/
+#2315000
+1C"
+1$
+#2320000
+0C"
+0$
+#2325000
+1C"
+1$
+#2330000
+0C"
+0$
+#2332000
+b110000 ;"
+1I"
+1/
+#2335000
+1C"
+1$
+#2340000
+0C"
+0$
+#2345000
+1C"
+1$
+#2350000
+0C"
+0$
+#2352000
+0I"
+0/
+#2355000
+1C"
+1$
+#2360000
+0C"
+0$
+#2365000
+1C"
+1$
+#2370000
+0C"
+0$
+#2372000
+b110001 ;"
+1I"
+1/
+#2375000
+1C"
+1$
+#2380000
+0C"
+0$
+#2385000
+1C"
+1$
+#2390000
+0C"
+0$
+#2392000
+0I"
+0/
+#2395000
+1C"
+1$
+#2400000
+0C"
+0$
+#2405000
+1C"
+1$
+#2410000
+0C"
+0$
+#2412000
+b110010 ;"
+1I"
+1/
+#2415000
+1C"
+1$
+#2420000
+0C"
+0$
+#2425000
+1C"
+1$
+#2430000
+0C"
+0$
+#2432000
+0I"
+0/
+#2435000
+1C"
+1$
+#2440000
+0C"
+0$
+#2445000
+1C"
+1$
+#2450000
+0C"
+0$
+#2452000
+b110011 ;"
+1I"
+1/
+#2455000
+1C"
+1$
+#2460000
+0C"
+0$
+#2465000
+1C"
+1$
+#2470000
+0C"
+0$
+#2472000
+0I"
+0/
+#2475000
+1C"
+1$
+#2480000
+0C"
+0$
+#2485000
+1C"
+1$
+#2490000
+0C"
+0$
+#2492000
+b110100 ;"
+1I"
+1/
+#2495000
+1C"
+1$
+#2500000
+0C"
+0$
+#2505000
+1C"
+1$
+#2510000
+0C"
+0$
+#2512000
+0I"
+0/
+#2515000
+1C"
+1$
+#2520000
+0C"
+0$
+#2525000
+1C"
+1$
+#2530000
+0C"
+0$
+#2532000
+b110101 ;"
+1I"
+1/
+#2535000
+1C"
+1$
+#2540000
+0C"
+0$
+#2545000
+1C"
+1$
+#2550000
+0C"
+0$
+#2552000
+0I"
+0/
+#2555000
+1C"
+1$
+#2560000
+0C"
+0$
+#2565000
+1C"
+1$
+#2570000
+0C"
+0$
+#2572000
+b110110 ;"
+1I"
+1/
+#2575000
+1C"
+1$
+#2580000
+0C"
+0$
+#2585000
+1C"
+1$
+#2590000
+0C"
+0$
+#2592000
+0I"
+0/
+#2595000
+1C"
+1$
+#2600000
+0C"
+0$
+#2605000
+1C"
+1$
+#2610000
+0C"
+0$
+#2612000
+b110111 ;"
+1I"
+1/
+#2615000
+1C"
+1$
+#2620000
+0C"
+0$
+#2625000
+1C"
+1$
+#2630000
+0C"
+0$
+#2632000
+0I"
+0/
+#2635000
+1C"
+1$
+#2640000
+0C"
+0$
+#2645000
+1C"
+1$
+#2650000
+0C"
+0$
+#2652000
+b111000 ;"
+1I"
+1/
+#2655000
+1C"
+1$
+#2660000
+0C"
+0$
+#2665000
+1C"
+1$
+#2670000
+0C"
+0$
+#2672000
+0I"
+0/
+#2675000
+1C"
+1$
+#2680000
+0C"
+0$
+#2685000
+1C"
+1$
+#2690000
+0C"
+0$
+#2692000
+b111001 ;"
+1I"
+1/
+#2695000
+1C"
+1$
+#2700000
+0C"
+0$
+#2705000
+1C"
+1$
+#2710000
+0C"
+0$
+#2712000
+0I"
+0/
+#2715000
+1C"
+1$
+#2720000
+0C"
+0$
+#2725000
+1C"
+1$
+#2730000
+0C"
+0$
+#2732000
+b111010 ;"
+1I"
+1/
+#2735000
+1C"
+1$
+#2740000
+0C"
+0$
+#2745000
+1C"
+1$
+#2750000
+0C"
+0$
+#2752000
+0I"
+0/
+#2755000
+1C"
+1$
+#2760000
+0C"
+0$
+#2765000
+1C"
+1$
+#2770000
+0C"
+0$
+#2772000
+b111011 ;"
+1I"
+1/
+#2775000
+1C"
+1$
+#2780000
+0C"
+0$
+#2785000
+1C"
+1$
+#2790000
+0C"
+0$
+#2792000
+0I"
+0/
+#2795000
+1C"
+1$
+#2800000
+0C"
+0$
+#2805000
+1C"
+1$
+#2810000
+0C"
+0$
+#2812000
+b111100 ;"
+1I"
+1/
+#2815000
+1C"
+1$
+#2820000
+0C"
+0$
+#2825000
+1C"
+1$
+#2830000
+0C"
+0$
+#2832000
+0I"
+0/
+#2835000
+1C"
+1$
+#2840000
+0C"
+0$
+#2845000
+1C"
+1$
+#2850000
+0C"
+0$
+#2852000
+b111101 ;"
+1I"
+1/
+#2855000
+1C"
+1$
+#2860000
+0C"
+0$
+#2865000
+1C"
+1$
+#2870000
+0C"
+0$
+#2872000
+0I"
+0/
+#2875000
+1C"
+1$
+#2880000
+0C"
+0$
+#2885000
+1C"
+1$
+#2890000
+0C"
+0$
+#2892000
+b111110 ;"
+1I"
+1/
+#2895000
+1C"
+1$
+#2900000
+0C"
+0$
+#2905000
+1C"
+1$
+#2910000
+0C"
+0$
+#2912000
+0I"
+0/
+#2915000
+1C"
+1$
+#2920000
+0C"
+0$
+#2925000
+1C"
+1$
+#2930000
+0C"
+0$
+#2932000
+b111111 ;"
+1I"
+1/
+#2935000
+1C"
+1$
+#2940000
+0C"
+0$
+#2945000
+1C"
+1$
+#2950000
+0C"
+0$
+#2952000
+0I"
+0/
+#2955000
+1C"
+1$
+#2960000
+0C"
+0$
+#2965000
+1C"
+1$
+#2970000
+0C"
+0$
+#2972000
+b1000000 ;"
+1I"
+1/
+#2975000
+1C"
+1$
+#2980000
+0C"
+0$
+#2985000
+1C"
+1$
+#2990000
+0C"
+0$
+#2992000
+0I"
+0/
+#2995000
+1C"
+1$
+#3000000
+0C"
+0$
+#3005000
+1C"
+1$
+#3010000
+0C"
+0$
+#3012000
+b1000001 ;"
+1I"
+1/
+#3015000
+1C"
+1$
+#3020000
+0C"
+0$
+#3025000
+1C"
+1$
+#3030000
+0C"
+0$
+#3032000
+0I"
+0/
+#3035000
+1C"
+1$
+#3040000
+0C"
+0$
+#3045000
+1C"
+1$
+#3050000
+0C"
+0$
+#3052000
+b1000010 ;"
+1I"
+1/
+#3055000
+1C"
+1$
+#3060000
+0C"
+0$
+#3065000
+1C"
+1$
+#3070000
+0C"
+0$
+#3072000
+0I"
+0/
+#3075000
+1C"
+1$
+#3080000
+0C"
+0$
+#3085000
+1C"
+1$
+#3090000
+0C"
+0$
+#3092000
+b1000011 ;"
+1I"
+1/
+#3095000
+1C"
+1$
+#3100000
+0C"
+0$
+#3105000
+1C"
+1$
+#3110000
+0C"
+0$
+#3112000
+0I"
+0/
+#3115000
+1C"
+1$
+#3120000
+0C"
+0$
+#3125000
+1C"
+1$
+#3130000
+0C"
+0$
+#3132000
+b1000100 ;"
+1I"
+1/
+#3135000
+1C"
+1$
+#3140000
+0C"
+0$
+#3145000
+1C"
+1$
+#3150000
+0C"
+0$
+#3152000
+0I"
+0/
+#3155000
+1C"
+1$
+#3160000
+0C"
+0$
+#3165000
+1C"
+1$
+#3170000
+0C"
+0$
+#3172000
+b1000101 ;"
+1I"
+1/
+#3175000
+1C"
+1$
+#3180000
+0C"
+0$
+#3185000
+1C"
+1$
+#3190000
+0C"
+0$
+#3192000
+0I"
+0/
+#3195000
+1C"
+1$
+#3200000
+0C"
+0$
+#3205000
+1C"
+1$
+#3210000
+0C"
+0$
+#3212000
+b1000110 ;"
+1I"
+1/
+#3215000
+1C"
+1$
+#3220000
+0C"
+0$
+#3225000
+1C"
+1$
+#3230000
+0C"
+0$
+#3232000
+0I"
+0/
+#3235000
+1C"
+1$
+#3240000
+0C"
+0$
+#3245000
+1C"
+1$
+#3250000
+0C"
+0$
+#3252000
+b1000111 ;"
+1I"
+1/
+#3255000
+1C"
+1$
+#3260000
+0C"
+0$
+#3265000
+1C"
+1$
+#3270000
+0C"
+0$
+#3272000
+0I"
+0/
+#3275000
+1C"
+1$
+#3280000
+0C"
+0$
+#3285000
+1C"
+1$
+#3290000
+0C"
+0$
+#3292000
+b1001000 ;"
+1I"
+1/
+#3295000
+1C"
+1$
+#3300000
+0C"
+0$
+#3305000
+1C"
+1$
+#3310000
+0C"
+0$
+#3312000
+0I"
+0/
+#3315000
+1C"
+1$
+#3320000
+0C"
+0$
+#3325000
+1C"
+1$
+#3330000
+0C"
+0$
+#3332000
+b1001001 ;"
+1I"
+1/
+#3335000
+1C"
+1$
+#3340000
+0C"
+0$
+#3345000
+1C"
+1$
+#3350000
+0C"
+0$
+#3352000
+0I"
+0/
+#3355000
+1C"
+1$
+#3360000
+0C"
+0$
+#3365000
+1C"
+1$
+#3370000
+0C"
+0$
+#3372000
+b1001010 ;"
+1I"
+1/
+#3375000
+1C"
+1$
+#3380000
+0C"
+0$
+#3385000
+1C"
+1$
+#3390000
+0C"
+0$
+#3392000
+0I"
+0/
+#3395000
+1C"
+1$
+#3400000
+0C"
+0$
+#3405000
+1C"
+1$
+#3410000
+0C"
+0$
+#3412000
+b1001011 ;"
+1I"
+1/
+#3415000
+1C"
+1$
+#3420000
+0C"
+0$
+#3425000
+1C"
+1$
+#3430000
+0C"
+0$
+#3432000
+0I"
+0/
+#3435000
+1C"
+1$
+#3440000
+0C"
+0$
+#3445000
+1C"
+1$
+#3450000
+0C"
+0$
+#3452000
+b1001100 ;"
+1I"
+1/
+#3455000
+1C"
+1$
+#3460000
+0C"
+0$
+#3465000
+1C"
+1$
+#3470000
+0C"
+0$
+#3472000
+0I"
+0/
+#3475000
+1C"
+1$
+#3480000
+0C"
+0$
+#3485000
+1C"
+1$
+#3490000
+0C"
+0$
+#3492000
+b1001101 ;"
+1I"
+1/
+#3495000
+1C"
+1$
+#3500000
+0C"
+0$
+#3505000
+1C"
+1$
+#3510000
+0C"
+0$
+#3512000
+0I"
+0/
+#3515000
+1C"
+1$
+#3520000
+0C"
+0$
+#3525000
+1C"
+1$
+#3530000
+0C"
+0$
+#3532000
+1<
+1(
+b1001110 ;"
+1I"
+1/
+#3535000
+0<
+0(
+b0 ?
+b0 2
+b0 I
+b0 %"
+1B
+1+
+b0 A
+b0 #
+b0 J
+b0 &"
+0F
+01
+b1 D
+b1 E
+1C"
+1$
+#3540000
+0C"
+0$
+#3545000
+1C"
+1$
+#3550000
+0C"
+0$
+#3552000
+0I"
+0/
+#3555000
+1C"
+1$
+#3560000
+0C"
+0$
+#3565000
+1C"
+1$
+#3570000
+0C"
+0$
+#3572000
+0w
+1~
+1n
+1f
+1<"
+05"
+0T
+00"
+0O
+18"
+1Y
+b1 4"
+b1001111 ;"
+b1 :"
+1I"
+1/
+#3575000
+1C"
+1$
+#3580000
+0C"
+0$
+#3585000
+1C"
+1$
+#3590000
+0C"
+0$
+#3592000
+0I"
+0/
+#3595000
+1C"
+1$
+#3600000
+0C"
+0$
+#3605000
+1C"
+1$
+#3610000
+0C"
+0$
+#3612000
+b0 ;"
+0""
+1I"
+1/
+#3615000
+1C"
+1$
+#3620000
+0C"
+0$
+#3625000
+1C"
+1$
+#3630000
+0C"
+0$
+#3632000
+0I"
+0/
+#3635000
+1C"
+1$
+#3640000
+0C"
+0$
+#3645000
+1C"
+1$
+#3650000
+0C"
+0$
+#3652000
+1I"
+1/
+#3655000
+1C"
+1$
+#3660000
+0C"
+0$
+#3665000
+1C"
+1$
+#3670000
+0C"
+0$
+#3672000
+0I"
+0/
+#3675000
+1C"
+1$
+#3680000
+0C"
+0$
+#3685000
+1C"
+1$
+#3690000
+0C"
+0$
+#3692000
+1I"
+1/
+#3695000
+1C"
+1$
+#3700000
+0C"
+0$
+#3705000
+1C"
+1$
+#3710000
+0C"
+0$
+#3712000
+0I"
+0/
+#3715000
+1C"
+1$
+#3720000
+0C"
+0$
+#3725000
+1C"
+1$
+#3730000
+0C"
+0$
+#3732000
+1I"
+1/
+#3735000
+1C"
+1$
+#3740000
+0C"
+0$
+#3745000
+1C"
+1$
+#3750000
+0C"
+0$
+#3752000
+0I"
+0/
+#3755000
+1C"
+1$
+#3760000
+0C"
+0$
+#3765000
+1C"
+1$
+#3770000
+0C"
+0$
+#3772000
+1I"
+1/
+#3775000
+1C"
+1$
+#3780000
+0C"
+0$
+#3785000
+1C"
+1$
+#3790000
+0C"
+0$
+#3792000
+0I"
+0/
+#3795000
+1C"
+1$
+#3800000
+0C"
+0$
+#3805000
+1C"
+1$
+#3810000
+0C"
+0$
+#3812000
+1I"
+1/
+#3815000
+1C"
+1$
+#3820000
+0C"
+0$
+#3825000
+1C"
+1$
+#3830000
+0C"
+0$
+#3832000
+0I"
+0/
+#3835000
+1C"
+1$
+#3840000
+0C"
+0$
+#3845000
+1C"
+1$
+#3850000
+0C"
+0$
+#3852000
+1I"
+1/
+#3855000
+1C"
+1$
+#3860000
+0C"
+0$
+#3865000
+1C"
+1$
+#3870000
+0C"
+0$
+#3872000
+0I"
+0/
+#3875000
+1C"
+1$
+#3880000
+0C"
+0$
+#3885000
+1C"
+1$
+#3890000
+0C"
+0$
+#3892000
+1I"
+1/
+#3895000
+1C"
+1$
+#3900000
+0C"
+0$
+#3905000
+1C"
+1$
+#3910000
+0C"
+0$
+#3912000
+0I"
+0/
+#3915000
+1C"
+1$
+#3920000
+0C"
+0$
+#3925000
+1C"
+1$
+#3930000
+0C"
+0$
+#3932000
+1I"
+1/
+#3935000
+1C"
+1$
+#3940000
+0C"
+0$
+#3945000
+1C"
+1$
+#3950000
+0C"
+0$
+#3952000
+0I"
+0/
+#3955000
+1C"
+1$
+#3960000
+0C"
+0$
+#3965000
+1C"
+1$
+#3970000
+0C"
+0$
+#3972000
+1I"
+1/
+#3975000
+1C"
+1$
+#3980000
+0C"
+0$
+#3985000
+1C"
+1$
+#3990000
+0C"
+0$
+#3992000
+0I"
+0/
+#3995000
+1C"
+1$
+#4000000
+0C"
+0$
+0G"
+0B"
+#4005000
+1C"
+1$
+#4010000
+0C"
+0$
+#4012000
+1I"
+1/
+#4015000
+1C"
+1$
+#4020000
+0C"
+0$
+#4025000
+1C"
+1$
+#4030000
+0C"
+0$
+#4032000
+0I"
+0/
+#4035000
+1C"
+1$
+#4040000
+0C"
+0$
+#4045000
+1C"
+1$
+#4050000
+0C"
+0$
+#4052000
+1I"
+1/
+#4055000
+1C"
+1$
+#4060000
+0C"
+0$
+#4065000
+1C"
+1$
+#4070000
+0C"
+0$
+#4072000
+0I"
+0/
+#4075000
+1C"
+1$
+#4080000
+0C"
+0$
+#4085000
+1C"
+1$
+#4090000
+0C"
+0$
+#4092000
+1I"
+1/
+#4095000
+1C"
+1$
+#4100000
+0C"
+0$
+#4105000
+1C"
+1$
+#4110000
+0C"
+0$
+#4112000
+0I"
+0/
+#4115000
+1C"
+1$
+#4120000
+0C"
+0$
+#4125000
+1C"
+1$
+#4130000
+0C"
+0$
+#4132000
+1I"
+1/
+#4135000
+1C"
+1$
+#4140000
+0C"
+0$
+#4145000
+1C"
+1$
+#4150000
+0C"
+0$
+#4152000
+0I"
+0/
+#4155000
+1C"
+1$
+#4160000
+0C"
+0$
+#4165000
+1C"
+1$
+#4170000
+0C"
+0$
+#4172000
+1I"
+1/
+#4175000
+1C"
+1$
+#4180000
+0C"
+0$
+#4185000
+1C"
+1$
+#4190000
+0C"
+0$
+#4192000
+0I"
+0/
+#4195000
+1C"
+1$
+#4200000
+0C"
+0$
+#4205000
+1C"
+1$
+#4210000
+0C"
+0$
+#4212000
+1I"
+1/
+#4215000
+1C"
+1$
+#4220000
+0C"
+0$
+#4225000
+1C"
+1$
+#4230000
+0C"
+0$
+#4232000
+0I"
+0/
+#4235000
+1C"
+1$
+#4240000
+0C"
+0$
+#4245000
+1C"
+1$
+#4250000
+0C"
+0$
+#4252000
+1I"
+1/
+#4255000
+1C"
+1$
+#4260000
+0C"
+0$
+#4265000
+1C"
+1$
+#4270000
+0C"
+0$
+#4272000
+0I"
+0/
+#4275000
+1C"
+1$
+#4280000
+0C"
+0$
+#4285000
+1C"
+1$
+#4290000
+0C"
+0$
+#4292000
+1I"
+1/
+#4295000
+1C"
+1$
+#4300000
+0C"
+0$
+#4305000
+1C"
+1$
+#4310000
+0C"
+0$
+#4312000
+0I"
+0/
+#4315000
+1C"
+1$
+#4320000
+0C"
+0$
+#4325000
+1C"
+1$
+#4330000
+0C"
+0$
+#4332000
+1I"
+1/
+#4335000
+1C"
+1$
+#4340000
+0C"
+0$
+#4345000
+1C"
+1$
+#4350000
+0C"
+0$
+#4352000
+0I"
+0/
+#4355000
+1C"
+1$
+#4360000
+0C"
+0$
+#4365000
+1C"
+1$
+#4370000
+0C"
+0$
+#4372000
+1I"
+1/
+#4375000
+1C"
+1$
+#4380000
+0C"
+0$
+#4385000
+1C"
+1$
+#4390000
+0C"
+0$
+#4392000
+0I"
+0/
+#4395000
+1C"
+1$
+#4400000
+0C"
+0$
+#4405000
+1C"
+1$
+#4410000
+0C"
+0$
+#4412000
+1I"
+1/
+#4415000
+1C"
+1$
+#4420000
+0C"
+0$
+#4425000
+1C"
+1$
+#4430000
+0C"
+0$
+#4432000
+0I"
+0/
+#4435000
+1C"
+1$
+#4440000
+0C"
+0$
+#4445000
+1C"
+1$
+#4450000
+0C"
+0$
+#4452000
+1I"
+1/
+#4455000
+1C"
+1$
+#4460000
+0C"
+0$
+#4465000
+1C"
+1$
+#4470000
+0C"
+0$
+#4472000
+0I"
+0/
+#4475000
+1C"
+1$
+#4480000
+0C"
+0$
+#4485000
+1C"
+1$
+#4490000
+0C"
+0$
+#4492000
+1I"
+1/
+#4495000
+1C"
+1$
+#4500000
+0C"
+0$
+#4505000
+1C"
+1$
+#4510000
+0C"
+0$
+#4512000
+0I"
+0/
+#4515000
+1C"
+1$
+#4520000
+0C"
+0$
+#4525000
+1C"
+1$
+#4530000
+0C"
+0$
+#4532000
+1I"
+1/
+#4535000
+1C"
+1$
+#4540000
+0C"
+0$
+#4545000
+1C"
+1$
+#4550000
+0C"
+0$
+#4552000
+0I"
+0/
+#4555000
+1C"
+1$
+#4560000
+0C"
+0$
+#4565000
+1C"
+1$
+#4570000
+0C"
+0$
+#4572000
+1I"
+1/
+#4575000
+1C"
+1$
+#4580000
+0C"
+0$
+#4585000
+1C"
+1$
+#4590000
+0C"
+0$
+#4592000
+0I"
+0/
+#4595000
+1C"
+1$
+#4600000
+0C"
+0$
+#4605000
+1C"
+1$
+#4610000
+0C"
+0$
+#4612000
+1I"
+1/
+#4615000
+1C"
+1$
+#4620000
+0C"
+0$
+#4625000
+1C"
+1$
+#4630000
+0C"
+0$
+#4632000
+0I"
+0/
+#4635000
+1C"
+1$
+#4640000
+0C"
+0$
+#4645000
+1C"
+1$
+#4650000
+0C"
+0$
+#4652000
+1I"
+1/
+#4655000
+1C"
+1$
+#4660000
+0C"
+0$
+#4665000
+1C"
+1$
+#4670000
+0C"
+0$
+#4672000
+0I"
+0/
+#4675000
+1C"
+1$
+#4680000
+0C"
+0$
+#4685000
+1C"
+1$
+#4690000
+0C"
+0$
+#4692000
+1I"
+1/
+#4695000
+1C"
+1$
+#4700000
+0C"
+0$
+#4705000
+1C"
+1$
+#4710000
+0C"
+0$
+#4712000
+0I"
+0/
+#4715000
+1C"
+1$
+#4720000
+0C"
+0$
+#4725000
+1C"
+1$
+#4730000
+0C"
+0$
+#4732000
+1I"
+1/
+#4735000
+1C"
+1$
+#4740000
+0C"
+0$
+#4745000
+1C"
+1$
+#4750000
+0C"
+0$
+#4752000
+0I"
+0/
+#4755000
+1C"
+1$
+#4760000
+0C"
+0$
+#4765000
+1C"
+1$
+#4770000
+0C"
+0$
+#4772000
+1I"
+1/
+#4775000
+1C"
+1$
+#4780000
+0C"
+0$
+#4785000
+1C"
+1$
+#4790000
+0C"
+0$
+#4792000
+0I"
+0/
+#4795000
+1C"
+1$
+#4800000
+0C"
+0$
+#4805000
+1C"
+1$
+#4810000
+0C"
+0$
+#4812000
+1I"
+1/
+#4815000
+1C"
+1$
+#4820000
+0C"
+0$
+#4825000
+1C"
+1$
+#4830000
+0C"
+0$
+#4832000
+0I"
+0/
+#4835000
+1C"
+1$
+#4840000
+0C"
+0$
+#4845000
+1C"
+1$
+#4850000
+0C"
+0$
+#4852000
+1I"
+1/
+#4855000
+1C"
+1$
+#4860000
+0C"
+0$
+#4865000
+1C"
+1$
+#4870000
+0C"
+0$
+#4872000
+0I"
+0/
+#4875000
+1C"
+1$
+#4880000
+0C"
+0$
+#4885000
+1C"
+1$
+#4890000
+0C"
+0$
+#4892000
+1I"
+1/
+#4895000
+1C"
+1$
+#4900000
+0C"
+0$
+#4905000
+1C"
+1$
+#4910000
+0C"
+0$
+#4912000
+0I"
+0/
+#4915000
+1C"
+1$
+#4920000
+0C"
+0$
+#4925000
+1C"
+1$
+#4930000
+0C"
+0$
+#4932000
+1I"
+1/
+#4935000
+1C"
+1$
+#4940000
+0C"
+0$
+#4945000
+1C"
+1$
+#4950000
+0C"
+0$
+#4952000
+0I"
+0/
+#4955000
+1C"
+1$
+#4960000
+0C"
+0$
+#4965000
+1C"
+1$
+#4970000
+0C"
+0$
+#4972000
+1I"
+1/
+#4975000
+1C"
+1$
+#4980000
+0C"
+0$
+#4985000
+1C"
+1$
+#4990000
+0C"
+0$
+#4992000
+0I"
+0/
+#4995000
+1C"
+1$
+#5000000
+0C"
+0$
+#5005000
+1C"
+1$
+#5010000
+0C"
+0$
+#5012000
+1I"
+1/
+#5015000
+1C"
+1$
+#5020000
+0C"
+0$
+#5025000
+1C"
+1$
+#5030000
+0C"
+0$
+#5032000
+0I"
+0/
+#5035000
+1C"
+1$
+#5040000
+0C"
+0$
+#5045000
+1C"
+1$
+#5050000
+0C"
+0$
+#5052000
+1I"
+1/
+#5055000
+1C"
+1$
+#5060000
+0C"
+0$
+#5065000
+1C"
+1$
+#5070000
+0C"
+0$
+#5072000
+0I"
+0/
+#5075000
+1C"
+1$
+#5080000
+0C"
+0$
+#5085000
+1C"
+1$
+#5090000
+0C"
+0$
+#5092000
+1I"
+1/
+#5095000
+1C"
+1$
+#5100000
+0C"
+0$
+#5105000
+1C"
+1$
+#5110000
+0C"
+0$
+#5112000
+0I"
+0/
+#5115000
+1C"
+1$
+#5120000
+0C"
+0$
+#5125000
+1C"
+1$
+#5130000
+0C"
+0$
+#5132000
+1I"
+1/
+#5135000
+1C"
+1$
+#5140000
+0C"
+0$
+#5145000
+1C"
+1$
+#5150000
+0C"
+0$
+#5152000
+0I"
+0/
+#5155000
+1C"
+1$
+#5160000
+0C"
+0$
+#5165000
+1C"
+1$
+#5170000
+0C"
+0$
+#5172000
+1I"
+1/
+#5175000
+1C"
+1$
+#5180000
+0C"
+0$
+#5185000
+1C"
+1$
+#5190000
+0C"
+0$
+#5192000
+0I"
+0/
+#5195000
+1C"
+1$
+#5200000
+0C"
+0$
+#5205000
+1C"
+1$
+#5210000
+0C"
+0$
+#5212000
+1I"
+1/
+#5215000
+1C"
+1$
+#5220000
+0C"
+0$
+#5225000
+1C"
+1$
+#5230000
+0C"
+0$
+#5232000
+0I"
+0/
+#5235000
+1C"
+1$
+#5240000
+0C"
+0$
+#5245000
+1C"
+1$
+#5250000
+0C"
+0$
+#5252000
+1I"
+1/
+#5255000
+1C"
+1$
+#5260000
+0C"
+0$
+#5265000
+1C"
+1$
+#5270000
+0C"
+0$
+#5272000
+0I"
+0/
+#5275000
+1C"
+1$
+#5280000
+0C"
+0$
+#5285000
+1C"
+1$
+#5290000
+0C"
+0$
+#5292000
+1I"
+1/
+#5295000
+1C"
+1$
+#5300000
+0C"
+0$
+#5305000
+1C"
+1$
+#5310000
+0C"
+0$
+#5312000
+0I"
+0/
+#5315000
+1C"
+1$
+#5320000
+0C"
+0$
+#5325000
+1C"
+1$
+#5330000
+0C"
+0$
+#5332000
+1I"
+1/
+#5335000
+1C"
+1$
+#5340000
+0C"
+0$
+#5345000
+1C"
+1$
+#5350000
+0C"
+0$
+#5352000
+0I"
+0/
+#5355000
+1C"
+1$
+#5360000
+0C"
+0$
+#5365000
+1C"
+1$
+#5370000
+0C"
+0$
+#5372000
+1I"
+1/
+#5375000
+1C"
+1$
+#5380000
+0C"
+0$
+#5385000
+1C"
+1$
+#5390000
+0C"
+0$
+#5392000
+0I"
+0/
+#5395000
+1C"
+1$
+#5400000
+0C"
+0$
+#5405000
+1C"
+1$
+#5410000
+0C"
+0$
+#5412000
+1I"
+1/
+#5415000
+1C"
+1$
+#5420000
+0C"
+0$
+#5425000
+1C"
+1$
+#5430000
+0C"
+0$
+#5432000
+0I"
+0/
+#5435000
+1C"
+1$
+#5440000
+0C"
+0$
+#5445000
+1C"
+1$
+#5450000
+0C"
+0$
+#5452000
+1I"
+1/
+#5455000
+1C"
+1$
+#5460000
+0C"
+0$
+#5465000
+1C"
+1$
+#5470000
+0C"
+0$
+#5472000
+0I"
+0/
+#5475000
+1C"
+1$
+#5480000
+0C"
+0$
+#5485000
+1C"
+1$
+#5490000
+0C"
+0$
+#5492000
+1I"
+1/
+#5495000
+1C"
+1$
+#5500000
+0C"
+0$

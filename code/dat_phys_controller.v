@@ -51,13 +51,13 @@ parameter READ_FIFO_WRITE =4'd7;
 parameter READ_WRAPPER_RESET =4'd8;
 parameter WAIT_ACK =4'd9;
 parameter SEND_ACK =4'd10;
-
+reg timeout_reset;
 reg fifoRead;
 reg dummy_count;
 reg [15:0]timeout_count;
 reg [3:0]blockCount;
 reg loaded;
-assign DATA_TIMEOUT=(timeout_count==TIMEOUT_REG) ? 1'b1:1'b0;
+assign DATA_TIMEOUT=(state==IDLE)?1'b0:((timeout_count==TIMEOUT_REG) ? 1'b1:1'b0);
 always @ ( * )
 begin 
  case(state)
@@ -196,6 +196,7 @@ always @(* )
 						blockCount=4'b0;
 						dataPARALLEL=dataFromFifo;
 						fifoRead=1'b0;
+						timeout_reset=1'b1;
 					end
 				IDLE:	
 					begin
@@ -216,6 +217,7 @@ always @(* )
 						blockCount=4'b0;
 						dataPARALLEL=32'b0;
 						fifoRead=1'b0;
+						timeout_reset=1'b1;
 					end
 				FIFO_READ:
 					begin
@@ -236,6 +238,7 @@ always @(* )
 						blockCount=blockCount;
 					//dataPARALLEL=dataFromFifo;
 						fifoRead=1'b1;
+						timeout_reset=1'b1;
 					end
 				LOAD_WRITE:
 					begin
@@ -256,6 +259,7 @@ always @(* )
 						blockCount=blockCount;
 						dataPARALLEL=dataPARALLEL;
 						fifoRead=1'b0;
+						timeout_reset=1'b1;
 					end
 				SEND:
 					begin
@@ -275,6 +279,7 @@ always @(* )
 						loaded=1'b0;
 						dataPARALLEL=dataPARALLEL;
 						fifoRead=1'b0;
+						timeout_reset=1'b1;
 					end
 				WAIT_RESPONSE:
 					begin
@@ -299,6 +304,7 @@ always @(* )
 					fifoRead=1'b0;
 						if(reception_complete)
 							blockCount=blockCount+1'b1;
+							timeout_reset=1'b0;
 					end
 				READ:
 					begin
@@ -318,6 +324,7 @@ always @(* )
 						loaded=1'b0;
 						dataPARALLEL=dataPARALLEL;
 						fifoRead=1'b0;
+						timeout_reset=1'b0;
 						
 
 					end
@@ -340,6 +347,7 @@ always @(* )
 						blockCount=blockCount;
 						dataPARALLEL=dataPARALLEL;
 						fifoRead=1'b0;
+						timeout_reset=1'b1;
 					end
 				READ_WRAPPER_RESET:
 					begin
@@ -360,6 +368,7 @@ always @(* )
 						blockCount=blockCount;
 						dataPARALLEL=dataPARALLEL;
 						fifoRead=1'b0;
+						timeout_reset=1'b1;
 					end
 				WAIT_ACK:
 					begin
@@ -380,6 +389,7 @@ always @(* )
 						dataPARALLEL=dataPARALLEL;
 						fifoRead=1'b0;
 						loaded=1'b0;
+						timeout_reset=1'b1;
 					end
 				SEND_ACK:
 					begin
@@ -400,6 +410,7 @@ always @(* )
 						dataPARALLEL=dataPARALLEL;
 						fifoRead=1'b0;
 						loaded=1'b0;
+						timeout_reset=1'b1;
 					end
 					
 					
@@ -416,6 +427,14 @@ end
 
 always @ (posedge sd_clock  )
 	begin 
+		if(timeout_reset)
+			begin
+				timeout_count<=0;
+			end
+		else
+			begin
+				timeout_count<=timeout_count;
+			end
 		if (reset) 
 			begin
 				state <=  RESET;

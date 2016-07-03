@@ -30,25 +30,29 @@ cmd_phys physical(
 .reset(reset),
 .strobe_in( strobe_controller_phys),
 .ack_in(ack_controller_phys),
-.idle_in(1'b0),
+.idle_in(idle_out),
 .cmd_to_send(command),
 .cmd_pin(pin),
 .ack_out(ack_phys_to_controller),
 .strobe_out(strobe_phys_controller),
-.response(response_phys_control)
+.response(response_phys_control),
+.serialReady(serialr),
+.COMMAND_TIMEOUT(timeout)
 );
 
 cmd_controller host_cmd(
+.idle_out(idle_out),
 .clock(clock),
 .reset(reset),
 .new_command(go_command),
 .cmd_argument(32'hFA74CD23),
 .cmd_index(6'd12),
-.TIMEOUT_ENABLE(1'b0),
+.TIMEOUT_ENABLE(1'b1),
 .ack_in(ack_phys_to_controller),
 .strobe_in(strobe_phys_controller),
 .cmd_in(response_phys_control),
-.TIMEOUT(1'b0),
+.TIMEOUT(timeout),
+.serial_ready(serialr),
 .strobe_out(strobe_controller_phys),
 .ack_out(ack_controller_phys),
 .cmd_out(command)
@@ -84,16 +88,9 @@ parallel({1'b0,command_sd,2'b11}));
 	initial begin
 		Enable_card=1'b0;
 		load_send_card=1'b0;
-		$dumpfile("cmd_all_12.vcd");
+		$dumpfile("cmd_all_int.vcd");
 		$dumpvars;	
 		#4500
-		Enable_card=1'b1;
-		load_send_card=1'b0;
-		#5000
-		load_send_card=1'b1;
-		#1950
-		load_send_card=1'b0;
-		Enable_card=1'b0;
 		#10000
 		
 		$display("test finished");

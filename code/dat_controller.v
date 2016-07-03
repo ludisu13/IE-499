@@ -11,17 +11,23 @@ input wire multipleData,
 input wire serial_ready,
 input wire complete,
 input wire ack_in,
+input wire timeout,
+//registers
+input wire timeout_enable,
+input wire [15:0] TIMEOUT_REG,
 //inputs from fifoController
 input wire fifo_okay,
+
 //outputs to host
 output reg transfer_complete,
 //outputs to physical layer
-output reg idle_out
+output reg idle_out,
 output reg strobe_out,
 output reg ack_out,
 output reg [3:0] blocks,
 output reg writereadphys,
-output reg multiple
+output reg multiple,
+output reg [15:0] TIMEOUT_VALUE
 );
 
 // registers
@@ -35,7 +41,7 @@ parameter CHECK_FIFO= 3'd3;
 parameter TRANSMIT   = 3'd4;
 parameter ACK   =  3'd5;
 
-
+wire stop_timeout=timeout && timeout_enable;
 
 
 
@@ -117,6 +123,8 @@ always @(*)
 					writereadphys=1'b0;
 					multiple=1'b0;
 					blocks=4'b0;
+					idle_out=1'b0;
+					TIMEOUT_VALUE=16'b0;
 				end
 			IDLE:
 				begin
@@ -126,6 +134,8 @@ always @(*)
 					writereadphys=1'b0;
 					multiple=1'b0;
 					blocks=4'b0;
+					idle_out=1'b1;
+					TIMEOUT_VALUE=16'b0;
 				end
 			SETTING_OUTPUTS:
 				begin
@@ -135,6 +145,8 @@ always @(*)
 					writereadphys=writeRead;
 					multiple=multipleData;
 					blocks=blockCount;
+					idle_out=1'b0;
+					TIMEOUT_VALUE=TIMEOUT_REG;
 				end
 			CHECK_FIFO:
 				begin
@@ -144,6 +156,8 @@ always @(*)
 					writereadphys=writereadphys;
 					multiple=multiple;
 					blocks=blocks;
+					idle_out=1'b0;
+					TIMEOUT_VALUE=TIMEOUT_REG;
 				end
 			TRANSMIT:
 				begin
@@ -152,7 +166,9 @@ always @(*)
 					ack_out=1'b0;
 					multiple=multiple;
 					blocks=blocks;
+					idle_out=1'b0;
 					transfer_complete=1'b0;
+					TIMEOUT_VALUE=TIMEOUT_REG;
 				end
 			ACK:
 				begin
@@ -162,6 +178,8 @@ always @(*)
 					writereadphys=writeRead;
 					multiple=multipleData;
 					blocks=blockCount;
+					idle_out=1'b0;
+					TIMEOUT_VALUE=TIMEOUT_REG;
 				end
 		
 				
@@ -186,6 +204,14 @@ always @ (posedge clock  )
 			begin
 				state <=  next_state;
 		end
+		if(stop_timeout)
+			begin
+				state<=IDLE;
+			end
+		else
+			begin
+				state<=next_state;
+			end
 	end
 
 endmodule 

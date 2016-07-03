@@ -18,6 +18,7 @@ module cmd_phys(
 	output wire ack_out,// acknowledge of package reception from host
 	output wire strobe_out, // states that a response has been received
 	output wire [135:0] response,
+	output wire serialReady,
 	//PAD_Pin
 	
 	inout  wire cmd_pin,
@@ -53,7 +54,7 @@ paralleltoserialWrapper # (48,8) ptsw(
 .serial(serialpad),.
 parallel(frame));
 
-serialToParallelWrapper # (136,8) stpw(
+serialToParallelWrapperCMD # (136,8) stpw(
 .Clock(sd_clock),
 .Reset(reset_wrapper),
 .framesize(framesize_reception),
@@ -74,6 +75,7 @@ PAD command_PAD(
 cmd_phys_controller cpc(
 .sd_clock(sd_clock),
 .reset(reset),
+.serial_ready(serialReady),
 .strobe_in(strobe_in),
 .ack_in(ack_in),
 .idle_in(idle_in),

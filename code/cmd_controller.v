@@ -12,7 +12,7 @@ module cmd_controller(
 	input wire strobe_in,
 	input wire [135:0] cmd_in, // 
 	input wire TIMEOUT,
-	input wire serial_ready
+	input wire serial_ready,
 	//input wire serial_ready,
 	//need to add a singal for transmission complete will require a new state
 	// Outputs to host

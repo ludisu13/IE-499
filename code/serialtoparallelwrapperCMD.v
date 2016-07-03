@@ -1,7 +1,7 @@
 //`include "serialToParallel.v"
 //`include "counter.v"
 
-module serialToParallelWrapper # (parameter WIDTH=8,parameter FRAME_SIZE_WIDTH=8)
+module serialToParallelWrapperCMD # (parameter WIDTH=8,parameter FRAME_SIZE_WIDTH=8)
 (
 	input wire Clock,
 	input wire Reset,
