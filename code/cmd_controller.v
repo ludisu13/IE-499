@@ -21,6 +21,7 @@ module cmd_controller(
 	output reg [127:0]response,
 	output reg command_complete,
 	//output reg command_timeout,
+	//output reg command_timeout,
 	output reg command_index_error,
 	//Outputs to physical layer
 	output reg strobe_out,
@@ -95,7 +96,6 @@ always @(* )
 						ack_out=1'b0;
 						cmd_out=39'b0;
 						command_complete=1'b0;
-						command_timeout=1'b0;
 						command_index_error=1'b0;
 						idle_out=1'b1;
 						setup_done=1'b0;
@@ -109,7 +109,6 @@ always @(* )
 						ack_out=1'b0;
 						cmd_out=39'b0;
 						command_complete=1'b0;
-						command_timeout=1'b0;
 						command_index_error=1'b0;
 						idle_out=1'b1;
 						setup_done=1'b0;
@@ -127,7 +126,6 @@ always @(* )
 						idle_out=1'b0;
 						setup_done=1'b1;
 						command_complete=1'b0;
-						command_timeout=1'b0;
 						command_index_error=1'b0;
 						count=32'b0;
 					end
@@ -136,7 +134,6 @@ always @(* )
 						cmd_out=cmd_out;
 						command_complete=1'b0;
 						command_index_error=1'b0;
-						command_timeout=1'b0;
 						busy=1'b1;
 						strobe_out=1'b1;
 						idle_out=1'b0;
