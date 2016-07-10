@@ -67,6 +67,7 @@ module fifo # ( parameter DATA_WIDTH = 32, parameter FIFO_SIZE = 8, parameter SI
 	always @(posedge read_clock ) begin//
 		if((read_enable | read_enable_d) & ~fifo_empty) begin
 			q = fifo_mem[read_pointer];
+			//fifo_full = 1'b0;
 			read_pointer = read_pointer + 1'b1;	
 
 		end

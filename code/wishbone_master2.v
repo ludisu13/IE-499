@@ -127,9 +127,9 @@ initial
 	end
 always 
 	begin
-		#`ADR_IN
+		//~ #`ADR_IN
 		//~ if(!error_i) begin
-			adr_o = adr_o + 1'b1;
+			//~ adr_o = adr_o + 1'b1;
 		//~ end
 		//~ else begin
 			//~ adr_o = adr_o;
@@ -149,26 +149,26 @@ always
 			//~ else begin
 		
 				//PRUEBA FIFO!
-				//~ #`ADR_IN
-				//~ //adr_o = adr_o + 5'b1;
-				//~ adr_o = 5'd17;
-				//~ #`ADR_IN
-			    //~ #`ADR_IN
-				//~ #`ADR_IN
-			    //~ #`ADR_IN
-				//~ #`ADR_IN
-			    //~ #`ADR_IN
-				//~ #`ADR_IN
-			    //~ //#`ADR_IN
-				//~ adr_o = 5'd18;
-				//~ #`ADR_IN
-			    //~ #`ADR_IN
-				//~ #`ADR_IN
-			    //~ #`ADR_IN
-				//~ #`ADR_IN
-			    //~ #`ADR_IN
-				//~ //#`ADR_IN
-			    //~ #`ADR_IN;
+				#`ADR_IN
+				//adr_o = adr_o + 5'b1;
+				adr_o = 5'd17;
+				#`ADR_IN
+			    #`ADR_IN
+				#`ADR_IN
+			    #`ADR_IN
+				#`ADR_IN
+			    #`ADR_IN
+				#`ADR_IN
+			    //#`ADR_IN
+				adr_o = 5'd18;
+				#`ADR_IN
+			    #`ADR_IN
+				#`ADR_IN
+			    #`ADR_IN
+				#`ADR_IN
+			    #`ADR_IN
+				//#`ADR_IN
+			    #`ADR_IN;
 		//~ end
 		if(adr_o == 5'd20)
 			adr_o = 5'd0;
